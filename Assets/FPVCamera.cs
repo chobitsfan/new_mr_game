@@ -10,7 +10,7 @@ public class FPVCamera : MonoBehaviour
     bool webcam_ok = false;
     static Material lineMaterial;    
     Camera mainCamera;
-    Collider emeryCollider;
+    BoxCollider emeryCollider;
     Rect emeryRect;
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class FPVCamera : MonoBehaviour
             webcam_ok = true;
         }
         mainCamera = GetComponent<Camera>();
-        emeryCollider = emery.GetComponent<Collider>();
+        emeryCollider = emery.GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -47,7 +47,7 @@ public class FPVCamera : MonoBehaviour
 
     private void OnPostRender()
     {
-        emeryRect = GetScreenRectFromBounds(emeryCollider.bounds);
+        emeryRect = GetScreenRectFromBounds(emeryCollider);
 
         CreateLineMaterial();
         // Apply the line material
@@ -89,24 +89,24 @@ public class FPVCamera : MonoBehaviour
         }
     }
 #if true
-    private Rect GetScreenRectFromBounds(Bounds bounds)
+    private Rect GetScreenRectFromBounds(BoxCollider boxCollider)
     {
         Vector3[] screenBoundsExtents = new Vector3[8];
 
-        // For less typing and more clarity.
-        Vector3 cen = bounds.center;
-        Vector3 ext = bounds.extents;
+        var trans = boxCollider.transform;
+        var min = boxCollider.center - boxCollider.size * 0.5f;
+        var max = boxCollider.center + boxCollider.size * 0.5f;
 
         // There are 8 corners of a rectangle bounding box. Get the screenspace coordinate of each corner. We are using the
         // array member variable to save allocations when you create a new array each frame.
-        screenBoundsExtents[0] = mainCamera.WorldToScreenPoint(new Vector3(cen.x - ext.x, cen.y - ext.y, cen.z - ext.z));
-        screenBoundsExtents[1] = mainCamera.WorldToScreenPoint(new Vector3(cen.x + ext.x, cen.y - ext.y, cen.z - ext.z));
-        screenBoundsExtents[2] = mainCamera.WorldToScreenPoint(new Vector3(cen.x - ext.x, cen.y - ext.y, cen.z + ext.z));
-        screenBoundsExtents[3] = mainCamera.WorldToScreenPoint(new Vector3(cen.x + ext.x, cen.y - ext.y, cen.z + ext.z));
-        screenBoundsExtents[4] = mainCamera.WorldToScreenPoint(new Vector3(cen.x - ext.x, cen.y + ext.y, cen.z - ext.z));
-        screenBoundsExtents[5] = mainCamera.WorldToScreenPoint(new Vector3(cen.x + ext.x, cen.y + ext.y, cen.z - ext.z));
-        screenBoundsExtents[6] = mainCamera.WorldToScreenPoint(new Vector3(cen.x - ext.x, cen.y + ext.y, cen.z + ext.z));
-        screenBoundsExtents[7] = mainCamera.WorldToScreenPoint(new Vector3(cen.x + ext.x, cen.y + ext.y, cen.z + ext.z));
+        screenBoundsExtents[0] = mainCamera.WorldToScreenPoint(trans.TransformPoint(new Vector3(min.x, min.y, min.z)));
+        screenBoundsExtents[1] = mainCamera.WorldToScreenPoint(trans.TransformPoint(new Vector3(min.x, min.y, max.z)));
+        screenBoundsExtents[2] = mainCamera.WorldToScreenPoint(trans.TransformPoint(new Vector3(min.x, max.y, min.z)));
+        screenBoundsExtents[3] = mainCamera.WorldToScreenPoint(trans.TransformPoint(new Vector3(max.x, min.y, min.z)));
+        screenBoundsExtents[4] = mainCamera.WorldToScreenPoint(trans.TransformPoint(new Vector3(min.x, max.y, max.z)));
+        screenBoundsExtents[5] = mainCamera.WorldToScreenPoint(trans.TransformPoint(new Vector3(max.x, min.y, max.z)));
+        screenBoundsExtents[6] = mainCamera.WorldToScreenPoint(trans.TransformPoint(new Vector3(max.x, max.y, min.z)));
+        screenBoundsExtents[7] = mainCamera.WorldToScreenPoint(trans.TransformPoint(new Vector3(max.x, max.y, max.z)));
 
         // Set these variables for a safe margin distance around the unscaled canvas which we can set things to. These can be located outside of this method, but are shown here for clarity. If left here, it can handle dynamically changing the resolution.
         int margin = 20;                                // Indicates the size of the margin outside of the canvas on all sides we are willing to let the indicators stretch to.
