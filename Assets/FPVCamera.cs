@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FPVCamera : MonoBehaviour
 {
-    public GameObject emery;
+    public GameObject emery;    
 
     WebCamTexture webcamTexture;
     bool webcam_ok = false;
@@ -12,6 +12,7 @@ public class FPVCamera : MonoBehaviour
     Camera mainCamera;
     BoxCollider emeryCollider;
     Rect emeryRect;
+    GUIStyle textStyle;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,8 @@ public class FPVCamera : MonoBehaviour
         }
         mainCamera = GetComponent<Camera>();
         emeryCollider = emery.GetComponent<BoxCollider>();
+        textStyle = new GUIStyle();
+        textStyle.normal.textColor = Color.red;
     }
 
     // Update is called once per frame
@@ -34,7 +37,7 @@ public class FPVCamera : MonoBehaviour
 
     private void OnGUI()
     {
-        GUI.Label(new Rect(emeryRect.x, Screen.height - emeryRect.y, 60, 30), "TARGET");
+        GUI.Label(new Rect(emeryRect.x, Screen.height - emeryRect.y + 2, 60, 30), "TARGET", textStyle);
     }
 
     private void OnPreRender()

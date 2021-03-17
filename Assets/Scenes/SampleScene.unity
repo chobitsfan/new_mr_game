@@ -554,6 +554,8 @@ GameObject:
   - component: {fileID: 1139546561}
   - component: {fileID: 1139546562}
   - component: {fileID: 1139546563}
+  - component: {fileID: 1139546565}
+  - component: {fileID: 1139546564}
   m_Layer: 0
   m_Name: Emery
   m_TagString: Untagged
@@ -620,6 +622,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1139546564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139546559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a635bdd5aecc842b13c713c57e5f19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beamShot: {fileID: 0}
+--- !u!114 &1139546565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139546559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66f64048774acf40ad2e6bf3523cf3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DroneID: 1
 --- !u!1001 &1866956682
 PrefabInstance:
   m_ObjectHideFlags: 0

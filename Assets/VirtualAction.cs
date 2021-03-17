@@ -10,4 +10,9 @@ public class VirtualAction : MonoBehaviour
     {
         GameObject.Instantiate(beamShot, transform.position + transform.forward * 0.1f, Quaternion.LookRotation(-transform.right));
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        gameObject.GetComponent<DroneAction>().Land();
+    }
 }
