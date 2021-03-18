@@ -5,6 +5,7 @@ using UnityEngine;
 public class VirtualAction : MonoBehaviour
 {
     public GameObject beamShot;
+    public GameObject smoke;
 
     public void Shot()
     {
@@ -13,6 +14,7 @@ public class VirtualAction : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        GameObject.Instantiate(smoke, transform.position, Quaternion.LookRotation(transform.up));
         gameObject.GetComponent<DroneAction>().Land();
     }
 }

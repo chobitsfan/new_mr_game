@@ -22,6 +22,6 @@ public class BeamShotBehavior : MonoBehaviour
     {
         GameObject boom = GameObject.Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
-        Destroy(boom, 1);
+        Destroy(boom, 2f);
     }
 }
