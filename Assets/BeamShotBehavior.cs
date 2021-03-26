@@ -20,7 +20,7 @@ public class BeamShotBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GameObject boom = GameObject.Instantiate(explosion, transform.position, Quaternion.identity);
+        GameObject boom = GameObject.Instantiate(explosion, transform.position, transform.rotation);
         Destroy(gameObject);
         Destroy(boom, 2f);
     }
