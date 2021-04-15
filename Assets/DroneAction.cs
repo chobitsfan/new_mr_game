@@ -67,6 +67,11 @@ public class DroneAction : MonoBehaviour
         return apm_mode == (uint)MAVLink.COPTER_MODE.GUIDED;
     }
 
+    public bool IsPosHold()
+    {
+        return apm_mode == (uint)MAVLink.COPTER_MODE.POSHOLD;
+    }
+
     public bool IsArmed()
     {
         return armed;

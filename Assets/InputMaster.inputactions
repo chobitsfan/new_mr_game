@@ -38,7 +38,7 @@
                     "interactions": "Tap"
                 },
                 {
-                    "name": "Poshold",
+                    "name": "Takeoff",
                     "type": "Button",
                     "id": "f501f11d-ec13-4e61-9411-8db34e041a5b",
                     "expectedControlType": "Button",
@@ -57,6 +57,14 @@
                     "name": "Shot",
                     "type": "Button",
                     "id": "d1a7289f-c938-4438-acf5-de48409e1c53",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Land",
+                    "type": "Button",
+                    "id": "a39a1460-c52e-4429-a109-68113fc5e611",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -224,7 +232,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",
-                    "action": "Poshold",
+                    "action": "Takeoff",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -247,6 +255,17 @@
                     "processors": "",
                     "groups": "Xbox",
                     "action": "Shot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "91bd1939-e53e-42c6-aee6-d3e2ea823258",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox",
+                    "action": "Land",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

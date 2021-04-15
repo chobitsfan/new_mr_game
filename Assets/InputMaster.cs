@@ -51,7 +51,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""interactions"": ""Tap""
                 },
                 {
-                    ""name"": ""Poshold"",
+                    ""name"": ""Takeoff"",
                     ""type"": ""Button"",
                     ""id"": ""f501f11d-ec13-4e61-9411-8db34e041a5b"",
                     ""expectedControlType"": ""Button"",
@@ -70,6 +70,14 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""name"": ""Shot"",
                     ""type"": ""Button"",
                     ""id"": ""d1a7289f-c938-4438-acf5-de48409e1c53"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Land"",
+                    ""type"": ""Button"",
+                    ""id"": ""a39a1460-c52e-4429-a109-68113fc5e611"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -237,7 +245,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox"",
-                    ""action"": ""Poshold"",
+                    ""action"": ""Takeoff"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -260,6 +268,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Xbox"",
                     ""action"": ""Shot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""91bd1939-e53e-42c6-aee6-d3e2ea823258"",
+                    ""path"": ""<XInputController>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox"",
+                    ""action"": ""Land"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -286,9 +305,10 @@ public class @InputMaster : IInputActionCollection, IDisposable
         m_player_ThrottleYaw = m_player.FindAction("ThrottleYaw", throwIfNotFound: true);
         m_player_PitchRoll = m_player.FindAction("PitchRoll", throwIfNotFound: true);
         m_player_Disarm = m_player.FindAction("Disarm", throwIfNotFound: true);
-        m_player_Poshold = m_player.FindAction("Poshold", throwIfNotFound: true);
+        m_player_Takeoff = m_player.FindAction("Takeoff", throwIfNotFound: true);
         m_player_Stabilize = m_player.FindAction("Stabilize", throwIfNotFound: true);
         m_player_Shot = m_player.FindAction("Shot", throwIfNotFound: true);
+        m_player_Land = m_player.FindAction("Land", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -342,9 +362,10 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private readonly InputAction m_player_ThrottleYaw;
     private readonly InputAction m_player_PitchRoll;
     private readonly InputAction m_player_Disarm;
-    private readonly InputAction m_player_Poshold;
+    private readonly InputAction m_player_Takeoff;
     private readonly InputAction m_player_Stabilize;
     private readonly InputAction m_player_Shot;
+    private readonly InputAction m_player_Land;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -353,9 +374,10 @@ public class @InputMaster : IInputActionCollection, IDisposable
         public InputAction @ThrottleYaw => m_Wrapper.m_player_ThrottleYaw;
         public InputAction @PitchRoll => m_Wrapper.m_player_PitchRoll;
         public InputAction @Disarm => m_Wrapper.m_player_Disarm;
-        public InputAction @Poshold => m_Wrapper.m_player_Poshold;
+        public InputAction @Takeoff => m_Wrapper.m_player_Takeoff;
         public InputAction @Stabilize => m_Wrapper.m_player_Stabilize;
         public InputAction @Shot => m_Wrapper.m_player_Shot;
+        public InputAction @Land => m_Wrapper.m_player_Land;
         public InputActionMap Get() { return m_Wrapper.m_player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -377,15 +399,18 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Disarm.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDisarm;
                 @Disarm.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDisarm;
                 @Disarm.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDisarm;
-                @Poshold.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPoshold;
-                @Poshold.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPoshold;
-                @Poshold.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPoshold;
+                @Takeoff.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTakeoff;
+                @Takeoff.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTakeoff;
+                @Takeoff.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTakeoff;
                 @Stabilize.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStabilize;
                 @Stabilize.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStabilize;
                 @Stabilize.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStabilize;
                 @Shot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShot;
                 @Shot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShot;
                 @Shot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShot;
+                @Land.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLand;
+                @Land.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLand;
+                @Land.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLand;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -402,15 +427,18 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Disarm.started += instance.OnDisarm;
                 @Disarm.performed += instance.OnDisarm;
                 @Disarm.canceled += instance.OnDisarm;
-                @Poshold.started += instance.OnPoshold;
-                @Poshold.performed += instance.OnPoshold;
-                @Poshold.canceled += instance.OnPoshold;
+                @Takeoff.started += instance.OnTakeoff;
+                @Takeoff.performed += instance.OnTakeoff;
+                @Takeoff.canceled += instance.OnTakeoff;
                 @Stabilize.started += instance.OnStabilize;
                 @Stabilize.performed += instance.OnStabilize;
                 @Stabilize.canceled += instance.OnStabilize;
                 @Shot.started += instance.OnShot;
                 @Shot.performed += instance.OnShot;
                 @Shot.canceled += instance.OnShot;
+                @Land.started += instance.OnLand;
+                @Land.performed += instance.OnLand;
+                @Land.canceled += instance.OnLand;
             }
         }
     }
@@ -430,8 +458,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
         void OnThrottleYaw(InputAction.CallbackContext context);
         void OnPitchRoll(InputAction.CallbackContext context);
         void OnDisarm(InputAction.CallbackContext context);
-        void OnPoshold(InputAction.CallbackContext context);
+        void OnTakeoff(InputAction.CallbackContext context);
         void OnStabilize(InputAction.CallbackContext context);
         void OnShot(InputAction.CallbackContext context);
+        void OnLand(InputAction.CallbackContext context);
     }
 }

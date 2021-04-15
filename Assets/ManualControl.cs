@@ -5,18 +5,26 @@ using UnityEngine.InputSystem;
 
 public class ManualControl : MonoBehaviour
 {
+    enum Stage
+    {
+        None,
+        WaitingForGuided,
+        WaitingForArmed,
+        WaitingForTakeoffDone,
+        WaitingForPosHold
+    }
     public GameObject drone;
     short pitch, roll, throttle, yaw;
     float controlCd = 0;
+    float checkCd = 0;
     DroneAction droneAction;
     VirtualAction virtualAction;
-    MyDrone myDrone;
+    Stage stage = Stage.None;
 
     private void Start()
     {
         droneAction = drone.GetComponent<DroneAction>();
         virtualAction = drone.GetComponent<VirtualAction>();
-        myDrone = drone.GetComponent<MyDrone>();
     }
     public void OnArm()
     {       
@@ -49,15 +57,21 @@ public class ManualControl : MonoBehaviour
         droneAction.Stabilize();
     }
 
-    public void OnPoshold()
+    public void OnTakeoff()
     {
-        //droneAction.Poshold();
-        myDrone.TakeOff();
+        droneAction.Guided();
+        stage = Stage.WaitingForGuided;
+        Debug.Log("switch to guided");
     }
 
     public void OnShot()
     {
         virtualAction.Shot();
+    }
+
+    public void OnLand()
+    {
+        droneAction.Land();
     }
 
     private void Update()
@@ -68,7 +82,61 @@ public class ManualControl : MonoBehaviour
             if (controlCd <= 0)
             {
                 controlCd = 0.1f;
+                if (droneAction.IsPosHold())
+                {
+                    float alt = drone.transform.position.y;
+                    if (alt > 1.2f && throttle > 500)
+                    {
+                        throttle = 500;
+                    }
+                    else if (alt < 0.7f && throttle < 500)
+                    {
+                        throttle = 500;
+                    }
+                }
                 droneAction.ManualControl(pitch, roll, throttle, yaw);
+            }
+        }
+        checkCd -= Time.deltaTime;
+        if (checkCd <= 0)
+        {
+            checkCd = 1f;
+            switch (stage)
+            {
+                case Stage.WaitingForGuided:
+                    if (droneAction.IsGuided())
+                    {
+                        Debug.Log("arm");
+                        droneAction.Arm();
+                        stage = Stage.WaitingForArmed;
+                    }
+                    break;
+                case Stage.WaitingForArmed:
+                    if (droneAction.IsArmed())
+                    {
+                        Debug.Log("takeoff");
+                        droneAction.TakeOff();
+                        stage = Stage.WaitingForTakeoffDone;
+                    }
+                    break;
+                case Stage.WaitingForTakeoffDone:
+                    if (drone.transform.position.y > 0.9f)
+                    {
+                        Debug.Log("switch to poshold");
+                        droneAction.Poshold();
+                        stage = Stage.WaitingForPosHold;
+                    }
+                    break;
+                case Stage.WaitingForPosHold:
+                    if (droneAction.IsPosHold())
+                    {
+                        stage = Stage.None;
+                    }
+                    else
+                    {
+                        droneAction.Poshold();
+                    }
+                    break;
             }
         }
     }
