@@ -438,6 +438,7 @@ GameObject:
   - component: {fileID: 452810243}
   - component: {fileID: 452810244}
   - component: {fileID: 452810245}
+  - component: {fileID: 452810246}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Untagged
@@ -502,6 +503,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beamShot: {fileID: 2628011189894108561, guid: 8ca15568952c32647ac1b61999995d75, type: 3}
   smoke: {fileID: 0}
+--- !u!114 &452810246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452810241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e546bc675a7a9944fbe0190de3e7f9af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droneAction: {fileID: 452810244}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

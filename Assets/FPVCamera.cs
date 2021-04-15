@@ -29,12 +29,6 @@ public class FPVCamera : MonoBehaviour
         textStyle.normal.textColor = Color.red;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnGUI()
     {
         GUI.Label(new Rect(emeryRect.x, Screen.height - emeryRect.y + 2, 60, 30), "TARGET", textStyle);

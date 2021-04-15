@@ -11,6 +11,9 @@ public class DroneAction : MonoBehaviour
     MAVLink.MavlinkParse mavlinkParse;
     Socket sock;
     IPEndPoint myproxy;
+    uint apm_mode = 0;
+    bool armed = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,29 +30,59 @@ public class DroneAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int recvBytes = 0;
-        try
+        if (sock.Available > 0)
         {
-            recvBytes = sock.Receive(buf);
-        }
-        catch (SocketException) { }
-        if (recvBytes > 0)
-        {
-            MAVLink.MAVLinkMessage msg = mavlinkParse.ReadPacket(buf);
-            if (msg != null)
+            int recvBytes = 0;
+            try
             {
-                if (msg.msgid == (uint)MAVLink.MAVLINK_MSG_ID.STATUSTEXT)
+                recvBytes = sock.Receive(buf);
+            }
+            catch (SocketException e)
+            {
+                Debug.LogWarning("socket err " + e.ErrorCode);
+            }
+            if (recvBytes > 0)
+            {
+                MAVLink.MAVLinkMessage msg = mavlinkParse.ReadPacket(buf);
+                if (msg != null)
                 {
-                    var status_txt = (MAVLink.mavlink_statustext_t)msg.data;
-                    Debug.Log(System.Text.Encoding.ASCII.GetString(status_txt.text));
-                }
-                else if (msg.msgid == (uint)MAVLink.MAVLINK_MSG_ID.HEARTBEAT)
-                {
-                    var heartbeat = (MAVLink.mavlink_heartbeat_t)msg.data;
+                    if (msg.msgid == (uint)MAVLink.MAVLINK_MSG_ID.STATUSTEXT)
+                    {
+                        var status_txt = (MAVLink.mavlink_statustext_t)msg.data;
+                        Debug.Log(System.Text.Encoding.ASCII.GetString(status_txt.text));
+                    }
+                    else if (msg.msgid == (uint)MAVLink.MAVLINK_MSG_ID.HEARTBEAT)
+                    {
+                        var heartbeat = (MAVLink.mavlink_heartbeat_t)msg.data;
+                        apm_mode = heartbeat.custom_mode;
+                        armed = (heartbeat.base_mode & (byte)MAVLink.MAV_MODE_FLAG.SAFETY_ARMED) != 0;
+                    }                    
                 }
             }
         }
     }
+
+    public bool IsGuided()
+    {
+        return apm_mode == (uint)MAVLink.COPTER_MODE.GUIDED;
+    }
+
+    public bool IsArmed()
+    {
+        return armed;
+    }
+
+    public void TakeOff()
+    {
+
+        MAVLink.mavlink_command_long_t cmd = new MAVLink.mavlink_command_long_t
+        {
+            command = (ushort)MAVLink.MAV_CMD.TAKEOFF,
+            param7 = 1f
+        };
+        byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.COMMAND_LONG, cmd);
+        sock.SendTo(data, myproxy);
+    }    
 
     public void Arm()
     {
@@ -121,6 +154,19 @@ public class DroneAction : MonoBehaviour
             r = yaw
         };
         byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.MANUAL_CONTROL, cmd);
+        sock.SendTo(data, myproxy);
+    }
+
+    public void Guided()
+    {
+
+        MAVLink.mavlink_set_mode_t cmd = new MAVLink.mavlink_set_mode_t
+        {
+            base_mode = (byte)MAVLink.MAV_MODE_FLAG.CUSTOM_MODE_ENABLED,
+            target_system = 0,
+            custom_mode = (uint)MAVLink.COPTER_MODE.GUIDED
+        };
+        byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.SET_MODE, cmd);
         sock.SendTo(data, myproxy);
     }
 }

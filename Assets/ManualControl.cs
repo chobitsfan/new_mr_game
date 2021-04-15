@@ -10,11 +10,13 @@ public class ManualControl : MonoBehaviour
     float controlCd = 0;
     DroneAction droneAction;
     VirtualAction virtualAction;
+    MyDrone myDrone;
 
     private void Start()
     {
         droneAction = drone.GetComponent<DroneAction>();
         virtualAction = drone.GetComponent<VirtualAction>();
+        myDrone = drone.GetComponent<MyDrone>();
     }
     public void OnArm()
     {       
@@ -49,7 +51,8 @@ public class ManualControl : MonoBehaviour
 
     public void OnPoshold()
     {
-        droneAction.Poshold();
+        //droneAction.Poshold();
+        myDrone.TakeOff();
     }
 
     public void OnShot()
