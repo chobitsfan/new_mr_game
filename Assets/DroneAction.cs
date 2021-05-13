@@ -148,6 +148,18 @@ public class DroneAction : MonoBehaviour
         sock.SendTo(data, myproxy);
     }
 
+    public void Auto()
+    {
+        MAVLink.mavlink_set_mode_t cmd = new MAVLink.mavlink_set_mode_t
+        {
+            base_mode = (byte)MAVLink.MAV_MODE_FLAG.CUSTOM_MODE_ENABLED,
+            target_system = (byte)DroneID,
+            custom_mode = (uint)MAVLink.COPTER_MODE.AUTO
+        };
+        byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.SET_MODE, cmd);
+        sock.SendTo(data, myproxy);
+    }
+
     public void ManualControl(short pitch, short roll, short throttle, short yaw)
     {
         MAVLink.mavlink_manual_control_t cmd = new MAVLink.mavlink_manual_control_t
@@ -164,7 +176,6 @@ public class DroneAction : MonoBehaviour
 
     public void Guided()
     {
-
         MAVLink.mavlink_set_mode_t cmd = new MAVLink.mavlink_set_mode_t
         {
             base_mode = (byte)MAVLink.MAV_MODE_FLAG.CUSTOM_MODE_ENABLED,
@@ -172,6 +183,16 @@ public class DroneAction : MonoBehaviour
             custom_mode = (uint)MAVLink.COPTER_MODE.GUIDED
         };
         byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.SET_MODE, cmd);
+        sock.SendTo(data, myproxy);
+    }
+
+    public void SendDistSensor()
+    {
+        MAVLink.mavlink_distance_sensor_t cmd = new MAVLink.mavlink_distance_sensor_t
+        {
+            orientation = 10
+        };
+        byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.DISTANCE_SENSOR, cmd);
         sock.SendTo(data, myproxy);
     }
 }

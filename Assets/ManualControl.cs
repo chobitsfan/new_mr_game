@@ -28,12 +28,12 @@ public class ManualControl : MonoBehaviour
     }
     public void OnArm()
     {       
-        droneAction.Arm();
+        //droneAction.Arm();
     }
 
     public void OnDisarm()
     {
-        droneAction.Disarm(true);
+        //droneAction.Disarm(true);
     }
 
     public void OnThrottleYaw(InputValue value)
@@ -54,7 +54,7 @@ public class ManualControl : MonoBehaviour
 
     public void OnStabilize()
     {
-        droneAction.Stabilize();
+        //droneAction.Stabilize();
     }
 
     public void OnTakeoff()
@@ -82,7 +82,7 @@ public class ManualControl : MonoBehaviour
             if (controlCd <= 0)
             {
                 controlCd = 0.1f;
-                if (droneAction.IsPosHold())
+                /*if (droneAction.IsPosHold())
                 {
                     float alt = drone.transform.position.y;
                     if (alt > 1.2f && throttle > 500)
@@ -93,7 +93,7 @@ public class ManualControl : MonoBehaviour
                     {
                         throttle = 500;
                     }
-                }
+                }*/
                 droneAction.ManualControl(pitch, roll, throttle, yaw);
             }
         }
