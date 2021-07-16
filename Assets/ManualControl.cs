@@ -28,12 +28,12 @@ public class ManualControl : MonoBehaviour
     }
     public void OnArm()
     {       
-        //droneAction.Arm();
+        droneAction.Arm();
     }
 
     public void OnDisarm()
     {
-        //droneAction.Disarm(true);
+        droneAction.Disarm(true);
     }
 
     public void OnThrottleYaw(InputValue value)
@@ -55,6 +55,7 @@ public class ManualControl : MonoBehaviour
     public void OnStabilize()
     {
         //droneAction.Stabilize();
+        droneAction.Poshold();
     }
 
     public void OnTakeoff()
@@ -81,7 +82,7 @@ public class ManualControl : MonoBehaviour
             controlCd -= Time.deltaTime;
             if (controlCd <= 0)
             {
-                controlCd = 0.1f;
+                controlCd = 0.05f;
                 /*if (droneAction.IsPosHold())
                 {
                     float alt = drone.transform.position.y;

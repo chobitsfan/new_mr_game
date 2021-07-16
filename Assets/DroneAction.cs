@@ -7,6 +7,7 @@ using UnityEngine;
 public class DroneAction : MonoBehaviour
 {
     public int DroneID;
+    public UnityEngine.UI.Text StatusText;
     byte[] buf;
     MAVLink.MavlinkParse mavlinkParse;
     Socket sock;
@@ -17,7 +18,7 @@ public class DroneAction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        buf = new byte[1024];
+        buf = new byte[512];
         mavlinkParse = new MAVLink.MavlinkParse();
         sock = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp)
         {
@@ -30,33 +31,43 @@ public class DroneAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (sock.Available > 0)
+        while (sock.Available > 0)
         {
             int recvBytes = 0;
             try
             {
                 recvBytes = sock.Receive(buf);
             }
-            catch (SocketException e)
+            catch (SocketException)
             {
-                Debug.LogWarning("socket err " + e.ErrorCode);
+                //Debug.LogWarning("socket err " + e.ErrorCode);
+                break;
             }
             if (recvBytes > 0)
             {
-                MAVLink.MAVLinkMessage msg = mavlinkParse.ReadPacket(buf);
+                byte[] msg_buf = new byte[recvBytes];
+                System.Array.Copy(buf, msg_buf, recvBytes);
+                MAVLink.MAVLinkMessage msg = mavlinkParse.ReadPacket(msg_buf);
                 if (msg != null)
                 {
                     if (msg.msgid == (uint)MAVLink.MAVLINK_MSG_ID.STATUSTEXT)
                     {
                         var status_txt = (MAVLink.mavlink_statustext_t)msg.data;
-                        Debug.Log(System.Text.Encoding.ASCII.GetString(status_txt.text));
+                        //Debug.Log(System.Text.Encoding.ASCII.GetString(status_txt.text));
+                        StatusText.text = System.Text.Encoding.ASCII.GetString(status_txt.text);
                     }
                     else if (msg.msgid == (uint)MAVLink.MAVLINK_MSG_ID.HEARTBEAT)
                     {
                         var heartbeat = (MAVLink.mavlink_heartbeat_t)msg.data;
                         apm_mode = heartbeat.custom_mode;
                         armed = (heartbeat.base_mode & (byte)MAVLink.MAV_MODE_FLAG.SAFETY_ARMED) != 0;
-                    }                    
+                    }
+                    else if (msg.msgid == (uint)MAVLink.MAVLINK_MSG_ID.ATT_POS_MOCAP)
+                    {
+                        var att_pos = (MAVLink.mavlink_att_pos_mocap_t)msg.data;
+                        gameObject.transform.localPosition = new Vector3(-att_pos.x, att_pos.y, att_pos.z);
+                        gameObject.transform.localRotation = new Quaternion(-att_pos.q[1], att_pos.q[2], att_pos.q[3], -att_pos.q[0]);
+                    }
                 }
             }
         }
