@@ -68,6 +68,7 @@ public class ManualControl : MonoBehaviour
 
     public void OnShot()
     {
+        droneAction.FireLaser();
         virtualAction.Shot();
     }
 

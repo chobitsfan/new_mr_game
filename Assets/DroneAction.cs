@@ -7,6 +7,7 @@ using UnityEngine;
 public class DroneAction : MonoBehaviour
 {
     public UnityEngine.UI.Text StatusText;
+    public bool IsPlayer;
     int DroneID = 1;
     byte[] buf;
     MAVLink.MavlinkParse mavlinkParse;
@@ -16,6 +17,8 @@ public class DroneAction : MonoBehaviour
     bool armed = false;
     float hb_cd = 2f;
     static string mocap_ip = "";
+    IPEndPoint game_proxy;
+    VirtualAction virtualAction;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +41,8 @@ public class DroneAction : MonoBehaviour
             }
         }
         myproxy = new IPEndPoint(IPAddress.Parse(mocap_ip), 17500);
+        game_proxy = new IPEndPoint(IPAddress.Parse(mocap_ip), 27500);
+        virtualAction = gameObject.GetComponent<VirtualAction>();
     }
 
     public void DroneIDChanged(int id)
@@ -66,7 +71,7 @@ public class DroneAction : MonoBehaviour
                     mavlink_version = 3
                 };
                 byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.HEARTBEAT, cmd);
-                sock.SendTo(data, myproxy);
+                sock.SendTo(data, game_proxy);
             }
         }
         while (sock.Available > 0)
@@ -88,23 +93,38 @@ public class DroneAction : MonoBehaviour
                 MAVLink.MAVLinkMessage msg = mavlinkParse.ReadPacket(msg_buf);
                 if (msg != null)
                 {
-                    if (msg.msgid == (uint)MAVLink.MAVLINK_MSG_ID.STATUSTEXT)
+                    switch (msg.msgid)
                     {
-                        var status_txt = (MAVLink.mavlink_statustext_t)msg.data;
-                        //Debug.Log(System.Text.Encoding.ASCII.GetString(status_txt.text));
-                        StatusText.text = System.Text.Encoding.ASCII.GetString(status_txt.text);
-                    }
-                    else if (msg.msgid == (uint)MAVLink.MAVLINK_MSG_ID.HEARTBEAT)
-                    {
-                        var heartbeat = (MAVLink.mavlink_heartbeat_t)msg.data;
-                        apm_mode = heartbeat.custom_mode;
-                        armed = (heartbeat.base_mode & (byte)MAVLink.MAV_MODE_FLAG.SAFETY_ARMED) != 0;
-                    }
-                    else if (msg.msgid == (uint)MAVLink.MAVLINK_MSG_ID.ATT_POS_MOCAP)
-                    {
-                        var att_pos = (MAVLink.mavlink_att_pos_mocap_t)msg.data;
-                        gameObject.transform.localPosition = new Vector3(-att_pos.x, att_pos.y, att_pos.z);
-                        gameObject.transform.localRotation = new Quaternion(-att_pos.q[1], att_pos.q[2], att_pos.q[3], -att_pos.q[0]);
+                        case (uint)MAVLink.MAVLINK_MSG_ID.STATUSTEXT:
+                            {
+                                var status_txt = (MAVLink.mavlink_statustext_t)msg.data;
+                                //Debug.Log(System.Text.Encoding.ASCII.GetString(status_txt.text));
+                                if (IsPlayer) StatusText.text = System.Text.Encoding.ASCII.GetString(status_txt.text);
+                                break;
+                            }
+                        case (uint)MAVLink.MAVLINK_MSG_ID.HEARTBEAT:
+                            {
+                                var heartbeat = (MAVLink.mavlink_heartbeat_t)msg.data;
+                                apm_mode = heartbeat.custom_mode;
+                                armed = (heartbeat.base_mode & (byte)MAVLink.MAV_MODE_FLAG.SAFETY_ARMED) != 0;
+                                break;
+                            }
+                        case (uint)MAVLink.MAVLINK_MSG_ID.ATT_POS_MOCAP:
+                            {
+                                var att_pos = (MAVLink.mavlink_att_pos_mocap_t)msg.data;
+                                gameObject.transform.localPosition = new Vector3(-att_pos.x, att_pos.y, att_pos.z);
+                                gameObject.transform.localRotation = new Quaternion(-att_pos.q[1], att_pos.q[2], att_pos.q[3], -att_pos.q[0]);
+                                break;
+                            }
+                        case (uint)MAVLink.MAVLINK_MSG_ID.MANUAL_CONTROL:
+                            {
+                                var ctrl = (MAVLink.mavlink_manual_control_t)msg.data;
+                                if (ctrl.buttons == 1)
+                                {
+                                    virtualAction.Shot();
+                                }
+                                break;
+                            }
                     }
                 }
             }
@@ -221,6 +241,16 @@ public class DroneAction : MonoBehaviour
         };
         byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.MANUAL_CONTROL, cmd);
         sock.SendTo(data, myproxy);
+    }
+
+    public void FireLaser()
+    {
+        MAVLink.mavlink_manual_control_t cmd = new MAVLink.mavlink_manual_control_t
+        {
+            buttons = 1
+        };
+        byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.MANUAL_CONTROL, cmd);
+        sock.SendTo(data, game_proxy);
     }
 
     public void Guided()
