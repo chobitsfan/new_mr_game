@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 183419884}
   - component: {fileID: 183419883}
   m_Layer: 5
-  m_Name: InputField
+  m_Name: PlayerID
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -349,7 +349,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1886247611}
+        m_TargetAssemblyTypeName: GameWorld, Assembly-CSharp
+        m_MethodName: PlayerIDChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -463,7 +475,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -523,7 +535,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66f64048774acf40ad2e6bf3523cf3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DroneID: 9
   StatusText: {fileID: 1114716354}
 --- !u!114 &452810245
 MonoBehaviour:
@@ -805,7 +816,7 @@ Camera:
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
-  m_FOVAxisMode: 1
+  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
   m_FocalLength: 50
@@ -817,7 +828,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 100
-  field of view: 86.61148
+  field of view: 72.01316
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -861,7 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d13d17d6af0a07479c9810927eb8acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emery: {fileID: 1754404241}
+  emery: {fileID: 1139546559}
 --- !u!1 &1063689315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,6 +1037,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarSparrow5
       objectReference: {fileID: 0}
+    - target: {fileID: 1970447681998018, guid: 4d54efa43b03b1845b929768cf25e790, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4674827468582762, guid: 4d54efa43b03b1845b929768cf25e790, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1097,14 +1112,13 @@ GameObject:
   - component: {fileID: 1139546563}
   - component: {fileID: 1139546564}
   - component: {fileID: 1139546565}
-  - component: {fileID: 1139546566}
   m_Layer: 7
   m_Name: Emery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1139546560
 Transform:
   m_ObjectHideFlags: 0
@@ -1160,7 +1174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6a635bdd5aecc842b13c713c57e5f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beamShot: {fileID: 2628011189894108561, guid: bb98bb1c6c6186545a2725e609195278, type: 3}
+  beamShot: {fileID: 2628011189894108561, guid: 8ca15568952c32647ac1b61999995d75, type: 3}
   smoke: {fileID: 1273915125232972, guid: 7200a6f3623b9b74aaafbe1c6d9bac8e, type: 3}
 --- !u!114 &1139546565
 MonoBehaviour:
@@ -1174,20 +1188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66f64048774acf40ad2e6bf3523cf3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DroneID: 3
   StatusText: {fileID: 0}
---- !u!114 &1139546566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1139546559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddae6448a666b544fac2469b0edc9577, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1306656638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,7 +1332,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 1
@@ -1715,23 +1716,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827989535}
   m_CullTransparentMesh: 1
---- !u!1 &1851673637 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 955085530777511992, guid: b6e1103f0c69c244698008296529aef7, type: 3}
-  m_PrefabInstance: {fileID: 1866956682}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1851673638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1851673637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4594b3529c81ba9419de0e0467885109, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1866956682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1955,6 +1939,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce4284338174d04592d149217edd19d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerDrone: {fileID: 452810244}
+  EmeryDrone: {fileID: 1139546565}
 --- !u!4 &1886247612
 Transform:
   m_ObjectHideFlags: 0

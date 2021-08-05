@@ -11,7 +11,8 @@ public class ManualControl : MonoBehaviour
         WaitingForGuided,
         WaitingForArmed,
         WaitingForTakeoffDone,
-        WaitingForPosHold
+        WaitingForPosHold,
+        PosHold
     }
     public GameObject drone;
     short pitch, roll, throttle, yaw;
@@ -77,7 +78,7 @@ public class ManualControl : MonoBehaviour
 
     private void Update()
     {
-        if (Gamepad.current != null)
+        if ((Gamepad.current != null) && (stage == Stage.PosHold))
         {
             controlCd -= Time.deltaTime;
             if (controlCd <= 0)
@@ -131,7 +132,7 @@ public class ManualControl : MonoBehaviour
                 case Stage.WaitingForPosHold:
                     if (droneAction.IsPosHold())
                     {
-                        stage = Stage.None;
+                        stage = Stage.PosHold;
                     }
                     else
                     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SetupGame : MonoBehaviour
 {
-    void SetupID()
+    public void OnPlayerIDChanged(string player_id)
     {
 
     }

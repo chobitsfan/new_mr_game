@@ -6,14 +6,16 @@ using UnityEngine;
 
 public class DroneAction : MonoBehaviour
 {
-    public int DroneID;
     public UnityEngine.UI.Text StatusText;
+    int DroneID = 1;
     byte[] buf;
     MAVLink.MavlinkParse mavlinkParse;
     Socket sock;
     IPEndPoint myproxy;
     uint apm_mode = 0;
     bool armed = false;
+    float hb_cd = 2f;
+    static string mocap_ip = "";
 
     // Start is called before the first frame update
     void Start()
@@ -24,13 +26,49 @@ public class DroneAction : MonoBehaviour
         {
             Blocking = false
         };
-        sock.Bind(new IPEndPoint(IPAddress.Loopback, 17500 + DroneID));
-        myproxy = new IPEndPoint(IPAddress.Loopback, 17500);
+        if (mocap_ip.Equals(""))
+        {
+            try
+            {
+                mocap_ip = System.IO.File.ReadAllText("mocap_ip.txt").Trim();
+            }
+            catch (System.Exception)
+            {
+                mocap_ip = "127.0.0.1";
+            }
+        }
+        myproxy = new IPEndPoint(IPAddress.Parse(mocap_ip), 17500);
+    }
+
+    public void DroneIDChanged(int id)
+    {
+        DroneID = id;
+        if (sock.IsBound)
+        {
+
+        }
+        sock.Bind(new IPEndPoint(IPAddress.Any, 17500 + DroneID));
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (sock.IsBound)
+        {
+            hb_cd -= Time.deltaTime;
+            if (hb_cd <= 0)
+            {
+                hb_cd = 2f;
+                MAVLink.mavlink_heartbeat_t cmd = new MAVLink.mavlink_heartbeat_t
+                {
+                    autopilot = 8,
+                    type = 6,
+                    mavlink_version = 3
+                };
+                byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.HEARTBEAT, cmd);
+                sock.SendTo(data, myproxy);
+            }
+        }
         while (sock.Available > 0)
         {
             int recvBytes = 0;
