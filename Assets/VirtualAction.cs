@@ -9,7 +9,7 @@ public class VirtualAction : MonoBehaviour
     int hp = 3;
     public void Shot()
     {
-        GameObject.Instantiate(beamShot, transform.position + transform.forward * 0.1f, Quaternion.LookRotation(-transform.right));
+        var beam = GameObject.Instantiate(beamShot, transform.position + transform.forward * 0.1f, Quaternion.LookRotation(-transform.right));
     }
 
     IEnumerator SmokeLater()
