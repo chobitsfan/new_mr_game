@@ -27,7 +27,7 @@ public class BeamShotBehavior : MonoBehaviour
             colliderCd -= Time.deltaTime;
             if (colliderCd <= 0)
             {
-                GetComponent<BoxCollider>().enabled = true;
+                GetComponent<Collider>().enabled = true;
             }
         }
     }
