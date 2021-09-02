@@ -68,9 +68,12 @@ Shader "Custom/MyStencilStandard"
         }
 
         // Only render pixels whose value in the stencil buffer not equals 1.
-        Stencil {
-            Ref 1
-            Comp NotEqual
+        Pass
+        {
+            Stencil {
+                Ref 1
+                Comp NotEqual
+            }
         }
 
         // ------------------------------------------------------------------
