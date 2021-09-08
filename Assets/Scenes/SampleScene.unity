@@ -1297,6 +1297,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1386569233}
+  - {fileID: 1572185151}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1601,6 +1602,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419309034}
   m_CullTransparentMesh: 1
+--- !u!1001 &1572185150
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1139546560}
+    m_Modifications:
+    - target: {fileID: 6515693754307235951, guid: c535c575855c338449f88308daa9a411, type: 3}
+      propertyPath: m_Name
+      value: MyDroneModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473366889569481598, guid: c535c575855c338449f88308daa9a411, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473366889569481598, guid: c535c575855c338449f88308daa9a411, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473366889569481598, guid: c535c575855c338449f88308daa9a411, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473366889569481598, guid: c535c575855c338449f88308daa9a411, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473366889569481598, guid: c535c575855c338449f88308daa9a411, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473366889569481598, guid: c535c575855c338449f88308daa9a411, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473366889569481598, guid: c535c575855c338449f88308daa9a411, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473366889569481598, guid: c535c575855c338449f88308daa9a411, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473366889569481598, guid: c535c575855c338449f88308daa9a411, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473366889569481598, guid: c535c575855c338449f88308daa9a411, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473366889569481598, guid: c535c575855c338449f88308daa9a411, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c535c575855c338449f88308daa9a411, type: 3}
+--- !u!4 &1572185151 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8473366889569481598, guid: c535c575855c338449f88308daa9a411, type: 3}
+  m_PrefabInstance: {fileID: 1572185150}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1653616353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1681,6 +1744,10 @@ PrefabInstance:
     - target: {fileID: 6260319159833318039, guid: 41fee2eefb1e169429a3f82845c704a7, type: 3}
       propertyPath: m_Name
       value: my S9 drone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260319159833318039, guid: 41fee2eefb1e169429a3f82845c704a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6749435380428146733, guid: 41fee2eefb1e169429a3f82845c704a7, type: 3}
       propertyPath: m_RootOrder

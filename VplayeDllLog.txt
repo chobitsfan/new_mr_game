@@ -1,476 +1,1240 @@
-15:20:39.162	 :live url = rtsp://192.168.50.108/main_ch
-15:20:39.163	 :channel state = 80, error=0
-15:20:39.163	 :stream status: connecting
-15:20:43.180	 :channel state = 1, error=0
-15:20:43.180	 :stream status: live connected
-15:20:43.281	 :channel state = 103, error=0
-15:20:43.300	 :recv frame 1, width=1280, height = 720, fmt = 0
-15:20:43.300	 :yuv fmt = 0
-15:20:43.302	 :recv frame 2, width=1280, height = 720, fmt = 0
-15:20:43.302	 :yuv fmt = 0
-15:20:43.303	 :recv frame 3, width=1280, height = 720, fmt = 0
-15:20:43.303	 :yuv fmt = 0
-15:20:43.304	 :recv frame 4, width=1280, height = 720, fmt = 0
-15:20:43.304	 :yuv fmt = 0
-15:20:43.305	 :recv frame 5, width=1280, height = 720, fmt = 0
-15:20:43.305	 :yuv fmt = 0
-15:20:43.307	 :recv frame 6, width=1280, height = 720, fmt = 0
-15:20:43.307	 :yuv fmt = 0
-15:20:43.309	 :recv frame 7, width=1280, height = 720, fmt = 0
-15:20:43.309	 :yuv fmt = 0
-15:20:43.311	 :recv frame 8, width=1280, height = 720, fmt = 0
-15:20:43.311	 :yuv fmt = 0
-15:20:43.314	 :recv frame 9, width=1280, height = 720, fmt = 0
-15:20:43.314	 :yuv fmt = 0
-15:20:43.316	 :recv frame 10, width=1280, height = 720, fmt = 0
-15:20:43.316	 :yuv fmt = 0
-15:20:43.318	 :recv frame 11, width=1280, height = 720, fmt = 0
-15:20:43.318	 :yuv fmt = 0
-15:20:43.320	 :recv frame 12, width=1280, height = 720, fmt = 0
-15:20:43.320	 :yuv fmt = 0
-15:20:43.322	 :recv frame 13, width=1280, height = 720, fmt = 0
-15:20:43.322	 :yuv fmt = 0
-15:20:43.323	 :recv frame 14, width=1280, height = 720, fmt = 0
-15:20:43.323	 :yuv fmt = 0
-15:20:43.324	 :recv frame 15, width=1280, height = 720, fmt = 0
-15:20:43.324	 :yuv fmt = 0
-15:20:43.325	 :recv frame 16, width=1280, height = 720, fmt = 0
-15:20:43.325	 :yuv fmt = 0
-15:20:43.326	 :recv frame 17, width=1280, height = 720, fmt = 0
-15:20:43.326	 :yuv fmt = 0
-15:20:43.327	 :recv frame 18, width=1280, height = 720, fmt = 0
-15:20:43.327	 :yuv fmt = 0
-15:20:43.328	 :recv frame 19, width=1280, height = 720, fmt = 0
-15:20:43.328	 :yuv fmt = 0
-15:20:43.329	 :recv frame 20, width=1280, height = 720, fmt = 0
-15:20:43.329	 :yuv fmt = 0
-15:20:43.331	 :recv frame 21, width=1280, height = 720, fmt = 0
-15:20:43.331	 :yuv fmt = 0
-15:20:43.331	 :recv frame 22, width=1280, height = 720, fmt = 0
-15:20:43.331	 :yuv fmt = 0
-15:20:43.332	 :recv frame 23, width=1280, height = 720, fmt = 0
-15:20:43.332	 :yuv fmt = 0
-15:20:43.333	 :recv frame 24, width=1280, height = 720, fmt = 0
-15:20:43.333	 :yuv fmt = 0
-15:20:43.334	 :recv frame 25, width=1280, height = 720, fmt = 0
-15:20:43.334	 :yuv fmt = 0
-15:20:43.335	 :recv frame 26, width=1280, height = 720, fmt = 0
-15:20:43.335	 :yuv fmt = 0
-15:20:43.335	 :recv frame 27, width=1280, height = 720, fmt = 0
-15:20:43.335	 :yuv fmt = 0
-15:20:43.336	 :recv frame 28, width=1280, height = 720, fmt = 0
-15:20:43.336	 :yuv fmt = 0
-15:20:43.337	 :recv frame 29, width=1280, height = 720, fmt = 0
-15:20:43.337	 :yuv fmt = 0
-15:20:43.338	 :recv frame 30, width=1280, height = 720, fmt = 0
-15:20:43.338	 :yuv fmt = 0
-15:20:43.339	 :recv frame 31, width=1280, height = 720, fmt = 0
-15:20:43.339	 :yuv fmt = 0
-15:20:43.341	 :recv frame 32, width=1280, height = 720, fmt = 0
-15:20:43.341	 :yuv fmt = 0
-15:20:43.342	 :recv frame 33, width=1280, height = 720, fmt = 0
-15:20:43.342	 :yuv fmt = 0
-15:20:43.343	 :recv frame 34, width=1280, height = 720, fmt = 0
-15:20:43.343	 :yuv fmt = 0
-15:20:43.344	 :recv frame 35, width=1280, height = 720, fmt = 0
-15:20:43.344	 :yuv fmt = 0
-15:20:43.346	 :recv frame 36, width=1280, height = 720, fmt = 0
-15:20:43.346	 :yuv fmt = 0
-15:20:43.347	 :recv frame 37, width=1280, height = 720, fmt = 0
-15:20:43.347	 :yuv fmt = 0
-15:20:43.348	 :recv frame 38, width=1280, height = 720, fmt = 0
-15:20:43.348	 :yuv fmt = 0
-15:20:43.349	 :recv frame 39, width=1280, height = 720, fmt = 0
-15:20:43.349	 :yuv fmt = 0
-15:20:43.350	 :recv frame 40, width=1280, height = 720, fmt = 0
-15:20:43.350	 :yuv fmt = 0
-15:20:43.543	 :recv frame 41, width=1280, height = 720, fmt = 0
-15:20:43.543	 :yuv fmt = 0
-15:20:43.544	 :recv frame 42, width=1280, height = 720, fmt = 0
-15:20:43.544	 :yuv fmt = 0
-15:20:43.546	 :recv frame 43, width=1280, height = 720, fmt = 0
-15:20:43.546	 :yuv fmt = 0
-15:20:43.547	 :recv frame 44, width=1280, height = 720, fmt = 0
-15:20:43.547	 :yuv fmt = 0
-15:20:43.549	 :recv frame 45, width=1280, height = 720, fmt = 0
-15:20:43.549	 :yuv fmt = 0
-15:20:43.605	 :recv frame 46, width=1280, height = 720, fmt = 0
-15:20:43.605	 :yuv fmt = 0
-15:20:43.665	 :recv frame 47, width=1280, height = 720, fmt = 0
-15:20:43.665	 :yuv fmt = 0
-15:20:43.706	 :recv frame 48, width=1280, height = 720, fmt = 0
-15:20:43.706	 :yuv fmt = 0
-15:20:43.714	 :recv frame 49, width=1280, height = 720, fmt = 0
-15:20:43.714	 :yuv fmt = 0
-15:20:43.846	 :recv frame 50, width=1280, height = 720, fmt = 0
-15:20:43.846	 :yuv fmt = 0
-15:20:43.847	 :recv frame 51, width=1280, height = 720, fmt = 0
-15:20:43.847	 :yuv fmt = 0
-15:20:43.896	 :recv frame 52, width=1280, height = 720, fmt = 0
-15:20:43.896	 :yuv fmt = 0
-15:20:43.956	 :recv frame 53, width=1280, height = 720, fmt = 0
-15:20:43.956	 :yuv fmt = 0
-15:20:44.015	 :recv frame 54, width=1280, height = 720, fmt = 0
-15:20:44.015	 :yuv fmt = 0
-15:20:44.065	 :recv frame 55, width=1280, height = 720, fmt = 0
-15:20:44.065	 :yuv fmt = 0
-15:20:44.066	 :recv frame 56, width=1280, height = 720, fmt = 0
-15:20:44.066	 :yuv fmt = 0
-15:20:44.175	 :recv frame 57, width=1280, height = 720, fmt = 0
-15:20:44.175	 :yuv fmt = 0
-15:20:44.184	 :recv frame 58, width=1280, height = 720, fmt = 0
-15:20:44.184	 :yuv fmt = 0
-15:20:44.234	 :recv frame 59, width=1280, height = 720, fmt = 0
-15:20:44.234	 :yuv fmt = 0
-15:20:44.294	 :recv frame 60, width=1280, height = 720, fmt = 0
-15:20:44.294	 :yuv fmt = 0
-15:20:44.345	 :recv frame 61, width=1280, height = 720, fmt = 0
-15:20:44.345	 :yuv fmt = 0
-15:20:44.405	 :recv frame 62, width=1280, height = 720, fmt = 0
-15:20:44.405	 :yuv fmt = 0
-15:20:44.454	 :recv frame 63, width=1280, height = 720, fmt = 0
-15:20:44.454	 :yuv fmt = 0
-15:20:44.514	 :recv frame 64, width=1280, height = 720, fmt = 0
-15:20:44.514	 :yuv fmt = 0
-15:20:44.575	 :recv frame 65, width=1280, height = 720, fmt = 0
-15:20:44.575	 :yuv fmt = 0
-15:20:44.625	 :recv frame 66, width=1280, height = 720, fmt = 0
-15:20:44.625	 :yuv fmt = 0
-15:20:44.626	 :recv frame 67, width=1280, height = 720, fmt = 0
-15:20:44.626	 :yuv fmt = 0
-15:20:44.685	 :recv frame 68, width=1280, height = 720, fmt = 0
-15:20:44.685	 :yuv fmt = 0
-15:20:44.745	 :recv frame 69, width=1280, height = 720, fmt = 0
-15:20:44.745	 :yuv fmt = 0
-15:20:44.794	 :recv frame 70, width=1280, height = 720, fmt = 0
-15:20:44.795	 :yuv fmt = 0
-15:20:44.855	 :recv frame 71, width=1280, height = 720, fmt = 0
-15:20:44.855	 :yuv fmt = 0
-15:20:44.856	 :recv frame 72, width=1280, height = 720, fmt = 0
-15:20:44.856	 :yuv fmt = 0
-15:20:44.996	 :recv frame 73, width=1280, height = 720, fmt = 0
-15:20:44.996	 :yuv fmt = 0
-15:20:44.997	 :recv frame 74, width=1280, height = 720, fmt = 0
-15:20:44.997	 :yuv fmt = 0
-15:20:45.054	 :recv frame 75, width=1280, height = 720, fmt = 0
-15:20:45.054	 :yuv fmt = 0
-15:20:45.105	 :recv frame 76, width=1280, height = 720, fmt = 0
-15:20:45.105	 :yuv fmt = 0
-15:20:45.166	 :recv frame 77, width=1280, height = 720, fmt = 0
-15:20:45.166	 :yuv fmt = 0
-15:20:45.225	 :recv frame 78, width=1280, height = 720, fmt = 0
-15:20:45.225	 :yuv fmt = 0
-15:20:45.226	 :recv frame 79, width=1280, height = 720, fmt = 0
-15:20:45.226	 :yuv fmt = 0
-15:20:45.325	 :recv frame 80, width=1280, height = 720, fmt = 0
-15:20:45.325	 :yuv fmt = 0
-15:20:45.555	 :recv frame 81, width=1280, height = 720, fmt = 0
-15:20:45.555	 :yuv fmt = 0
-15:20:45.557	 :recv frame 82, width=1280, height = 720, fmt = 0
-15:20:45.557	 :yuv fmt = 0
-15:20:45.558	 :recv frame 83, width=1280, height = 720, fmt = 0
-15:20:45.558	 :yuv fmt = 0
-15:20:45.559	 :recv frame 84, width=1280, height = 720, fmt = 0
-15:20:45.559	 :yuv fmt = 0
-15:20:45.568	 :recv frame 85, width=1280, height = 720, fmt = 0
-15:20:45.568	 :yuv fmt = 0
-15:20:45.576	 :recv frame 86, width=1280, height = 720, fmt = 0
-15:20:45.576	 :yuv fmt = 0
-15:20:45.634	 :recv frame 87, width=1280, height = 720, fmt = 0
-15:20:45.634	 :yuv fmt = 0
-15:20:45.694	 :recv frame 88, width=1280, height = 720, fmt = 0
-15:20:45.694	 :yuv fmt = 0
-15:20:45.757	 :recv frame 89, width=1280, height = 720, fmt = 0
-15:20:45.757	 :yuv fmt = 0
-15:20:45.816	 :recv frame 90, width=1280, height = 720, fmt = 0
-15:20:45.816	 :yuv fmt = 0
-15:20:45.817	 :recv frame 91, width=1280, height = 720, fmt = 0
-15:20:45.817	 :yuv fmt = 0
-15:20:45.917	 :recv frame 92, width=1280, height = 720, fmt = 0
-15:20:45.917	 :yuv fmt = 0
-15:20:45.930	 :recv frame 93, width=1280, height = 720, fmt = 0
-15:20:45.930	 :yuv fmt = 0
-15:20:45.984	 :recv frame 94, width=1280, height = 720, fmt = 0
-15:20:45.984	 :yuv fmt = 0
-15:20:46.095	 :recv frame 95, width=1280, height = 720, fmt = 0
-15:20:46.095	 :yuv fmt = 0
-15:20:46.096	 :recv frame 96, width=1280, height = 720, fmt = 0
-15:20:46.096	 :yuv fmt = 0
-15:20:46.155	 :recv frame 97, width=1280, height = 720, fmt = 0
-15:20:46.155	 :yuv fmt = 0
-15:20:46.204	 :recv frame 98, width=1280, height = 720, fmt = 0
-15:20:46.204	 :yuv fmt = 0
-15:20:46.265	 :recv frame 99, width=1280, height = 720, fmt = 0
-15:20:46.265	 :yuv fmt = 0
-15:20:46.325	 :recv frame 100, width=1280, height = 720, fmt = 0
-15:20:46.325	 :yuv fmt = 0
-15:20:46.326	 :recv frame 101, width=1280, height = 720, fmt = 0
-15:20:46.326	 :yuv fmt = 0
-15:20:46.374	 :recv frame 102, width=1280, height = 720, fmt = 0
-15:20:46.374	 :yuv fmt = 0
-15:20:46.485	 :recv frame 103, width=1280, height = 720, fmt = 0
-15:20:46.485	 :yuv fmt = 0
-15:20:46.486	 :recv frame 104, width=1280, height = 720, fmt = 0
-15:20:46.486	 :yuv fmt = 0
-15:20:46.546	 :recv frame 105, width=1280, height = 720, fmt = 0
-15:20:46.546	 :yuv fmt = 0
-15:20:46.604	 :recv frame 106, width=1280, height = 720, fmt = 0
-15:20:46.604	 :yuv fmt = 0
-15:20:46.654	 :recv frame 107, width=1280, height = 720, fmt = 0
-15:20:46.654	 :yuv fmt = 0
-15:20:46.715	 :recv frame 108, width=1280, height = 720, fmt = 0
-15:20:46.715	 :yuv fmt = 0
-15:20:46.775	 :recv frame 109, width=1280, height = 720, fmt = 0
-15:20:46.775	 :yuv fmt = 0
-15:20:46.776	 :recv frame 110, width=1280, height = 720, fmt = 0
-15:20:46.777	 :yuv fmt = 0
-15:20:46.885	 :recv frame 111, width=1280, height = 720, fmt = 0
-15:20:46.885	 :yuv fmt = 0
-15:20:46.886	 :recv frame 112, width=1280, height = 720, fmt = 0
-15:20:46.886	 :yuv fmt = 0
-15:20:46.945	 :recv frame 113, width=1280, height = 720, fmt = 0
-15:20:46.945	 :yuv fmt = 0
-15:20:46.994	 :recv frame 114, width=1280, height = 720, fmt = 0
-15:20:46.994	 :yuv fmt = 0
-15:20:47.055	 :recv frame 115, width=1280, height = 720, fmt = 0
-15:20:47.055	 :yuv fmt = 0
-15:20:47.104	 :recv frame 116, width=1280, height = 720, fmt = 0
-15:20:47.104	 :yuv fmt = 0
-15:20:47.165	 :recv frame 117, width=1280, height = 720, fmt = 0
-15:20:47.165	 :yuv fmt = 0
-15:20:47.224	 :recv frame 118, width=1280, height = 720, fmt = 0
-15:20:47.224	 :yuv fmt = 0
-15:20:47.274	 :recv frame 119, width=1280, height = 720, fmt = 0
-15:20:47.274	 :yuv fmt = 0
-15:20:47.275	 :recv frame 120, width=1280, height = 720, fmt = 0
-15:20:47.275	 :yuv fmt = 0
-15:20:47.539	 :recv frame 121, width=1280, height = 720, fmt = 0
-15:20:47.539	 :yuv fmt = 0
-15:20:47.541	 :recv frame 122, width=1280, height = 720, fmt = 0
-15:20:47.541	 :yuv fmt = 0
-15:20:47.542	 :recv frame 123, width=1280, height = 720, fmt = 0
-15:20:47.542	 :yuv fmt = 0
-15:20:47.543	 :recv frame 124, width=1280, height = 720, fmt = 0
-15:20:47.543	 :yuv fmt = 0
-15:20:47.545	 :recv frame 125, width=1280, height = 720, fmt = 0
-15:20:47.545	 :yuv fmt = 0
-15:20:47.646	 :recv frame 126, width=1280, height = 720, fmt = 0
-15:20:47.646	 :yuv fmt = 0
-15:20:47.648	 :recv frame 127, width=1280, height = 720, fmt = 0
-15:20:47.648	 :yuv fmt = 0
-15:20:47.666	 :recv frame 128, width=1280, height = 720, fmt = 0
-15:20:47.666	 :yuv fmt = 0
-15:20:47.675	 :recv frame 129, width=1280, height = 720, fmt = 0
-15:20:47.675	 :yuv fmt = 0
-15:20:47.849	 :recv frame 130, width=1280, height = 720, fmt = 0
-15:20:47.849	 :yuv fmt = 0
-15:20:47.850	 :recv frame 131, width=1280, height = 720, fmt = 0
-15:20:47.850	 :yuv fmt = 0
-15:20:47.905	 :recv frame 132, width=1280, height = 720, fmt = 0
-15:20:47.905	 :yuv fmt = 0
-15:20:47.956	 :recv frame 133, width=1280, height = 720, fmt = 0
-15:20:47.956	 :yuv fmt = 0
-15:20:48.015	 :recv frame 134, width=1280, height = 720, fmt = 0
-15:20:48.015	 :yuv fmt = 0
-15:20:48.065	 :recv frame 135, width=1280, height = 720, fmt = 0
-15:20:48.065	 :yuv fmt = 0
-15:20:48.066	 :recv frame 136, width=1280, height = 720, fmt = 0
-15:20:48.066	 :yuv fmt = 0
-15:20:48.185	 :recv frame 137, width=1280, height = 720, fmt = 0
-15:20:48.185	 :yuv fmt = 0
-15:20:48.186	 :recv frame 138, width=1280, height = 720, fmt = 0
-15:20:48.186	 :yuv fmt = 0
-15:20:48.234	 :recv frame 139, width=1280, height = 720, fmt = 0
-15:20:48.234	 :yuv fmt = 0
-15:20:48.295	 :recv frame 140, width=1280, height = 720, fmt = 0
-15:20:48.295	 :yuv fmt = 0
-15:20:48.346	 :recv frame 141, width=1280, height = 720, fmt = 0
-15:20:48.346	 :yuv fmt = 0
-15:20:48.405	 :recv frame 142, width=1280, height = 720, fmt = 0
-15:20:48.405	 :yuv fmt = 0
-15:20:48.464	 :recv frame 143, width=1280, height = 720, fmt = 0
-15:20:48.464	 :yuv fmt = 0
-15:20:48.466	 :recv frame 144, width=1280, height = 720, fmt = 0
-15:20:48.466	 :yuv fmt = 0
-15:20:48.600	 :recv frame 145, width=1280, height = 720, fmt = 0
-15:20:48.600	 :yuv fmt = 0
-15:20:48.601	 :recv frame 146, width=1280, height = 720, fmt = 0
-15:20:48.601	 :yuv fmt = 0
-15:20:48.654	 :recv frame 147, width=1280, height = 720, fmt = 0
-15:20:48.654	 :yuv fmt = 0
-15:20:48.715	 :recv frame 148, width=1280, height = 720, fmt = 0
-15:20:48.715	 :yuv fmt = 0
-15:20:48.775	 :recv frame 149, width=1280, height = 720, fmt = 0
-15:20:48.775	 :yuv fmt = 0
-15:20:48.826	 :recv frame 150, width=1280, height = 720, fmt = 0
-15:20:48.826	 :yuv fmt = 0
-15:20:48.828	 :recv frame 151, width=1280, height = 720, fmt = 0
-15:20:48.828	 :yuv fmt = 0
-15:20:48.885	 :recv frame 152, width=1280, height = 720, fmt = 0
-15:20:48.885	 :yuv fmt = 0
-15:20:48.946	 :recv frame 153, width=1280, height = 720, fmt = 0
-15:20:48.946	 :yuv fmt = 0
-15:20:48.999	 :recv frame 154, width=1280, height = 720, fmt = 0
-15:20:48.999	 :yuv fmt = 0
-15:20:49.054	 :recv frame 155, width=1280, height = 720, fmt = 0
-15:20:49.054	 :yuv fmt = 0
-15:20:49.115	 :recv frame 156, width=1280, height = 720, fmt = 0
-15:20:49.115	 :yuv fmt = 0
-15:20:49.165	 :recv frame 157, width=1280, height = 720, fmt = 0
-15:20:49.165	 :yuv fmt = 0
-15:20:49.224	 :recv frame 158, width=1280, height = 720, fmt = 0
-15:20:49.224	 :yuv fmt = 0
-15:20:49.226	 :recv frame 159, width=1280, height = 720, fmt = 0
-15:20:49.226	 :yuv fmt = 0
-15:20:49.325	 :recv frame 160, width=1280, height = 720, fmt = 0
-15:20:49.326	 :yuv fmt = 0
-15:20:49.574	 :recv frame 161, width=1280, height = 720, fmt = 0
-15:20:49.574	 :yuv fmt = 0
-15:20:49.575	 :recv frame 162, width=1280, height = 720, fmt = 0
-15:20:49.575	 :yuv fmt = 0
-15:20:49.577	 :recv frame 163, width=1280, height = 720, fmt = 0
-15:20:49.577	 :yuv fmt = 0
-15:20:49.579	 :recv frame 164, width=1280, height = 720, fmt = 0
-15:20:49.579	 :yuv fmt = 0
-15:20:49.581	 :recv frame 165, width=1280, height = 720, fmt = 0
-15:20:49.581	 :yuv fmt = 0
-15:20:49.582	 :recv frame 166, width=1280, height = 720, fmt = 0
-15:20:49.582	 :yuv fmt = 0
-15:20:49.637	 :recv frame 167, width=1280, height = 720, fmt = 0
-15:20:49.637	 :yuv fmt = 0
-15:20:49.694	 :recv frame 168, width=1280, height = 720, fmt = 0
-15:20:49.694	 :yuv fmt = 0
-15:20:49.757	 :recv frame 169, width=1280, height = 720, fmt = 0
-15:20:49.757	 :yuv fmt = 0
-15:20:49.816	 :recv frame 170, width=1280, height = 720, fmt = 0
-15:20:49.816	 :yuv fmt = 0
-15:20:49.817	 :recv frame 171, width=1280, height = 720, fmt = 0
-15:20:49.817	 :yuv fmt = 0
-15:20:49.918	 :recv frame 172, width=1280, height = 720, fmt = 0
-15:20:49.918	 :yuv fmt = 0
-15:20:49.924	 :recv frame 173, width=1280, height = 720, fmt = 0
-15:20:49.924	 :yuv fmt = 0
-15:20:50.020	 :recv frame 174, width=1280, height = 720, fmt = 0
-15:20:50.020	 :yuv fmt = 0
-15:20:50.075	 :recv frame 175, width=1280, height = 720, fmt = 0
-15:20:50.075	 :yuv fmt = 0
-15:20:50.115	 :recv frame 176, width=1280, height = 720, fmt = 0
-15:20:50.115	 :yuv fmt = 0
-15:20:50.127	 :recv frame 177, width=1280, height = 720, fmt = 0
-15:20:50.127	 :yuv fmt = 0
-15:20:50.185	 :recv frame 178, width=1280, height = 720, fmt = 0
-15:20:50.185	 :yuv fmt = 0
-15:20:50.305	 :recv frame 179, width=1280, height = 720, fmt = 0
-15:20:50.306	 :yuv fmt = 0
-15:20:50.307	 :recv frame 180, width=1280, height = 720, fmt = 0
-15:20:50.307	 :yuv fmt = 0
-15:20:50.356	 :recv frame 181, width=1280, height = 720, fmt = 0
-15:20:50.356	 :yuv fmt = 0
-15:20:50.404	 :recv frame 182, width=1280, height = 720, fmt = 0
-15:20:50.404	 :yuv fmt = 0
-15:20:50.465	 :recv frame 183, width=1280, height = 720, fmt = 0
-15:20:50.465	 :yuv fmt = 0
-15:20:50.525	 :recv frame 184, width=1280, height = 720, fmt = 0
-15:20:50.525	 :yuv fmt = 0
-15:20:50.526	 :recv frame 185, width=1280, height = 720, fmt = 0
-15:20:50.526	 :yuv fmt = 0
-15:20:50.574	 :recv frame 186, width=1280, height = 720, fmt = 0
-15:20:50.574	 :yuv fmt = 0
-15:20:50.685	 :recv frame 187, width=1280, height = 720, fmt = 0
-15:20:50.685	 :yuv fmt = 0
-15:20:50.686	 :recv frame 188, width=1280, height = 720, fmt = 0
-15:20:50.686	 :yuv fmt = 0
-15:20:50.745	 :recv frame 189, width=1280, height = 720, fmt = 0
-15:20:50.745	 :yuv fmt = 0
-15:20:50.806	 :recv frame 190, width=1280, height = 720, fmt = 0
-15:20:50.806	 :yuv fmt = 0
-15:20:50.865	 :recv frame 191, width=1280, height = 720, fmt = 0
-15:20:50.866	 :yuv fmt = 0
-15:20:50.915	 :recv frame 192, width=1280, height = 720, fmt = 0
-15:20:50.915	 :yuv fmt = 0
-15:20:50.916	 :recv frame 193, width=1280, height = 720, fmt = 0
-15:20:50.916	 :yuv fmt = 0
-15:20:51.050	 :recv frame 194, width=1280, height = 720, fmt = 0
-15:20:51.050	 :yuv fmt = 0
-15:20:51.052	 :recv frame 195, width=1280, height = 720, fmt = 0
-15:20:51.052	 :yuv fmt = 0
-15:20:51.104	 :recv frame 196, width=1280, height = 720, fmt = 0
-15:20:51.104	 :yuv fmt = 0
-15:20:51.170	 :recv frame 197, width=1280, height = 720, fmt = 0
-15:20:51.171	 :yuv fmt = 0
-15:20:51.224	 :recv frame 198, width=1280, height = 720, fmt = 0
-15:20:51.224	 :yuv fmt = 0
-15:20:51.274	 :recv frame 199, width=1280, height = 720, fmt = 0
-15:20:51.274	 :yuv fmt = 0
-15:20:51.275	 :recv frame 200, width=1280, height = 720, fmt = 0
-15:20:51.275	 :yuv fmt = 0
-15:20:51.533	 :recv frame 201, width=1280, height = 720, fmt = 0
-15:20:51.533	 :yuv fmt = 0
-15:20:51.534	 :recv frame 202, width=1280, height = 720, fmt = 0
-15:20:51.534	 :yuv fmt = 0
-15:20:51.536	 :recv frame 203, width=1280, height = 720, fmt = 0
-15:20:51.536	 :yuv fmt = 0
-15:20:51.537	 :recv frame 204, width=1280, height = 720, fmt = 0
-15:20:51.537	 :yuv fmt = 0
-15:20:51.538	 :recv frame 205, width=1280, height = 720, fmt = 0
-15:20:51.538	 :yuv fmt = 0
-15:20:51.625	 :recv frame 206, width=1280, height = 720, fmt = 0
-15:20:51.625	 :yuv fmt = 0
-15:20:51.675	 :recv frame 207, width=1280, height = 720, fmt = 0
-15:20:51.675	 :yuv fmt = 0
-15:20:51.677	 :recv frame 208, width=1280, height = 720, fmt = 0
-15:20:51.677	 :yuv fmt = 0
-15:20:51.736	 :recv frame 209, width=1280, height = 720, fmt = 0
-15:20:51.736	 :yuv fmt = 0
-15:20:51.785	 :recv frame 210, width=1280, height = 720, fmt = 0
-15:20:51.785	 :yuv fmt = 0
-15:20:51.845	 :recv frame 211, width=1280, height = 720, fmt = 0
-15:20:51.845	 :yuv fmt = 0
-15:20:51.904	 :recv frame 212, width=1280, height = 720, fmt = 0
-15:20:51.904	 :yuv fmt = 0
-15:20:51.955	 :recv frame 213, width=1280, height = 720, fmt = 0
-15:20:51.955	 :yuv fmt = 0
-15:20:52.014	 :recv frame 214, width=1280, height = 720, fmt = 0
-15:20:52.015	 :yuv fmt = 0
-15:20:52.065	 :recv frame 215, width=1280, height = 720, fmt = 0
-15:20:52.065	 :yuv fmt = 0
-15:20:52.066	 :recv frame 216, width=1280, height = 720, fmt = 0
-15:20:52.066	 :yuv fmt = 0
-15:20:52.175	 :recv frame 217, width=1280, height = 720, fmt = 0
-15:20:52.175	 :yuv fmt = 0
-15:20:52.184	 :recv frame 218, width=1280, height = 720, fmt = 0
-15:20:52.184	 :yuv fmt = 0
-15:20:52.235	 :recv frame 219, width=1280, height = 720, fmt = 0
-15:20:52.235	 :yuv fmt = 0
-15:20:52.297	 :recv frame 220, width=1280, height = 720, fmt = 0
-15:20:52.297	 :yuv fmt = 0
-15:20:52.355	 :recv frame 221, width=1280, height = 720, fmt = 0
-15:20:52.355	 :yuv fmt = 0
-15:20:52.407	 :recv frame 222, width=1280, height = 720, fmt = 0
-15:20:52.407	 :yuv fmt = 0
-15:20:52.465	 :recv frame 223, width=1280, height = 720, fmt = 0
-15:20:52.465	 :yuv fmt = 0
-15:20:52.466	 :recv frame 224, width=1280, height = 720, fmt = 0
-15:20:52.466	 :yuv fmt = 0
-15:20:52.596	 :recv frame 225, width=1280, height = 720, fmt = 0
-15:20:52.596	 :yuv fmt = 0
-15:20:52.598	 :recv frame 226, width=1280, height = 720, fmt = 0
-15:20:52.598	 :yuv fmt = 0
-15:20:52.654	 :recv frame 227, width=1280, height = 720, fmt = 0
-15:20:52.654	 :yuv fmt = 0
-15:20:52.717	 :recv frame 228, width=1280, height = 720, fmt = 0
-15:20:52.717	 :yuv fmt = 0
-15:20:52.776	 :recv frame 229, width=1280, height = 720, fmt = 0
-15:20:52.776	 :yuv fmt = 0
-15:20:52.777	 :recv frame 230, width=1280, height = 720, fmt = 0
-15:20:52.777	 :yuv fmt = 0
-15:20:52.834	 :recv frame 231, width=1280, height = 720, fmt = 0
-15:20:52.834	 :yuv fmt = 0
-15:20:52.945	 :recv frame 232, width=1280, height = 720, fmt = 0
-15:20:52.945	 :yuv fmt = 0
-15:20:52.946	 :recv frame 233, width=1280, height = 720, fmt = 0
-15:20:52.946	 :yuv fmt = 0
-15:20:53.004	 :recv frame 234, width=1280, height = 720, fmt = 0
-15:20:53.004	 :yuv fmt = 0
-15:20:53.056	 :channel state = 0, error=0
-15:20:53.056	 :stream status: live stopped
+11:26:07.456	 :live url = rtsp://192.168.50.108/main_ch
+11:26:07.457	 :channel state = 80, error=0
+11:26:07.457	 :stream status: connecting
+11:26:11.498	 :channel state = 1, error=0
+11:26:11.498	 :stream status: live connected
+11:26:11.571	 :channel state = 103, error=0
+11:26:11.593	 :recv frame 1, width=1280, height = 720, fmt = 0
+11:26:11.593	 :yuv fmt = 0
+11:26:11.596	 :recv frame 2, width=1280, height = 720, fmt = 0
+11:26:11.596	 :yuv fmt = 0
+11:26:11.598	 :recv frame 3, width=1280, height = 720, fmt = 0
+11:26:11.598	 :yuv fmt = 0
+11:26:11.600	 :recv frame 4, width=1280, height = 720, fmt = 0
+11:26:11.600	 :yuv fmt = 0
+11:26:11.601	 :recv frame 5, width=1280, height = 720, fmt = 0
+11:26:11.601	 :yuv fmt = 0
+11:26:11.602	 :recv frame 6, width=1280, height = 720, fmt = 0
+11:26:11.602	 :yuv fmt = 0
+11:26:11.603	 :recv frame 7, width=1280, height = 720, fmt = 0
+11:26:11.603	 :yuv fmt = 0
+11:26:11.604	 :recv frame 8, width=1280, height = 720, fmt = 0
+11:26:11.604	 :yuv fmt = 0
+11:26:11.606	 :recv frame 9, width=1280, height = 720, fmt = 0
+11:26:11.606	 :yuv fmt = 0
+11:26:11.607	 :recv frame 10, width=1280, height = 720, fmt = 0
+11:26:11.607	 :yuv fmt = 0
+11:26:11.608	 :recv frame 11, width=1280, height = 720, fmt = 0
+11:26:11.608	 :yuv fmt = 0
+11:26:11.610	 :recv frame 12, width=1280, height = 720, fmt = 0
+11:26:11.610	 :yuv fmt = 0
+11:26:11.611	 :recv frame 13, width=1280, height = 720, fmt = 0
+11:26:11.611	 :yuv fmt = 0
+11:26:11.612	 :recv frame 14, width=1280, height = 720, fmt = 0
+11:26:11.612	 :yuv fmt = 0
+11:26:11.614	 :recv frame 15, width=1280, height = 720, fmt = 0
+11:26:11.614	 :yuv fmt = 0
+11:26:11.615	 :recv frame 16, width=1280, height = 720, fmt = 0
+11:26:11.615	 :yuv fmt = 0
+11:26:11.617	 :recv frame 17, width=1280, height = 720, fmt = 0
+11:26:11.617	 :yuv fmt = 0
+11:26:11.618	 :recv frame 18, width=1280, height = 720, fmt = 0
+11:26:11.618	 :yuv fmt = 0
+11:26:11.619	 :recv frame 19, width=1280, height = 720, fmt = 0
+11:26:11.619	 :yuv fmt = 0
+11:26:11.620	 :recv frame 20, width=1280, height = 720, fmt = 0
+11:26:11.620	 :yuv fmt = 0
+11:26:11.621	 :recv frame 21, width=1280, height = 720, fmt = 0
+11:26:11.621	 :yuv fmt = 0
+11:26:11.622	 :recv frame 22, width=1280, height = 720, fmt = 0
+11:26:11.622	 :yuv fmt = 0
+11:26:11.623	 :recv frame 23, width=1280, height = 720, fmt = 0
+11:26:11.623	 :yuv fmt = 0
+11:26:11.624	 :recv frame 24, width=1280, height = 720, fmt = 0
+11:26:11.624	 :yuv fmt = 0
+11:26:11.626	 :recv frame 25, width=1280, height = 720, fmt = 0
+11:26:11.626	 :yuv fmt = 0
+11:26:11.627	 :recv frame 26, width=1280, height = 720, fmt = 0
+11:26:11.627	 :yuv fmt = 0
+11:26:11.628	 :recv frame 27, width=1280, height = 720, fmt = 0
+11:26:11.628	 :yuv fmt = 0
+11:26:11.629	 :recv frame 28, width=1280, height = 720, fmt = 0
+11:26:11.629	 :yuv fmt = 0
+11:26:11.631	 :recv frame 29, width=1280, height = 720, fmt = 0
+11:26:11.631	 :yuv fmt = 0
+11:26:11.632	 :recv frame 30, width=1280, height = 720, fmt = 0
+11:26:11.632	 :yuv fmt = 0
+11:26:11.633	 :recv frame 31, width=1280, height = 720, fmt = 0
+11:26:11.633	 :yuv fmt = 0
+11:26:11.634	 :recv frame 32, width=1280, height = 720, fmt = 0
+11:26:11.635	 :yuv fmt = 0
+11:26:11.636	 :recv frame 33, width=1280, height = 720, fmt = 0
+11:26:11.636	 :yuv fmt = 0
+11:26:11.636	 :recv frame 34, width=1280, height = 720, fmt = 0
+11:26:11.636	 :yuv fmt = 0
+11:26:11.638	 :recv frame 35, width=1280, height = 720, fmt = 0
+11:26:11.638	 :yuv fmt = 0
+11:26:11.639	 :recv frame 36, width=1280, height = 720, fmt = 0
+11:26:11.639	 :yuv fmt = 0
+11:26:11.640	 :recv frame 37, width=1280, height = 720, fmt = 0
+11:26:11.640	 :yuv fmt = 0
+11:26:11.641	 :recv frame 38, width=1280, height = 720, fmt = 0
+11:26:11.641	 :yuv fmt = 0
+11:26:11.642	 :recv frame 39, width=1280, height = 720, fmt = 0
+11:26:11.642	 :yuv fmt = 0
+11:26:11.646	 :recv frame 40, width=1280, height = 720, fmt = 0
+11:26:11.646	 :yuv fmt = 0
+11:26:11.953	 :recv frame 41, width=1280, height = 720, fmt = 0
+11:26:11.953	 :yuv fmt = 0
+11:26:11.954	 :recv frame 42, width=1280, height = 720, fmt = 0
+11:26:11.954	 :yuv fmt = 0
+11:26:11.956	 :recv frame 43, width=1280, height = 720, fmt = 0
+11:26:11.956	 :yuv fmt = 0
+11:26:11.957	 :recv frame 44, width=1280, height = 720, fmt = 0
+11:26:11.957	 :yuv fmt = 0
+11:26:11.958	 :recv frame 45, width=1280, height = 720, fmt = 0
+11:26:11.958	 :yuv fmt = 0
+11:26:11.960	 :recv frame 46, width=1280, height = 720, fmt = 0
+11:26:11.960	 :yuv fmt = 0
+11:26:12.007	 :recv frame 47, width=1280, height = 720, fmt = 0
+11:26:12.007	 :yuv fmt = 0
+11:26:12.047	 :recv frame 48, width=1280, height = 720, fmt = 0
+11:26:12.047	 :yuv fmt = 0
+11:26:12.058	 :recv frame 49, width=1280, height = 720, fmt = 0
+11:26:12.058	 :yuv fmt = 0
+11:26:12.115	 :recv frame 50, width=1280, height = 720, fmt = 0
+11:26:12.115	 :yuv fmt = 0
+11:26:12.176	 :recv frame 51, width=1280, height = 720, fmt = 0
+11:26:12.176	 :yuv fmt = 0
+11:26:12.237	 :recv frame 52, width=1280, height = 720, fmt = 0
+11:26:12.237	 :yuv fmt = 0
+11:26:12.286	 :recv frame 53, width=1280, height = 720, fmt = 0
+11:26:12.286	 :yuv fmt = 0
+11:26:12.345	 :recv frame 54, width=1280, height = 720, fmt = 0
+11:26:12.345	 :yuv fmt = 0
+11:26:12.406	 :recv frame 55, width=1280, height = 720, fmt = 0
+11:26:12.406	 :yuv fmt = 0
+11:26:12.456	 :recv frame 56, width=1280, height = 720, fmt = 0
+11:26:12.456	 :yuv fmt = 0
+11:26:12.457	 :recv frame 57, width=1280, height = 720, fmt = 0
+11:26:12.457	 :yuv fmt = 0
+11:26:12.515	 :recv frame 58, width=1280, height = 720, fmt = 0
+11:26:12.515	 :yuv fmt = 0
+11:26:12.578	 :recv frame 59, width=1280, height = 720, fmt = 0
+11:26:12.578	 :yuv fmt = 0
+11:26:12.636	 :recv frame 60, width=1280, height = 720, fmt = 0
+11:26:12.636	 :yuv fmt = 0
+11:26:12.686	 :recv frame 61, width=1280, height = 720, fmt = 0
+11:26:12.686	 :yuv fmt = 0
+11:26:12.735	 :recv frame 62, width=1280, height = 720, fmt = 0
+11:26:12.735	 :yuv fmt = 0
+11:26:12.798	 :recv frame 63, width=1280, height = 720, fmt = 0
+11:26:12.798	 :yuv fmt = 0
+11:26:12.857	 :recv frame 64, width=1280, height = 720, fmt = 0
+11:26:12.857	 :yuv fmt = 0
+11:26:12.858	 :recv frame 65, width=1280, height = 720, fmt = 0
+11:26:12.858	 :yuv fmt = 0
+11:26:12.915	 :recv frame 66, width=1280, height = 720, fmt = 0
+11:26:12.916	 :yuv fmt = 0
+11:26:12.966	 :recv frame 67, width=1280, height = 720, fmt = 0
+11:26:12.966	 :yuv fmt = 0
+11:26:13.046	 :recv frame 68, width=1280, height = 720, fmt = 0
+11:26:13.046	 :yuv fmt = 0
+11:26:13.047	 :recv frame 69, width=1280, height = 720, fmt = 0
+11:26:13.048	 :yuv fmt = 0
+11:26:13.166	 :recv frame 70, width=1280, height = 720, fmt = 0
+11:26:13.166	 :yuv fmt = 0
+11:26:13.167	 :recv frame 71, width=1280, height = 720, fmt = 0
+11:26:13.167	 :yuv fmt = 0
+11:26:13.216	 :recv frame 72, width=1280, height = 720, fmt = 0
+11:26:13.216	 :yuv fmt = 0
+11:26:13.276	 :recv frame 73, width=1280, height = 720, fmt = 0
+11:26:13.276	 :yuv fmt = 0
+11:26:13.336	 :recv frame 74, width=1280, height = 720, fmt = 0
+11:26:13.336	 :yuv fmt = 0
+11:26:13.386	 :recv frame 75, width=1280, height = 720, fmt = 0
+11:26:13.386	 :yuv fmt = 0
+11:26:13.446	 :recv frame 76, width=1280, height = 720, fmt = 0
+11:26:13.446	 :yuv fmt = 0
+11:26:13.447	 :recv frame 77, width=1280, height = 720, fmt = 0
+11:26:13.447	 :yuv fmt = 0
+11:26:13.576	 :recv frame 78, width=1280, height = 720, fmt = 0
+11:26:13.576	 :yuv fmt = 0
+11:26:13.577	 :recv frame 79, width=1280, height = 720, fmt = 0
+11:26:13.578	 :yuv fmt = 0
+11:26:13.636	 :recv frame 80, width=1280, height = 720, fmt = 0
+11:26:13.636	 :yuv fmt = 0
+11:26:13.897	 :recv frame 81, width=1280, height = 720, fmt = 0
+11:26:13.897	 :yuv fmt = 0
+11:26:13.898	 :recv frame 82, width=1280, height = 720, fmt = 0
+11:26:13.898	 :yuv fmt = 0
+11:26:13.899	 :recv frame 83, width=1280, height = 720, fmt = 0
+11:26:13.900	 :yuv fmt = 0
+11:26:13.901	 :recv frame 84, width=1280, height = 720, fmt = 0
+11:26:13.901	 :yuv fmt = 0
+11:26:13.902	 :recv frame 85, width=1280, height = 720, fmt = 0
+11:26:13.902	 :yuv fmt = 0
+11:26:13.957	 :recv frame 86, width=1280, height = 720, fmt = 0
+11:26:13.957	 :yuv fmt = 0
+11:26:13.958	 :recv frame 87, width=1280, height = 720, fmt = 0
+11:26:13.958	 :yuv fmt = 0
+11:26:14.006	 :recv frame 88, width=1280, height = 720, fmt = 0
+11:26:14.006	 :yuv fmt = 0
+11:26:14.117	 :recv frame 89, width=1280, height = 720, fmt = 0
+11:26:14.117	 :yuv fmt = 0
+11:26:14.118	 :recv frame 90, width=1280, height = 720, fmt = 0
+11:26:14.118	 :yuv fmt = 0
+11:26:14.178	 :recv frame 91, width=1280, height = 720, fmt = 0
+11:26:14.178	 :yuv fmt = 0
+11:26:14.236	 :recv frame 92, width=1280, height = 720, fmt = 0
+11:26:14.236	 :yuv fmt = 0
+11:26:14.286	 :recv frame 93, width=1280, height = 720, fmt = 0
+11:26:14.286	 :yuv fmt = 0
+11:26:14.348	 :recv frame 94, width=1280, height = 720, fmt = 0
+11:26:14.348	 :yuv fmt = 0
+11:26:14.406	 :recv frame 95, width=1280, height = 720, fmt = 0
+11:26:14.406	 :yuv fmt = 0
+11:26:14.407	 :recv frame 96, width=1280, height = 720, fmt = 0
+11:26:14.407	 :yuv fmt = 0
+11:26:14.516	 :recv frame 97, width=1280, height = 720, fmt = 0
+11:26:14.516	 :yuv fmt = 0
+11:26:14.578	 :recv frame 98, width=1280, height = 720, fmt = 0
+11:26:14.578	 :yuv fmt = 0
+11:26:14.579	 :recv frame 99, width=1280, height = 720, fmt = 0
+11:26:14.579	 :yuv fmt = 0
+11:26:14.636	 :recv frame 100, width=1280, height = 720, fmt = 0
+11:26:14.636	 :yuv fmt = 0
+11:26:14.686	 :recv frame 101, width=1280, height = 720, fmt = 0
+11:26:14.686	 :yuv fmt = 0
+11:26:14.746	 :recv frame 102, width=1280, height = 720, fmt = 0
+11:26:14.746	 :yuv fmt = 0
+11:26:14.748	 :recv frame 103, width=1280, height = 720, fmt = 0
+11:26:14.748	 :yuv fmt = 0
+11:26:14.799	 :recv frame 104, width=1280, height = 720, fmt = 0
+11:26:14.799	 :yuv fmt = 0
+11:26:14.917	 :recv frame 105, width=1280, height = 720, fmt = 0
+11:26:14.917	 :yuv fmt = 0
+11:26:14.918	 :recv frame 106, width=1280, height = 720, fmt = 0
+11:26:14.918	 :yuv fmt = 0
+11:26:14.966	 :recv frame 107, width=1280, height = 720, fmt = 0
+11:26:14.966	 :yuv fmt = 0
+11:26:15.077	 :recv frame 108, width=1280, height = 720, fmt = 0
+11:26:15.077	 :yuv fmt = 0
+11:26:15.079	 :recv frame 109, width=1280, height = 720, fmt = 0
+11:26:15.079	 :yuv fmt = 0
+11:26:15.135	 :recv frame 110, width=1280, height = 720, fmt = 0
+11:26:15.135	 :yuv fmt = 0
+11:26:15.197	 :recv frame 111, width=1280, height = 720, fmt = 0
+11:26:15.197	 :yuv fmt = 0
+11:26:15.258	 :recv frame 112, width=1280, height = 720, fmt = 0
+11:26:15.258	 :yuv fmt = 0
+11:26:15.306	 :recv frame 113, width=1280, height = 720, fmt = 0
+11:26:15.306	 :yuv fmt = 0
+11:26:15.307	 :recv frame 114, width=1280, height = 720, fmt = 0
+11:26:15.307	 :yuv fmt = 0
+11:26:15.366	 :recv frame 115, width=1280, height = 720, fmt = 0
+11:26:15.366	 :yuv fmt = 0
+11:26:15.476	 :recv frame 116, width=1280, height = 720, fmt = 0
+11:26:15.476	 :yuv fmt = 0
+11:26:15.478	 :recv frame 117, width=1280, height = 720, fmt = 0
+11:26:15.478	 :yuv fmt = 0
+11:26:15.526	 :recv frame 118, width=1280, height = 720, fmt = 0
+11:26:15.526	 :yuv fmt = 0
+11:26:15.586	 :recv frame 119, width=1280, height = 720, fmt = 0
+11:26:15.586	 :yuv fmt = 0
+11:26:15.647	 :recv frame 120, width=1280, height = 720, fmt = 0
+11:26:15.647	 :yuv fmt = 0
+11:26:17.619	 :recv frame 121, width=1280, height = 720, fmt = 0
+11:26:17.619	 :yuv fmt = 0
+11:26:19.656	 :recv frame 122, width=1280, height = 720, fmt = 0
+11:26:19.656	 :yuv fmt = 0
+11:26:19.931	 :recv frame 123, width=1280, height = 720, fmt = 0
+11:26:19.931	 :yuv fmt = 0
+11:26:19.932	 :recv frame 124, width=1280, height = 720, fmt = 0
+11:26:19.932	 :yuv fmt = 0
+11:26:19.934	 :recv frame 125, width=1280, height = 720, fmt = 0
+11:26:19.934	 :yuv fmt = 0
+11:26:19.935	 :recv frame 126, width=1280, height = 720, fmt = 0
+11:26:19.935	 :yuv fmt = 0
+11:26:19.936	 :recv frame 127, width=1280, height = 720, fmt = 0
+11:26:19.936	 :yuv fmt = 0
+11:26:19.938	 :recv frame 128, width=1280, height = 720, fmt = 0
+11:26:19.938	 :yuv fmt = 0
+11:26:20.008	 :recv frame 129, width=1280, height = 720, fmt = 0
+11:26:20.008	 :yuv fmt = 0
+11:26:20.015	 :recv frame 130, width=1280, height = 720, fmt = 0
+11:26:20.015	 :yuv fmt = 0
+11:26:20.065	 :recv frame 131, width=1280, height = 720, fmt = 0
+11:26:20.065	 :yuv fmt = 0
+11:26:20.126	 :recv frame 132, width=1280, height = 720, fmt = 0
+11:26:20.126	 :yuv fmt = 0
+11:26:20.186	 :recv frame 133, width=1280, height = 720, fmt = 0
+11:26:20.186	 :yuv fmt = 0
+11:26:20.238	 :recv frame 134, width=1280, height = 720, fmt = 0
+11:26:20.238	 :yuv fmt = 0
+11:26:20.296	 :recv frame 135, width=1280, height = 720, fmt = 0
+11:26:20.296	 :yuv fmt = 0
+11:26:20.297	 :recv frame 136, width=1280, height = 720, fmt = 0
+11:26:20.297	 :yuv fmt = 0
+11:26:20.426	 :recv frame 137, width=1280, height = 720, fmt = 0
+11:26:20.426	 :yuv fmt = 0
+11:26:20.427	 :recv frame 138, width=1280, height = 720, fmt = 0
+11:26:20.427	 :yuv fmt = 0
+11:26:20.485	 :recv frame 139, width=1280, height = 720, fmt = 0
+11:26:20.485	 :yuv fmt = 0
+11:26:20.546	 :recv frame 140, width=1280, height = 720, fmt = 0
+11:26:20.546	 :yuv fmt = 0
+11:26:20.606	 :recv frame 141, width=1280, height = 720, fmt = 0
+11:26:20.606	 :yuv fmt = 0
+11:26:20.657	 :recv frame 142, width=1280, height = 720, fmt = 0
+11:26:20.657	 :yuv fmt = 0
+11:26:20.658	 :recv frame 143, width=1280, height = 720, fmt = 0
+11:26:20.659	 :yuv fmt = 0
+11:26:20.715	 :recv frame 144, width=1280, height = 720, fmt = 0
+11:26:20.715	 :yuv fmt = 0
+11:26:20.776	 :recv frame 145, width=1280, height = 720, fmt = 0
+11:26:20.777	 :yuv fmt = 0
+11:26:20.826	 :recv frame 146, width=1280, height = 720, fmt = 0
+11:26:20.826	 :yuv fmt = 0
+11:26:20.885	 :recv frame 147, width=1280, height = 720, fmt = 0
+11:26:20.885	 :yuv fmt = 0
+11:26:20.946	 :recv frame 148, width=1280, height = 720, fmt = 0
+11:26:20.946	 :yuv fmt = 0
+11:26:20.996	 :recv frame 149, width=1280, height = 720, fmt = 0
+11:26:20.996	 :yuv fmt = 0
+11:26:21.055	 :recv frame 150, width=1280, height = 720, fmt = 0
+11:26:21.055	 :yuv fmt = 0
+11:26:21.056	 :recv frame 151, width=1280, height = 720, fmt = 0
+11:26:21.056	 :yuv fmt = 0
+11:26:21.166	 :recv frame 152, width=1280, height = 720, fmt = 0
+11:26:21.166	 :yuv fmt = 0
+11:26:21.167	 :recv frame 153, width=1280, height = 720, fmt = 0
+11:26:21.167	 :yuv fmt = 0
+11:26:21.228	 :recv frame 154, width=1280, height = 720, fmt = 0
+11:26:21.228	 :yuv fmt = 0
+11:26:21.285	 :recv frame 155, width=1280, height = 720, fmt = 0
+11:26:21.285	 :yuv fmt = 0
+11:26:21.335	 :recv frame 156, width=1280, height = 720, fmt = 0
+11:26:21.335	 :yuv fmt = 0
+11:26:21.395	 :recv frame 157, width=1280, height = 720, fmt = 0
+11:26:21.395	 :yuv fmt = 0
+11:26:21.447	 :recv frame 158, width=1280, height = 720, fmt = 0
+11:26:21.447	 :yuv fmt = 0
+11:26:21.448	 :recv frame 159, width=1280, height = 720, fmt = 0
+11:26:21.448	 :yuv fmt = 0
+11:26:21.566	 :recv frame 160, width=1280, height = 720, fmt = 0
+11:26:21.566	 :yuv fmt = 0
+11:26:21.568	 :recv frame 161, width=1280, height = 720, fmt = 0
+11:26:21.568	 :yuv fmt = 0
+11:26:21.616	 :recv frame 162, width=1280, height = 720, fmt = 0
+11:26:21.616	 :yuv fmt = 0
+11:26:21.890	 :recv frame 163, width=1280, height = 720, fmt = 0
+11:26:21.890	 :yuv fmt = 0
+11:26:21.891	 :recv frame 164, width=1280, height = 720, fmt = 0
+11:26:21.891	 :yuv fmt = 0
+11:26:21.892	 :recv frame 165, width=1280, height = 720, fmt = 0
+11:26:21.892	 :yuv fmt = 0
+11:26:21.894	 :recv frame 166, width=1280, height = 720, fmt = 0
+11:26:21.894	 :yuv fmt = 0
+11:26:21.895	 :recv frame 167, width=1280, height = 720, fmt = 0
+11:26:21.895	 :yuv fmt = 0
+11:26:21.925	 :recv frame 168, width=1280, height = 720, fmt = 0
+11:26:21.926	 :yuv fmt = 0
+11:26:21.986	 :recv frame 169, width=1280, height = 720, fmt = 0
+11:26:21.986	 :yuv fmt = 0
+11:26:22.046	 :recv frame 170, width=1280, height = 720, fmt = 0
+11:26:22.046	 :yuv fmt = 0
+11:26:22.096	 :recv frame 171, width=1280, height = 720, fmt = 0
+11:26:22.096	 :yuv fmt = 0
+11:26:22.156	 :recv frame 172, width=1280, height = 720, fmt = 0
+11:26:22.156	 :yuv fmt = 0
+11:26:22.157	 :recv frame 173, width=1280, height = 720, fmt = 0
+11:26:22.157	 :yuv fmt = 0
+11:26:22.205	 :recv frame 174, width=1280, height = 720, fmt = 0
+11:26:22.205	 :yuv fmt = 0
+11:26:22.327	 :recv frame 175, width=1280, height = 720, fmt = 0
+11:26:22.327	 :yuv fmt = 0
+11:26:22.328	 :recv frame 176, width=1280, height = 720, fmt = 0
+11:26:22.328	 :yuv fmt = 0
+11:26:22.376	 :recv frame 177, width=1280, height = 720, fmt = 0
+11:26:22.376	 :yuv fmt = 0
+11:26:22.436	 :recv frame 178, width=1280, height = 720, fmt = 0
+11:26:22.436	 :yuv fmt = 0
+11:26:22.437	 :recv frame 179, width=1280, height = 720, fmt = 0
+11:26:22.437	 :yuv fmt = 0
+11:26:22.546	 :recv frame 180, width=1280, height = 720, fmt = 0
+11:26:22.546	 :yuv fmt = 0
+11:26:22.606	 :recv frame 181, width=1280, height = 720, fmt = 0
+11:26:22.606	 :yuv fmt = 0
+11:26:22.607	 :recv frame 182, width=1280, height = 720, fmt = 0
+11:26:22.607	 :yuv fmt = 0
+11:26:22.717	 :recv frame 183, width=1280, height = 720, fmt = 0
+11:26:22.717	 :yuv fmt = 0
+11:26:22.718	 :recv frame 184, width=1280, height = 720, fmt = 0
+11:26:22.718	 :yuv fmt = 0
+11:26:22.777	 :recv frame 185, width=1280, height = 720, fmt = 0
+11:26:22.777	 :yuv fmt = 0
+11:26:22.837	 :recv frame 186, width=1280, height = 720, fmt = 0
+11:26:22.837	 :yuv fmt = 0
+11:26:22.886	 :recv frame 187, width=1280, height = 720, fmt = 0
+11:26:22.886	 :yuv fmt = 0
+11:26:22.945	 :recv frame 188, width=1280, height = 720, fmt = 0
+11:26:22.945	 :yuv fmt = 0
+11:26:22.996	 :recv frame 189, width=1280, height = 720, fmt = 0
+11:26:22.996	 :yuv fmt = 0
+11:26:23.055	 :recv frame 190, width=1280, height = 720, fmt = 0
+11:26:23.055	 :yuv fmt = 0
+11:26:23.116	 :recv frame 191, width=1280, height = 720, fmt = 0
+11:26:23.116	 :yuv fmt = 0
+11:26:23.117	 :recv frame 192, width=1280, height = 720, fmt = 0
+11:26:23.117	 :yuv fmt = 0
+11:26:23.167	 :recv frame 193, width=1280, height = 720, fmt = 0
+11:26:23.167	 :yuv fmt = 0
+11:26:23.227	 :recv frame 194, width=1280, height = 720, fmt = 0
+11:26:23.227	 :yuv fmt = 0
+11:26:23.286	 :recv frame 195, width=1280, height = 720, fmt = 0
+11:26:23.286	 :yuv fmt = 0
+11:26:23.336	 :recv frame 196, width=1280, height = 720, fmt = 0
+11:26:23.336	 :yuv fmt = 0
+11:26:23.396	 :recv frame 197, width=1280, height = 720, fmt = 0
+11:26:23.396	 :yuv fmt = 0
+11:26:23.455	 :recv frame 198, width=1280, height = 720, fmt = 0
+11:26:23.455	 :yuv fmt = 0
+11:26:23.506	 :recv frame 199, width=1280, height = 720, fmt = 0
+11:26:23.506	 :yuv fmt = 0
+11:26:23.507	 :recv frame 200, width=1280, height = 720, fmt = 0
+11:26:23.507	 :yuv fmt = 0
+11:26:23.565	 :recv frame 201, width=1280, height = 720, fmt = 0
+11:26:23.565	 :yuv fmt = 0
+11:26:23.661	 :recv frame 202, width=1280, height = 720, fmt = 0
+11:26:23.661	 :yuv fmt = 0
+11:26:25.616	 :recv frame 203, width=1280, height = 720, fmt = 0
+11:26:25.616	 :yuv fmt = 0
+11:26:25.886	 :recv frame 204, width=1280, height = 720, fmt = 0
+11:26:25.886	 :yuv fmt = 0
+11:26:25.888	 :recv frame 205, width=1280, height = 720, fmt = 0
+11:26:25.888	 :yuv fmt = 0
+11:26:25.890	 :recv frame 206, width=1280, height = 720, fmt = 0
+11:26:25.890	 :yuv fmt = 0
+11:26:25.891	 :recv frame 207, width=1280, height = 720, fmt = 0
+11:26:25.891	 :yuv fmt = 0
+11:26:25.927	 :recv frame 208, width=1280, height = 720, fmt = 0
+11:26:25.927	 :yuv fmt = 0
+11:26:25.928	 :recv frame 209, width=1280, height = 720, fmt = 0
+11:26:25.928	 :yuv fmt = 0
+11:26:25.989	 :recv frame 210, width=1280, height = 720, fmt = 0
+11:26:25.989	 :yuv fmt = 0
+11:26:26.046	 :recv frame 211, width=1280, height = 720, fmt = 0
+11:26:26.046	 :yuv fmt = 0
+11:26:26.096	 :recv frame 212, width=1280, height = 720, fmt = 0
+11:26:26.096	 :yuv fmt = 0
+11:26:26.156	 :recv frame 213, width=1280, height = 720, fmt = 0
+11:26:26.156	 :yuv fmt = 0
+11:26:26.157	 :recv frame 214, width=1280, height = 720, fmt = 0
+11:26:26.157	 :yuv fmt = 0
+11:26:26.215	 :recv frame 215, width=1280, height = 720, fmt = 0
+11:26:26.215	 :yuv fmt = 0
+11:26:26.326	 :recv frame 216, width=1280, height = 720, fmt = 0
+11:26:26.326	 :yuv fmt = 0
+11:26:26.327	 :recv frame 217, width=1280, height = 720, fmt = 0
+11:26:26.328	 :yuv fmt = 0
+11:26:26.386	 :recv frame 218, width=1280, height = 720, fmt = 0
+11:26:26.386	 :yuv fmt = 0
+11:26:26.435	 :recv frame 219, width=1280, height = 720, fmt = 0
+11:26:26.435	 :yuv fmt = 0
+11:26:26.500	 :recv frame 220, width=1280, height = 720, fmt = 0
+11:26:26.500	 :yuv fmt = 0
+11:26:26.556	 :recv frame 221, width=1280, height = 720, fmt = 0
+11:26:26.556	 :yuv fmt = 0
+11:26:26.557	 :recv frame 222, width=1280, height = 720, fmt = 0
+11:26:26.557	 :yuv fmt = 0
+11:26:26.606	 :recv frame 223, width=1280, height = 720, fmt = 0
+11:26:26.606	 :yuv fmt = 0
+11:26:26.717	 :recv frame 224, width=1280, height = 720, fmt = 0
+11:26:26.717	 :yuv fmt = 0
+11:26:26.718	 :recv frame 225, width=1280, height = 720, fmt = 0
+11:26:26.718	 :yuv fmt = 0
+11:26:26.777	 :recv frame 226, width=1280, height = 720, fmt = 0
+11:26:26.777	 :yuv fmt = 0
+11:26:26.836	 :recv frame 227, width=1280, height = 720, fmt = 0
+11:26:26.836	 :yuv fmt = 0
+11:26:26.886	 :recv frame 228, width=1280, height = 720, fmt = 0
+11:26:26.886	 :yuv fmt = 0
+11:26:26.946	 :recv frame 229, width=1280, height = 720, fmt = 0
+11:26:26.946	 :yuv fmt = 0
+11:26:26.947	 :recv frame 230, width=1280, height = 720, fmt = 0
+11:26:26.947	 :yuv fmt = 0
+11:26:27.086	 :recv frame 231, width=1280, height = 720, fmt = 0
+11:26:27.086	 :yuv fmt = 0
+11:26:27.087	 :recv frame 232, width=1280, height = 720, fmt = 0
+11:26:27.087	 :yuv fmt = 0
+11:26:27.162	 :recv frame 233, width=1280, height = 720, fmt = 0
+11:26:27.162	 :yuv fmt = 0
+11:26:27.164	 :recv frame 234, width=1280, height = 720, fmt = 0
+11:26:27.164	 :yuv fmt = 0
+11:26:27.225	 :recv frame 235, width=1280, height = 720, fmt = 0
+11:26:27.225	 :yuv fmt = 0
+11:26:27.286	 :recv frame 236, width=1280, height = 720, fmt = 0
+11:26:27.286	 :yuv fmt = 0
+11:26:27.335	 :recv frame 237, width=1280, height = 720, fmt = 0
+11:26:27.335	 :yuv fmt = 0
+11:26:27.395	 :recv frame 238, width=1280, height = 720, fmt = 0
+11:26:27.395	 :yuv fmt = 0
+11:26:27.455	 :recv frame 239, width=1280, height = 720, fmt = 0
+11:26:27.455	 :yuv fmt = 0
+11:26:27.505	 :recv frame 240, width=1280, height = 720, fmt = 0
+11:26:27.505	 :yuv fmt = 0
+11:26:27.506	 :recv frame 241, width=1280, height = 720, fmt = 0
+11:26:27.506	 :yuv fmt = 0
+11:26:27.565	 :recv frame 242, width=1280, height = 720, fmt = 0
+11:26:27.565	 :yuv fmt = 0
+11:26:27.627	 :recv frame 243, width=1280, height = 720, fmt = 0
+11:26:27.627	 :yuv fmt = 0
+11:26:29.626	 :recv frame 244, width=1280, height = 720, fmt = 0
+11:26:29.626	 :yuv fmt = 0
+11:26:29.873	 :recv frame 245, width=1280, height = 720, fmt = 0
+11:26:29.873	 :yuv fmt = 0
+11:26:29.875	 :recv frame 246, width=1280, height = 720, fmt = 0
+11:26:29.875	 :yuv fmt = 0
+11:26:29.876	 :recv frame 247, width=1280, height = 720, fmt = 0
+11:26:29.876	 :yuv fmt = 0
+11:26:29.878	 :recv frame 248, width=1280, height = 720, fmt = 0
+11:26:29.878	 :yuv fmt = 0
+11:26:29.885	 :recv frame 249, width=1280, height = 720, fmt = 0
+11:26:29.885	 :yuv fmt = 0
+11:26:29.936	 :recv frame 250, width=1280, height = 720, fmt = 0
+11:26:29.936	 :yuv fmt = 0
+11:26:29.986	 :recv frame 251, width=1280, height = 720, fmt = 0
+11:26:29.986	 :yuv fmt = 0
+11:26:30.013	 :recv frame 252, width=1280, height = 720, fmt = 0
+11:26:30.013	 :yuv fmt = 0
+11:26:30.077	 :recv frame 253, width=1280, height = 720, fmt = 0
+11:26:30.077	 :yuv fmt = 0
+11:26:30.151	 :recv frame 254, width=1280, height = 720, fmt = 0
+11:26:30.151	 :yuv fmt = 0
+11:26:30.198	 :recv frame 255, width=1280, height = 720, fmt = 0
+11:26:30.198	 :yuv fmt = 0
+11:26:30.273	 :recv frame 256, width=1280, height = 720, fmt = 0
+11:26:30.273	 :yuv fmt = 0
+11:26:30.289	 :recv frame 257, width=1280, height = 720, fmt = 0
+11:26:30.289	 :yuv fmt = 0
+11:26:30.324	 :recv frame 258, width=1280, height = 720, fmt = 0
+11:26:30.324	 :yuv fmt = 0
+11:26:30.353	 :recv frame 259, width=1280, height = 720, fmt = 0
+11:26:30.353	 :yuv fmt = 0
+11:26:30.402	 :recv frame 260, width=1280, height = 720, fmt = 0
+11:26:30.402	 :yuv fmt = 0
+11:26:30.508	 :recv frame 261, width=1280, height = 720, fmt = 0
+11:26:30.508	 :yuv fmt = 0
+11:26:30.520	 :recv frame 262, width=1280, height = 720, fmt = 0
+11:26:30.520	 :yuv fmt = 0
+11:26:30.553	 :recv frame 263, width=1280, height = 720, fmt = 0
+11:26:30.553	 :yuv fmt = 0
+11:26:30.598	 :recv frame 264, width=1280, height = 720, fmt = 0
+11:26:30.598	 :yuv fmt = 0
+11:26:30.664	 :recv frame 265, width=1280, height = 720, fmt = 0
+11:26:30.664	 :yuv fmt = 0
+11:26:30.720	 :recv frame 266, width=1280, height = 720, fmt = 0
+11:26:30.720	 :yuv fmt = 0
+11:26:30.753	 :recv frame 267, width=1280, height = 720, fmt = 0
+11:26:30.753	 :yuv fmt = 0
+11:26:30.837	 :recv frame 268, width=1280, height = 720, fmt = 0
+11:26:30.837	 :yuv fmt = 0
+11:26:30.874	 :recv frame 269, width=1280, height = 720, fmt = 0
+11:26:30.874	 :yuv fmt = 0
+11:26:30.920	 :recv frame 270, width=1280, height = 720, fmt = 0
+11:26:30.920	 :yuv fmt = 0
+11:26:30.953	 :recv frame 271, width=1280, height = 720, fmt = 0
+11:26:30.954	 :yuv fmt = 0
+11:26:31.026	 :recv frame 272, width=1280, height = 720, fmt = 0
+11:26:31.026	 :yuv fmt = 0
+11:26:31.072	 :recv frame 273, width=1280, height = 720, fmt = 0
+11:26:31.072	 :yuv fmt = 0
+11:26:31.118	 :recv frame 274, width=1280, height = 720, fmt = 0
+11:26:31.118	 :yuv fmt = 0
+11:26:31.198	 :recv frame 275, width=1280, height = 720, fmt = 0
+11:26:31.198	 :yuv fmt = 0
+11:26:31.228	 :recv frame 276, width=1280, height = 720, fmt = 0
+11:26:31.228	 :yuv fmt = 0
+11:26:31.278	 :recv frame 277, width=1280, height = 720, fmt = 0
+11:26:31.278	 :yuv fmt = 0
+11:26:31.302	 :recv frame 278, width=1280, height = 720, fmt = 0
+11:26:31.302	 :yuv fmt = 0
+11:26:31.398	 :recv frame 279, width=1280, height = 720, fmt = 0
+11:26:31.398	 :yuv fmt = 0
+11:26:31.439	 :recv frame 280, width=1280, height = 720, fmt = 0
+11:26:31.439	 :yuv fmt = 0
+11:26:31.495	 :recv frame 281, width=1280, height = 720, fmt = 0
+11:26:31.495	 :yuv fmt = 0
+11:26:31.512	 :recv frame 282, width=1280, height = 720, fmt = 0
+11:26:31.512	 :yuv fmt = 0
+11:26:31.549	 :recv frame 283, width=1280, height = 720, fmt = 0
+11:26:31.549	 :yuv fmt = 0
+11:26:31.664	 :recv frame 284, width=1280, height = 720, fmt = 0
+11:26:31.664	 :yuv fmt = 0
+11:26:33.604	 :recv frame 285, width=1280, height = 720, fmt = 0
+11:26:33.604	 :yuv fmt = 0
+11:26:33.746	 :recv frame 286, width=1280, height = 720, fmt = 0
+11:26:33.746	 :yuv fmt = 0
+11:26:33.750	 :recv frame 287, width=1280, height = 720, fmt = 0
+11:26:33.750	 :yuv fmt = 0
+11:26:33.785	 :recv frame 288, width=1280, height = 720, fmt = 0
+11:26:33.785	 :yuv fmt = 0
+11:26:33.848	 :recv frame 289, width=1280, height = 720, fmt = 0
+11:26:33.848	 :yuv fmt = 0
+11:26:33.882	 :recv frame 290, width=1280, height = 720, fmt = 0
+11:26:33.882	 :yuv fmt = 0
+11:26:33.948	 :recv frame 291, width=1280, height = 720, fmt = 0
+11:26:33.948	 :yuv fmt = 0
+11:26:33.961	 :recv frame 292, width=1280, height = 720, fmt = 0
+11:26:33.961	 :yuv fmt = 0
+11:26:33.994	 :recv frame 293, width=1280, height = 720, fmt = 0
+11:26:33.994	 :yuv fmt = 0
+11:26:34.080	 :recv frame 294, width=1280, height = 720, fmt = 0
+11:26:34.080	 :yuv fmt = 0
+11:26:34.117	 :recv frame 295, width=1280, height = 720, fmt = 0
+11:26:34.117	 :yuv fmt = 0
+11:26:34.155	 :recv frame 296, width=1280, height = 720, fmt = 0
+11:26:34.155	 :yuv fmt = 0
+11:26:34.228	 :recv frame 297, width=1280, height = 720, fmt = 0
+11:26:34.228	 :yuv fmt = 0
+11:26:34.277	 :recv frame 298, width=1280, height = 720, fmt = 0
+11:26:34.277	 :yuv fmt = 0
+11:26:34.318	 :recv frame 299, width=1280, height = 720, fmt = 0
+11:26:34.318	 :yuv fmt = 0
+11:26:34.356	 :recv frame 300, width=1280, height = 720, fmt = 0
+11:26:34.356	 :yuv fmt = 0
+11:26:34.396	 :recv frame 301, width=1280, height = 720, fmt = 0
+11:26:34.396	 :yuv fmt = 0
+11:26:34.479	 :recv frame 302, width=1280, height = 720, fmt = 0
+11:26:34.479	 :yuv fmt = 0
+11:26:34.515	 :recv frame 303, width=1280, height = 720, fmt = 0
+11:26:34.515	 :yuv fmt = 0
+11:26:34.566	 :recv frame 304, width=1280, height = 720, fmt = 0
+11:26:34.566	 :yuv fmt = 0
+11:26:34.597	 :recv frame 305, width=1280, height = 720, fmt = 0
+11:26:34.597	 :yuv fmt = 0
+11:26:34.666	 :recv frame 306, width=1280, height = 720, fmt = 0
+11:26:34.666	 :yuv fmt = 0
+11:26:34.717	 :recv frame 307, width=1280, height = 720, fmt = 0
+11:26:34.717	 :yuv fmt = 0
+11:26:34.746	 :recv frame 308, width=1280, height = 720, fmt = 0
+11:26:34.746	 :yuv fmt = 0
+11:26:34.825	 :recv frame 309, width=1280, height = 720, fmt = 0
+11:26:34.825	 :yuv fmt = 0
+11:26:34.865	 :recv frame 310, width=1280, height = 720, fmt = 0
+11:26:34.865	 :yuv fmt = 0
+11:26:34.905	 :recv frame 311, width=1280, height = 720, fmt = 0
+11:26:34.905	 :yuv fmt = 0
+11:26:34.948	 :recv frame 312, width=1280, height = 720, fmt = 0
+11:26:34.948	 :yuv fmt = 0
+11:26:35.026	 :recv frame 313, width=1280, height = 720, fmt = 0
+11:26:35.026	 :yuv fmt = 0
+11:26:35.066	 :recv frame 314, width=1280, height = 720, fmt = 0
+11:26:35.066	 :yuv fmt = 0
+11:26:35.105	 :recv frame 315, width=1280, height = 720, fmt = 0
+11:26:35.105	 :yuv fmt = 0
+11:26:35.146	 :recv frame 316, width=1280, height = 720, fmt = 0
+11:26:35.146	 :yuv fmt = 0
+11:26:35.220	 :recv frame 317, width=1280, height = 720, fmt = 0
+11:26:35.220	 :yuv fmt = 0
+11:26:35.223	 :recv frame 318, width=1280, height = 720, fmt = 0
+11:26:35.223	 :yuv fmt = 0
+11:26:35.305	 :recv frame 319, width=1280, height = 720, fmt = 0
+11:26:35.305	 :yuv fmt = 0
+11:26:35.345	 :recv frame 320, width=1280, height = 720, fmt = 0
+11:26:35.345	 :yuv fmt = 0
+11:26:35.426	 :recv frame 321, width=1280, height = 720, fmt = 0
+11:26:35.426	 :yuv fmt = 0
+11:26:35.466	 :recv frame 322, width=1280, height = 720, fmt = 0
+11:26:35.466	 :yuv fmt = 0
+11:26:35.506	 :recv frame 323, width=1280, height = 720, fmt = 0
+11:26:35.506	 :yuv fmt = 0
+11:26:35.550	 :recv frame 324, width=1280, height = 720, fmt = 0
+11:26:35.550	 :yuv fmt = 0
+11:26:35.627	 :recv frame 325, width=1280, height = 720, fmt = 0
+11:26:35.627	 :yuv fmt = 0
+11:26:37.627	 :recv frame 326, width=1280, height = 720, fmt = 0
+11:26:37.627	 :yuv fmt = 0
+11:26:37.797	 :recv frame 327, width=1280, height = 720, fmt = 0
+11:26:37.797	 :yuv fmt = 0
+11:26:37.798	 :recv frame 328, width=1280, height = 720, fmt = 0
+11:26:37.798	 :yuv fmt = 0
+11:26:37.845	 :recv frame 329, width=1280, height = 720, fmt = 0
+11:26:37.845	 :yuv fmt = 0
+11:26:37.846	 :recv frame 330, width=1280, height = 720, fmt = 0
+11:26:37.846	 :yuv fmt = 0
+11:26:37.904	 :recv frame 331, width=1280, height = 720, fmt = 0
+11:26:37.904	 :yuv fmt = 0
+11:26:37.965	 :recv frame 332, width=1280, height = 720, fmt = 0
+11:26:37.965	 :yuv fmt = 0
+11:26:37.966	 :recv frame 333, width=1280, height = 720, fmt = 0
+11:26:37.966	 :yuv fmt = 0
+11:26:38.014	 :recv frame 334, width=1280, height = 720, fmt = 0
+11:26:38.014	 :yuv fmt = 0
+11:26:38.074	 :recv frame 335, width=1280, height = 720, fmt = 0
+11:26:38.074	 :yuv fmt = 0
+11:26:38.135	 :recv frame 336, width=1280, height = 720, fmt = 0
+11:26:38.135	 :yuv fmt = 0
+11:26:38.184	 :recv frame 337, width=1280, height = 720, fmt = 0
+11:26:38.184	 :yuv fmt = 0
+11:26:38.244	 :recv frame 338, width=1280, height = 720, fmt = 0
+11:26:38.244	 :yuv fmt = 0
+11:26:38.304	 :recv frame 339, width=1280, height = 720, fmt = 0
+11:26:38.304	 :yuv fmt = 0
+11:26:38.355	 :recv frame 340, width=1280, height = 720, fmt = 0
+11:26:38.355	 :yuv fmt = 0
+11:26:38.356	 :recv frame 341, width=1280, height = 720, fmt = 0
+11:26:38.356	 :yuv fmt = 0
+11:26:38.414	 :recv frame 342, width=1280, height = 720, fmt = 0
+11:26:38.414	 :yuv fmt = 0
+11:26:38.524	 :recv frame 343, width=1280, height = 720, fmt = 0
+11:26:38.524	 :yuv fmt = 0
+11:26:38.526	 :recv frame 344, width=1280, height = 720, fmt = 0
+11:26:38.526	 :yuv fmt = 0
+11:26:38.584	 :recv frame 345, width=1280, height = 720, fmt = 0
+11:26:38.584	 :yuv fmt = 0
+11:26:38.638	 :recv frame 346, width=1280, height = 720, fmt = 0
+11:26:38.639	 :yuv fmt = 0
+11:26:38.696	 :recv frame 347, width=1280, height = 720, fmt = 0
+11:26:38.696	 :yuv fmt = 0
+11:26:38.754	 :recv frame 348, width=1280, height = 720, fmt = 0
+11:26:38.754	 :yuv fmt = 0
+11:26:38.755	 :recv frame 349, width=1280, height = 720, fmt = 0
+11:26:38.755	 :yuv fmt = 0
+11:26:38.864	 :recv frame 350, width=1280, height = 720, fmt = 0
+11:26:38.864	 :yuv fmt = 0
+11:26:38.865	 :recv frame 351, width=1280, height = 720, fmt = 0
+11:26:38.866	 :yuv fmt = 0
+11:26:38.915	 :recv frame 352, width=1280, height = 720, fmt = 0
+11:26:38.915	 :yuv fmt = 0
+11:26:38.974	 :recv frame 353, width=1280, height = 720, fmt = 0
+11:26:38.974	 :yuv fmt = 0
+11:26:39.034	 :recv frame 354, width=1280, height = 720, fmt = 0
+11:26:39.034	 :yuv fmt = 0
+11:26:39.085	 :recv frame 355, width=1280, height = 720, fmt = 0
+11:26:39.085	 :yuv fmt = 0
+11:26:39.150	 :recv frame 356, width=1280, height = 720, fmt = 0
+11:26:39.150	 :yuv fmt = 0
+11:26:39.151	 :recv frame 357, width=1280, height = 720, fmt = 0
+11:26:39.151	 :yuv fmt = 0
+11:26:39.264	 :recv frame 358, width=1280, height = 720, fmt = 0
+11:26:39.264	 :yuv fmt = 0
+11:26:39.265	 :recv frame 359, width=1280, height = 720, fmt = 0
+11:26:39.265	 :yuv fmt = 0
+11:26:39.314	 :recv frame 360, width=1280, height = 720, fmt = 0
+11:26:39.314	 :yuv fmt = 0
+11:26:39.374	 :recv frame 361, width=1280, height = 720, fmt = 0
+11:26:39.374	 :yuv fmt = 0
+11:26:39.424	 :recv frame 362, width=1280, height = 720, fmt = 0
+11:26:39.424	 :yuv fmt = 0
+11:26:39.491	 :recv frame 363, width=1280, height = 720, fmt = 0
+11:26:39.491	 :yuv fmt = 0
+11:26:39.549	 :recv frame 364, width=1280, height = 720, fmt = 0
+11:26:39.549	 :yuv fmt = 0
+11:26:39.550	 :recv frame 365, width=1280, height = 720, fmt = 0
+11:26:39.550	 :yuv fmt = 0
+11:26:39.647	 :recv frame 366, width=1280, height = 720, fmt = 0
+11:26:39.647	 :yuv fmt = 0
+11:26:39.818	 :recv frame 367, width=1280, height = 720, fmt = 0
+11:26:39.818	 :yuv fmt = 0
+11:26:39.819	 :recv frame 368, width=1280, height = 720, fmt = 0
+11:26:39.819	 :yuv fmt = 0
+11:26:39.820	 :recv frame 369, width=1280, height = 720, fmt = 0
+11:26:39.820	 :yuv fmt = 0
+11:26:39.855	 :recv frame 370, width=1280, height = 720, fmt = 0
+11:26:39.855	 :yuv fmt = 0
+11:26:39.856	 :recv frame 371, width=1280, height = 720, fmt = 0
+11:26:39.856	 :yuv fmt = 0
+11:26:39.906	 :recv frame 372, width=1280, height = 720, fmt = 0
+11:26:39.906	 :yuv fmt = 0
+11:26:40.015	 :recv frame 373, width=1280, height = 720, fmt = 0
+11:26:40.015	 :yuv fmt = 0
+11:26:40.016	 :recv frame 374, width=1280, height = 720, fmt = 0
+11:26:40.016	 :yuv fmt = 0
+11:26:40.075	 :recv frame 375, width=1280, height = 720, fmt = 0
+11:26:40.075	 :yuv fmt = 0
+11:26:40.134	 :recv frame 376, width=1280, height = 720, fmt = 0
+11:26:40.134	 :yuv fmt = 0
+11:26:40.184	 :recv frame 377, width=1280, height = 720, fmt = 0
+11:26:40.184	 :yuv fmt = 0
+11:26:40.244	 :recv frame 378, width=1280, height = 720, fmt = 0
+11:26:40.244	 :yuv fmt = 0
+11:26:40.304	 :recv frame 379, width=1280, height = 720, fmt = 0
+11:26:40.304	 :yuv fmt = 0
+11:26:40.305	 :recv frame 380, width=1280, height = 720, fmt = 0
+11:26:40.305	 :yuv fmt = 0
+11:26:40.414	 :recv frame 381, width=1280, height = 720, fmt = 0
+11:26:40.414	 :yuv fmt = 0
+11:26:40.415	 :recv frame 382, width=1280, height = 720, fmt = 0
+11:26:40.415	 :yuv fmt = 0
+11:26:40.477	 :recv frame 383, width=1280, height = 720, fmt = 0
+11:26:40.477	 :yuv fmt = 0
+11:26:40.545	 :recv frame 384, width=1280, height = 720, fmt = 0
+11:26:40.545	 :yuv fmt = 0
+11:26:40.604	 :recv frame 385, width=1280, height = 720, fmt = 0
+11:26:40.604	 :yuv fmt = 0
+11:26:40.605	 :recv frame 386, width=1280, height = 720, fmt = 0
+11:26:40.605	 :yuv fmt = 0
+11:26:40.664	 :recv frame 387, width=1280, height = 720, fmt = 0
+11:26:40.664	 :yuv fmt = 0
+11:26:40.724	 :recv frame 388, width=1280, height = 720, fmt = 0
+11:26:40.724	 :yuv fmt = 0
+11:26:40.785	 :recv frame 389, width=1280, height = 720, fmt = 0
+11:26:40.785	 :yuv fmt = 0
+11:26:40.834	 :recv frame 390, width=1280, height = 720, fmt = 0
+11:26:40.834	 :yuv fmt = 0
+11:26:40.894	 :recv frame 391, width=1280, height = 720, fmt = 0
+11:26:40.894	 :yuv fmt = 0
+11:26:40.938	 :recv frame 392, width=1280, height = 720, fmt = 0
+11:26:40.938	 :yuv fmt = 0
+11:26:40.984	 :recv frame 393, width=1280, height = 720, fmt = 0
+11:26:40.984	 :yuv fmt = 0
+11:26:41.034	 :recv frame 394, width=1280, height = 720, fmt = 0
+11:26:41.034	 :yuv fmt = 0
+11:26:41.094	 :recv frame 395, width=1280, height = 720, fmt = 0
+11:26:41.094	 :yuv fmt = 0
+11:26:41.145	 :recv frame 396, width=1280, height = 720, fmt = 0
+11:26:41.145	 :yuv fmt = 0
+11:26:41.204	 :recv frame 397, width=1280, height = 720, fmt = 0
+11:26:41.204	 :yuv fmt = 0
+11:26:41.205	 :recv frame 398, width=1280, height = 720, fmt = 0
+11:26:41.205	 :yuv fmt = 0
+11:26:41.255	 :recv frame 399, width=1280, height = 720, fmt = 0
+11:26:41.255	 :yuv fmt = 0
+11:26:41.375	 :recv frame 400, width=1280, height = 720, fmt = 0
+11:26:41.375	 :yuv fmt = 0
+11:26:41.376	 :recv frame 401, width=1280, height = 720, fmt = 0
+11:26:41.376	 :yuv fmt = 0
+11:26:41.433	 :recv frame 402, width=1280, height = 720, fmt = 0
+11:26:41.433	 :yuv fmt = 0
+11:26:41.485	 :recv frame 403, width=1280, height = 720, fmt = 0
+11:26:41.485	 :yuv fmt = 0
+11:26:41.546	 :recv frame 404, width=1280, height = 720, fmt = 0
+11:26:41.546	 :yuv fmt = 0
+11:26:41.600	 :recv frame 405, width=1280, height = 720, fmt = 0
+11:26:41.600	 :yuv fmt = 0
+11:26:41.601	 :recv frame 406, width=1280, height = 720, fmt = 0
+11:26:41.601	 :yuv fmt = 0
+11:26:41.777	 :recv frame 407, width=1280, height = 720, fmt = 0
+11:26:41.777	 :yuv fmt = 0
+11:26:41.778	 :recv frame 408, width=1280, height = 720, fmt = 0
+11:26:41.778	 :yuv fmt = 0
+11:26:41.779	 :recv frame 409, width=1280, height = 720, fmt = 0
+11:26:41.779	 :yuv fmt = 0
+11:26:41.845	 :recv frame 410, width=1280, height = 720, fmt = 0
+11:26:41.845	 :yuv fmt = 0
+11:26:41.908	 :recv frame 411, width=1280, height = 720, fmt = 0
+11:26:41.908	 :yuv fmt = 0
+11:26:41.965	 :recv frame 412, width=1280, height = 720, fmt = 0
+11:26:41.965	 :yuv fmt = 0
+11:26:41.966	 :recv frame 413, width=1280, height = 720, fmt = 0
+11:26:41.966	 :yuv fmt = 0
+11:26:42.025	 :recv frame 414, width=1280, height = 720, fmt = 0
+11:26:42.025	 :yuv fmt = 0
+11:26:42.074	 :recv frame 415, width=1280, height = 720, fmt = 0
+11:26:42.074	 :yuv fmt = 0
+11:26:42.135	 :recv frame 416, width=1280, height = 720, fmt = 0
+11:26:42.135	 :yuv fmt = 0
+11:26:42.194	 :recv frame 417, width=1280, height = 720, fmt = 0
+11:26:42.194	 :yuv fmt = 0
+11:26:42.196	 :recv frame 418, width=1280, height = 720, fmt = 0
+11:26:42.196	 :yuv fmt = 0
+11:26:42.325	 :recv frame 419, width=1280, height = 720, fmt = 0
+11:26:42.325	 :yuv fmt = 0
+11:26:42.325	 :recv frame 420, width=1280, height = 720, fmt = 0
+11:26:42.326	 :yuv fmt = 0
+11:26:42.384	 :recv frame 421, width=1280, height = 720, fmt = 0
+11:26:42.384	 :yuv fmt = 0
+11:26:42.444	 :recv frame 422, width=1280, height = 720, fmt = 0
+11:26:42.444	 :yuv fmt = 0
+11:26:42.505	 :recv frame 423, width=1280, height = 720, fmt = 0
+11:26:42.505	 :yuv fmt = 0
+11:26:42.555	 :recv frame 424, width=1280, height = 720, fmt = 0
+11:26:42.555	 :yuv fmt = 0
+11:26:42.556	 :recv frame 425, width=1280, height = 720, fmt = 0
+11:26:42.556	 :yuv fmt = 0
+11:26:42.614	 :recv frame 426, width=1280, height = 720, fmt = 0
+11:26:42.614	 :yuv fmt = 0
+11:26:42.664	 :recv frame 427, width=1280, height = 720, fmt = 0
+11:26:42.664	 :yuv fmt = 0
+11:26:42.728	 :recv frame 428, width=1280, height = 720, fmt = 0
+11:26:42.729	 :yuv fmt = 0
+11:26:42.784	 :recv frame 429, width=1280, height = 720, fmt = 0
+11:26:42.784	 :yuv fmt = 0
+11:26:42.835	 :recv frame 430, width=1280, height = 720, fmt = 0
+11:26:42.835	 :yuv fmt = 0
+11:26:42.897	 :recv frame 431, width=1280, height = 720, fmt = 0
+11:26:42.897	 :yuv fmt = 0
+11:26:42.954	 :recv frame 432, width=1280, height = 720, fmt = 0
+11:26:42.954	 :yuv fmt = 0
+11:26:42.955	 :recv frame 433, width=1280, height = 720, fmt = 0
+11:26:42.955	 :yuv fmt = 0
+11:26:43.065	 :recv frame 434, width=1280, height = 720, fmt = 0
+11:26:43.065	 :yuv fmt = 0
+11:26:43.066	 :recv frame 435, width=1280, height = 720, fmt = 0
+11:26:43.066	 :yuv fmt = 0
+11:26:43.125	 :recv frame 436, width=1280, height = 720, fmt = 0
+11:26:43.125	 :yuv fmt = 0
+11:26:43.174	 :recv frame 437, width=1280, height = 720, fmt = 0
+11:26:43.175	 :yuv fmt = 0
+11:26:43.239	 :recv frame 438, width=1280, height = 720, fmt = 0
+11:26:43.239	 :yuv fmt = 0
+11:26:43.294	 :recv frame 439, width=1280, height = 720, fmt = 0
+11:26:43.294	 :yuv fmt = 0
+11:26:43.344	 :recv frame 440, width=1280, height = 720, fmt = 0
+11:26:43.344	 :yuv fmt = 0
+11:26:43.345	 :recv frame 441, width=1280, height = 720, fmt = 0
+11:26:43.345	 :yuv fmt = 0
+11:26:43.465	 :recv frame 442, width=1280, height = 720, fmt = 0
+11:26:43.465	 :yuv fmt = 0
+11:26:43.467	 :recv frame 443, width=1280, height = 720, fmt = 0
+11:26:43.467	 :yuv fmt = 0
+11:26:43.515	 :recv frame 444, width=1280, height = 720, fmt = 0
+11:26:43.515	 :yuv fmt = 0
+11:26:43.576	 :recv frame 445, width=1280, height = 720, fmt = 0
+11:26:43.576	 :yuv fmt = 0
+11:26:43.625	 :recv frame 446, width=1280, height = 720, fmt = 0
+11:26:43.625	 :yuv fmt = 0
+11:26:43.816	 :recv frame 447, width=1280, height = 720, fmt = 0
+11:26:43.816	 :yuv fmt = 0
+11:26:43.817	 :recv frame 448, width=1280, height = 720, fmt = 0
+11:26:43.817	 :yuv fmt = 0
+11:26:43.855	 :recv frame 449, width=1280, height = 720, fmt = 0
+11:26:43.855	 :yuv fmt = 0
+11:26:43.856	 :recv frame 450, width=1280, height = 720, fmt = 0
+11:26:43.856	 :yuv fmt = 0
+11:26:43.857	 :recv frame 451, width=1280, height = 720, fmt = 0
+11:26:43.857	 :yuv fmt = 0
+11:26:43.914	 :recv frame 452, width=1280, height = 720, fmt = 0
+11:26:43.914	 :yuv fmt = 0
+11:26:44.024	 :recv frame 453, width=1280, height = 720, fmt = 0
+11:26:44.024	 :yuv fmt = 0
+11:26:44.026	 :recv frame 454, width=1280, height = 720, fmt = 0
+11:26:44.026	 :yuv fmt = 0
+11:26:44.075	 :recv frame 455, width=1280, height = 720, fmt = 0
+11:26:44.075	 :yuv fmt = 0
+11:26:44.134	 :recv frame 456, width=1280, height = 720, fmt = 0
+11:26:44.134	 :yuv fmt = 0
+11:26:44.185	 :recv frame 457, width=1280, height = 720, fmt = 0
+11:26:44.185	 :yuv fmt = 0
+11:26:44.244	 :recv frame 458, width=1280, height = 720, fmt = 0
+11:26:44.244	 :yuv fmt = 0
+11:26:44.305	 :recv frame 459, width=1280, height = 720, fmt = 0
+11:26:44.305	 :yuv fmt = 0
+11:26:44.306	 :recv frame 460, width=1280, height = 720, fmt = 0
+11:26:44.306	 :yuv fmt = 0
+11:26:44.414	 :recv frame 461, width=1280, height = 720, fmt = 0
+11:26:44.414	 :yuv fmt = 0
+11:26:44.415	 :recv frame 462, width=1280, height = 720, fmt = 0
+11:26:44.416	 :yuv fmt = 0
+11:26:44.476	 :recv frame 463, width=1280, height = 720, fmt = 0
+11:26:44.476	 :yuv fmt = 0
+11:26:44.535	 :recv frame 464, width=1280, height = 720, fmt = 0
+11:26:44.535	 :yuv fmt = 0
+11:26:44.585	 :recv frame 465, width=1280, height = 720, fmt = 0
+11:26:44.585	 :yuv fmt = 0
+11:26:44.644	 :recv frame 466, width=1280, height = 720, fmt = 0
+11:26:44.644	 :yuv fmt = 0
+11:26:44.645	 :recv frame 467, width=1280, height = 720, fmt = 0
+11:26:44.645	 :yuv fmt = 0
+11:26:44.774	 :recv frame 468, width=1280, height = 720, fmt = 0
+11:26:44.774	 :yuv fmt = 0
+11:26:44.775	 :recv frame 469, width=1280, height = 720, fmt = 0
+11:26:44.776	 :yuv fmt = 0
+11:26:44.834	 :recv frame 470, width=1280, height = 720, fmt = 0
+11:26:44.834	 :yuv fmt = 0
+11:26:44.900	 :recv frame 471, width=1280, height = 720, fmt = 0
+11:26:44.900	 :yuv fmt = 0
+11:26:44.954	 :recv frame 472, width=1280, height = 720, fmt = 0
+11:26:44.954	 :yuv fmt = 0
+11:26:45.006	 :recv frame 473, width=1280, height = 720, fmt = 0
+11:26:45.006	 :yuv fmt = 0
+11:26:45.007	 :recv frame 474, width=1280, height = 720, fmt = 0
+11:26:45.007	 :yuv fmt = 0
+11:26:45.065	 :recv frame 475, width=1280, height = 720, fmt = 0
+11:26:45.065	 :yuv fmt = 0
+11:26:45.175	 :recv frame 476, width=1280, height = 720, fmt = 0
+11:26:45.175	 :yuv fmt = 0
+11:26:45.177	 :recv frame 477, width=1280, height = 720, fmt = 0
+11:26:45.177	 :yuv fmt = 0
+11:26:45.234	 :recv frame 478, width=1280, height = 720, fmt = 0
+11:26:45.234	 :yuv fmt = 0
+11:26:45.284	 :recv frame 479, width=1280, height = 720, fmt = 0
+11:26:45.284	 :yuv fmt = 0
+11:26:45.344	 :recv frame 480, width=1280, height = 720, fmt = 0
+11:26:45.344	 :yuv fmt = 0
+11:26:45.404	 :recv frame 481, width=1280, height = 720, fmt = 0
+11:26:45.404	 :yuv fmt = 0
+11:26:45.405	 :recv frame 482, width=1280, height = 720, fmt = 0
+11:26:45.405	 :yuv fmt = 0
+11:26:45.454	 :recv frame 483, width=1280, height = 720, fmt = 0
+11:26:45.454	 :yuv fmt = 0
+11:26:45.574	 :recv frame 484, width=1280, height = 720, fmt = 0
+11:26:45.574	 :yuv fmt = 0
+11:26:45.576	 :recv frame 485, width=1280, height = 720, fmt = 0
+11:26:45.576	 :yuv fmt = 0
+11:26:45.624	 :recv frame 486, width=1280, height = 720, fmt = 0
+11:26:45.624	 :yuv fmt = 0
+11:26:45.845	 :recv frame 487, width=1280, height = 720, fmt = 0
+11:26:45.846	 :yuv fmt = 0
+11:26:45.847	 :recv frame 488, width=1280, height = 720, fmt = 0
+11:26:45.847	 :yuv fmt = 0
+11:26:45.848	 :recv frame 489, width=1280, height = 720, fmt = 0
+11:26:45.848	 :yuv fmt = 0
+11:26:45.850	 :recv frame 490, width=1280, height = 720, fmt = 0
+11:26:45.850	 :yuv fmt = 0
+11:26:45.906	 :recv frame 491, width=1280, height = 720, fmt = 0
+11:26:45.906	 :yuv fmt = 0
+11:26:45.964	 :recv frame 492, width=1280, height = 720, fmt = 0
+11:26:45.964	 :yuv fmt = 0
+11:26:45.965	 :recv frame 493, width=1280, height = 720, fmt = 0
+11:26:45.965	 :yuv fmt = 0
+11:26:46.024	 :recv frame 494, width=1280, height = 720, fmt = 0
+11:26:46.024	 :yuv fmt = 0
+11:26:46.074	 :recv frame 495, width=1280, height = 720, fmt = 0
+11:26:46.074	 :yuv fmt = 0
+11:26:46.134	 :recv frame 496, width=1280, height = 720, fmt = 0
+11:26:46.134	 :yuv fmt = 0
+11:26:46.194	 :recv frame 497, width=1280, height = 720, fmt = 0
+11:26:46.194	 :yuv fmt = 0
+11:26:46.195	 :recv frame 498, width=1280, height = 720, fmt = 0
+11:26:46.195	 :yuv fmt = 0
+11:26:46.324	 :recv frame 499, width=1280, height = 720, fmt = 0
+11:26:46.324	 :yuv fmt = 0
+11:26:46.325	 :recv frame 500, width=1280, height = 720, fmt = 0
+11:26:46.326	 :yuv fmt = 0
+11:26:46.394	 :recv frame 501, width=1280, height = 720, fmt = 0
+11:26:46.394	 :yuv fmt = 0
+11:26:46.395	 :recv frame 502, width=1280, height = 720, fmt = 0
+11:26:46.395	 :yuv fmt = 0
+11:26:46.525	 :recv frame 503, width=1280, height = 720, fmt = 0
+11:26:46.525	 :yuv fmt = 0
+11:26:46.526	 :recv frame 504, width=1280, height = 720, fmt = 0
+11:26:46.526	 :yuv fmt = 0
+11:26:46.584	 :recv frame 505, width=1280, height = 720, fmt = 0
+11:26:46.584	 :yuv fmt = 0
+11:26:46.644	 :recv frame 506, width=1280, height = 720, fmt = 0
+11:26:46.644	 :yuv fmt = 0
+11:26:46.711	 :recv frame 507, width=1280, height = 720, fmt = 0
+11:26:46.711	 :yuv fmt = 0
+11:26:46.774	 :recv frame 508, width=1280, height = 720, fmt = 0
+11:26:46.774	 :yuv fmt = 0
+11:26:46.776	 :recv frame 509, width=1280, height = 720, fmt = 0
+11:26:46.776	 :yuv fmt = 0
+11:26:46.834	 :recv frame 510, width=1280, height = 720, fmt = 0
+11:26:46.834	 :yuv fmt = 0
+11:26:46.893	 :recv frame 511, width=1280, height = 720, fmt = 0
+11:26:46.893	 :yuv fmt = 0
+11:26:46.953	 :recv frame 512, width=1280, height = 720, fmt = 0
+11:26:46.953	 :yuv fmt = 0
+11:26:46.954	 :recv frame 513, width=1280, height = 720, fmt = 0
+11:26:46.954	 :yuv fmt = 0
+11:26:47.064	 :recv frame 514, width=1280, height = 720, fmt = 0
+11:26:47.064	 :yuv fmt = 0
+11:26:47.065	 :recv frame 515, width=1280, height = 720, fmt = 0
+11:26:47.065	 :yuv fmt = 0
+11:26:47.125	 :recv frame 516, width=1280, height = 720, fmt = 0
+11:26:47.125	 :yuv fmt = 0
+11:26:47.173	 :recv frame 517, width=1280, height = 720, fmt = 0
+11:26:47.173	 :yuv fmt = 0
+11:26:47.234	 :recv frame 518, width=1280, height = 720, fmt = 0
+11:26:47.234	 :yuv fmt = 0
+11:26:47.294	 :recv frame 519, width=1280, height = 720, fmt = 0
+11:26:47.294	 :yuv fmt = 0
+11:26:47.344	 :recv frame 520, width=1280, height = 720, fmt = 0
+11:26:47.344	 :yuv fmt = 0
+11:26:47.345	 :recv frame 521, width=1280, height = 720, fmt = 0
+11:26:47.345	 :yuv fmt = 0
+11:26:47.465	 :recv frame 522, width=1280, height = 720, fmt = 0
+11:26:47.465	 :yuv fmt = 0
+11:26:47.466	 :recv frame 523, width=1280, height = 720, fmt = 0
+11:26:47.466	 :yuv fmt = 0
+11:26:47.514	 :recv frame 524, width=1280, height = 720, fmt = 0
+11:26:47.514	 :yuv fmt = 0
+11:26:47.574	 :recv frame 525, width=1280, height = 720, fmt = 0
+11:26:47.574	 :yuv fmt = 0
+11:26:47.624	 :recv frame 526, width=1280, height = 720, fmt = 0
+11:26:47.624	 :yuv fmt = 0
+11:26:47.815	 :recv frame 527, width=1280, height = 720, fmt = 0
+11:26:47.815	 :yuv fmt = 0
+11:26:47.816	 :recv frame 528, width=1280, height = 720, fmt = 0
+11:26:47.816	 :yuv fmt = 0
+11:26:47.817	 :recv frame 529, width=1280, height = 720, fmt = 0
+11:26:47.817	 :yuv fmt = 0
+11:26:47.876	 :recv frame 530, width=1280, height = 720, fmt = 0
+11:26:47.876	 :yuv fmt = 0
+11:26:47.877	 :recv frame 531, width=1280, height = 720, fmt = 0
+11:26:47.877	 :yuv fmt = 0
+11:26:47.934	 :recv frame 532, width=1280, height = 720, fmt = 0
+11:26:47.934	 :yuv fmt = 0
+11:26:47.995	 :recv frame 533, width=1280, height = 720, fmt = 0
+11:26:47.995	 :yuv fmt = 0
+11:26:48.054	 :recv frame 534, width=1280, height = 720, fmt = 0
+11:26:48.054	 :yuv fmt = 0
+11:26:48.055	 :recv frame 535, width=1280, height = 720, fmt = 0
+11:26:48.055	 :yuv fmt = 0
+11:26:48.103	 :recv frame 536, width=1280, height = 720, fmt = 0
+11:26:48.103	 :yuv fmt = 0
+11:26:48.224	 :recv frame 537, width=1280, height = 720, fmt = 0
+11:26:48.224	 :yuv fmt = 0
+11:26:48.225	 :recv frame 538, width=1280, height = 720, fmt = 0
+11:26:48.225	 :yuv fmt = 0
+11:26:48.275	 :recv frame 539, width=1280, height = 720, fmt = 0
+11:26:48.275	 :yuv fmt = 0
+11:26:48.334	 :recv frame 540, width=1280, height = 720, fmt = 0
+11:26:48.334	 :yuv fmt = 0
+11:26:48.384	 :recv frame 541, width=1280, height = 720, fmt = 0
+11:26:48.384	 :yuv fmt = 0
+11:26:48.445	 :recv frame 542, width=1280, height = 720, fmt = 0
+11:26:48.445	 :yuv fmt = 0
+11:26:48.504	 :recv frame 543, width=1280, height = 720, fmt = 0
+11:26:48.504	 :yuv fmt = 0
+11:26:48.505	 :recv frame 544, width=1280, height = 720, fmt = 0
+11:26:48.505	 :yuv fmt = 0
+11:26:48.615	 :recv frame 545, width=1280, height = 720, fmt = 0
+11:26:48.615	 :yuv fmt = 0
+11:26:48.616	 :recv frame 546, width=1280, height = 720, fmt = 0
+11:26:48.616	 :yuv fmt = 0
+11:26:48.677	 :recv frame 547, width=1280, height = 720, fmt = 0
+11:26:48.677	 :yuv fmt = 0
+11:26:48.736	 :recv frame 548, width=1280, height = 720, fmt = 0
+11:26:48.736	 :yuv fmt = 0
+11:26:48.786	 :recv frame 549, width=1280, height = 720, fmt = 0
+11:26:48.786	 :yuv fmt = 0
+11:26:48.844	 :recv frame 550, width=1280, height = 720, fmt = 0
+11:26:48.844	 :yuv fmt = 0
+11:26:48.845	 :recv frame 551, width=1280, height = 720, fmt = 0
+11:26:48.845	 :yuv fmt = 0
+11:26:48.975	 :recv frame 552, width=1280, height = 720, fmt = 0
+11:26:48.975	 :yuv fmt = 0
+11:26:48.976	 :recv frame 553, width=1280, height = 720, fmt = 0
+11:26:48.976	 :yuv fmt = 0
+11:26:49.040	 :recv frame 554, width=1280, height = 720, fmt = 0
+11:26:49.040	 :yuv fmt = 0
+11:26:49.096	 :recv frame 555, width=1280, height = 720, fmt = 0
+11:26:49.096	 :yuv fmt = 0
+11:26:49.155	 :recv frame 556, width=1280, height = 720, fmt = 0
+11:26:49.155	 :yuv fmt = 0
+11:26:49.204	 :recv frame 557, width=1280, height = 720, fmt = 0
+11:26:49.204	 :yuv fmt = 0
+11:26:49.206	 :recv frame 558, width=1280, height = 720, fmt = 0
+11:26:49.206	 :yuv fmt = 0
+11:26:49.265	 :recv frame 559, width=1280, height = 720, fmt = 0
+11:26:49.265	 :yuv fmt = 0
+11:26:49.324	 :recv frame 560, width=1280, height = 720, fmt = 0
+11:26:49.324	 :yuv fmt = 0
+11:26:49.375	 :recv frame 561, width=1280, height = 720, fmt = 0
+11:26:49.375	 :yuv fmt = 0
+11:26:49.437	 :recv frame 562, width=1280, height = 720, fmt = 0
+11:26:49.438	 :yuv fmt = 0
+11:26:49.501	 :recv frame 563, width=1280, height = 720, fmt = 0
+11:26:49.501	 :yuv fmt = 0
+11:26:49.565	 :recv frame 564, width=1280, height = 720, fmt = 0
+11:26:49.565	 :yuv fmt = 0
+11:26:49.567	 :recv frame 565, width=1280, height = 720, fmt = 0
+11:26:49.567	 :yuv fmt = 0
+11:26:49.629	 :recv frame 566, width=1280, height = 720, fmt = 0
+11:26:49.629	 :yuv fmt = 0
+11:26:49.830	 :recv frame 567, width=1280, height = 720, fmt = 0
+11:26:49.830	 :yuv fmt = 0
+11:26:49.832	 :recv frame 568, width=1280, height = 720, fmt = 0
+11:26:49.832	 :yuv fmt = 0
+11:26:49.833	 :recv frame 569, width=1280, height = 720, fmt = 0
+11:26:49.833	 :yuv fmt = 0
+11:26:49.835	 :recv frame 570, width=1280, height = 720, fmt = 0
+11:26:49.835	 :yuv fmt = 0
+11:26:49.914	 :recv frame 571, width=1280, height = 720, fmt = 0
+11:26:49.914	 :yuv fmt = 0
+11:26:49.916	 :recv frame 572, width=1280, height = 720, fmt = 0
+11:26:49.916	 :yuv fmt = 0
+11:26:49.964	 :recv frame 573, width=1280, height = 720, fmt = 0
+11:26:49.964	 :yuv fmt = 0
+11:26:50.023	 :recv frame 574, width=1280, height = 720, fmt = 0
+11:26:50.023	 :yuv fmt = 0
+11:26:50.077	 :recv frame 575, width=1280, height = 720, fmt = 0
+11:26:50.077	 :yuv fmt = 0
+11:26:50.141	 :recv frame 576, width=1280, height = 720, fmt = 0
+11:26:50.141	 :yuv fmt = 0
+11:26:50.194	 :recv frame 577, width=1280, height = 720, fmt = 0
+11:26:50.195	 :yuv fmt = 0
+11:26:50.196	 :recv frame 578, width=1280, height = 720, fmt = 0
+11:26:50.196	 :yuv fmt = 0
+11:26:50.327	 :recv frame 579, width=1280, height = 720, fmt = 0
+11:26:50.327	 :yuv fmt = 0
+11:26:50.328	 :recv frame 580, width=1280, height = 720, fmt = 0
+11:26:50.328	 :yuv fmt = 0
+11:26:50.379	 :recv frame 581, width=1280, height = 720, fmt = 0
+11:26:50.379	 :yuv fmt = 0
+11:26:50.425	 :recv frame 582, width=1280, height = 720, fmt = 0
+11:26:50.425	 :yuv fmt = 0
+11:26:50.476	 :recv frame 583, width=1280, height = 720, fmt = 0
+11:26:50.476	 :yuv fmt = 0
+11:26:50.535	 :recv frame 584, width=1280, height = 720, fmt = 0
+11:26:50.535	 :yuv fmt = 0
+11:26:50.594	 :recv frame 585, width=1280, height = 720, fmt = 0
+11:26:50.594	 :yuv fmt = 0
+11:26:50.650	 :recv frame 586, width=1280, height = 720, fmt = 0
+11:26:50.650	 :yuv fmt = 0
+11:26:50.704	 :recv frame 587, width=1280, height = 720, fmt = 0
+11:26:50.704	 :yuv fmt = 0
+11:26:50.705	 :recv frame 588, width=1280, height = 720, fmt = 0
+11:26:50.705	 :yuv fmt = 0
+11:26:50.753	 :recv frame 589, width=1280, height = 720, fmt = 0
+11:26:50.753	 :yuv fmt = 0
+11:26:50.864	 :recv frame 590, width=1280, height = 720, fmt = 0
+11:26:50.864	 :yuv fmt = 0
+11:26:50.865	 :recv frame 591, width=1280, height = 720, fmt = 0
+11:26:50.865	 :yuv fmt = 0
+11:26:50.925	 :recv frame 592, width=1280, height = 720, fmt = 0
+11:26:50.925	 :yuv fmt = 0
+11:26:50.985	 :recv frame 593, width=1280, height = 720, fmt = 0
+11:26:50.985	 :yuv fmt = 0
+11:26:51.034	 :recv frame 594, width=1280, height = 720, fmt = 0
+11:26:51.034	 :yuv fmt = 0
+11:26:51.093	 :recv frame 595, width=1280, height = 720, fmt = 0
+11:26:51.094	 :yuv fmt = 0
+11:26:51.154	 :recv frame 596, width=1280, height = 720, fmt = 0
+11:26:51.154	 :yuv fmt = 0
+11:26:51.155	 :recv frame 597, width=1280, height = 720, fmt = 0
+11:26:51.155	 :yuv fmt = 0
+11:26:51.264	 :recv frame 598, width=1280, height = 720, fmt = 0
+11:26:51.264	 :yuv fmt = 0
+11:26:51.265	 :recv frame 599, width=1280, height = 720, fmt = 0
+11:26:51.265	 :yuv fmt = 0
+11:26:51.324	 :recv frame 600, width=1280, height = 720, fmt = 0
+11:26:51.324	 :yuv fmt = 0
+11:26:51.374	 :recv frame 601, width=1280, height = 720, fmt = 0
+11:26:51.374	 :yuv fmt = 0
+11:26:51.434	 :recv frame 602, width=1280, height = 720, fmt = 0
+11:26:51.434	 :yuv fmt = 0
+11:26:51.494	 :recv frame 603, width=1280, height = 720, fmt = 0
+11:26:51.494	 :yuv fmt = 0
+11:26:51.495	 :recv frame 604, width=1280, height = 720, fmt = 0
+11:26:51.495	 :yuv fmt = 0
+11:26:51.635	 :recv frame 605, width=1280, height = 720, fmt = 0
+11:26:51.635	 :yuv fmt = 0
+11:26:51.636	 :recv frame 606, width=1280, height = 720, fmt = 0
+11:26:51.636	 :yuv fmt = 0
+11:26:51.817	 :recv frame 607, width=1280, height = 720, fmt = 0
+11:26:51.817	 :yuv fmt = 0
+11:26:51.818	 :recv frame 608, width=1280, height = 720, fmt = 0
+11:26:51.818	 :yuv fmt = 0
+11:26:51.819	 :recv frame 609, width=1280, height = 720, fmt = 0
+11:26:51.819	 :yuv fmt = 0
+11:26:51.819	 :recv frame 610, width=1280, height = 720, fmt = 0
+11:26:51.819	 :yuv fmt = 0
+11:26:51.874	 :recv frame 611, width=1280, height = 720, fmt = 0
+11:26:51.874	 :yuv fmt = 0
+11:26:51.928	 :recv frame 612, width=1280, height = 720, fmt = 0
+11:26:51.928	 :yuv fmt = 0
+11:26:52.024	 :recv frame 613, width=1280, height = 720, fmt = 0
+11:26:52.024	 :yuv fmt = 0
+11:26:52.025	 :recv frame 614, width=1280, height = 720, fmt = 0
+11:26:52.026	 :yuv fmt = 0
+11:26:52.083	 :recv frame 615, width=1280, height = 720, fmt = 0
+11:26:52.083	 :yuv fmt = 0
+11:26:52.133	 :recv frame 616, width=1280, height = 720, fmt = 0
+11:26:52.133	 :yuv fmt = 0
+11:26:52.235	 :channel state = 0, error=0
+11:26:52.235	 :stream status: live stopped
