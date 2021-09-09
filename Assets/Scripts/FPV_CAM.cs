@@ -167,6 +167,11 @@ public class FPV_CAM : MonoBehaviour
         GL.PopMatrix();
     }
 
+    private void OnGUI()
+    {
+        GUI.Label(new Rect(emeryRect.x, Screen.height - emeryRect.y + 2, 60, 30), "TARGET", textStyle);
+    }
+
     static void CreateLineMaterial()
     {
         if (!lineMaterial)

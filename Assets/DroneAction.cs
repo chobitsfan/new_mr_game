@@ -4,6 +4,13 @@ using System.Net;
 using System.Net.Sockets;
 using UnityEngine;
 
+class MoCapData
+{
+    public Vector3 pos;
+    public Quaternion rot;
+    public double ts;
+}
+
 public class DroneAction : MonoBehaviour
 {
     public UnityEngine.UI.Text StatusText;
@@ -19,6 +26,8 @@ public class DroneAction : MonoBehaviour
     static string mocap_ip = "";
     IPEndPoint game_proxy;
     VirtualAction virtualAction;
+    double ts;
+    Queue<MoCapData> moCapDataQueue = new Queue<MoCapData>();
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +52,7 @@ public class DroneAction : MonoBehaviour
         myproxy = new IPEndPoint(IPAddress.Parse(mocap_ip), 17500);
         game_proxy = new IPEndPoint(IPAddress.Parse(mocap_ip), 27500);
         virtualAction = gameObject.GetComponent<VirtualAction>();
+        ts = 0;
     }
 
     public void DroneIDChanged(int id)
@@ -58,6 +68,25 @@ public class DroneAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ts += Time.deltaTime;
+        MoCapData delayedMoCapData = null;
+        while (moCapDataQueue.Count > 0)
+        {
+            MoCapData moCapData = moCapDataQueue.Peek();
+            if (ts - moCapData.ts >= 0.1)
+            {
+                delayedMoCapData = moCapDataQueue.Dequeue();
+            }
+            else
+            {
+                break;
+            }
+        }
+        if (delayedMoCapData != null)
+        {
+            transform.localPosition = delayedMoCapData.pos;
+            transform.localRotation = delayedMoCapData.rot;
+        }
         if (sock.IsBound)
         {
             hb_cd -= Time.deltaTime;
@@ -112,8 +141,13 @@ public class DroneAction : MonoBehaviour
                         case (uint)MAVLink.MAVLINK_MSG_ID.ATT_POS_MOCAP:
                             {
                                 var att_pos = (MAVLink.mavlink_att_pos_mocap_t)msg.data;
-                                gameObject.transform.localPosition = new Vector3(-att_pos.x, att_pos.y, att_pos.z);
-                                gameObject.transform.localRotation = new Quaternion(-att_pos.q[1], att_pos.q[2], att_pos.q[3], -att_pos.q[0]);
+                                //gameObject.transform.localPosition = new Vector3(-att_pos.x, att_pos.y, att_pos.z);
+                                //gameObject.transform.localRotation = new Quaternion(-att_pos.q[1], att_pos.q[2], att_pos.q[3], -att_pos.q[0]);
+                                MoCapData moCapData = new MoCapData();
+                                moCapData.ts = ts;
+                                moCapData.pos = new Vector3(-att_pos.x, att_pos.y, att_pos.z);
+                                moCapData.rot = new Quaternion(-att_pos.q[1], att_pos.q[2], att_pos.q[3], -att_pos.q[0]);
+                                moCapDataQueue.Enqueue(moCapData);
                                 break;
                             }
                         case (uint)MAVLink.MAVLINK_MSG_ID.MANUAL_CONTROL:
