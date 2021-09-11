@@ -48,7 +48,7 @@ public class FPV_CAM : MonoBehaviour
         bStart = false;
 		bInitBuffer = false;
 
-        string url = "rtsp://192.168.50.108/main_ch";
+        string url = "rtsp://192.168.50.106/main_ch";
         //string url = "rtsp://127.0.0.1/y1";
         Debug.Log("connecting vss video: " + url);
         NPlayer_Connect(ptr, url, 1);
