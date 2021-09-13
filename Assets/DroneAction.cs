@@ -77,6 +77,7 @@ public class DroneAction : MonoBehaviour
                 _droneId = 3;
             }
         }
+        sock.Bind(new IPEndPoint(IPAddress.Any, 17500 + _droneId));
     }
 
     /*public int DroneID
