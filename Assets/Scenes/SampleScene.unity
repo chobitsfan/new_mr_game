@@ -349,19 +349,7 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1886247611}
-        m_TargetAssemblyTypeName: GameWorld, Assembly-CSharp
-        m_MethodName: PlayerIDChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2185,6 +2173,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6280939328385044552, guid: f86a9d045f0e8dc40907dbaf5a7602ef, type: 3}
   m_PrefabInstance: {fileID: 1838958489}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1838958491 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6280939328385044553, guid: f86a9d045f0e8dc40907dbaf5a7602ef, type: 3}
+  m_PrefabInstance: {fileID: 1838958489}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 522b65266e84447429448e3b42715977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1866956682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2410,6 +2409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerDrone: {fileID: 452810244}
   EmeryDrone: {fileID: 1139546565}
+  FpvCam: {fileID: 1838958491}
 --- !u!4 &1886247612
 Transform:
   m_ObjectHideFlags: 0

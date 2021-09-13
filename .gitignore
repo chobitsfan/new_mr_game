@@ -78,3 +78,4 @@ crashlytics-build.properties
 /game_log.txt
 /Assets/Scenes/SampleScene/LightingData.asset
 /Assets/Scenes/SampleScene/ReflectionProbe-0.exr
+VplayeDllLog.txt

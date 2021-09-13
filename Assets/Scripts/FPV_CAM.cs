@@ -48,15 +48,35 @@ public class FPV_CAM : MonoBehaviour
         bStart = false;
 		bInitBuffer = false;
 
-        string url = "rtsp://192.168.50.106/main_ch";
+        //string url = "rtsp://192.168.50.106/main_ch";
         //string url = "rtsp://127.0.0.1/y1";
-        Debug.Log("connecting vss video: " + url);
-        NPlayer_Connect(ptr, url, 1);
+        //Debug.Log("connecting vss video: " + url);
+        //NPlayer_Connect(ptr, url, 1);
+        string url = "";
+        try
+        {
+            url = System.IO.File.ReadAllText("fpv_rtsp_url.txt").Trim();
+        }
+        catch (System.Exception)
+        {
+
+        }
+        if (url != "")
+        {
+            Debug.Log("connecting vss video: " + url);
+            NPlayer_Connect(ptr, url, 1);
+        }
 
         mainCamera = GetComponent<Camera>();
         emeryCollider = emery.GetComponent<BoxCollider>();
         textStyle = new GUIStyle();
         textStyle.normal.textColor = Color.red;
+    }
+
+    public void ConnectCamera(string url)
+    {
+        Debug.Log("connecting vss video: " + url);
+        NPlayer_Connect(ptr, url, 1);
     }
 
     void OnPreRender()
