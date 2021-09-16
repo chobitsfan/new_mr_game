@@ -6,7 +6,7 @@ public class VirtualAction : MonoBehaviour
 {
     public GameObject beamShot;
     public GameObject smoke;
-    int hp = 3;
+    //int hp = 3;
     public void Shot()
     {
         var beam = GameObject.Instantiate(beamShot, transform.position + transform.forward * 0.1f, Quaternion.LookRotation(-transform.right));
@@ -18,7 +18,7 @@ public class VirtualAction : MonoBehaviour
         GameObject.Instantiate(smoke, transform.position, Quaternion.LookRotation(transform.up), transform);
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         StartCoroutine(SmokeLater());
         hp--;
@@ -26,5 +26,5 @@ public class VirtualAction : MonoBehaviour
         {
             gameObject.GetComponent<DroneAction>().Land();
         }
-    }
+    }*/
 }

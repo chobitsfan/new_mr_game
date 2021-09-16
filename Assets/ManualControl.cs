@@ -15,12 +15,15 @@ public class ManualControl : MonoBehaviour
         PosHold
     }
     public GameObject drone;
+    public GameObject stopText;
     short pitch, roll, throttle, yaw;
     float controlCd = 0;
     float checkCd = 0;
     DroneAction droneAction;
     VirtualAction virtualAction;
     Stage stage = Stage.None;
+    short pitchSend, rollSend;
+    float stopTextCd = 0;
 
     private void Start()
     {
@@ -82,22 +85,38 @@ public class ManualControl : MonoBehaviour
         if ((Gamepad.current != null) && (stage == Stage.PosHold))
         {
             controlCd -= Time.deltaTime;
-            if (controlCd <= 0)
+            if (stopTextCd > 0) stopTextCd -= Time.deltaTime;
+
+            Vector3 droneHeading = -drone.transform.right;
+            droneHeading.y = 0;
+            Vector3 droneRight = drone.transform.forward;
+            droneRight.y = 0;
+            Vector3 usr_ctrl = droneHeading * pitch + droneRight * roll;
+            usr_ctrl.Normalize();
+            if (pitch != 0)
+            {
+                if (Physics.Raycast(drone.transform.position, usr_ctrl, 0.6f))
+                {
+                    stopTextCd = 2f;
+                    pitch = 0;
+                    roll = 0;
+                }
+            }
+            if (stopTextCd > 0)
+            {
+                stopText.SetActive(true);
+            }
+            else if (stopText.activeSelf)
+            {
+                stopText.SetActive(false);
+            }
+
+            if (controlCd <= 0 || System.Math.Abs(pitch - pitchSend) > 90 || System.Math.Abs(roll - rollSend) > 90)
             {
                 controlCd = 0.05f;
-                /*if (droneAction.IsPosHold())
-                {
-                    float alt = drone.transform.position.y;
-                    if (alt > 1.2f && throttle > 500)
-                    {
-                        throttle = 500;
-                    }
-                    else if (alt < 0.7f && throttle < 500)
-                    {
-                        throttle = 500;
-                    }
-                }*/
                 droneAction.ManualControl(pitch, roll, throttle, yaw);
+                pitchSend = pitch;
+                rollSend = roll;
             }
         }
         checkCd -= Time.deltaTime;

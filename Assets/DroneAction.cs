@@ -28,7 +28,7 @@ public class DroneAction : MonoBehaviour
     VirtualAction virtualAction;
     double ts;
     Queue<MoCapData> moCapDataQueue = new Queue<MoCapData>();
-    const double RTSP_BUF_DELAY_S = 0.1;
+    const double RTSP_BUF_DELAY_S = 0.15;
 
     // Start is called before the first frame update
     void Start()
