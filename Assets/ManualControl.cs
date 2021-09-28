@@ -82,24 +82,30 @@ public class ManualControl : MonoBehaviour
 
     private void Update()
     {
+        bool stopNow = false;
         if ((Gamepad.current != null) && (stage == Stage.PosHold))
         {
             controlCd -= Time.deltaTime;
             if (stopTextCd > 0) stopTextCd -= Time.deltaTime;
 
-            Vector3 droneHeading = -drone.transform.right;
-            droneHeading.y = 0;
-            Vector3 droneRight = drone.transform.forward;
-            droneRight.y = 0;
-            Vector3 usr_ctrl = droneHeading * pitch + droneRight * roll;
+            //Vector3 droneHeading = -drone.transform.right;
+            //Vector3 droneHeading = droneAction.CurRot * -Vector3.right;
+            //droneHeading.y = 0;
+            //Vector3 droneRight = drone.transform.forward;
+            //Vector3 droneRight = droneAction.CurRot * Vector3.forward;
+            //droneRight.y = 0;
+            //Vector3 usr_ctrl = droneHeading * pitch + droneRight * roll;
+            Vector3 usr_ctrl = drone.transform.TransformDirection(-pitch, 0, roll);
             usr_ctrl.Normalize();
-            if (pitch != 0)
+            if (pitch != 0 && roll != 0)
             {
-                if (Physics.Raycast(drone.transform.position, usr_ctrl, 0.6f))
+                //if (Physics.Raycast(drone.transform.position, usr_ctrl, 0.6f))
+                if (Physics.Raycast(droneAction.CurPos, usr_ctrl, 0.6f))
                 {
-                    stopTextCd = 2f;
+                    stopTextCd = 1f;
                     pitch = 0;
                     roll = 0;
+                    stopNow = true;
                 }
             }
             if (stopTextCd > 0)
@@ -111,7 +117,7 @@ public class ManualControl : MonoBehaviour
                 stopText.SetActive(false);
             }
 
-            if (controlCd <= 0 || System.Math.Abs(pitch - pitchSend) > 90 || System.Math.Abs(roll - rollSend) > 90)
+            if (controlCd <= 0 || System.Math.Abs(pitch - pitchSend) >= 100 || System.Math.Abs(roll - rollSend) >= 100 || stopNow)
             {
                 controlCd = 0.05f;
                 droneAction.ManualControl(pitch, roll, throttle, yaw);

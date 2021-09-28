@@ -15,6 +15,11 @@ public class DroneAction : MonoBehaviour
 {
     public UnityEngine.UI.Text StatusText;
     public bool IsPlayer;
+    [System.NonSerialized]
+    public Vector3 CurPos;
+    [System.NonSerialized]
+    public Quaternion CurRot;
+
     int _droneId = -1;
     byte[] buf;
     MAVLink.MavlinkParse mavlinkParse;
@@ -26,9 +31,9 @@ public class DroneAction : MonoBehaviour
     static string mocap_ip = "";
     IPEndPoint game_proxy;
     VirtualAction virtualAction;
-    double ts;
+    double ts = 0;
     Queue<MoCapData> moCapDataQueue = new Queue<MoCapData>();
-    const double RTSP_BUF_DELAY_S = 0.15;
+    const double RTSP_BUF_DELAY_S = 0.1;
 
     // Start is called before the first frame update
     void Start()
@@ -166,11 +171,15 @@ public class DroneAction : MonoBehaviour
                         case (uint)MAVLink.MAVLINK_MSG_ID.ATT_POS_MOCAP:
                             {
                                 var att_pos = (MAVLink.mavlink_att_pos_mocap_t)msg.data;
-                                MoCapData moCapData = new MoCapData();
-                                moCapData.ts = ts;
-                                moCapData.pos = new Vector3(-att_pos.x, att_pos.y, att_pos.z);
-                                moCapData.rot = new Quaternion(-att_pos.q[1], att_pos.q[2], att_pos.q[3], -att_pos.q[0]);
+                                MoCapData moCapData = new MoCapData
+                                {
+                                    ts = ts,
+                                    pos = new Vector3(-att_pos.x, att_pos.y, att_pos.z),
+                                    rot = new Quaternion(-att_pos.q[1], att_pos.q[2], att_pos.q[3], -att_pos.q[0])
+                                };
                                 moCapDataQueue.Enqueue(moCapData);
+                                CurPos = moCapData.pos;
+                                CurRot = moCapData.rot;
                                 break;
                             }
                         case (uint)MAVLink.MAVLINK_MSG_ID.MANUAL_CONTROL:
