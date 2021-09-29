@@ -31,7 +31,6 @@ public class DroneAction : MonoBehaviour
     static string mocap_ip = "";
     IPEndPoint game_proxy;
     VirtualAction virtualAction;
-    double ts = 0;
     Queue<MoCapData> moCapDataQueue = new Queue<MoCapData>();
     const double RTSP_BUF_DELAY_S = 0.1;
 
@@ -58,7 +57,6 @@ public class DroneAction : MonoBehaviour
         myproxy = new IPEndPoint(IPAddress.Parse(mocap_ip), 17500);
         game_proxy = new IPEndPoint(IPAddress.Parse(mocap_ip), 27500);
         virtualAction = gameObject.GetComponent<VirtualAction>();
-        ts = 0;
 
         if (IsPlayer)
         {
@@ -98,12 +96,11 @@ public class DroneAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ts += Time.deltaTime;
         MoCapData delayedMoCapData = null;
         while (moCapDataQueue.Count > 0)
         {
             MoCapData moCapData = moCapDataQueue.Peek();
-            if (ts - moCapData.ts >= RTSP_BUF_DELAY_S)
+            if (Time.time - moCapData.ts >= RTSP_BUF_DELAY_S)
             {
                 delayedMoCapData = moCapDataQueue.Dequeue();
             }
@@ -114,8 +111,9 @@ public class DroneAction : MonoBehaviour
         }
         if (delayedMoCapData != null)
         {
-            transform.localPosition = delayedMoCapData.pos;
-            transform.localRotation = delayedMoCapData.rot;
+            transform.position = delayedMoCapData.pos;
+            //transform.rotation = delayedMoCapData.rot;
+            transform.rotation = Quaternion.Lerp(transform.rotation, delayedMoCapData.rot, 0.5f);
         }
         if (sock.IsBound)
         {
@@ -173,7 +171,7 @@ public class DroneAction : MonoBehaviour
                                 var att_pos = (MAVLink.mavlink_att_pos_mocap_t)msg.data;
                                 MoCapData moCapData = new MoCapData
                                 {
-                                    ts = ts,
+                                    ts = Time.time,
                                     pos = new Vector3(-att_pos.x, att_pos.y, att_pos.z),
                                     rot = new Quaternion(-att_pos.q[1], att_pos.q[2], att_pos.q[3], -att_pos.q[0])
                                 };
