@@ -15,6 +15,7 @@ public class DroneAction : MonoBehaviour
 {
     public UnityEngine.UI.Text StatusText;
     public bool IsPlayer;
+    public GameWorld gameWorld;
     [System.NonSerialized]
     public Vector3 CurPos;
     [System.NonSerialized]
@@ -33,6 +34,7 @@ public class DroneAction : MonoBehaviour
     VirtualAction virtualAction;
     Queue<MoCapData> moCapDataQueue = new Queue<MoCapData>();
     const double RTSP_BUF_DELAY_S = 0.1;
+    float lastMocapDataTs = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -96,6 +98,7 @@ public class DroneAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        lastMocapDataTs += Time.deltaTime;
         MoCapData delayedMoCapData = null;
         while (moCapDataQueue.Count > 0)
         {
@@ -111,9 +114,7 @@ public class DroneAction : MonoBehaviour
         }
         if (delayedMoCapData != null)
         {
-            transform.position = delayedMoCapData.pos;
-            //transform.rotation = delayedMoCapData.rot;
-            transform.rotation = Quaternion.Lerp(transform.rotation, delayedMoCapData.rot, 0.5f);
+            transform.SetPositionAndRotation(delayedMoCapData.pos, Quaternion.Lerp(transform.rotation, delayedMoCapData.rot, 0.5f));
         }
         if (sock.IsBound)
         {
@@ -178,6 +179,7 @@ public class DroneAction : MonoBehaviour
                                 moCapDataQueue.Enqueue(moCapData);
                                 CurPos = moCapData.pos;
                                 CurRot = moCapData.rot;
+                                lastMocapDataTs = 0;
                                 break;
                             }
                         case (uint)MAVLink.MAVLINK_MSG_ID.MANUAL_CONTROL:
@@ -191,6 +193,10 @@ public class DroneAction : MonoBehaviour
                             }
                     }
                 }
+            }
+            if ((lastMocapDataTs > 0.3f) && IsPlayer)
+            {
+                gameWorld.ShowHudInfo("no track");
             }
         }
     }

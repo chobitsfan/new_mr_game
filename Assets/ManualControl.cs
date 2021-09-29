@@ -15,7 +15,7 @@ public class ManualControl : MonoBehaviour
         PosHold
     }
     public GameObject drone;
-    public GameObject stopText;
+    public GameWorld gameWorld;
     short pitch, roll, throttle, yaw;
     float controlCd = 0;
     float checkCd = 0;
@@ -23,7 +23,6 @@ public class ManualControl : MonoBehaviour
     VirtualAction virtualAction;
     Stage stage = Stage.None;
     short pitchSend, rollSend;
-    float stopTextCd = 0;
 
     private void Start()
     {
@@ -86,7 +85,6 @@ public class ManualControl : MonoBehaviour
         if ((Gamepad.current != null) && (stage == Stage.PosHold))
         {
             controlCd -= Time.deltaTime;
-            if (stopTextCd > 0) stopTextCd -= Time.deltaTime;
 
             //Vector3 droneHeading = -drone.transform.right;
             //Vector3 droneHeading = droneAction.CurRot * -Vector3.right;
@@ -95,26 +93,18 @@ public class ManualControl : MonoBehaviour
             //Vector3 droneRight = droneAction.CurRot * Vector3.forward;
             //droneRight.y = 0;
             //Vector3 usr_ctrl = droneHeading * pitch + droneRight * roll;
-            Vector3 usr_ctrl = drone.transform.TransformDirection(-pitch, 0, roll);
-            usr_ctrl.Normalize();
             if (pitch != 0 && roll != 0)
             {
+                Vector3 usr_ctrl = drone.transform.TransformDirection(-pitch, 0, roll);
+                usr_ctrl.Normalize();
                 //if (Physics.Raycast(drone.transform.position, usr_ctrl, 0.6f))
                 if (Physics.Raycast(droneAction.CurPos, usr_ctrl, 0.6f))
                 {
-                    stopTextCd = 1f;
                     pitch = 0;
                     roll = 0;
                     stopNow = true;
+                    gameWorld.ShowHudInfo("obstacle");
                 }
-            }
-            if (stopTextCd > 0)
-            {
-                stopText.SetActive(true);
-            }
-            else if (stopText.activeSelf)
-            {
-                stopText.SetActive(false);
             }
 
             if (controlCd <= 0 || System.Math.Abs(pitch - pitchSend) >= 100 || System.Math.Abs(roll - rollSend) >= 100 || stopNow)
