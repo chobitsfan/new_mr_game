@@ -23,6 +23,8 @@ public class ManualControl : MonoBehaviour
     VirtualAction virtualAction;
     Stage stage = Stage.None;
     short pitchSend, rollSend;
+    bool armed = false;
+    float armVibCd = 0f;
 
     private void Start()
     {
@@ -155,6 +157,24 @@ public class ManualControl : MonoBehaviour
                         droneAction.Poshold();
                     }
                     break;
+            }
+        }
+
+        if (!armed && droneAction.IsArmed())
+        {
+            if (Gamepad.current != null)
+            {
+                Gamepad.current.SetMotorSpeeds(0f, 0.5f);
+                armVibCd = 2f;
+            }
+        }
+        armed = droneAction.IsArmed();
+        if (armVibCd > 0)
+        {
+            armVibCd -= Time.deltaTime;
+            if (armVibCd <= 0)
+            {
+                Gamepad.current.ResetHaptics();
             }
         }
     }
