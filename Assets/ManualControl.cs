@@ -99,13 +99,14 @@ public class ManualControl : MonoBehaviour
             {
                 Vector3 usr_ctrl = drone.transform.TransformDirection(-pitch, 0, roll);
                 usr_ctrl.Normalize();
+                RaycastHit hit;
                 //if (Physics.Raycast(drone.transform.position, usr_ctrl, 0.6f))
-                if (Physics.Raycast(droneAction.CurPos, usr_ctrl, 0.6f))
+                if (Physics.Raycast(droneAction.CurPos, usr_ctrl, out hit, 0.6f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
                 {
                     pitch = 0;
                     roll = 0;
                     stopNow = true;
-                    gameWorld.ShowHudInfo("obstacle");
+                    gameWorld.ShowHudInfo("obstacle " + hit.collider.gameObject.name);
                 }
             }
 
