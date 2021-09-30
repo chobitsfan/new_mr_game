@@ -7,6 +7,7 @@ public class VirtualAction : MonoBehaviour
 {
     public GameObject beamShot;
     public GameObject smoke;
+    public bool isPlayer;
     //int hp = 3;
     float hitVibCd = 0f;
     public void Shot()
@@ -22,27 +23,33 @@ public class VirtualAction : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        /*StartCoroutine(SmokeLater());
-        hp--;
-        if (hp < 0)
+        if (isPlayer)
         {
-            gameObject.GetComponent<DroneAction>().Land();
-        }*/
-        if (Gamepad.current != null)
-        {
-            Gamepad.current.SetMotorSpeeds(0f, 0.7f);
-            hitVibCd = 1f;
+            /*StartCoroutine(SmokeLater());
+            hp--;
+            if (hp < 0)
+            {
+                gameObject.GetComponent<DroneAction>().Land();
+            }*/
+            if (Gamepad.current != null)
+            {
+                Gamepad.current.SetMotorSpeeds(0f, 0.7f);
+                hitVibCd = 1f;
+            }
         }
     }
 
     private void Update()
     {
-        if (hitVibCd > 0)
+        if (isPlayer)
         {
-            hitVibCd -= Time.deltaTime;
-            if (hitVibCd <= 0)
+            if (hitVibCd > 0)
             {
-                Gamepad.current.ResetHaptics();
+                hitVibCd -= Time.deltaTime;
+                if (hitVibCd <= 0)
+                {
+                    Gamepad.current.ResetHaptics();
+                }
             }
         }
     }

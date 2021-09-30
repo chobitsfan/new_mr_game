@@ -556,6 +556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beamShot: {fileID: 2628011189894108561, guid: 8ca15568952c32647ac1b61999995d75, type: 3}
   smoke: {fileID: 1273915125232972, guid: 7200a6f3623b9b74aaafbe1c6d9bac8e, type: 3}
+  isPlayer: 1
 --- !u!54 &452810246
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1260,6 +1261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beamShot: {fileID: 2628011189894108561, guid: 8ca15568952c32647ac1b61999995d75, type: 3}
   smoke: {fileID: 1273915125232972, guid: 7200a6f3623b9b74aaafbe1c6d9bac8e, type: 3}
+  isPlayer: 0
 --- !u!114 &1139546565
 MonoBehaviour:
   m_ObjectHideFlags: 0
