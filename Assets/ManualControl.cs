@@ -101,7 +101,7 @@ public class ManualControl : MonoBehaviour
                 usr_ctrl.Normalize();
                 RaycastHit hit;
                 //if (Physics.Raycast(drone.transform.position, usr_ctrl, 0.6f))
-                if (Physics.Raycast(droneAction.CurPos, usr_ctrl, out hit, 0.6f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
+                if (Physics.Raycast(droneAction.CurPos, usr_ctrl, out hit, 0.6f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Collide))
                 {
                     pitch = 0;
                     roll = 0;

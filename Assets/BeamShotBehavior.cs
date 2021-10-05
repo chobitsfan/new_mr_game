@@ -36,7 +36,8 @@ public class BeamShotBehavior : MonoBehaviour
     {
         if (other.gameObject.name == "GirlShield")
         {
-            Destroy(gameObject);
+            GetComponent<Rigidbody>().AddForce(-transform.forward, ForceMode.Acceleration);
+            Destroy(gameObject, 0.3f);
         }
         else
         {
