@@ -34,8 +34,15 @@ public class BeamShotBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GameObject boom = GameObject.Instantiate(explosion, transform.position, Quaternion.identity);
-        Destroy(gameObject);
-        Destroy(boom, 2f);
+        if (other.gameObject.name == "GirlShield")
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            GameObject boom = GameObject.Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+            Destroy(boom, 2f);
+        }
     }
 }
