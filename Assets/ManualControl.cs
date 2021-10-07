@@ -83,6 +83,10 @@ public class ManualControl : MonoBehaviour
 
     private void Update()
     {
+        if (Keyboard.current.lKey.wasPressedThisFrame)
+        {
+            droneAction.Land();
+        }
         bool stopNow = false;
         if ((Gamepad.current != null) && (stage == Stage.PosHold))
         {
