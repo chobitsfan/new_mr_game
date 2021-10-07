@@ -6,14 +6,6 @@
             "id": "90b5f0ee-f77a-480e-a389-bcd9c5c24dfb",
             "actions": [
                 {
-                    "name": "Arm",
-                    "type": "Button",
-                    "id": "c9272878-d132-422f-b186-ed75c90182df",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Hold"
-                },
-                {
                     "name": "ThrottleYaw",
                     "type": "PassThrough",
                     "id": "c04dee8c-82af-460a-b851-b92ef2923bf2",
@@ -30,25 +22,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Disarm",
-                    "type": "Button",
-                    "id": "e0b5787e-17d9-4dd0-ac66-142e99f5d0e5",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Tap"
-                },
-                {
                     "name": "Takeoff",
                     "type": "Button",
                     "id": "f501f11d-ec13-4e61-9411-8db34e041a5b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Stabilize",
-                    "type": "Button",
-                    "id": "c9ae9af9-e20b-41e8-b705-3d4548579d31",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -71,17 +47,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "811c9949-e7b1-4c08-ac71-b875ea5d4772",
-                    "path": "<XInputController>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Xbox",
-                    "action": "Arm",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "6a4b39f7-2190-4be8-9d9d-723ce850c604",
@@ -216,19 +181,8 @@
                 },
                 {
                     "name": "",
-                    "id": "b3e2a30b-0cee-4644-8b02-ef4eeae3811e",
-                    "path": "<XInputController>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Xbox",
-                    "action": "Disarm",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "2d1f2ce4-174c-4186-a555-eab4421679bd",
-                    "path": "<XInputController>/buttonEast",
+                    "path": "<XInputController>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",
@@ -238,19 +192,41 @@
                 },
                 {
                     "name": "",
-                    "id": "be6c846e-6b89-4752-b2f8-35942ab5e6ca",
-                    "path": "<XInputController>/buttonWest",
+                    "id": "dcd8e2bf-6ef1-4b40-bbba-a61bc5820d8a",
+                    "path": "<XInputController>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",
-                    "action": "Stabilize",
+                    "action": "Shot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "dcd8e2bf-6ef1-4b40-bbba-a61bc5820d8a",
-                    "path": "<XInputController>/rightShoulder",
+                    "id": "4c76f86a-9752-4bb2-9433-80b88790d617",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox",
+                    "action": "Shot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "89912247-59be-4a80-a5e2-b982ad1d6b23",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox",
+                    "action": "Shot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "85b51aa0-cacc-421b-af8d-2a354e7c3b28",
+                    "path": "<XInputController>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",
@@ -261,7 +237,7 @@
                 {
                     "name": "",
                     "id": "91bd1939-e53e-42c6-aee6-d3e2ea823258",
-                    "path": "<XInputController>/buttonNorth",
+                    "path": "<XInputController>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",

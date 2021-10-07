@@ -19,14 +19,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
             ""id"": ""90b5f0ee-f77a-480e-a389-bcd9c5c24dfb"",
             ""actions"": [
                 {
-                    ""name"": ""Arm"",
-                    ""type"": ""Button"",
-                    ""id"": ""c9272878-d132-422f-b186-ed75c90182df"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Hold""
-                },
-                {
                     ""name"": ""ThrottleYaw"",
                     ""type"": ""PassThrough"",
                     ""id"": ""c04dee8c-82af-460a-b851-b92ef2923bf2"",
@@ -43,25 +35,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Disarm"",
-                    ""type"": ""Button"",
-                    ""id"": ""e0b5787e-17d9-4dd0-ac66-142e99f5d0e5"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Tap""
-                },
-                {
                     ""name"": ""Takeoff"",
                     ""type"": ""Button"",
                     ""id"": ""f501f11d-ec13-4e61-9411-8db34e041a5b"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Stabilize"",
-                    ""type"": ""Button"",
-                    ""id"": ""c9ae9af9-e20b-41e8-b705-3d4548579d31"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -84,17 +60,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""811c9949-e7b1-4c08-ac71-b875ea5d4772"",
-                    ""path"": ""<XInputController>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox"",
-                    ""action"": ""Arm"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""6a4b39f7-2190-4be8-9d9d-723ce850c604"",
@@ -229,19 +194,8 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b3e2a30b-0cee-4644-8b02-ef4eeae3811e"",
-                    ""path"": ""<XInputController>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox"",
-                    ""action"": ""Disarm"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""2d1f2ce4-174c-4186-a555-eab4421679bd"",
-                    ""path"": ""<XInputController>/buttonEast"",
+                    ""path"": ""<XInputController>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox"",
@@ -251,19 +205,41 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""be6c846e-6b89-4752-b2f8-35942ab5e6ca"",
-                    ""path"": ""<XInputController>/buttonWest"",
+                    ""id"": ""dcd8e2bf-6ef1-4b40-bbba-a61bc5820d8a"",
+                    ""path"": ""<XInputController>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox"",
-                    ""action"": ""Stabilize"",
+                    ""action"": ""Shot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""dcd8e2bf-6ef1-4b40-bbba-a61bc5820d8a"",
-                    ""path"": ""<XInputController>/rightShoulder"",
+                    ""id"": ""4c76f86a-9752-4bb2-9433-80b88790d617"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox"",
+                    ""action"": ""Shot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""89912247-59be-4a80-a5e2-b982ad1d6b23"",
+                    ""path"": ""<XInputController>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox"",
+                    ""action"": ""Shot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""85b51aa0-cacc-421b-af8d-2a354e7c3b28"",
+                    ""path"": ""<XInputController>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox"",
@@ -274,7 +250,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""91bd1939-e53e-42c6-aee6-d3e2ea823258"",
-                    ""path"": ""<XInputController>/buttonNorth"",
+                    ""path"": ""<XInputController>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox"",
@@ -301,12 +277,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
 }");
         // player
         m_player = asset.FindActionMap("player", throwIfNotFound: true);
-        m_player_Arm = m_player.FindAction("Arm", throwIfNotFound: true);
         m_player_ThrottleYaw = m_player.FindAction("ThrottleYaw", throwIfNotFound: true);
         m_player_PitchRoll = m_player.FindAction("PitchRoll", throwIfNotFound: true);
-        m_player_Disarm = m_player.FindAction("Disarm", throwIfNotFound: true);
         m_player_Takeoff = m_player.FindAction("Takeoff", throwIfNotFound: true);
-        m_player_Stabilize = m_player.FindAction("Stabilize", throwIfNotFound: true);
         m_player_Shot = m_player.FindAction("Shot", throwIfNotFound: true);
         m_player_Land = m_player.FindAction("Land", throwIfNotFound: true);
     }
@@ -358,24 +331,18 @@ public class @InputMaster : IInputActionCollection, IDisposable
     // player
     private readonly InputActionMap m_player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_player_Arm;
     private readonly InputAction m_player_ThrottleYaw;
     private readonly InputAction m_player_PitchRoll;
-    private readonly InputAction m_player_Disarm;
     private readonly InputAction m_player_Takeoff;
-    private readonly InputAction m_player_Stabilize;
     private readonly InputAction m_player_Shot;
     private readonly InputAction m_player_Land;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
         public PlayerActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Arm => m_Wrapper.m_player_Arm;
         public InputAction @ThrottleYaw => m_Wrapper.m_player_ThrottleYaw;
         public InputAction @PitchRoll => m_Wrapper.m_player_PitchRoll;
-        public InputAction @Disarm => m_Wrapper.m_player_Disarm;
         public InputAction @Takeoff => m_Wrapper.m_player_Takeoff;
-        public InputAction @Stabilize => m_Wrapper.m_player_Stabilize;
         public InputAction @Shot => m_Wrapper.m_player_Shot;
         public InputAction @Land => m_Wrapper.m_player_Land;
         public InputActionMap Get() { return m_Wrapper.m_player; }
@@ -387,24 +354,15 @@ public class @InputMaster : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @Arm.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnArm;
-                @Arm.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnArm;
-                @Arm.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnArm;
                 @ThrottleYaw.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrottleYaw;
                 @ThrottleYaw.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrottleYaw;
                 @ThrottleYaw.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrottleYaw;
                 @PitchRoll.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPitchRoll;
                 @PitchRoll.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPitchRoll;
                 @PitchRoll.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPitchRoll;
-                @Disarm.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDisarm;
-                @Disarm.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDisarm;
-                @Disarm.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDisarm;
                 @Takeoff.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTakeoff;
                 @Takeoff.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTakeoff;
                 @Takeoff.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTakeoff;
-                @Stabilize.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStabilize;
-                @Stabilize.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStabilize;
-                @Stabilize.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStabilize;
                 @Shot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShot;
                 @Shot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShot;
                 @Shot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShot;
@@ -415,24 +373,15 @@ public class @InputMaster : IInputActionCollection, IDisposable
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Arm.started += instance.OnArm;
-                @Arm.performed += instance.OnArm;
-                @Arm.canceled += instance.OnArm;
                 @ThrottleYaw.started += instance.OnThrottleYaw;
                 @ThrottleYaw.performed += instance.OnThrottleYaw;
                 @ThrottleYaw.canceled += instance.OnThrottleYaw;
                 @PitchRoll.started += instance.OnPitchRoll;
                 @PitchRoll.performed += instance.OnPitchRoll;
                 @PitchRoll.canceled += instance.OnPitchRoll;
-                @Disarm.started += instance.OnDisarm;
-                @Disarm.performed += instance.OnDisarm;
-                @Disarm.canceled += instance.OnDisarm;
                 @Takeoff.started += instance.OnTakeoff;
                 @Takeoff.performed += instance.OnTakeoff;
                 @Takeoff.canceled += instance.OnTakeoff;
-                @Stabilize.started += instance.OnStabilize;
-                @Stabilize.performed += instance.OnStabilize;
-                @Stabilize.canceled += instance.OnStabilize;
                 @Shot.started += instance.OnShot;
                 @Shot.performed += instance.OnShot;
                 @Shot.canceled += instance.OnShot;
@@ -454,12 +403,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
     }
     public interface IPlayerActions
     {
-        void OnArm(InputAction.CallbackContext context);
         void OnThrottleYaw(InputAction.CallbackContext context);
         void OnPitchRoll(InputAction.CallbackContext context);
-        void OnDisarm(InputAction.CallbackContext context);
         void OnTakeoff(InputAction.CallbackContext context);
-        void OnStabilize(InputAction.CallbackContext context);
         void OnShot(InputAction.CallbackContext context);
         void OnLand(InputAction.CallbackContext context);
     }
