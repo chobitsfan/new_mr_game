@@ -8,7 +8,10 @@ public class VirtualAction : MonoBehaviour
     public GameObject beamShot;
     public GameObject smoke;
     public bool isPlayer;
-    //int hp = 3;
+
+    public int HP => _hp;
+
+    private int _hp = 10;
     float hitVibCd = 0f;
     Color beamColor = Color.green;
 
@@ -43,8 +46,17 @@ public class VirtualAction : MonoBehaviour
         GameObject.Instantiate(smoke, transform.position, Quaternion.LookRotation(transform.up), transform);
     }
 
+    public void ResetHP()
+    {
+        _hp = 10;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "Beam")
+        {
+            _hp--;
+        }
         if (isPlayer)
         {
             /*StartCoroutine(SmokeLater());
