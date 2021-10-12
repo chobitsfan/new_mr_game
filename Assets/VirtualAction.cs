@@ -14,6 +14,8 @@ public class VirtualAction : MonoBehaviour
     private int _hp = 10;
     float hitVibCd = 0f;
     Color beamColor = Color.green;
+    AudioSource beamShotSound;
+    float beamShotCd = 0f;
 
     private void Start()
     {
@@ -32,12 +34,18 @@ public class VirtualAction : MonoBehaviour
 
         }
         beamColor = new Color(r / 255.0f, g / 255.0f, b / 255.0f);
+        beamShotSound = GetComponent<AudioSource>();
     }
 
     public void Shot()
     {
-        var beam = GameObject.Instantiate(beamShot, transform.position + transform.forward * 0.1f, Quaternion.LookRotation(-transform.right));
-        beam.GetComponent<VolumetricLines.VolumetricLineBehavior>().LineColor = beamColor;
+        if (beamShotCd <= 0)
+        {
+            var beam = GameObject.Instantiate(beamShot, transform.position + transform.forward * 0.1f, Quaternion.LookRotation(-transform.right));
+            beam.GetComponent<VolumetricLines.VolumetricLineBehavior>().LineColor = beamColor;
+            beamShotSound.Play();
+            beamShotCd = 0.5f;
+        }
     }
 
     IEnumerator SmokeLater()
@@ -84,6 +92,10 @@ public class VirtualAction : MonoBehaviour
                 {
                     Gamepad.current.ResetHaptics();
                 }
+            }
+            if (beamShotCd > 0)
+            {
+                beamShotCd -= Time.deltaTime;
             }
         }
     }
