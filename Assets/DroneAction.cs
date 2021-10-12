@@ -21,6 +21,8 @@ public class DroneAction : MonoBehaviour
     [System.NonSerialized]
     public Quaternion CurRot;
 
+    public bool Tracked => _tracked;
+
     int _droneId = -1;
     byte[] buf;
     MAVLink.MavlinkParse mavlinkParse;
@@ -35,6 +37,7 @@ public class DroneAction : MonoBehaviour
     Queue<MoCapData> moCapDataQueue = new Queue<MoCapData>();
     const double RTSP_BUF_DELAY_S = 0.1;
     float lastMocapDataTs = 0;
+    private bool _tracked = false;
 
     // Start is called before the first frame update
     void Start()
@@ -180,6 +183,7 @@ public class DroneAction : MonoBehaviour
                                 CurPos = moCapData.pos;
                                 CurRot = moCapData.rot;
                                 lastMocapDataTs = 0;
+                                _tracked = true;
                                 break;
                             }
                         case (uint)MAVLink.MAVLINK_MSG_ID.MANUAL_CONTROL:
@@ -194,9 +198,10 @@ public class DroneAction : MonoBehaviour
                     }
                 }
             }
-            if ((lastMocapDataTs > 0.3f) && IsPlayer)
+            if (lastMocapDataTs > 0.3f)
             {
-                gameWorld.ShowHudInfo("no track");
+                _tracked = false;
+                if (IsPlayer) gameWorld.ShowHudInfo("lost track");
             }
         }
     }

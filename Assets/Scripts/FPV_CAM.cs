@@ -37,6 +37,7 @@ public class FPV_CAM : MonoBehaviour
     static Material lineMaterial;
     Camera mainCamera;
     BoxCollider emeryCollider;
+    DroneAction emeryDrone;
     Rect emeryRect;
     GUIStyle textStyle;
 
@@ -69,6 +70,7 @@ public class FPV_CAM : MonoBehaviour
 
         mainCamera = GetComponent<Camera>();
         emeryCollider = emery.GetComponent<BoxCollider>();
+        emeryDrone = emery.GetComponent<DroneAction>();
         textStyle = new GUIStyle();
         textStyle.normal.textColor = Color.red;
     }
@@ -164,27 +166,30 @@ public class FPV_CAM : MonoBehaviour
 
     private void OnPostRender()
     {
-        emeryRect = GetScreenRectFromBounds(emeryCollider);
+        if (emeryDrone.Tracked)
+        {
+            emeryRect = GetScreenRectFromBounds(emeryCollider);
 
-        CreateLineMaterial();
-        // Apply the line material
-        lineMaterial.SetPass(0);
+            CreateLineMaterial();
+            // Apply the line material
+            lineMaterial.SetPass(0);
 
-        GL.PushMatrix();
-        // Set transformation matrix for drawing to
-        // match our transform
-        GL.LoadPixelMatrix();
+            GL.PushMatrix();
+            // Set transformation matrix for drawing to
+            // match our transform
+            GL.LoadPixelMatrix();
 
-        GL.Begin(GL.LINE_STRIP);
-        GL.Color(Color.red);
-        GL.Vertex3(emeryRect.xMin, emeryRect.yMin, 0);
-        GL.Vertex3(emeryRect.xMax, emeryRect.yMin, 0);
-        GL.Vertex3(emeryRect.xMax, emeryRect.yMax, 0);
-        GL.Vertex3(emeryRect.xMin, emeryRect.yMax, 0);
-        GL.Vertex3(emeryRect.xMin, emeryRect.yMin, 0);
-        GL.End();
+            GL.Begin(GL.LINE_STRIP);
+            GL.Color(Color.red);
+            GL.Vertex3(emeryRect.xMin, emeryRect.yMin, 0);
+            GL.Vertex3(emeryRect.xMax, emeryRect.yMin, 0);
+            GL.Vertex3(emeryRect.xMax, emeryRect.yMax, 0);
+            GL.Vertex3(emeryRect.xMin, emeryRect.yMax, 0);
+            GL.Vertex3(emeryRect.xMin, emeryRect.yMin, 0);
+            GL.End();
 
-        GL.PopMatrix();
+            GL.PopMatrix();
+        }
     }
 
     private void OnGUI()

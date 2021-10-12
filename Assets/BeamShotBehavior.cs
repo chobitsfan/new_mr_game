@@ -5,12 +5,14 @@ using UnityEngine;
 public class BeamShotBehavior : MonoBehaviour
 {
     public GameObject explosion;
+    AudioSource explodeSound;
     float expireTs = 3f;
     float colliderCd = 0.1f;
 
     private void Start()
     {
         GetComponent<Rigidbody>().AddForce(transform.forward * 2, ForceMode.VelocityChange);
+        explodeSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -41,6 +43,7 @@ public class BeamShotBehavior : MonoBehaviour
         }
         else
         {
+            explodeSound.Play();
             GameObject boom = GameObject.Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
             Destroy(boom, 2f);
