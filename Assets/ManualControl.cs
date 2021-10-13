@@ -25,6 +25,7 @@ public class ManualControl : MonoBehaviour
     short pitchSend, rollSend;
     bool armed = false;
     float armVibCd = 0f;
+    float beamShotCd = 0f;
 
     private void Start()
     {
@@ -72,8 +73,12 @@ public class ManualControl : MonoBehaviour
 
     public void OnShot()
     {
-        droneAction.FireLaser();
-        virtualAction.Shot();
+        if (beamShotCd <= 0)
+        {
+            droneAction.FireLaser();
+            virtualAction.Shot();
+            beamShotCd = 0.5f;
+        }
     }
 
     public void OnLand()
@@ -83,6 +88,10 @@ public class ManualControl : MonoBehaviour
 
     private void Update()
     {
+        if (beamShotCd > 0)
+        {
+            beamShotCd -= Time.deltaTime;
+        }
         if (Keyboard.current.lKey.wasPressedThisFrame)
         {
             droneAction.Land();
