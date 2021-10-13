@@ -2862,6 +2862,7 @@ MonoBehaviour:
   TimeText: {fileID: 164074779}
   Player: {fileID: 452810241}
   Emery: {fileID: 1139546559}
+  UnityChanAnimator: {fileID: 2106943518}
 --- !u!4 &1886247612
 Transform:
   m_ObjectHideFlags: 0
@@ -3275,6 +3276,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44374dd563c03d64aaff55a08495dd9f, type: 3}
+--- !u!95 &2106943518 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: 44374dd563c03d64aaff55a08495dd9f, type: 3}
+  m_PrefabInstance: {fileID: 2106943517}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2117348217
 GameObject:
   m_ObjectHideFlags: 0

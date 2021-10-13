@@ -197,6 +197,10 @@ public class DroneAction : MonoBehaviour
                                 {
                                     gameWorld.GameStart();
                                 }
+                                else if (ctrl.buttons == 3)
+                                {
+                                    gameWorld.GirlSync();
+                                }
                                 break;
                             }
                     }
@@ -332,11 +336,21 @@ public class DroneAction : MonoBehaviour
         sock.SendTo(data, game_proxy);
     }
 
-    public void GameStart()
+    public void SendGameStart()
     {
         MAVLink.mavlink_manual_control_t cmd = new MAVLink.mavlink_manual_control_t
         {
             buttons = 2
+        };
+        byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.MANUAL_CONTROL, cmd);
+        sock.SendTo(data, game_proxy);
+    }
+
+    public void SendGirlSync()
+    {
+        MAVLink.mavlink_manual_control_t cmd = new MAVLink.mavlink_manual_control_t
+        {
+            buttons = 3
         };
         byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.MANUAL_CONTROL, cmd);
         sock.SendTo(data, game_proxy);

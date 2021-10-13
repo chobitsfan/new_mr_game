@@ -11,6 +11,7 @@ public class GameWorld : MonoBehaviour
     public UnityEngine.UI.Text TimeText;
     public GameObject Player;
     public GameObject Emery;
+    public Animator UnityChanAnimator;
 
     VirtualAction playerVirtualAction;
     VirtualAction emeryVirtualAction;
@@ -23,6 +24,7 @@ public class GameWorld : MonoBehaviour
     bool _gameOver = false;
     float remainTime = MyGameSetting.GameDurationSec;
     bool _gameStarted = false;
+    float delayedSync = 5f;
 
     private void Start()
     {
@@ -59,8 +61,23 @@ public class GameWorld : MonoBehaviour
 
     }
 
+    public void GirlSync()
+    {
+        UnityChanAnimator.Play("Base Layer.003_NOT01_Final", -1, 0);
+        UnityChanAnimator.Play("HandExpression.HandExpression", -1, 0);
+    }
+
     private void Update()
     {
+        if (delayedSync > 0)
+        {
+            delayedSync -= Time.deltaTime;
+            if (delayedSync <= 0)
+            {
+                playerDroneAction.SendGirlSync();
+                GirlSync();
+            }
+        }
         if (!_gameOver && _gameStarted)
         {
             if (remainTime > 0)
@@ -91,14 +108,14 @@ public class GameWorld : MonoBehaviour
         {
             Application.Quit();
         }
-        else if (Keyboard.current.rKey.wasPressedThisFrame)
+        /*else if (Keyboard.current.rKey.wasPressedThisFrame)
         {
             ResetGame();
-        }
+        }*/
         else if (Keyboard.current.sKey.wasPressedThisFrame)
         {
             GameStart();
-            playerDroneAction.GameStart();
+            playerDroneAction.SendGameStart();
         }
         if (!_gameOver)
         {
