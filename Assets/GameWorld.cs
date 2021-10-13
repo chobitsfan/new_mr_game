@@ -9,15 +9,28 @@ public class GameWorld : MonoBehaviour
     //public FPV_CAM FpvCam;
     public UnityEngine.UI.Text HudText;
     public UnityEngine.UI.Text TimeText;
-    public VirtualAction MyVirtualAction;
-    public VirtualAction EmeryVirtualAction;
+    public GameObject Player;
+    public GameObject Emery;
+
+    VirtualAction playerVirtualAction;
+    VirtualAction emeryVirtualAction;
+    DroneAction playerDroneAction;
+    DroneAction emeryDroneAction;
 
     public bool IsGameOver => _gameOver;
 
     float hudTextCd = 0;
     bool _gameOver = false;
-    float remainTime = 3 * 60;
+    float remainTime = MyGameSetting.GameDurationSec;
     bool _gameStarted = false;
+
+    private void Start()
+    {
+        playerVirtualAction = Player.GetComponent<VirtualAction>();
+        playerDroneAction = Player.GetComponent<DroneAction>();
+        emeryVirtualAction = Emery.GetComponent<VirtualAction>();
+        emeryDroneAction = Emery.GetComponent<DroneAction>();
+    }
 
     public void ShowHudInfo(string text)
     {
@@ -29,9 +42,9 @@ public class GameWorld : MonoBehaviour
     void ResetGame()
     {
         _gameOver = false;
-        MyVirtualAction.ResetHP();
-        EmeryVirtualAction.ResetHP();
-        remainTime = 3 * 60;
+        playerVirtualAction.ResetHP();
+        emeryVirtualAction.ResetHP();
+        remainTime = MyGameSetting.GameDurationSec;
         _gameStarted = false;
     }
 
@@ -62,6 +75,8 @@ public class GameWorld : MonoBehaviour
             {
                 _gameOver = true;
                 TimeText.text = "Game Over";
+                ShowHudInfo("Game Over");
+                playerDroneAction.Land();
             }
         }
         if (hudTextCd > 0)
@@ -83,22 +98,23 @@ public class GameWorld : MonoBehaviour
         else if (Keyboard.current.sKey.wasPressedThisFrame)
         {
             GameStart();
+            playerDroneAction.GameStart();
         }
         if (!_gameOver)
         {
-            if (MyVirtualAction.HP <= 0 && EmeryVirtualAction.HP <= 0)
+            if (playerVirtualAction.HP <= 0 && emeryVirtualAction.HP <= 0)
             {
                 _gameOver = true;
                 HudText.text = "DRAW";
                 HudText.enabled = true;
             }
-            else if (MyVirtualAction.HP <= 0)
+            else if (playerVirtualAction.HP <= 0)
             {
                 _gameOver = true;
                 HudText.text = "LOSE";
                 HudText.enabled = true;
             }
-            else if (EmeryVirtualAction.HP <= 0)
+            else if (emeryVirtualAction.HP <= 0)
             {
                 _gameOver = true;
                 HudText.text = "WIN";
