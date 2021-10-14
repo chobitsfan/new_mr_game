@@ -119,7 +119,7 @@ public class ManualControl : MonoBehaviour
                     pitch = 0;
                     roll = 0;
                     stopNow = true;
-                    gameWorld.ShowHudInfo("obstacle " + hit.collider.gameObject.name);
+                    gameWorld.ShowHudInfo("obs:" + hit.collider.gameObject.name);
                 }
             }
 

@@ -35,11 +35,11 @@ public class GameWorld : MonoBehaviour
         emeryDroneAction = Emery.GetComponent<DroneAction>();
     }
 
-    public void ShowHudInfo(string text)
+    public void ShowHudInfo(string text, bool stayLonger = false)
     {
         HudText.text = text;
         HudText.enabled = true;
-        hudTextCd = 1f;
+        if (stayLonger) hudTextCd = 10f; else hudTextCd = 1.5f;
     }
 
     void ResetGame()
@@ -60,12 +60,14 @@ public class GameWorld : MonoBehaviour
 
     public void UpdateHpDisplay(int hp)
     {
-        HpText.text = "HP:" + playerVirtualAction.HP;
+        HpText.text = "HP:" + hp;
     }
 
     void GameOver()
     {
-
+        _gameOver = true;
+        _gameStarted = false;
+        playerDroneAction.Land();
     }
 
     public void GirlSync()
@@ -98,9 +100,7 @@ public class GameWorld : MonoBehaviour
             else
             {
                 _gameOver = true;
-                TimeText.text = "Game Over";
-                ShowHudInfo("Game Over");
-                playerDroneAction.Land();
+                TimeText.text = "00:00:00";
             }
         }
         if (hudTextCd > 0)
@@ -124,25 +124,42 @@ public class GameWorld : MonoBehaviour
             GameStart();
             playerDroneAction.SendGameStart();
         }
-        if (!_gameOver)
+
+        if (_gameStarted)
         {
-            if (playerVirtualAction.HP <= 0 && emeryVirtualAction.HP <= 0)
+            if (_gameOver)
             {
-                _gameOver = true;
-                HudText.text = "DRAW";
-                HudText.enabled = true;
+                if (playerVirtualAction.HP > emeryVirtualAction.HP)
+                {
+                    GameOver();
+                    ShowHudInfo("WIN", true);
+                } else if (playerVirtualAction.HP == emeryVirtualAction.HP)
+                {
+                    GameOver();
+                    ShowHudInfo("DRAW", true);
+                } else
+                {
+                    GameOver();
+                    ShowHudInfo("LOSE", true);
+                }
             }
-            else if (playerVirtualAction.HP <= 0)
+            else
             {
-                _gameOver = true;
-                HudText.text = "LOSE";
-                HudText.enabled = true;
-            }
-            else if (emeryVirtualAction.HP <= 0)
-            {
-                _gameOver = true;
-                HudText.text = "WIN";
-                HudText.enabled = true;
+                if (playerVirtualAction.HP <= 0 && emeryVirtualAction.HP <= 0)
+                {
+                    GameOver();
+                    ShowHudInfo("DRAW", true);
+                }
+                else if (playerVirtualAction.HP <= 0)
+                {
+                    GameOver();
+                    ShowHudInfo("LOSE", true);
+                }
+                else if (emeryVirtualAction.HP <= 0)
+                {
+                    GameOver();
+                    ShowHudInfo("WIN", true);
+                }
             }
         }
     }
