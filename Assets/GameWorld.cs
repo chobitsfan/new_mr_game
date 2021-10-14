@@ -9,6 +9,7 @@ public class GameWorld : MonoBehaviour
     //public FPV_CAM FpvCam;
     public UnityEngine.UI.Text HudText;
     public UnityEngine.UI.Text TimeText;
+    public UnityEngine.UI.Text HpText;
     public GameObject Player;
     public GameObject Emery;
     public Animator UnityChanAnimator;
@@ -54,6 +55,12 @@ public class GameWorld : MonoBehaviour
     {
         ResetGame();
         _gameStarted = true;
+        UpdateHpDisplay(playerVirtualAction.HP);
+    }
+
+    public void UpdateHpDisplay(int hp)
+    {
+        HpText.text = "HP:" + playerVirtualAction.HP;
     }
 
     void GameOver()
