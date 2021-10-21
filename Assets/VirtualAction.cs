@@ -7,7 +7,7 @@ public class VirtualAction : MonoBehaviour
 {
     public GameObject beamShot;
     public GameObject smoke;
-    public bool isPlayer;
+    public bool isPlayer = false;
     public GameWorld gameWorld;
 
     public int HP => _hp;

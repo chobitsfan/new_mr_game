@@ -14,7 +14,7 @@ class MoCapData
 public class DroneAction : MonoBehaviour
 {
     public UnityEngine.UI.Text StatusText;
-    public bool IsPlayer;
+    public bool IsPlayer = false;
     public GameWorld gameWorld;
     [System.NonSerialized]
     public Vector3 CurPos;
@@ -119,22 +119,21 @@ public class DroneAction : MonoBehaviour
         {
             transform.SetPositionAndRotation(delayedMoCapData.pos, Quaternion.Lerp(transform.rotation, delayedMoCapData.rot, 0.5f));
         }
-        if (sock.IsBound)
+
+        hb_cd -= Time.deltaTime;
+        if (hb_cd <= 0)
         {
-            hb_cd -= Time.deltaTime;
-            if (hb_cd <= 0)
+            hb_cd = 2f;
+            MAVLink.mavlink_heartbeat_t cmd = new MAVLink.mavlink_heartbeat_t
             {
-                hb_cd = 2f;
-                MAVLink.mavlink_heartbeat_t cmd = new MAVLink.mavlink_heartbeat_t
-                {
-                    autopilot = 8,
-                    type = 6,
-                    mavlink_version = 3
-                };
-                byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.HEARTBEAT, cmd);
-                sock.SendTo(data, game_proxy);
-            }
+                autopilot = 8,
+                type = 6,
+                mavlink_version = 3
+            };
+            byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.HEARTBEAT, cmd);
+            sock.SendTo(data, game_proxy);
         }
+
         while (sock.Available > 0)
         {
             int recvBytes = 0;
@@ -165,9 +164,12 @@ public class DroneAction : MonoBehaviour
                             }
                         case (uint)MAVLink.MAVLINK_MSG_ID.HEARTBEAT:
                             {
-                                var heartbeat = (MAVLink.mavlink_heartbeat_t)msg.data;
-                                apm_mode = heartbeat.custom_mode;
-                                armed = (heartbeat.base_mode & (byte)MAVLink.MAV_MODE_FLAG.SAFETY_ARMED) != 0;
+                                if (msg.sysid == _droneId)
+                                {
+                                    var heartbeat = (MAVLink.mavlink_heartbeat_t)msg.data;
+                                    apm_mode = heartbeat.custom_mode;
+                                    armed = (heartbeat.base_mode & (byte)MAVLink.MAV_MODE_FLAG.SAFETY_ARMED) != 0;
+                                }
                                 break;
                             }
                         case (uint)MAVLink.MAVLINK_MSG_ID.ATT_POS_MOCAP:
@@ -206,11 +208,11 @@ public class DroneAction : MonoBehaviour
                     }
                 }
             }
-            if (lastMocapDataTs > 0.3f)
-            {
-                _tracked = false;
-                if (IsPlayer) gameWorld.ShowHudInfo("lost track");
-            }
+        }
+        if (lastMocapDataTs > 0.3f)
+        {
+            _tracked = false;
+            if (IsPlayer) gameWorld.ShowHudInfo("lost track");
         }
     }
 

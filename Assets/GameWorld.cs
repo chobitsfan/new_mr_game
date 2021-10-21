@@ -26,6 +26,8 @@ public class GameWorld : MonoBehaviour
     float remainTime = MyGameSetting.GameDurationSec;
     bool _gameStarted = false;
     float delayedSync = 5f;
+    AnimatorStateInfo previousState;
+    AnimatorStateInfo currentState;
 
     private void Start()
     {
@@ -33,6 +35,8 @@ public class GameWorld : MonoBehaviour
         playerDroneAction = Player.GetComponent<DroneAction>();
         emeryVirtualAction = Emery.GetComponent<VirtualAction>();
         emeryDroneAction = Emery.GetComponent<DroneAction>();
+        currentState = UnityChanAnimator.GetCurrentAnimatorStateInfo(0);
+        previousState = currentState;
     }
 
     public void ShowHudInfo(string text, bool stayLonger = false)
@@ -123,6 +127,24 @@ public class GameWorld : MonoBehaviour
         {
             GameStart();
             playerDroneAction.SendGameStart();
+        }
+        /*else if (Keyboard.current.pKey.wasPressedThisFrame)
+        {
+            UnityChanAnimator.SetBool("Next", true);
+        }*/
+
+        if (UnityChanAnimator.GetBool("Next"))
+        {
+            currentState = UnityChanAnimator.GetCurrentAnimatorStateInfo(0);
+            if (previousState.fullPathHash != currentState.fullPathHash)
+            {
+                UnityChanAnimator.SetBool("Next", false);
+                previousState = currentState;
+            }
+        }
+        else if (UnityChanAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+        {
+            UnityChanAnimator.SetBool("Next", true);
         }
 
         if (_gameStarted)
