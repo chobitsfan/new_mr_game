@@ -46,16 +46,20 @@ public class ManualControl : MonoBehaviour
     {
         Vector2 v = value.Get<Vector2>();
         //Debug.Log("OnThrottleYaw"+ v);
-        throttle = (short)((v.y + 1f) * 500f);
-        yaw = (short)(v.x * 1000f);
+
+        //changed by KZ's order for newbie
+        pitch = (short)(v.y * 1000f);
+        roll = (short)(v.x * 1000f);
     }
 
     public void OnPitchRoll(InputValue value)
     {
         Vector2 v = value.Get<Vector2>();
         //Debug.Log("OnPitchRoll"+v);
-        pitch = (short)(v.y * 1000f);
-        roll = (short)(v.x * 1000f);
+
+        //changed by KZ's order for newbie
+        throttle = (short)((v.y + 1f) * 500f);
+        yaw = (short)(v.x * 1000f);
     }
 
     public void OnStabilize()
