@@ -88,6 +88,10 @@ public class ManualControl : MonoBehaviour
 
     private void Update()
     {
+        if (Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            droneAction.Disarm(true);
+        }
         if (beamShotCd > 0)
         {
             beamShotCd -= Time.deltaTime;

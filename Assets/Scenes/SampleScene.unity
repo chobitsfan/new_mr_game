@@ -1440,19 +1440,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6280939328385044559, guid: f86a9d045f0e8dc40907dbaf5a7602ef, type: 3}
       propertyPath: field of view
-      value: 44
+      value: 64.54513
       objectReference: {fileID: 0}
     - target: {fileID: 6280939328385044559, guid: f86a9d045f0e8dc40907dbaf5a7602ef, type: 3}
       propertyPath: m_FOVAxisMode
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280939328385044559, guid: f86a9d045f0e8dc40907dbaf5a7602ef, type: 3}
+      propertyPath: m_FocalLength
+      value: 2.66
       objectReference: {fileID: 0}
     - target: {fileID: 6280939328385044559, guid: f86a9d045f0e8dc40907dbaf5a7602ef, type: 3}
       propertyPath: far clip plane
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6280939328385044559, guid: f86a9d045f0e8dc40907dbaf5a7602ef, type: 3}
+      propertyPath: m_SensorSize.x
+      value: 5.9597
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280939328385044559, guid: f86a9d045f0e8dc40907dbaf5a7602ef, type: 3}
+      propertyPath: m_SensorSize.y
+      value: 3.3596
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280939328385044559, guid: f86a9d045f0e8dc40907dbaf5a7602ef, type: 3}
       propertyPath: near clip plane
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280939328385044559, guid: f86a9d045f0e8dc40907dbaf5a7602ef, type: 3}
+      propertyPath: m_projectionMatrixMode
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f86a9d045f0e8dc40907dbaf5a7602ef, type: 3}
