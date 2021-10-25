@@ -38,6 +38,7 @@ public class FPV_CAM : MonoBehaviour
     Camera mainCamera;
     BoxCollider emeryCollider;
     DroneAction emeryDrone;
+    VirtualAction emeryVirtual;
     Rect emeryRect;
     GUIStyle textStyle;
 
@@ -71,6 +72,7 @@ public class FPV_CAM : MonoBehaviour
         mainCamera = GetComponent<Camera>();
         emeryCollider = emery.GetComponent<BoxCollider>();
         emeryDrone = emery.GetComponent<DroneAction>();
+        emeryVirtual = emery.GetComponent<VirtualAction>();
         textStyle = new GUIStyle();
         textStyle.normal.textColor = Color.red;
     }
@@ -194,7 +196,7 @@ public class FPV_CAM : MonoBehaviour
 
     private void OnGUI()
     {
-        GUI.Label(new Rect(emeryRect.x, Screen.height - emeryRect.y + 2, 60, 30), "TARGET", textStyle);
+        GUI.Label(new Rect(emeryRect.x, Screen.height - emeryRect.y + 2, 60, 30), "Target HP:" + emeryVirtual.HP, textStyle);
     }
 
     static void CreateLineMaterial()
