@@ -122,12 +122,13 @@ public class ManualControl : MonoBehaviour
                 usr_ctrl.Normalize();
                 RaycastHit hit;
                 //if (Physics.Raycast(drone.transform.position, usr_ctrl, 0.6f))
-                if (Physics.Raycast(droneAction.CurPos, usr_ctrl, out hit, 0.6f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Collide))
+                if (Physics.Raycast(droneAction.CurPos, usr_ctrl, out hit, 0.6f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Collide) ||
+                    Physics.Raycast(droneAction.CurPos, usr_ctrl, out hit, 0.1f, LayerMask.GetMask("DroneAvoid"), QueryTriggerInteraction.Collide))
                 {
                     pitch = 0;
                     roll = 0;
                     stopNow = true;
-                    gameWorld.ShowHudInfo("obs:" + hit.collider.gameObject.name);
+                    gameWorld.ShowHudInfo("stop:" + hit.collider.gameObject.name);
                 }
             }
 

@@ -70,7 +70,7 @@ public class FPV_CAM : MonoBehaviour
         }
 
         mainCamera = GetComponent<Camera>();
-        emeryCollider = emery.GetComponent<BoxCollider>();
+        emeryCollider = emery.transform.Find("NormalHit").GetComponent<BoxCollider>();
         emeryDrone = emery.GetComponent<DroneAction>();
         emeryVirtual = emery.GetComponent<VirtualAction>();
         textStyle = new GUIStyle();
