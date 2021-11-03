@@ -7,7 +7,6 @@ public class BeamShotBehavior : MonoBehaviour
     public GameObject explosion;
     AudioSource explodeSound;
     float expireTs = 3f;
-    float colliderCd = 0.1f;
 
     private void Start()
     {
@@ -23,14 +22,6 @@ public class BeamShotBehavior : MonoBehaviour
         if (expireTs <= 0)
         {
             Destroy(gameObject);
-        }
-        if (colliderCd > 0)
-        {
-            colliderCd -= Time.deltaTime;
-            if (colliderCd <= 0)
-            {
-                GetComponent<Collider>().enabled = true;
-            }
         }
     }
 

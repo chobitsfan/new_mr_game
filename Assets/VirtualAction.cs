@@ -40,6 +40,7 @@ public class VirtualAction : MonoBehaviour
     public void Shot()
     {
         var beam = GameObject.Instantiate(beamShot, transform.position + transform.forward * 0.1f, Quaternion.LookRotation(-transform.right));
+        Physics.IgnoreCollision(beam.GetComponent<Collider>(), GetComponent<Collider>());
         beam.GetComponent<VolumetricLines.VolumetricLineBehavior>().LineColor = beamColor;
         beamShotSound.Play();
     }
