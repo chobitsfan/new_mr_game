@@ -118,17 +118,24 @@ public class ManualControl : MonoBehaviour
             //Vector3 usr_ctrl = droneHeading * pitch + droneRight * roll;
             if (pitch != 0 && roll != 0)
             {
-                Vector3 usr_ctrl = drone.transform.TransformDirection(-pitch, 0, roll);
+                //Vector3 usr_ctrl = drone.transform.TransformDirection(-pitch, 0, roll);
+                /*Vector3 droneHeading = droneAction.CurRot * Vector3.left;
+                droneHeading.y = 0;
+                Vector3 droneRight = droneAction.CurRot * Vector3.forward;
+                droneRight.y = 0;
+                Vector3 usr_ctrl = droneHeading * pitch + droneRight * roll + Vector3.up * (throttle - 500);*/
+                Vector3 usr_ctrl = droneAction.CurRot * new Vector3(-pitch, 0, roll);
+                usr_ctrl.y = throttle - 500;
                 usr_ctrl.Normalize();
                 RaycastHit hit;
-                //if (Physics.Raycast(drone.transform.position, usr_ctrl, 0.6f))
-                if (Physics.Raycast(droneAction.CurPos, usr_ctrl, out hit, 1f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Collide) ||
-                    Physics.Raycast(droneAction.CurPos, usr_ctrl, out hit, 1f, LayerMask.GetMask("DroneAvoid"), QueryTriggerInteraction.Collide))
+                if (Physics.Raycast(droneAction.CurPos, usr_ctrl, out hit, 1f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Collide))
+                    //|| Physics.Raycast(droneAction.CurPos, usr_ctrl, out hit, 1f, LayerMask.GetMask("DroneAvoid"), QueryTriggerInteraction.Collide))
                 {
                     pitch = 0;
                     roll = 0;
-                    if (pitchSend != 0 || rollSend != 0) stopNow = true;
+                    stopNow = true;
                     gameWorld.ShowHudInfo("stop:" + hit.collider.gameObject.name);
+                    Debug.LogError(hit.collider.gameObject.name + "," + usr_ctrl + "," + (hit.collider.transform.position - droneAction.CurPos).magnitude);
                 }
             }
 

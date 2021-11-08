@@ -175,6 +175,7 @@ public class DroneAction : MonoBehaviour
                         case (uint)MAVLink.MAVLINK_MSG_ID.ATT_POS_MOCAP:
                             {
                                 var att_pos = (MAVLink.mavlink_att_pos_mocap_t)msg.data;
+                                //convert from optitrack motive coordinate system to unity coordinate system
                                 MoCapData moCapData = new MoCapData
                                 {
                                     ts = Time.time,
