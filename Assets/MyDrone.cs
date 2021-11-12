@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MyDrone : MonoBehaviour
 {
-    DroneAction droneAction;
+    /*DroneAction droneAction;
     enum Stage
     {
         None,
@@ -62,5 +62,5 @@ public class MyDrone : MonoBehaviour
         droneAction.Guided();
         stage = Stage.WaitingForGuided;
         Debug.Log("switch to guided");
-    }
+    }*/
 }

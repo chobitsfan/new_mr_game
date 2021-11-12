@@ -8,17 +8,15 @@ public class ManualControl : MonoBehaviour
     enum Stage
     {
         None,
-        WaitingForGuided,
+        WaitingForAltHold,
         WaitingForArmed,
-        WaitingForTakeoffDone,
-        WaitingForPosHold,
-        PosHold
+        WaitingForTakeoff,
     }
     public GameObject drone;
     public GameWorld gameWorld;
     short pitch, roll, throttle, yaw;
     float controlCd = 0;
-    float checkCd = 0;
+    float checkCd = 1f;
     DroneAction droneAction;
     VirtualAction virtualAction;
     Stage stage = Stage.None;
@@ -47,9 +45,8 @@ public class ManualControl : MonoBehaviour
         Vector2 v = value.Get<Vector2>();
         //Debug.Log("OnThrottleYaw"+ v);
 
-        //changed by KZ's order for newbie
-        pitch = (short)(v.y * 1000f);
-        roll = (short)(v.x * 1000f);
+        throttle = (short)((v.y + 1f) * 500f);
+        yaw = (short)(v.x * 1000f);
     }
 
     public void OnPitchRoll(InputValue value)
@@ -57,22 +54,19 @@ public class ManualControl : MonoBehaviour
         Vector2 v = value.Get<Vector2>();
         //Debug.Log("OnPitchRoll"+v);
 
-        //changed by KZ's order for newbie
-        throttle = (short)((v.y + 1f) * 500f);
-        yaw = (short)(v.x * 1000f);
+        pitch = (short)(v.y * 1000f);
+        roll = (short)(v.x * 1000f);
     }
 
     public void OnStabilize()
     {
-        //droneAction.Stabilize();
-        droneAction.Poshold();
+        droneAction.Stabilize();
     }
 
     public void OnTakeoff()
     {
-        droneAction.Guided();
-        stage = Stage.WaitingForGuided;
-        Debug.Log("switch to guided");
+        droneAction.AltHold();
+        stage = Stage.WaitingForAltHold;
     }
 
     public void OnShot()
@@ -105,7 +99,7 @@ public class ManualControl : MonoBehaviour
             droneAction.Land();
         }
         bool stopNow = false;
-        if ((Gamepad.current != null) && (stage == Stage.PosHold))
+        if (Gamepad.current != null)
         {
             controlCd -= Time.deltaTime;
 
@@ -116,6 +110,7 @@ public class ManualControl : MonoBehaviour
             //Vector3 droneRight = droneAction.CurRot * Vector3.forward;
             //droneRight.y = 0;
             //Vector3 usr_ctrl = droneHeading * pitch + droneRight * roll;
+#if false
             if (pitch != 0 && roll != 0)
             {
                 //Vector3 usr_ctrl = drone.transform.TransformDirection(-pitch, 0, roll);
@@ -135,10 +130,18 @@ public class ManualControl : MonoBehaviour
                     roll = 0;
                     stopNow = true;
                     gameWorld.ShowHudInfo("stop:" + hit.collider.gameObject.name);
-                    Debug.LogError(hit.collider.gameObject.name + "," + usr_ctrl + "," + (hit.collider.transform.position - droneAction.CurPos).magnitude);
+                    //Debug.LogError(hit.collider.gameObject.name + "," + usr_ctrl + "," + (hit.collider.transform.position - droneAction.CurPos).magnitude);
                 }
             }
-
+#endif
+            if (stage == Stage.WaitingForAltHold || stage == Stage.WaitingForArmed)
+            {
+                throttle = 0;
+            }
+            else if (stage == Stage.WaitingForTakeoff)
+            {
+                throttle = 500;
+            }
             if (controlCd <= 0 || System.Math.Abs(pitch - pitchSend) >= 100 || System.Math.Abs(roll - rollSend) >= 100 || stopNow)
             {
                 controlCd = 0.05f;
@@ -153,38 +156,39 @@ public class ManualControl : MonoBehaviour
             checkCd = 1f;
             switch (stage)
             {
-                case Stage.WaitingForGuided:
-                    if (droneAction.IsGuided())
+                case Stage.WaitingForAltHold:
+                    Debug.LogError("WaitingForAltHold");
+                    if (droneAction.IsAltHold())
                     {
-                        Debug.Log("arm");
                         droneAction.Arm();
                         stage = Stage.WaitingForArmed;
                     }
+                    else
+                    {
+                        droneAction.AltHold();
+                    }
                     break;
                 case Stage.WaitingForArmed:
+                    Debug.LogError("WaitingForArmed");
                     if (droneAction.IsArmed())
                     {
-                        Debug.Log("takeoff");
-                        droneAction.TakeOff();
-                        stage = Stage.WaitingForTakeoffDone;
-                    }
-                    break;
-                case Stage.WaitingForTakeoffDone:
-                    if (drone.transform.position.y > 0.9f)
-                    {
-                        Debug.Log("switch to poshold");
-                        droneAction.Poshold();
-                        stage = Stage.WaitingForPosHold;
-                    }
-                    break;
-                case Stage.WaitingForPosHold:
-                    if (droneAction.IsPosHold())
-                    {
-                        stage = Stage.PosHold;
+                        stage = Stage.WaitingForTakeoff;
                     }
                     else
                     {
-                        droneAction.Poshold();
+                        droneAction.Arm();
+                    }
+                    break;
+                case Stage.WaitingForTakeoff:
+                    Debug.LogError("WaitingForTakeoff");
+                    if (droneAction.CurPos.y > 0.5f)
+                    {
+                        Debug.LogError("Takeoff done");
+                        stage = Stage.None;
+                    }
+                    else
+                    {
+                        droneAction.TakeOff();
                     }
                     break;
             }

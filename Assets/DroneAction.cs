@@ -217,15 +217,20 @@ public class DroneAction : MonoBehaviour
         }
     }
 
-    public bool IsGuided()
+    /*public bool IsGuided()
     {
         return apm_mode == (uint)MAVLink.COPTER_MODE.GUIDED;
+    }*/
+
+    public bool IsAltHold()
+    {
+        return apm_mode == (uint)MAVLink.COPTER_MODE.ALT_HOLD;
     }
 
-    public bool IsPosHold()
+    /*public bool IsPosHold()
     {
         return apm_mode == (uint)MAVLink.COPTER_MODE.POSHOLD;
-    }
+    }*/
 
     public bool IsArmed()
     {
@@ -238,6 +243,7 @@ public class DroneAction : MonoBehaviour
         MAVLink.mavlink_command_long_t cmd = new MAVLink.mavlink_command_long_t
         {
             command = (ushort)MAVLink.MAV_CMD.TAKEOFF,
+            param3 = 1f,
             param7 = 1f
         };
         byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.COMMAND_LONG, cmd);
@@ -359,13 +365,25 @@ public class DroneAction : MonoBehaviour
         sock.SendTo(data, game_proxy);
     }
 
-    public void Guided()
+    /*public void Guided()
     {
         MAVLink.mavlink_set_mode_t cmd = new MAVLink.mavlink_set_mode_t
         {
             base_mode = (byte)MAVLink.MAV_MODE_FLAG.CUSTOM_MODE_ENABLED,
             target_system = 0,
             custom_mode = (uint)MAVLink.COPTER_MODE.GUIDED
+        };
+        byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.SET_MODE, cmd);
+        sock.SendTo(data, myproxy);
+    }*/
+
+    public void AltHold()
+    {
+        MAVLink.mavlink_set_mode_t cmd = new MAVLink.mavlink_set_mode_t
+        {
+            base_mode = (byte)MAVLink.MAV_MODE_FLAG.CUSTOM_MODE_ENABLED,
+            target_system = 0,
+            custom_mode = (uint)MAVLink.COPTER_MODE.ALT_HOLD
         };
         byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.SET_MODE, cmd);
         sock.SendTo(data, myproxy);
