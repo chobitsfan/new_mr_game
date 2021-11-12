@@ -56,6 +56,7 @@ public class DroneAction : MonoBehaviour
             }
             catch (System.Exception)
             {
+                Debug.LogError("no mocap_ip.txt, use 127.0.0.1");
                 mocap_ip = "127.0.0.1";
             }
         }
@@ -71,7 +72,7 @@ public class DroneAction : MonoBehaviour
             }
             catch (System.Exception)
             {
-                _droneId = 2;
+                _droneId = 1;
             }
         }
         else
@@ -82,7 +83,7 @@ public class DroneAction : MonoBehaviour
             }
             catch (System.Exception)
             {
-                _droneId = 3;
+                _droneId = 2;
             }
         }
         sock.Bind(new IPEndPoint(IPAddress.Any, 17500 + _droneId));

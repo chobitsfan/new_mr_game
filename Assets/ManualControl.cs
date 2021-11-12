@@ -66,7 +66,8 @@ public class ManualControl : MonoBehaviour
     public void OnTakeoff()
     {
         droneAction.AltHold();
-        stage = Stage.WaitingForAltHold;
+        droneAction.Arm();
+        //stage = Stage.WaitingForAltHold;
     }
 
     public void OnShot()
@@ -98,7 +99,7 @@ public class ManualControl : MonoBehaviour
         {
             droneAction.Land();
         }
-        bool stopNow = false;
+
         if (Gamepad.current != null)
         {
             controlCd -= Time.deltaTime;
@@ -142,12 +143,26 @@ public class ManualControl : MonoBehaviour
             {
                 throttle = 500;
             }
-            if (controlCd <= 0 || System.Math.Abs(pitch - pitchSend) >= 100 || System.Math.Abs(roll - rollSend) >= 100 || stopNow)
+
+            Vector3 cur_hor_pos = new Vector3(droneAction.CurPos.x, 0, droneAction.CurPos.z);
+            if (cur_hor_pos.x > 1.2f || cur_hor_pos.x < -1.8f || cur_hor_pos.z > 0.6f || cur_hor_pos.z < -1.8f)
+            {
+                Vector3 to_center = Quaternion.Inverse(droneAction.CurRot) * -cur_hor_pos;
+                to_center.Normalize();
+                //Debug.LogError("test:" + -(vv.x) + "," + vv.z);
+                short emg_pitch = (short)(to_center.x * -1000.0f);
+                short emg_roll = (short)(to_center.z * 1000.0f);
+                droneAction.ManualControl(emg_pitch, emg_roll, throttle, yaw);
+            }
+            else if (controlCd <= 0 || System.Math.Abs(pitch - pitchSend) >= 100 || System.Math.Abs(roll - rollSend) >= 100)
             {
                 controlCd = 0.05f;
                 droneAction.ManualControl(pitch, roll, throttle, yaw);
                 pitchSend = pitch;
                 rollSend = roll;
+
+                //Vector3 vv = Quaternion.Inverse(droneAction.CurRot) * -droneAction.CurPos;
+                //Debug.LogError("test:" + -(vv.x) + "," + vv.z);
             }
         }
         checkCd -= Time.deltaTime;
