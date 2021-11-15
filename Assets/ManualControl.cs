@@ -5,21 +5,21 @@ using UnityEngine.InputSystem;
 
 public class ManualControl : MonoBehaviour
 {
-    enum Stage
+    /*enum Stage
     {
         None,
         WaitingForAltHold,
         WaitingForArmed,
         WaitingForTakeoff,
-    }
+    }*/
     public GameObject drone;
     public GameWorld gameWorld;
     short pitch, roll, throttle, yaw;
     float controlCd = 0;
-    float checkCd = 1f;
+    //float checkCd = 1f;
     DroneAction droneAction;
     VirtualAction virtualAction;
-    Stage stage = Stage.None;
+    //Stage stage = Stage.None;
     short pitchSend, rollSend;
     bool armed = false;
     float armVibCd = 0f;
@@ -54,8 +54,8 @@ public class ManualControl : MonoBehaviour
         Vector2 v = value.Get<Vector2>();
         //Debug.Log("OnPitchRoll"+v);
 
-        pitch = (short)(v.y * 1000f);
-        roll = (short)(v.x * 1000f);
+        pitch = (short)(v.y * 600f);
+        roll = (short)(v.x * 600f);
     }
 
     public void OnStabilize()
@@ -102,6 +102,11 @@ public class ManualControl : MonoBehaviour
 
         if (Gamepad.current != null)
         {
+            bool emerg = false;
+            short pitchOut = pitch;
+            short rollOut = roll;
+            short throttleOut = throttle;
+
             controlCd -= Time.deltaTime;
 
             //Vector3 droneHeading = -drone.transform.right;
@@ -135,37 +140,50 @@ public class ManualControl : MonoBehaviour
                 }
             }
 #endif
-            if (stage == Stage.WaitingForAltHold || stage == Stage.WaitingForArmed)
+            /*if (stage == Stage.WaitingForAltHold || stage == Stage.WaitingForArmed)
             {
                 throttle = 0;
             }
             else if (stage == Stage.WaitingForTakeoff)
             {
                 throttle = 500;
-            }
+            }*/
 
             Vector3 cur_hor_pos = new Vector3(droneAction.CurPos.x, 0, droneAction.CurPos.z);
-            if (cur_hor_pos.x > 1.2f || cur_hor_pos.x < -1.8f || cur_hor_pos.z > 0.6f || cur_hor_pos.z < -1.8f)
+            if (cur_hor_pos.x > 1.8f || cur_hor_pos.x < -1.8f || cur_hor_pos.z > 0.6f || cur_hor_pos.z < -1.8f)
             {
                 Vector3 to_center = Quaternion.Inverse(droneAction.CurRot) * -cur_hor_pos;
                 to_center.Normalize();
                 //Debug.LogError("test:" + -(vv.x) + "," + vv.z);
-                short emg_pitch = (short)(to_center.x * -1000.0f);
-                short emg_roll = (short)(to_center.z * 1000.0f);
-                droneAction.ManualControl(emg_pitch, emg_roll, throttle, yaw);
+                pitchOut = (short)(to_center.x * -1000.0f);
+                rollOut = (short)(to_center.z * 1000.0f);
+                emerg = true;
             }
-            else if (controlCd <= 0 || System.Math.Abs(pitch - pitchSend) >= 100 || System.Math.Abs(roll - rollSend) >= 100)
+            float cur_alt = droneAction.CurPos.y;
+            if (cur_alt > 1.4f)
+            {
+                //Debug.LogError("alt " + cur_alt);
+                throttleOut = 200;
+                emerg = true;
+            }
+            else if (cur_alt < 0.7f && throttle < 500)
+            {
+                throttleOut = 500;
+            }
+            
+            if (controlCd <= 0 || System.Math.Abs(pitchOut - pitchSend) >= 100 || System.Math.Abs(rollOut - rollSend) >= 100 || emerg)
             {
                 controlCd = 0.05f;
-                droneAction.ManualControl(pitch, roll, throttle, yaw);
-                pitchSend = pitch;
-                rollSend = roll;
+                droneAction.ManualControl(pitchOut, rollOut, throttleOut, yaw);
+                pitchSend = pitchOut;
+                rollSend = rollOut;
 
                 //Vector3 vv = Quaternion.Inverse(droneAction.CurRot) * -droneAction.CurPos;
                 //Debug.LogError("test:" + -(vv.x) + "," + vv.z);
             }
         }
-        checkCd -= Time.deltaTime;
+
+        /*checkCd -= Time.deltaTime;
         if (checkCd <= 0)
         {
             checkCd = 1f;
@@ -207,7 +225,7 @@ public class ManualControl : MonoBehaviour
                     }
                     break;
             }
-        }
+        }*/
 
         if (!armed && droneAction.IsArmed())
         {

@@ -214,7 +214,11 @@ public class DroneAction : MonoBehaviour
         if (lastMocapDataTs > 0.3f)
         {
             _tracked = false;
-            if (IsPlayer) gameWorld.ShowHudInfo("lost track");
+            if (IsPlayer)
+            {
+                gameWorld.ShowHudInfo("lost track");
+                Land();
+            }
         }
     }
 
