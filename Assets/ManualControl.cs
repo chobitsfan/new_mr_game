@@ -100,7 +100,7 @@ public class ManualControl : MonoBehaviour
             droneAction.Land();
         }
 
-        if (Gamepad.current != null)
+        if (Gamepad.current != null && droneAction.IsAltHold())
         {
             bool emerg = false;
             short pitchOut = pitch;
