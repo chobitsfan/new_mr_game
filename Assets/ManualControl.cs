@@ -148,11 +148,22 @@ public class ManualControl : MonoBehaviour
             {
                 throttle = 500;
             }*/
-
+            if (gameWorld.Avoid)
+            {
+                Vector3 avoid_direction = gameWorld.AvoidDirection;
+                avoid_direction.y = 0;
+                avoid_direction = Quaternion.Inverse(droneAction.CurRot) * avoid_direction;
+                avoid_direction.y = 0;
+                avoid_direction.Normalize();
+                pitchOut = (short)(avoid_direction.x * -1000.0f);
+                rollOut = (short)(avoid_direction.z * 1000.0f);
+                emerg = true;
+            }
             Vector3 cur_hor_pos = new Vector3(droneAction.CurPos.x, 0, droneAction.CurPos.z);
             if (cur_hor_pos.x > 1.8f || cur_hor_pos.x < -1.8f || cur_hor_pos.z > 0.6f || cur_hor_pos.z < -1.8f)
             {
                 Vector3 to_center = Quaternion.Inverse(droneAction.CurRot) * -cur_hor_pos;
+                to_center.y = 0;
                 to_center.Normalize();
                 //Debug.LogError("test:" + -(vv.x) + "," + vv.z);
                 pitchOut = (short)(to_center.x * -1000.0f);

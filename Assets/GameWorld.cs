@@ -20,6 +20,8 @@ public class GameWorld : MonoBehaviour
     DroneAction emeryDroneAction;
 
     public bool IsGameOver => _gameOver;
+    public bool Avoid => _avoid;
+    public Vector3 AvoidDirection => _avoid_direction;
 
     float hudTextCd = 0;
     bool _gameOver = false;
@@ -28,6 +30,8 @@ public class GameWorld : MonoBehaviour
     float delayedSync = 5f;
     AnimatorStateInfo previousState;
     AnimatorStateInfo currentState;
+    bool _avoid = false;
+    Vector3 _avoid_direction = Vector3.zero;
 
     private void Start()
     {
@@ -82,6 +86,15 @@ public class GameWorld : MonoBehaviour
 
     private void Update()
     {
+        if ((playerDroneAction.CurPos - emeryDroneAction.CurPos).sqrMagnitude < 1f)
+        {
+            _avoid = true;
+            _avoid_direction = playerDroneAction.CurPos - emeryDroneAction.CurPos;
+        }
+        else
+        {
+            _avoid = false;
+        }
         if (delayedSync > 0)
         {
             delayedSync -= Time.deltaTime;
