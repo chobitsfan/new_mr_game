@@ -15,7 +15,7 @@ public class VirtualAction : MonoBehaviour
     private int _hp = 10;
     float hitVibCd = 0f;
     Color beamColor = Color.green;
-    AudioSource beamShotSound;    
+    AudioSource beamShotSound;
 
     private void Start()
     {

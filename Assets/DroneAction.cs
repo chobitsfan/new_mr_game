@@ -8,7 +8,7 @@ class MoCapData
 {
     public Vector3 pos;
     public Quaternion rot;
-    public double ts;
+    public ulong ts;
 }
 
 public class DroneAction : MonoBehaviour
@@ -35,9 +35,10 @@ public class DroneAction : MonoBehaviour
     IPEndPoint game_proxy;
     VirtualAction virtualAction;
     Queue<MoCapData> moCapDataQueue = new Queue<MoCapData>();
-    const double RTSP_BUF_DELAY_S = 0.1;
+    const ulong RTSP_BUF_DELAY_US = 100000;
     float lastMocapDataTs = 0;
     private bool _tracked = false;
+    ulong mocapTimeOffsetUs = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -104,10 +105,12 @@ public class DroneAction : MonoBehaviour
     {
         lastMocapDataTs += Time.deltaTime;
         MoCapData delayedMoCapData = null;
+        ulong now_ts = (ulong)(Time.time * 1000000);
+        Debug.LogError("moCapDataQueue count " + moCapDataQueue.Count);
         while (moCapDataQueue.Count > 0)
         {
             MoCapData moCapData = moCapDataQueue.Peek();
-            if (Time.time - moCapData.ts >= RTSP_BUF_DELAY_S)
+            if ((now_ts + mocapTimeOffsetUs - moCapData.ts) >= RTSP_BUF_DELAY_US)
             {
                 delayedMoCapData = moCapDataQueue.Dequeue();
             }
@@ -179,7 +182,7 @@ public class DroneAction : MonoBehaviour
                                 //convert from optitrack motive coordinate system to unity coordinate system
                                 MoCapData moCapData = new MoCapData
                                 {
-                                    ts = Time.time,
+                                    ts = att_pos.time_usec,
                                     pos = new Vector3(-att_pos.x, att_pos.y, att_pos.z),
                                     rot = new Quaternion(-att_pos.q[1], att_pos.q[2], att_pos.q[3], -att_pos.q[0])
                                 };
@@ -188,6 +191,11 @@ public class DroneAction : MonoBehaviour
                                 CurRot = moCapData.rot;
                                 lastMocapDataTs = 0;
                                 _tracked = true;
+                                if (mocapTimeOffsetUs == 0)
+                                {
+                                    mocapTimeOffsetUs = att_pos.time_usec - (ulong)(Time.time * 1000000);
+                                    //Debug.LogError("time offset " + mocapTimeOffsetUs);
+                                }
                                 break;
                             }
                         case (uint)MAVLink.MAVLINK_MSG_ID.MANUAL_CONTROL:
