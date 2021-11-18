@@ -106,7 +106,7 @@ public class DroneAction : MonoBehaviour
         lastMocapDataTs += Time.deltaTime;
         MoCapData delayedMoCapData = null;
         ulong now_ts = (ulong)(Time.time * 1000000);
-        Debug.LogError("moCapDataQueue count " + moCapDataQueue.Count);
+        //Debug.LogError("moCapDataQueue count " + moCapDataQueue.Count);
         while (moCapDataQueue.Count > 0)
         {
             MoCapData moCapData = moCapDataQueue.Peek();

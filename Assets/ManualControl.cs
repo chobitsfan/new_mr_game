@@ -54,8 +54,8 @@ public class ManualControl : MonoBehaviour
         Vector2 v = value.Get<Vector2>();
         //Debug.Log("OnPitchRoll"+v);
 
-        pitch = (short)(v.y * 600f);
-        roll = (short)(v.x * 600f);
+        pitch = (short)(v.y * 800f);
+        roll = (short)(v.x * 800f);
     }
 
     public void OnStabilize()
@@ -100,7 +100,7 @@ public class ManualControl : MonoBehaviour
             droneAction.Land();
         }
 
-        if (Gamepad.current != null && droneAction.IsAltHold())
+        if (Gamepad.current != null)
         {
             bool emerg = false;
             short pitchOut = pitch;
@@ -159,8 +159,11 @@ public class ManualControl : MonoBehaviour
                 rollOut = (short)(avoid_direction.z * 1000.0f);
                 emerg = true;
             }
+
             Vector3 cur_hor_pos = new Vector3(droneAction.CurPos.x, 0, droneAction.CurPos.z);
-            if (cur_hor_pos.x > 1.8f || cur_hor_pos.x < -1.8f || cur_hor_pos.z > 0.6f || cur_hor_pos.z < -1.8f)
+            bool fence_avoid = false;
+            Vector3 fence_avoid_dir = Vector3.zero;
+            /*if (cur_hor_pos.x > 1.8f || cur_hor_pos.x < -1.8f || cur_hor_pos.z > 0.8f || cur_hor_pos.z < -1.8f)
             {
                 Vector3 to_center = Quaternion.Inverse(droneAction.CurRot) * -cur_hor_pos;
                 to_center.y = 0;
@@ -169,7 +172,48 @@ public class ManualControl : MonoBehaviour
                 pitchOut = (short)(to_center.x * -1000.0f);
                 rollOut = (short)(to_center.z * 1000.0f);
                 emerg = true;
+                Debug.LogError("fence " + cur_hor_pos + "," + pitchOut + "," + rollOut);
+                gameWorld.ShowHudInfo("Fence");
+            }*/
+            if (cur_hor_pos.x > 1.8f)
+            {
+                fence_avoid = true;
+                fence_avoid_dir.x = -1;
             }
+            else if (cur_hor_pos.x < -1.8f)
+            {
+                fence_avoid = true;
+                fence_avoid_dir.x = 1;
+            }
+            if (cur_hor_pos.z > 0.8f)
+            {
+                fence_avoid = true;
+                fence_avoid_dir.z = -1;
+            }
+            else if (cur_hor_pos.z < -1.8f)
+            {
+                fence_avoid = true;
+                fence_avoid_dir.z = 1;
+            }
+            if (fence_avoid)
+            {
+                fence_avoid_dir = Quaternion.Inverse(droneAction.CurRot) * fence_avoid_dir;
+                float scale;
+                if (Mathf.Abs(fence_avoid_dir.x) > Mathf.Abs(fence_avoid_dir.z))
+                {
+                    scale = 1.0f / Mathf.Abs(fence_avoid_dir.x);
+                }
+                else
+                {
+                    scale = 1.0f / Mathf.Abs(fence_avoid_dir.z);
+                }
+                pitchOut = (short)(fence_avoid_dir.x * scale * -1000.0f);
+                rollOut = (short)(fence_avoid_dir.z * scale * 1000.0f);
+                emerg = true;
+                Debug.LogError("fence " + cur_hor_pos + "," + pitchOut + "," + rollOut);
+                gameWorld.ShowHudInfo("Fence");
+            }
+
             float cur_alt = droneAction.CurPos.y;
             if (cur_alt > 1.4f)
             {
