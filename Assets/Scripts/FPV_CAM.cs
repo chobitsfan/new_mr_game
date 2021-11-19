@@ -6,33 +6,38 @@ using UnityEngine;
 
 public class FPV_CAM : MonoBehaviour
 {
-    [DllImport("vplayerUnity.dll")]
-    public static extern IntPtr NPlayer_Init();
-    [DllImport("vplayerUnity.dll")]
-    public static extern int NPlayer_Connect(IntPtr pPlayer, string url, int mode);
-    [DllImport("vplayerUnity.dll")]
-    public static extern bool NPlayer_IsPlaying(IntPtr pPlayer);
-    [DllImport("vplayerUnity.dll")]
-    public static extern int NPlayer_GetWidth(IntPtr pPlayer);
-    [DllImport("vplayerUnity.dll")]
-    public static extern int NPlayer_GetHeight(IntPtr pPlayer);
-    [DllImport("vplayerUnity.dll")]
-    public static extern int NPlayer_Uninit(IntPtr pPlayer);
-    [DllImport("vplayerUnity.dll")]
-    public static extern int NPlayer_ReadFrame(IntPtr pPlayer, IntPtr buffer, out UInt64 timestamp/*, out UInt64 colorfmt*/);
+    [DllImport("VplayerPluginDLL.dll")]
+    private static extern IntPtr NPlayer_Init();
+    [DllImport("VplayerPluginDLL.dll")]
+    private static extern int NPlayer_Connect(IntPtr pPlayer, string url, int mode, int buf_time);
+	[DllImport("VplayerPluginDLL.dll")]
+	private static extern int NPlayer_DisConnect(IntPtr pPlayer);
+    [DllImport("VplayerPluginDLL.dll")]
+    private static extern bool NPlayer_IsPlaying(IntPtr pPlayer);
+    [DllImport("VplayerPluginDLL.dll")]
+    private static extern int NPlayer_GetWidth(IntPtr pPlayer);
+    [DllImport("VplayerPluginDLL.dll")]
+    private static extern int NPlayer_GetHeight(IntPtr pPlayer);
+    [DllImport("VplayerPluginDLL.dll")]
+    private static extern int NPlayer_Uninit(IntPtr pPlayer);
+	[DllImport("VplayerPluginDLL.dll")]
+	private static extern UInt64 NPlayer_GetFrameTimetick(IntPtr pPlayer);
+	[DllImport("VplayerPluginDLL.dll")]
+	private static extern void GetShaderResourceViewFromPlugin(out System.IntPtr ptexY_srv, out System.IntPtr ptexUV_srv);
+	[DllImport("VplayerPluginDLL.dll")]
+	private static extern IntPtr GetRenderEventFunc();
 
     public Material mat;
     public GameObject emery;
 
     IntPtr ptr = IntPtr.Zero;
     bool bStart = false;
-	protected bool bInitBuffer = false;
+	bool bInitBuffer = false;
     Texture2D texY;
-    Texture2D texU;
-    Texture2D texV;
-    int w, h;    
-    byte[] buffer;
-    IntPtr unmanagedBuffer = IntPtr.Zero;
+    Texture2D texUV;
+    IntPtr nativeTex_Y;
+    IntPtr nativeTex_UV;
+    int w, h;
 
     static Material lineMaterial;
     Camera mainCamera;
@@ -49,12 +54,7 @@ public class FPV_CAM : MonoBehaviour
         ptr = NPlayer_Init();        
         bStart = false;
 		bInitBuffer = false;
-
-        //string url = "rtsp://192.168.50.106/main_ch";
-        //string url = "rtsp://127.0.0.1/y1";
-        //Debug.Log("connecting vss video: " + url);
-        //NPlayer_Connect(ptr, url, 1);
-        NPlayer_Connect(ptr, MyGameSetting.FpvUrl, 1);
+        NPlayer_Connect(ptr, MyGameSetting.FpvUrl, 1, 0); //0:udp 1:tcp, 4th param: buf_time(ms)	
 
         mainCamera = GetComponent<Camera>();
         emeryCollider = emery.GetComponent<BoxCollider>();
@@ -64,93 +64,51 @@ public class FPV_CAM : MonoBehaviour
         textStyle.normal.textColor = Color.red;
     }
 
-    public void ConnectCamera(string url)
-    {
-        Debug.Log("connecting vss video: " + url);
-        NPlayer_Connect(ptr, url, 1);
-    }
-
     void OnPreRender()
     {
         Graphics.Blit(null, mat);
     }
-    
-
-    void initVideoFrameBuffer()
-    {
-        w = NPlayer_GetWidth(ptr);
-        h = NPlayer_GetHeight(ptr);
-		//Debug.Log("width = " + w + ", height = " + h);
-        if (w != 0 && h != 0)
-        {
-            Debug.Log("width = " + w + ", height = " + h);
-            int frameLen = w * h * 3;
-            Debug.Log("frameLen = " + frameLen);
-            buffer = new byte[frameLen];
-            unmanagedBuffer = Marshal.AllocHGlobal(frameLen);
-
-            bStart = true;
-
-            texY = new Texture2D(w, h, TextureFormat.Alpha8, false);
-            //U分量和V分量分別存放在兩張貼圖中
-            texU = new Texture2D(w >> 1, h >> 1, TextureFormat.Alpha8, false);
-            texV = new Texture2D(w >> 1, h >> 1, TextureFormat.Alpha8, false);
-            mat.SetTexture("_YTex", texY);
-            mat.SetTexture("_UTex", texU);
-            mat.SetTexture("_VTex", texV);
-			
-			bInitBuffer = true;			
-        }	
-
-    }
-
-    void releaseVideoFrameBuffer()
-    {
-        if (unmanagedBuffer != IntPtr.Zero)
-            Marshal.FreeHGlobal(unmanagedBuffer);
-    }
-
-    void getVideoFameBuffer()
-    {
-        UInt64 timestamp;
-        int frameLen = NPlayer_ReadFrame(ptr, unmanagedBuffer, out timestamp);
-        Marshal.Copy(unmanagedBuffer, buffer, 0, frameLen);
-		//Debug.Log("frameLen = " + frameLen);
-        int Ycount = w * h;
-        int UVcount = w * (h >> 2);
-
-        texY.SetPixelData(buffer, 0, 0);
-        texY.Apply();
-        texU.SetPixelData(buffer, 0, Ycount);
-        texU.Apply();
-        texV.SetPixelData(buffer, 0, Ycount + UVcount);
-        texV.Apply();
-    }
 
     void Update()
     {
-		bStart = NPlayer_IsPlaying(ptr);
-		
-        if (bStart)
+        if (!bInitBuffer)
         {
-			if (!bInitBuffer){
-				//Debug.Log("initVideoFrameBuffer");
-				initVideoFrameBuffer();
-				Debug.Log("bInitBuffer = "+bInitBuffer);
-			}
-			
-			if (bInitBuffer){
-				//Debug.Log("getVideoFameBuffer");
-				getVideoFameBuffer();
-			}
+            bStart = NPlayer_IsPlaying(ptr);
+            if (bStart)
+            {
+                Debug.Log("initVideoFrameBuffer");
+                initTextureFromPlugin();
+            }
+        }
+    }
+
+    void initTextureFromPlugin()
+    {
+        w = NPlayer_GetWidth(ptr);
+        h = NPlayer_GetHeight(ptr);
+        Debug.Log("width = " + w + ", height = " + h);
+
+        if (w != 0 && h != 0)
+        {
+            GetShaderResourceViewFromPlugin(out nativeTex_Y, out nativeTex_UV);
+            Debug.Log("NativeTex_Y = " + nativeTex_Y.ToString("X"));
+            Debug.Log("NativeTex_UV = " + nativeTex_UV.ToString("X"));
+            texY = Texture2D.CreateExternalTexture(w, h, TextureFormat.R8, false, false, nativeTex_Y);
+            texUV = Texture2D.CreateExternalTexture(w >> 1, h >> 1, TextureFormat.RGHalf, false, false, nativeTex_UV);
+            Debug.Log("TexY from plugin:" + texY);
+            Debug.Log("TexUV from plugin:" + texUV);
+            mat.SetTexture("_YTex", texY);
+            mat.SetTexture("_UVTex", texUV);
+
+            bInitBuffer = true;
         }
     }
 
     private void OnDestroy()
     {
+        NPlayer_DisConnect(ptr);
         NPlayer_Uninit(ptr);
         ptr = IntPtr.Zero;
-        releaseVideoFrameBuffer();
     }
 
     private void OnPostRender()
