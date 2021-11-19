@@ -31,7 +31,6 @@ public class DroneAction : MonoBehaviour
     uint apm_mode = 0;
     bool armed = false;
     float hb_cd = 2f;
-    static string mocap_ip = "";
     IPEndPoint game_proxy;
     VirtualAction virtualAction;
     Queue<MoCapData> moCapDataQueue = new Queue<MoCapData>();
@@ -49,43 +48,17 @@ public class DroneAction : MonoBehaviour
         {
             Blocking = false
         };
-        if (mocap_ip.Equals(""))
-        {
-            try
-            {
-                mocap_ip = System.IO.File.ReadAllText("mocap_ip.txt").Trim();
-            }
-            catch (System.Exception)
-            {
-                Debug.LogError("no mocap_ip.txt, use 127.0.0.1");
-                mocap_ip = "127.0.0.1";
-            }
-        }
-        myproxy = new IPEndPoint(IPAddress.Parse(mocap_ip), 17500);
-        game_proxy = new IPEndPoint(IPAddress.Parse(mocap_ip), 27500);
+        myproxy = new IPEndPoint(IPAddress.Parse(MyGameSetting.MocapIp), 17500);
+        game_proxy = new IPEndPoint(IPAddress.Parse(MyGameSetting.MocapIp), 27500);
         virtualAction = gameObject.GetComponent<VirtualAction>();
 
         if (IsPlayer)
         {
-            try
-            {
-                _droneId = int.Parse(System.IO.File.ReadAllText("player_drone_id.txt").Trim());
-            }
-            catch (System.Exception)
-            {
-                _droneId = 1;
-            }
+            _droneId = MyGameSetting.PlayerDroneId;
         }
         else
         {
-            try
-            {
-                _droneId = int.Parse(System.IO.File.ReadAllText("emery_drone_id.txt").Trim());
-            }
-            catch (System.Exception)
-            {
-                _droneId = 2;
-            }
+            _droneId = MyGameSetting.EmeryDroneId;
         }
         sock.Bind(new IPEndPoint(IPAddress.Any, 17500 + _droneId));
     }

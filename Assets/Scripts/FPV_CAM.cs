@@ -54,20 +54,7 @@ public class FPV_CAM : MonoBehaviour
         //string url = "rtsp://127.0.0.1/y1";
         //Debug.Log("connecting vss video: " + url);
         //NPlayer_Connect(ptr, url, 1);
-        string url = "";
-        try
-        {
-            url = System.IO.File.ReadAllText("fpv_rtsp_url.txt").Trim();
-        }
-        catch (System.Exception)
-        {
-
-        }
-        if (url != "")
-        {
-            Debug.Log("connecting vss video: " + url);
-            NPlayer_Connect(ptr, url, 1);
-        }
+        NPlayer_Connect(ptr, MyGameSetting.FpvUrl, 1);
 
         mainCamera = GetComponent<Camera>();
         emeryCollider = emery.GetComponent<BoxCollider>();

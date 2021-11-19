@@ -1,0 +1,12 @@
+FenceAltHigh,1.4
+FenceAltLow,0.7
+FenceXMax,1.8
+FenceXMin,-1.8
+FenceZMax,0.8
+FenceZMin,-1.8
+PlayerDroneId,2
+EmeryDroneId,1
+MocapIp,127.0.0.1
+FpvUrl,rtsp://140.96.178.37/TOM2
+PlayerBeamColor,10.200.10
+EmeryBeamColo,200.10.10

@@ -19,21 +19,14 @@ public class VirtualAction : MonoBehaviour
 
     private void Start()
     {
-        int r = 200, g = 10, b = 10;
-        string f_name;
-        if (isPlayer) f_name = "player_beam_color.txt"; else f_name = "emery_beam_color.txt";
-        try
+        if (isPlayer)
         {
-            string[] color_txt = System.IO.File.ReadAllText(f_name).Split(',');
-            r = int.Parse(color_txt[0]);
-            g = int.Parse(color_txt[1]);
-            b = int.Parse(color_txt[2]);
+            beamColor = MyGameSetting.PlayerBeamColor;
         }
-        catch (System.Exception)
+        else
         {
-
+            beamColor = MyGameSetting.EmeryBeamColor;
         }
-        beamColor = new Color(r / 255.0f, g / 255.0f, b / 255.0f);
         beamShotSound = GetComponent<AudioSource>();
     }
 
