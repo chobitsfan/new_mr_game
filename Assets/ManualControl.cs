@@ -54,8 +54,8 @@ public class ManualControl : MonoBehaviour
         Vector2 v = value.Get<Vector2>();
         //Debug.Log("OnPitchRoll"+v);
 
-        pitch = (short)(v.y * 600f);
-        roll = (short)(v.x * 600f);
+        pitch = (short)(v.y * 500f);
+        roll = (short)(v.x * 500f);
     }
 
     public void OnStabilize()
@@ -167,6 +167,7 @@ public class ManualControl : MonoBehaviour
                 pitchOut = (short)(avoid_direction.x * scale * -1000.0f);
                 rollOut = (short)(avoid_direction.z * scale * 1000.0f);
                 emerg = true;
+                gameWorld.ShowHudInfo("Avoid");
             }
 
             Vector3 cur_hor_pos = new Vector3(droneAction.CurPos.x, 0, droneAction.CurPos.z);
@@ -223,7 +224,6 @@ public class ManualControl : MonoBehaviour
                 gameWorld.ShowHudInfo("Fence");
             }
 
-            Debug.LogError("FenceAltHigh "+ MyGameSetting.FenceAltHigh);
             float cur_alt = droneAction.CurPos.y;
             if (cur_alt > MyGameSetting.FenceAltHigh)
             {
