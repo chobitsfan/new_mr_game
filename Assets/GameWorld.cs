@@ -86,7 +86,7 @@ public class GameWorld : MonoBehaviour
 
     private void Update()
     {
-        if (emeryDroneAction.Tracked && (playerDroneAction.CurPos - emeryDroneAction.CurPos).sqrMagnitude < 1.5f)
+        if (playerDroneAction.Tracked && emeryDroneAction.Tracked && (playerDroneAction.CurPos - emeryDroneAction.CurPos).sqrMagnitude < 1.5f)
         {
             _avoid = true;
             _avoid_direction = playerDroneAction.CurPos - emeryDroneAction.CurPos;
