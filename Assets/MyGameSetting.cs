@@ -13,6 +13,7 @@
     public static string FpvUrl = "";
     public static UnityEngine.Color PlayerBeamColor;
     public static UnityEngine.Color EmeryBeamColor;
+    public static bool UseMocap = true;
 
     static MyGameSetting()
     {
@@ -79,6 +80,12 @@
                             int g = int.Parse(color_txt[1]);
                             int b = int.Parse(color_txt[2]);
                             EmeryBeamColor = new UnityEngine.Color(r / 255.0f, g / 255.0f, b / 255.0f);
+                        }
+                        break;
+                    case "UseMocap":
+                        if (data[1] == "No")
+                        {
+                            UseMocap = false;
                         }
                         break;
                 }

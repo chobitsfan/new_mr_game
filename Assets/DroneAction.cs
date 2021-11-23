@@ -77,7 +77,10 @@ public class DroneAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lastMocapDataTs += Time.deltaTime;
+        if (MyGameSetting.UseMocap)
+        {
+            lastMocapDataTs += Time.deltaTime;
+        }
         MoCapData delayedMoCapData = null;
         ulong now_ts = (ulong)(Time.time * 1000000);
         //Debug.LogError("moCapDataQueue count " + moCapDataQueue.Count);
@@ -205,6 +208,7 @@ public class DroneAction : MonoBehaviour
             _tracked = false;
             if (IsPlayer)
             {
+                Debug.LogError("lost track, force landing");
                 gameWorld.ShowHudInfo("lost track");
                 Land();
             }
