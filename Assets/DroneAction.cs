@@ -38,6 +38,7 @@ public class DroneAction : MonoBehaviour
     float lastMocapDataTs = 0;
     private bool _tracked = false;
     ulong mocapTimeOffsetUs = 0;
+    bool skipNxtHb = false;
 
     // Start is called before the first frame update
     void Start()
@@ -143,9 +144,16 @@ public class DroneAction : MonoBehaviour
                             {
                                 if (msg.sysid == _droneId)
                                 {
-                                    var heartbeat = (MAVLink.mavlink_heartbeat_t)msg.data;
-                                    apm_mode = heartbeat.custom_mode;
-                                    armed = (heartbeat.base_mode & (byte)MAVLink.MAV_MODE_FLAG.SAFETY_ARMED) != 0;
+                                    if (skipNxtHb)
+                                    {
+                                        skipNxtHb = false;
+                                    }
+                                    else
+                                    {
+                                        var heartbeat = (MAVLink.mavlink_heartbeat_t)msg.data;
+                                        apm_mode = heartbeat.custom_mode;
+                                        armed = (heartbeat.base_mode & (byte)MAVLink.MAV_MODE_FLAG.SAFETY_ARMED) != 0;
+                                    }
                                 }
                                 break;
                             }
@@ -245,6 +253,7 @@ public class DroneAction : MonoBehaviour
         };
         byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.COMMAND_LONG, cmd);
         sock.SendTo(data, myproxy);
+        skipNxtHb = true;
     }
 
     public void Disarm(bool forced)
