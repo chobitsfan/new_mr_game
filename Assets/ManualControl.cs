@@ -210,7 +210,7 @@ public class ManualControl : MonoBehaviour
                     pitchOut = (short)(fence_avoid_dir.x * scale * -1000.0f);
                     rollOut = (short)(fence_avoid_dir.z * scale * 1000.0f);
                     emerg = true;
-                    Debug.LogError("fence " + cur_hor_pos + "," + pitchOut + "," + rollOut);
+                    //Debug.LogError("fence " + cur_hor_pos + "," + pitchOut + "," + rollOut);
                     gameWorld.ShowHudInfo("Fence");
                 }
 
