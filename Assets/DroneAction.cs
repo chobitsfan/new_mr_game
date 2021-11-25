@@ -189,10 +189,6 @@ public class DroneAction : MonoBehaviour
                                 {
                                     virtualAction.Shot();
                                 }
-                                else if (ctrl.buttons == 2)
-                                {
-                                    gameWorld.GameStart();
-                                }
                                 else if (ctrl.buttons == 3)
                                 {
                                     gameWorld.GirlSync();

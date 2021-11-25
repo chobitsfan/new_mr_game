@@ -1,6 +1,6 @@
 ﻿public static class MyGameSetting
 {
-    public const float GameDurationSec = 90;
+    public const float GameDurationSec = 60;
     public static float FenceAltHigh = 2f;
     public static float FenceAltLow = 0.7f;
     public static float FenceXMax = 2f;

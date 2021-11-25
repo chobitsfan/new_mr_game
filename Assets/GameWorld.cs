@@ -1,3 +1,5 @@
+using System.Net;
+using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -32,6 +34,9 @@ public class GameWorld : MonoBehaviour
     AnimatorStateInfo currentState;
     bool _avoid = false;
     Vector3 _avoid_direction = Vector3.zero;
+    byte[] buf;
+    MAVLink.MavlinkParse mavlinkParse;
+    Socket sock;
 
     private void Start()
     {
@@ -41,6 +46,14 @@ public class GameWorld : MonoBehaviour
         emeryDroneAction = Emery.GetComponent<DroneAction>();
         currentState = UnityChanAnimator.GetCurrentAnimatorStateInfo(0);
         previousState = currentState;
+
+        buf = new byte[512];
+        mavlinkParse = new MAVLink.MavlinkParse();
+        sock = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp)
+        {
+            Blocking = false
+        };
+        sock.Bind(new IPEndPoint(IPAddress.Any, 18500));
     }
 
     public void ShowHudInfo(string text, bool stayLonger = false)
@@ -86,6 +99,36 @@ public class GameWorld : MonoBehaviour
 
     private void Update()
     {
+        while (sock.Available > 0)
+        {
+            int recvBytes = 0;
+            try
+            {
+                recvBytes = sock.Receive(buf);
+            }
+            catch (SocketException)
+            {
+                //Debug.LogWarning("socket err " + e.ErrorCode);
+                break;
+            }
+            if (recvBytes > 0)
+            {
+                byte[] msg_buf = new byte[recvBytes];
+                System.Array.Copy(buf, msg_buf, recvBytes);
+                MAVLink.MAVLinkMessage msg = mavlinkParse.ReadPacket(msg_buf);
+                if (msg != null)
+                {
+                    if (msg.msgid == (uint)MAVLink.MAVLINK_MSG_ID.MANUAL_CONTROL)
+                    {
+                        var ctrl = (MAVLink.mavlink_manual_control_t)msg.data;
+                        if (ctrl.buttons == 2)
+                        {
+                            GameStart();
+                        }
+                    }
+                }
+            }
+        }
         if (playerDroneAction.Tracked && emeryDroneAction.Tracked && (playerDroneAction.CurPos - emeryDroneAction.CurPos).sqrMagnitude < 1.5f)
         {
             _avoid = true;
@@ -128,6 +171,7 @@ public class GameWorld : MonoBehaviour
                 HudText.enabled = false;
             }
         }
+        
         if (Keyboard.current.qKey.wasPressedThisFrame)
         {
             Application.Quit();
@@ -135,13 +179,13 @@ public class GameWorld : MonoBehaviour
         /*else if (Keyboard.current.rKey.wasPressedThisFrame)
         {
             ResetGame();
-        }*/
+        }
         else if (Keyboard.current.sKey.wasPressedThisFrame)
         {
             GameStart();
             playerDroneAction.SendGameStart();
         }
-        /*else if (Keyboard.current.pKey.wasPressedThisFrame)
+        else if (Keyboard.current.pKey.wasPressedThisFrame)
         {
             UnityChanAnimator.SetBool("Next", true);
         }*/

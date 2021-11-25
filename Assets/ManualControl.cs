@@ -32,12 +32,12 @@ public class ManualControl : MonoBehaviour
     }
     public void OnArm()
     {       
-        droneAction.Arm();
+        //droneAction.Arm();
     }
 
     public void OnDisarm()
     {
-        droneAction.Disarm(true);
+        //droneAction.Disarm(true);
     }
 
     public void OnThrottleYaw(InputValue value)
@@ -60,13 +60,13 @@ public class ManualControl : MonoBehaviour
 
     public void OnStabilize()
     {
-        droneAction.Stabilize();
+        //droneAction.Stabilize();
     }
 
     public void OnTakeoff()
     {
-        droneAction.AltHold();
-        droneAction.Arm();
+        //droneAction.AltHold();
+        //droneAction.Arm();
         //stage = Stage.WaitingForAltHold;
     }
 
