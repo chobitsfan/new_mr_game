@@ -1,6 +1,6 @@
 ﻿public static class MyGameSetting
 {
-    public const float GameDurationSec = 60;
+    public static int GameDurationSec = 60;
     public static float FenceAltHigh = 2f;
     public static float FenceAltLow = 0.7f;
     public static float FenceXMax = 2f;
@@ -14,6 +14,7 @@
     public static UnityEngine.Color PlayerBeamColor;
     public static UnityEngine.Color EmeryBeamColor;
     public static bool UseMocap = true;
+    public static int WinScore = 10;
 
     static MyGameSetting()
     {
@@ -87,6 +88,12 @@
                         {
                             UseMocap = false;
                         }
+                        break;
+                    case "GameDurationSec":
+                        GameDurationSec = int.Parse(data[1]);
+                        break;
+                    case "WinScore":
+                        WinScore = int.Parse(data[1]);
                         break;
                 }
             }
