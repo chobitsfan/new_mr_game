@@ -113,6 +113,7 @@ public class DroneAction : MonoBehaviour
             };
             byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.HEARTBEAT, cmd);
             sock.SendTo(data, game_proxy);
+            sock.SendTo(data, myproxy); // pass windows firewall
         }
 
         while (sock.Available > 0)
@@ -204,7 +205,7 @@ public class DroneAction : MonoBehaviour
             _tracked = false;
             if (IsPlayer)
             {
-                Debug.LogError("lost track, force landing");
+                //Debug.LogError("lost track, force landing");
                 gameWorld.ShowHudInfo("lost track");
                 Land();
             }
