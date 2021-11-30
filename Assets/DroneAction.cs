@@ -39,6 +39,7 @@ public class DroneAction : MonoBehaviour
     private bool _tracked = false;
     ulong mocapTimeOffsetUs = 0;
     bool skipNxtHb = false;
+    bool sys_status_rcved = false;
 
     // Start is called before the first frame update
     void Start()
@@ -63,16 +64,6 @@ public class DroneAction : MonoBehaviour
         }
         sock.Bind(new IPEndPoint(IPAddress.Any, 17500 + _droneId));
     }
-
-    /*public int DroneID
-    {
-        get => _droneId;
-        set
-        {
-            _droneId = value;
-            sock.Bind(new IPEndPoint(IPAddress.Any, 17500 + _droneId));
-        }
-    }*/
 
     // Update is called once per frame
     void Update()
@@ -158,6 +149,17 @@ public class DroneAction : MonoBehaviour
                                         apm_mode = heartbeat.custom_mode;
                                         armed = (heartbeat.base_mode & (byte)MAVLink.MAV_MODE_FLAG.SAFETY_ARMED) != 0;
                                     }
+                                    if (IsPlayer && !sys_status_rcved)
+                                    {
+                                        MAVLink.mavlink_command_long_t cmd = new MAVLink.mavlink_command_long_t
+                                        {
+                                            command = (ushort)MAVLink.MAV_CMD.SET_MESSAGE_INTERVAL,
+                                            param1 = (float)MAVLink.MAVLINK_MSG_ID.SYS_STATUS,
+                                            param2 = 1000000
+                                        };
+                                        byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.COMMAND_LONG, cmd);
+                                        sock.SendTo(data, myproxy);
+                                    }
                                 }
                                 break;
                             }
@@ -196,6 +198,14 @@ public class DroneAction : MonoBehaviour
                                 }
                                 break;
                             }
+                        case (uint)MAVLink.MAVLINK_MSG_ID.SYS_STATUS:
+                            {
+                                sys_status_rcved = true;
+                                var sys_status = (MAVLink.mavlink_sys_status_t)msg.data;
+                                gameWorld.UpdateBatDisplay(sys_status.voltage_battery);
+                                break;
+                            }
+
                     }
                 }
             }
@@ -336,16 +346,6 @@ public class DroneAction : MonoBehaviour
         MAVLink.mavlink_manual_control_t cmd = new MAVLink.mavlink_manual_control_t
         {
             buttons = 1
-        };
-        byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.MANUAL_CONTROL, cmd);
-        sock.SendTo(data, game_proxy);
-    }
-
-    public void SendGameStart()
-    {
-        MAVLink.mavlink_manual_control_t cmd = new MAVLink.mavlink_manual_control_t
-        {
-            buttons = 2
         };
         byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.MANUAL_CONTROL, cmd);
         sock.SendTo(data, game_proxy);

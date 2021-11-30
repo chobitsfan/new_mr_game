@@ -12,6 +12,7 @@ public class GameWorld : MonoBehaviour
     public UnityEngine.UI.Text HudText;
     public UnityEngine.UI.Text TimeText;
     public UnityEngine.UI.Text HpText;
+    public UnityEngine.UI.Text BatText;
     public GameObject Player;
     public GameObject Emery;
     public Animator UnityChanAnimator;
@@ -82,6 +83,11 @@ public class GameWorld : MonoBehaviour
     public void UpdateHpDisplay(int hp)
     {
         HpText.text = "HP:" + hp;
+    }
+
+    public void UpdateBatDisplay(ushort voltage_mv)
+    {
+        BatText.text = (voltage_mv * 0.001f).ToString("n2") + "V";
     }
 
     void GameOver()
