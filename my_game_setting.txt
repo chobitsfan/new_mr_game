@@ -4,10 +4,12 @@ FenceXMax,1.8
 FenceXMin,-1.8
 FenceZMax,0.8
 FenceZMin,-1.8
-PlayerDroneId,1
-EmeryDroneId,2
-MocapIp,192.168.0.20
+PlayerDroneId,2
+EmeryDroneId,3
+MocapIp,127.0.0.1
 FpvUrl,rtsp://192.168.0.10/TOM3
 PlayerBeamColor,10.200.10
 EmeryBeamColo,200.10.10
 UseMocap,Yes
+GameDurationSec,60
+WinScore,5
