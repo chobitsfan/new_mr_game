@@ -210,7 +210,7 @@ public class DroneAction : MonoBehaviour
                 }
             }
         }
-        if (lastMocapDataTs > 0.3f)
+        if (lastMocapDataTs > MyGameSetting.LostTrackTime)
         {
             _tracked = false;
             if (IsPlayer)

@@ -1,6 +1,6 @@
 ﻿public static class MyGameSetting
 {
-    public static int GameDurationSec = 60;
+    public static int GameDurationSec = 30;
     public static float FenceAltHigh = 2f;
     public static float FenceAltLow = 0.7f;
     public static float FenceXMax = 2f;
@@ -15,6 +15,8 @@
     public static UnityEngine.Color EmeryBeamColor;
     public static bool UseMocap = true;
     public static int WinScore = 10;
+    public static float LostTrackTime = 0.03f;
+    public static float InputRatio = 700f;
 
     static MyGameSetting()
     {
@@ -35,6 +37,12 @@
             {
                 switch (data[0])
                 {
+                    case "InputRatio":
+                        InputRatio = float.Parse(data[1]);
+                        break;
+                    case "LostTrackTime":
+                        LostTrackTime = float.Parse(data[1]);
+                        break;
                     case "FenceAltHigh":
                         FenceAltHigh = float.Parse(data[1]);
                         break;

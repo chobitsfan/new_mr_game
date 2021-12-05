@@ -54,8 +54,8 @@ public class ManualControl : MonoBehaviour
         Vector2 v = value.Get<Vector2>();
         //Debug.Log("OnPitchRoll"+v);
 
-        pitch = (short)(v.y * 500f);
-        roll = (short)(v.x * 500f);
+        pitch = (short)(v.y * MyGameSetting.InputRatio);
+        roll = (short)(v.x * MyGameSetting.InputRatio);
     }
 
     public void OnStabilize()
@@ -197,7 +197,7 @@ public class ManualControl : MonoBehaviour
                 }
                 if (fence_avoid)
                 {
-                    fence_avoid_dir = Quaternion.Inverse(droneAction.CurRot) * fence_avoid_dir;
+                    /*fence_avoid_dir = Quaternion.Inverse(droneAction.CurRot) * fence_avoid_dir;
                     float scale;
                     if (Mathf.Abs(fence_avoid_dir.x) > Mathf.Abs(fence_avoid_dir.z))
                     {
@@ -209,7 +209,8 @@ public class ManualControl : MonoBehaviour
                     }
                     pitchOut = (short)(fence_avoid_dir.x * scale * -1000.0f);
                     rollOut = (short)(fence_avoid_dir.z * scale * 1000.0f);
-                    emerg = true;
+                    emerg = true;*/
+                    droneAction.Land();
                     //Debug.LogError("fence " + cur_hor_pos + "," + pitchOut + "," + rollOut);
                     gameWorld.ShowHudInfo("Fence");
                 }
