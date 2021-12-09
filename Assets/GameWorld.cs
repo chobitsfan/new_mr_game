@@ -41,6 +41,10 @@ public class GameWorld : MonoBehaviour
 
     private void Start()
     {
+        for (int i = 1; i < Display.displays.Length; i++)
+        {
+            Display.displays[i].Activate();
+        }
         playerVirtualAction = Player.GetComponent<VirtualAction>();
         playerDroneAction = Player.GetComponent<DroneAction>();
         emeryVirtualAction = Emery.GetComponent<VirtualAction>();
