@@ -24,7 +24,7 @@ public class GameWorld : MonoBehaviour
 
     public bool IsGameOver => _gameOver;
     public bool Avoid => _avoid;
-    public Vector3 AvoidDirection => _avoid_direction;
+    public Vector3 ImpactDirection => _impact_direction;
 
     float hudTextCd = 0;
     bool _gameOver = false;
@@ -34,10 +34,10 @@ public class GameWorld : MonoBehaviour
     AnimatorStateInfo previousState;
     AnimatorStateInfo currentState;
     bool _avoid = false;
-    Vector3 _avoid_direction = Vector3.zero;
     byte[] buf;
     MAVLink.MavlinkParse mavlinkParse;
     Socket sock;
+    Vector3 _impact_direction = Vector3.zero;
 
     private void Start()
     {
@@ -139,10 +139,10 @@ public class GameWorld : MonoBehaviour
                 }
             }
         }
-        if (playerDroneAction.Tracked && emeryDroneAction.Tracked && (playerDroneAction.CurPos - emeryDroneAction.CurPos).sqrMagnitude < 1.5f)
+        if (playerDroneAction.Tracked && emeryDroneAction.Tracked && (playerDroneAction.CurPos - emeryDroneAction.CurPos).sqrMagnitude < 2.25f)
         {
             _avoid = true;
-            _avoid_direction = playerDroneAction.CurPos - emeryDroneAction.CurPos;
+            _impact_direction = emeryDroneAction.CurPos - playerDroneAction.CurPos;
         }
         else
         {

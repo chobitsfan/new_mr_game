@@ -150,6 +150,18 @@ public class ManualControl : MonoBehaviour
             }*/
             if (gameWorld.Avoid)
             {
+#if true
+                Vector3 usr_ctrl = droneAction.CurRot * new Vector3(-pitch, 0, roll);
+                usr_ctrl.y = throttle - 500;
+                usr_ctrl.Normalize();
+                if (Vector3.Angle(usr_ctrl, gameWorld.ImpactDirection) < 90f)
+                {
+                    pitchOut = 0;
+                    rollOut = 0;
+                    throttleOut = 500;
+                    emerg = true;
+                }
+#else
                 Vector3 avoid_direction = gameWorld.AvoidDirection;
                 avoid_direction.y = 0;
                 avoid_direction = Quaternion.Inverse(droneAction.CurRot) * avoid_direction;
@@ -168,6 +180,7 @@ public class ManualControl : MonoBehaviour
                 rollOut = (short)(avoid_direction.z * scale * 1000.0f);
                 emerg = true;
                 gameWorld.ShowHudInfo("Avoid");
+#endif
             }
 
             if (droneAction.Tracked)
