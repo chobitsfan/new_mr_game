@@ -139,7 +139,7 @@ public class GameWorld : MonoBehaviour
                 }
             }
         }
-        if (playerDroneAction.Tracked && emeryDroneAction.Tracked && (playerDroneAction.CurPos - emeryDroneAction.CurPos).sqrMagnitude < 2.25f)
+        if (playerDroneAction.Tracked && emeryDroneAction.Tracked && (playerDroneAction.CurPos - emeryDroneAction.CurPos).sqrMagnitude < (MyGameSetting.AvoidDist * MyGameSetting.AvoidDist))
         {
             _avoid = true;
             _impact_direction = emeryDroneAction.CurPos - playerDroneAction.CurPos;

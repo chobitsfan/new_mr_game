@@ -17,7 +17,7 @@
     public static int WinScore = 10;
     public static float LostTrackTime = 0.03f;
     public static float InputRatio = 700f;
-
+    public static float AvoidDist = 2f;
     static MyGameSetting()
     {
         string[] lines;
@@ -37,6 +37,9 @@
             {
                 switch (data[0])
                 {
+                    case "AvoidDist":
+                        AvoidDist = float.Parse(data[1]);
+                        break;
                     case "InputRatio":
                         InputRatio = float.Parse(data[1]);
                         break;
