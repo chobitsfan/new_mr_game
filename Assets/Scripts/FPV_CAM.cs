@@ -54,7 +54,7 @@ public class FPV_CAM : MonoBehaviour
         ptr = NPlayer_Init();        
         bStart = false;
 		bInitBuffer = false;
-        NPlayer_Connect(ptr, MyGameSetting.FpvUrl, 1, 0); //0:udp 1:tcp, 4th param: buf_time(ms)	
+        NPlayer_Connect(ptr, MyGameSetting.FpvUrl, 0, 0); //0:udp 1:tcp, 4th param: buf_time(ms)
 
         mainCamera = GetComponent<Camera>();
         emeryCollider = emery.GetComponent<BoxCollider>();
