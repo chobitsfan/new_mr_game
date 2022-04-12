@@ -266,4 +266,9 @@ public class FPV_CAM : MonoBehaviour
         // width and height of the rect by subtracting the max minus the min values and return it as a rect.
         return new Rect(xMin, yMin, xMax - xMin, yMax - yMin);
     }
+
+    public void MyChangeFov(string fov_text)
+    {
+        mainCamera.fieldOfView = float.Parse(fov_text);
+    }
 }
