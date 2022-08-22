@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 475054326}
   - component: {fileID: 475054325}
   m_Layer: 5
-  m_Name: FOV InputField
+  m_Name: Debug InputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -490,7 +490,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1838958493}
         m_TargetAssemblyTypeName: FPV_CAM, Assembly-CSharp
-        m_MethodName: MyChangeFov
+        m_MethodName: MyChangeYaw
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

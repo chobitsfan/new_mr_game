@@ -267,8 +267,8 @@ public class FPV_CAM : MonoBehaviour
         return new Rect(xMin, yMin, xMax - xMin, yMax - yMin);
     }
 
-    public void MyChangeFov(string fov_text)
+    public void MyChangeYaw(string yaw_txt)
     {
-        mainCamera.fieldOfView = float.Parse(fov_text);
+        mainCamera.transform.localEulerAngles = new Vector3(0, float.Parse(yaw_txt), 0);
     }
 }
