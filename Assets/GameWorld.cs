@@ -13,6 +13,7 @@ public class GameWorld : MonoBehaviour
     public UnityEngine.UI.Text TimeText;
     public UnityEngine.UI.Text HpText;
     public UnityEngine.UI.Text BatText;
+    public UnityEngine.UI.Text StatusText;
     public GameObject Player;
     public GameObject Emery;
     public Animator UnityChanAnimator;
@@ -34,13 +35,16 @@ public class GameWorld : MonoBehaviour
     AnimatorStateInfo previousState;
     AnimatorStateInfo currentState;
     bool _avoid = false;
-    byte[] buf;
-    MAVLink.MavlinkParse mavlinkParse;
+    byte[] buf = new byte[128];
     Socket sock;
     Vector3 _impact_direction = Vector3.zero;
 
+    float[] gameMsg = new float[32];
+    IPEndPoint gameProxy;
+
     private void Start()
     {
+        gameProxy = new IPEndPoint(IPAddress.Parse(MyGameSetting.MocapIp), 27500);
         for (int i = 1; i < Display.displays.Length; i++)
         {
             Display.displays[i].Activate();
@@ -52,13 +56,16 @@ public class GameWorld : MonoBehaviour
         currentState = UnityChanAnimator.GetCurrentAnimatorStateInfo(0);
         previousState = currentState;
 
-        buf = new byte[512];
-        mavlinkParse = new MAVLink.MavlinkParse();
         sock = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp)
         {
             Blocking = false
         };
         sock.Bind(new IPEndPoint(IPAddress.Any, 18500));
+    }
+
+    public void ShowStatus(string text)
+    {
+        StatusText.text = text;
     }
 
     public void ShowHudInfo(string text, bool stayLonger = false)
@@ -107,6 +114,14 @@ public class GameWorld : MonoBehaviour
         UnityChanAnimator.Play("HandExpression.HandExpression", -1, 0);
     }
 
+    public void PlayerOpenFire()
+    {
+        byte[] buf = new byte[8];
+        float[] msg = { 3.0f, MyGameSetting.PlayerDroneId };
+        System.Buffer.BlockCopy(msg, 0, buf, 0, 8);
+        sock.SendTo(buf, gameProxy);
+    }
+
     private void Update()
     {
         while (sock.Available > 0)
@@ -123,18 +138,24 @@ public class GameWorld : MonoBehaviour
             }
             if (recvBytes > 0)
             {
-                byte[] msg_buf = new byte[recvBytes];
-                System.Array.Copy(buf, msg_buf, recvBytes);
-                MAVLink.MAVLinkMessage msg = mavlinkParse.ReadPacket(msg_buf);
-                if (msg != null)
+                System.Buffer.BlockCopy(buf, 0, gameMsg, 0, recvBytes);
+                if (gameMsg[0] == 1)
                 {
-                    if (msg.msgid == (uint)MAVLink.MAVLINK_MSG_ID.MANUAL_CONTROL)
+                    GameStart();
+                }
+                else if (gameMsg[0] == 2)
+                {
+                    GirlSync();
+                }
+                else if (gameMsg[0] == 3)
+                {
+                    if (gameMsg[1] == MyGameSetting.PlayerDroneId)
                     {
-                        var ctrl = (MAVLink.mavlink_manual_control_t)msg.data;
-                        if (ctrl.buttons == 2)
-                        {
-                            GameStart();
-                        }
+                        playerVirtualAction.Shot();
+                    }
+                    else
+                    {
+                        emeryVirtualAction.Shot();
                     }
                 }
             }
@@ -153,8 +174,8 @@ public class GameWorld : MonoBehaviour
             delayedSync -= Time.deltaTime;
             if (delayedSync <= 0)
             {
-                playerDroneAction.SendGirlSync();
-                GirlSync();
+                sock.SendTo(System.BitConverter.GetBytes(2.0f), gameProxy); // notify all client to sync girl anime
+                //GirlSync();
             }
         }
         if (!_gameOver && _gameStarted)

@@ -13,17 +13,18 @@ class MoCapData
 
 public class DroneAction : MonoBehaviour
 {
-    public UnityEngine.UI.Text StatusText;
-    public bool IsPlayer = false;
+    public int MavId;
     public GameWorld gameWorld;
     [System.NonSerialized]
     public Vector3 CurPos;
     [System.NonSerialized]
     public Quaternion CurRot;
+    public GameObject FpvCameraPrefab;
+    public GameObject DroneModelPrefab;
 
     public bool Tracked => _tracked;
 
-    int _droneId = -1;
+    bool IsPlayer = false;
     byte[] buf;
     MAVLink.MavlinkParse mavlinkParse;
     Socket sock;
@@ -54,15 +55,16 @@ public class DroneAction : MonoBehaviour
         game_proxy = new IPEndPoint(IPAddress.Parse(MyGameSetting.MocapIp), 27500);
         virtualAction = gameObject.GetComponent<VirtualAction>();
 
-        if (IsPlayer)
+        if (MavId == MyGameSetting.PlayerDroneId)
         {
-            _droneId = MyGameSetting.PlayerDroneId;
+            IsPlayer = true;
+            Instantiate(FpvCameraPrefab, gameObject.transform);
         }
         else
         {
-            _droneId = MyGameSetting.EmeryDroneId;
+            Instantiate(DroneModelPrefab, gameObject.transform);
         }
-        sock.Bind(new IPEndPoint(IPAddress.Any, 17500 + _droneId));
+        sock.Bind(new IPEndPoint(IPAddress.Any, 17800 + MavId));
     }
 
     // Update is called once per frame
@@ -132,12 +134,12 @@ public class DroneAction : MonoBehaviour
                             {
                                 var status_txt = (MAVLink.mavlink_statustext_t)msg.data;
                                 //Debug.Log(System.Text.Encoding.ASCII.GetString(status_txt.text));
-                                if (IsPlayer) StatusText.text = System.Text.Encoding.ASCII.GetString(status_txt.text);
+                                if (IsPlayer) gameWorld.ShowStatus(System.Text.Encoding.ASCII.GetString(status_txt.text));
                                 break;
                             }
                         case (uint)MAVLink.MAVLINK_MSG_ID.HEARTBEAT:
                             {
-                                if (msg.sysid == _droneId)
+                                if (msg.sysid == MavId)
                                 {
                                     if (skipNxtHb)
                                     {
@@ -191,10 +193,6 @@ public class DroneAction : MonoBehaviour
                                 if (ctrl.buttons == 1)
                                 {
                                     virtualAction.Shot();
-                                }
-                                else if (ctrl.buttons == 3)
-                                {
-                                    gameWorld.GirlSync();
                                 }
                                 break;
                             }
@@ -296,7 +294,7 @@ public class DroneAction : MonoBehaviour
         MAVLink.mavlink_set_mode_t cmd = new MAVLink.mavlink_set_mode_t
         {
             base_mode = (byte)MAVLink.MAV_MODE_FLAG.CUSTOM_MODE_ENABLED,
-            target_system = (byte)_droneId,
+            target_system = (byte)MavId,
             custom_mode = (uint)MAVLink.COPTER_MODE.STABILIZE
         };
         byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.SET_MODE, cmd);
@@ -308,7 +306,7 @@ public class DroneAction : MonoBehaviour
         MAVLink.mavlink_set_mode_t cmd = new MAVLink.mavlink_set_mode_t
         {
             base_mode = (byte)MAVLink.MAV_MODE_FLAG.CUSTOM_MODE_ENABLED,
-            target_system = (byte)_droneId,
+            target_system = (byte)MavId,
             custom_mode = (uint)MAVLink.COPTER_MODE.LAND
         };
         byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.SET_MODE, cmd);
@@ -320,7 +318,7 @@ public class DroneAction : MonoBehaviour
         MAVLink.mavlink_set_mode_t cmd = new MAVLink.mavlink_set_mode_t
         {
             base_mode = (byte)MAVLink.MAV_MODE_FLAG.CUSTOM_MODE_ENABLED,
-            target_system = (byte)_droneId,
+            target_system = (byte)MavId,
             custom_mode = (uint)MAVLink.COPTER_MODE.AUTO
         };
         byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.SET_MODE, cmd);
@@ -331,7 +329,7 @@ public class DroneAction : MonoBehaviour
     {
         MAVLink.mavlink_manual_control_t cmd = new MAVLink.mavlink_manual_control_t
         {
-            target = (byte)_droneId,
+            target = (byte)MavId,
             x = pitch,
             y = roll,
             z = throttle,
@@ -341,7 +339,7 @@ public class DroneAction : MonoBehaviour
         sock.SendTo(data, myproxy);
     }
 
-    public void FireLaser()
+    /*public void FireLaser()
     {
         MAVLink.mavlink_manual_control_t cmd = new MAVLink.mavlink_manual_control_t
         {
@@ -359,7 +357,7 @@ public class DroneAction : MonoBehaviour
         };
         byte[] data = mavlinkParse.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.MANUAL_CONTROL, cmd);
         sock.SendTo(data, game_proxy);
-    }
+    }*/
 
     /*public void Guided()
     {

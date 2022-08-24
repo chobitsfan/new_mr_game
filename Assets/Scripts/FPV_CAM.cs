@@ -28,7 +28,6 @@ public class FPV_CAM : MonoBehaviour
 	private static extern IntPtr GetRenderEventFunc();
 
     public Material mat;
-    public GameObject emery;
 
     IntPtr ptr = IntPtr.Zero;
     bool bStart = false;
@@ -41,10 +40,6 @@ public class FPV_CAM : MonoBehaviour
 
     static Material lineMaterial;
     Camera mainCamera;
-    BoxCollider emeryCollider;
-    DroneAction emeryDrone;
-    VirtualAction emeryVirtual;
-    Rect emeryRect;
     GUIStyle textStyle;
 
     // Start is called before the first frame update
@@ -57,9 +52,6 @@ public class FPV_CAM : MonoBehaviour
         NPlayer_Connect(ptr, MyGameSetting.FpvUrl, 0, 0); //0:udp 1:tcp, 4th param: buf_time(ms)
 
         mainCamera = GetComponent<Camera>();
-        emeryCollider = emery.GetComponent<BoxCollider>();
-        emeryDrone = emery.GetComponent<DroneAction>();
-        emeryVirtual = emery.GetComponent<VirtualAction>();
         textStyle = new GUIStyle();
         textStyle.normal.textColor = Color.red;
     }
@@ -113,7 +105,7 @@ public class FPV_CAM : MonoBehaviour
 
     private void OnPostRender()
     {
-        if (emeryDrone.Tracked)
+        /*if (emeryDrone.Tracked)
         {
             emeryRect = GetScreenRectFromBounds(emeryCollider);
 
@@ -136,12 +128,12 @@ public class FPV_CAM : MonoBehaviour
             GL.End();
 
             GL.PopMatrix();
-        }
+        }*/
     }
 
     private void OnGUI()
     {
-        GUI.Label(new Rect(emeryRect.x, Screen.height - emeryRect.y + 2, 60, 30), "Target HP:" + emeryVirtual.HP, textStyle);
+        //GUI.Label(new Rect(emeryRect.x, Screen.height - emeryRect.y + 2, 60, 30), "Target HP:" + emeryVirtual.HP, textStyle);
     }
 
     static void CreateLineMaterial()

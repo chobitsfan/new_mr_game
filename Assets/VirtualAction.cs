@@ -7,7 +7,6 @@ public class VirtualAction : MonoBehaviour
 {
     public GameObject beamShot;
     public GameObject smoke;
-    public bool isPlayer = false;
     public GameWorld gameWorld;
 
     public int HP => _hp;
@@ -16,17 +15,10 @@ public class VirtualAction : MonoBehaviour
     float hitVibCd = 0f;
     Color beamColor = Color.green;
     AudioSource beamShotSound;
+    bool isPlayer = false;
 
     private void Start()
     {
-        if (isPlayer)
-        {
-            beamColor = MyGameSetting.PlayerBeamColor;
-        }
-        else
-        {
-            beamColor = MyGameSetting.EmeryBeamColor;
-        }
         beamShotSound = GetComponent<AudioSource>();
     }
 

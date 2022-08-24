@@ -1,260 +1,116 @@
-11:17:16.336	 :UnityPluginLoad
-11:17:16.336	 :OnGraphicsDeviceEvent (kUnityGfxDeviceEventInitialize)
-11:17:16.337	 :NPlayer_Init
-11:17:16.341	 :CreateVplayerAPI, m_pPlayer = 000002A81D4B2940
-11:17:16.342	 :live url = rtsp://192.168.0.10/TOM3
-11:17:16.342	 :StartStreamingURL: pPlayerCtx = 000002A81D4B2940
-11:17:16.342	 :channel state = 80, error=0
-11:17:16.342	 :stream status: connecting
-11:17:16.385	 :channel state = 80, error=-1004
-11:17:16.385	 :stream status: connecting
-11:17:16.385	 :channel state = 80, error=-1004
-11:17:16.385	 :stream status: connecting
-11:17:17.386	 :channel state = 80, error=-1004
-11:17:17.386	 :stream status: connecting
-11:17:17.428	 :channel state = 80, error=-1004
-11:17:17.428	 :stream status: connecting
-11:17:17.428	 :channel state = 80, error=-1004
-11:17:17.428	 :stream status: connecting
-11:17:18.429	 :channel state = 80, error=-1004
-11:17:18.429	 :stream status: connecting
-11:17:18.471	 :channel state = 80, error=-1004
-11:17:18.471	 :stream status: connecting
-11:17:18.471	 :channel state = 80, error=-1004
-11:17:18.471	 :stream status: connecting
-11:17:19.472	 :channel state = 80, error=-1004
-11:17:19.472	 :stream status: connecting
-11:17:19.514	 :channel state = 80, error=-1004
-11:17:19.514	 :stream status: connecting
-11:17:19.514	 :channel state = 80, error=-1004
-11:17:19.514	 :stream status: connecting
-11:17:20.515	 :channel state = 80, error=-1004
-11:17:20.515	 :stream status: connecting
-11:17:20.557	 :channel state = 80, error=-1004
-11:17:20.557	 :stream status: connecting
-11:17:20.557	 :channel state = 80, error=-1004
-11:17:20.557	 :stream status: connecting
-11:17:21.558	 :channel state = 80, error=-1004
-11:17:21.558	 :stream status: connecting
-11:17:21.600	 :channel state = 80, error=-1004
-11:17:21.600	 :stream status: connecting
-11:17:21.600	 :channel state = 80, error=-1004
-11:17:21.600	 :stream status: connecting
-11:17:22.601	 :channel state = 80, error=-1004
-11:17:22.601	 :stream status: connecting
-11:17:22.643	 :channel state = 80, error=-1004
-11:17:22.643	 :stream status: connecting
-11:17:22.643	 :channel state = 80, error=-1004
-11:17:22.643	 :stream status: connecting
-11:17:23.644	 :channel state = 80, error=-1004
-11:17:23.644	 :stream status: connecting
-11:17:23.686	 :channel state = 80, error=-1004
-11:17:23.686	 :stream status: connecting
-11:17:23.686	 :channel state = 80, error=-1004
-11:17:23.686	 :stream status: connecting
-11:17:24.687	 :channel state = 80, error=-1004
-11:17:24.687	 :stream status: connecting
-11:17:24.730	 :channel state = 80, error=-1004
-11:17:24.730	 :stream status: connecting
-11:17:24.730	 :channel state = 80, error=-1004
-11:17:24.730	 :stream status: connecting
-11:17:25.731	 :channel state = 80, error=-1004
-11:17:25.731	 :stream status: connecting
-11:17:25.775	 :channel state = 80, error=-1004
-11:17:25.775	 :stream status: connecting
-11:17:25.775	 :channel state = 80, error=-1004
-11:17:25.775	 :stream status: connecting
-11:17:26.776	 :channel state = 80, error=-1004
-11:17:26.776	 :stream status: connecting
-11:17:26.818	 :channel state = 80, error=-1004
-11:17:26.818	 :stream status: connecting
-11:17:26.818	 :channel state = 80, error=-1004
-11:17:26.818	 :stream status: connecting
-11:17:27.819	 :channel state = 80, error=-1004
-11:17:27.819	 :stream status: connecting
-11:17:27.861	 :channel state = 80, error=-1004
-11:17:27.861	 :stream status: connecting
-11:17:27.861	 :channel state = 80, error=-1004
-11:17:27.861	 :stream status: connecting
-11:17:28.862	 :channel state = 80, error=-1004
-11:17:28.862	 :stream status: connecting
-11:17:28.904	 :channel state = 80, error=-1004
-11:17:28.904	 :stream status: connecting
-11:17:28.904	 :channel state = 80, error=-1004
-11:17:28.904	 :stream status: connecting
-11:17:29.905	 :channel state = 80, error=-1004
-11:17:29.905	 :stream status: connecting
-11:17:29.947	 :channel state = 80, error=-1004
-11:17:29.947	 :stream status: connecting
-11:17:29.947	 :channel state = 80, error=-1004
-11:17:29.947	 :stream status: connecting
-11:17:30.948	 :channel state = 80, error=-1004
-11:17:30.948	 :stream status: connecting
-11:17:30.992	 :channel state = 80, error=-1004
-11:17:30.992	 :stream status: connecting
-11:17:30.992	 :channel state = 80, error=-1004
-11:17:30.992	 :stream status: connecting
-11:17:31.993	 :channel state = 80, error=-1004
-11:17:31.993	 :stream status: connecting
-11:17:32.035	 :channel state = 80, error=-1004
-11:17:32.035	 :stream status: connecting
-11:17:32.035	 :channel state = 80, error=-1004
-11:17:32.035	 :stream status: connecting
-11:17:33.036	 :channel state = 80, error=-1004
-11:17:33.036	 :stream status: connecting
-11:17:33.078	 :channel state = 80, error=-1004
-11:17:33.078	 :stream status: connecting
-11:17:33.078	 :channel state = 80, error=-1004
-11:17:33.078	 :stream status: connecting
-11:17:34.079	 :channel state = 80, error=-1004
-11:17:34.079	 :stream status: connecting
-11:17:34.121	 :channel state = 80, error=-1004
-11:17:34.121	 :stream status: connecting
-11:17:34.121	 :channel state = 80, error=-1004
-11:17:34.121	 :stream status: connecting
-11:17:35.122	 :channel state = 80, error=-1004
-11:17:35.122	 :stream status: connecting
-11:17:35.164	 :channel state = 80, error=-1004
-11:17:35.164	 :stream status: connecting
-11:17:35.164	 :channel state = 80, error=-1004
-11:17:35.164	 :stream status: connecting
-11:17:36.165	 :channel state = 80, error=-1004
-11:17:36.165	 :stream status: connecting
-11:17:36.207	 :channel state = 80, error=-1004
-11:17:36.207	 :stream status: connecting
-11:17:36.207	 :channel state = 80, error=-1004
-11:17:36.207	 :stream status: connecting
-11:17:37.208	 :channel state = 80, error=-1004
-11:17:37.208	 :stream status: connecting
-11:17:37.250	 :channel state = 80, error=-1004
-11:17:37.250	 :stream status: connecting
-11:17:37.250	 :channel state = 80, error=-1004
-11:17:37.250	 :stream status: connecting
-11:17:38.251	 :channel state = 80, error=-1004
-11:17:38.251	 :stream status: connecting
-11:17:38.293	 :channel state = 80, error=-1004
-11:17:38.293	 :stream status: connecting
-11:17:38.293	 :channel state = 80, error=-1004
-11:17:38.293	 :stream status: connecting
-11:17:39.294	 :channel state = 80, error=-1004
-11:17:39.294	 :stream status: connecting
-11:17:39.336	 :channel state = 80, error=-1004
-11:17:39.336	 :stream status: connecting
-11:17:39.336	 :channel state = 80, error=-1004
-11:17:39.336	 :stream status: connecting
-11:17:40.337	 :channel state = 80, error=-1004
-11:17:40.337	 :stream status: connecting
-11:17:40.380	 :channel state = 80, error=-1004
-11:17:40.380	 :stream status: connecting
-11:17:40.380	 :channel state = 80, error=-1004
-11:17:40.380	 :stream status: connecting
-11:17:41.381	 :channel state = 80, error=-1004
-11:17:41.381	 :stream status: connecting
-11:17:41.423	 :channel state = 80, error=-1004
-11:17:41.423	 :stream status: connecting
-11:17:41.423	 :channel state = 80, error=-1004
-11:17:41.423	 :stream status: connecting
-11:17:42.424	 :channel state = 80, error=-1004
-11:17:42.424	 :stream status: connecting
-11:17:42.466	 :channel state = 80, error=-1004
-11:17:42.466	 :stream status: connecting
-11:17:42.466	 :channel state = 80, error=-1004
-11:17:42.466	 :stream status: connecting
-11:17:43.467	 :channel state = 80, error=-1004
-11:17:43.467	 :stream status: connecting
-11:17:43.509	 :channel state = 80, error=-1004
-11:17:43.509	 :stream status: connecting
-11:17:43.509	 :channel state = 80, error=-1004
-11:17:43.509	 :stream status: connecting
-11:17:44.510	 :channel state = 80, error=-1004
-11:17:44.510	 :stream status: connecting
-11:17:44.552	 :channel state = 80, error=-1004
-11:17:44.552	 :stream status: connecting
-11:17:44.552	 :channel state = 80, error=-1004
-11:17:44.552	 :stream status: connecting
-11:17:45.553	 :channel state = 80, error=-1004
-11:17:45.553	 :stream status: connecting
-11:17:45.595	 :channel state = 80, error=-1004
-11:17:45.595	 :stream status: connecting
-11:17:45.595	 :channel state = 80, error=-1004
-11:17:45.595	 :stream status: connecting
-11:17:45.805	 :NPlayer_DisConnect: pPlayerCtx = 000002A81D4B2940, status = 0
-11:17:45.805	 :NPlayer_DisConnect: StopStreaming
-11:17:45.805	 :m_luminanceView = 0000000000000000
-11:17:45.805	 :m_chrominanceView = 0000000000000000
-11:17:45.805	 :m_Texture = 0000000000000000
-11:17:45.805	 :NPlayer_Uninit: pPlayerCtx = 000002A81D4B2940, status = 0
-11:17:45.805	 :NPlayer_Uninit: StopStreaming
-11:17:45.805	 :NPlayer_Uninit: ReleaseVplayer
-11:17:46.596	 :channel state = 80, error=-1004
-11:17:46.596	 :stream status: connecting
-11:17:46.927	 :m_luminanceView = 0000000000000000
-11:17:46.927	 :m_chrominanceView = 0000000000000000
-11:17:46.927	 :m_Texture = 0000000000000000
-11:17:46.927	 :NPlayer_Uninit: Finished
-11:18:18.732	 :NPlayer_Init
-11:18:18.734	 :CreateVplayerAPI, m_pPlayer = 000002A82381FE50
-11:18:18.734	 :live url = rtsp://192.168.0.10/TOM3
-11:18:18.734	 :StartStreamingURL: pPlayerCtx = 000002A82381FE50
-11:18:18.734	 :channel state = 80, error=0
-11:18:18.734	 :stream status: connecting
-11:18:18.777	 :channel state = 80, error=-1004
-11:18:18.777	 :stream status: connecting
-11:18:18.777	 :channel state = 80, error=-1004
-11:18:18.777	 :stream status: connecting
-11:18:19.778	 :channel state = 80, error=-1004
-11:18:19.778	 :stream status: connecting
-11:18:19.820	 :channel state = 80, error=-1004
-11:18:19.820	 :stream status: connecting
-11:18:19.820	 :channel state = 80, error=-1004
-11:18:19.820	 :stream status: connecting
-11:18:20.821	 :channel state = 80, error=-1004
-11:18:20.821	 :stream status: connecting
-11:18:20.863	 :channel state = 80, error=-1004
-11:18:20.863	 :stream status: connecting
-11:18:20.863	 :channel state = 80, error=-1004
-11:18:20.863	 :stream status: connecting
-11:18:21.864	 :channel state = 80, error=-1004
-11:18:21.864	 :stream status: connecting
-11:18:21.908	 :channel state = 80, error=-1004
-11:18:21.908	 :stream status: connecting
-11:18:21.908	 :channel state = 80, error=-1004
-11:18:21.908	 :stream status: connecting
-11:18:22.909	 :channel state = 80, error=-1004
-11:18:22.909	 :stream status: connecting
-11:18:22.951	 :channel state = 80, error=-1004
-11:18:22.951	 :stream status: connecting
-11:18:22.951	 :channel state = 80, error=-1004
-11:18:22.951	 :stream status: connecting
-11:18:23.952	 :channel state = 80, error=-1004
-11:18:23.952	 :stream status: connecting
-11:18:23.995	 :channel state = 80, error=-1004
-11:18:23.995	 :stream status: connecting
-11:18:23.995	 :channel state = 80, error=-1004
-11:18:23.995	 :stream status: connecting
-11:18:24.996	 :channel state = 80, error=-1004
-11:18:24.996	 :stream status: connecting
-11:18:25.038	 :channel state = 80, error=-1004
-11:18:25.038	 :stream status: connecting
-11:18:25.038	 :channel state = 80, error=-1004
-11:18:25.038	 :stream status: connecting
-11:18:26.038	 :channel state = 80, error=-1004
-11:18:26.038	 :stream status: connecting
-11:18:26.080	 :channel state = 80, error=-1004
-11:18:26.080	 :stream status: connecting
-11:18:26.080	 :channel state = 80, error=-1004
-11:18:26.080	 :stream status: connecting
-11:18:26.892	 :NPlayer_DisConnect: pPlayerCtx = 000002A82381FE50, status = 0
-11:18:26.892	 :NPlayer_DisConnect: StopStreaming
-11:18:26.892	 :m_luminanceView = 0000000000000000
-11:18:26.892	 :m_chrominanceView = 0000000000000000
-11:18:26.892	 :m_Texture = 0000000000000000
-11:18:26.892	 :NPlayer_Uninit: pPlayerCtx = 000002A82381FE50, status = 0
-11:18:26.892	 :NPlayer_Uninit: StopStreaming
-11:18:26.892	 :NPlayer_Uninit: ReleaseVplayer
-11:18:27.081	 :channel state = 80, error=-1004
-11:18:27.081	 :stream status: connecting
-11:18:28.321	 :m_luminanceView = 0000000000000000
-11:18:28.321	 :m_chrominanceView = 0000000000000000
-11:18:28.321	 :m_Texture = 0000000000000000
-11:18:28.321	 :NPlayer_Uninit: Finished
+14:20:18.299	 :UnityPluginLoad
+14:20:18.299	 :OnGraphicsDeviceEvent (kUnityGfxDeviceEventInitialize)
+14:20:18.299	 :NPlayer_Init
+14:20:18.310	 :CreateVplayerAPI, m_pPlayer = 000001B6A7A760C0
+14:20:18.310	 :live url = rtsp://192.168.0.10/TOM3
+14:20:18.310	 :StartStreamingURL: pPlayerCtx = 000001B6A7A760C0
+14:20:18.311	 :channel state = 80, error=0
+14:20:18.311	 :stream status: connecting
+14:20:20.311	 :channel state = 80, error=-1000
+14:20:20.311	 :stream status: connecting
+14:20:20.311	 :channel state = 80, error=-1001
+14:20:20.311	 :stream status: connecting
+14:20:21.312	 :channel state = 80, error=-1001
+14:20:21.312	 :stream status: connecting
+14:20:23.312	 :channel state = 80, error=-1000
+14:20:23.312	 :stream status: connecting
+14:20:23.312	 :channel state = 80, error=-1001
+14:20:23.312	 :stream status: connecting
+14:20:24.313	 :channel state = 80, error=-1001
+14:20:24.313	 :stream status: connecting
+14:20:26.314	 :channel state = 80, error=-1000
+14:20:26.314	 :stream status: connecting
+14:20:26.314	 :channel state = 80, error=-1001
+14:20:26.314	 :stream status: connecting
+14:20:27.314	 :channel state = 80, error=-1001
+14:20:27.314	 :stream status: connecting
+14:20:29.315	 :channel state = 80, error=-1000
+14:20:29.315	 :stream status: connecting
+14:20:29.315	 :channel state = 80, error=-1001
+14:20:29.315	 :stream status: connecting
+14:20:30.316	 :channel state = 80, error=-1001
+14:20:30.316	 :stream status: connecting
+14:20:32.317	 :channel state = 80, error=-1000
+14:20:32.317	 :stream status: connecting
+14:20:32.317	 :channel state = 80, error=-1001
+14:20:32.317	 :stream status: connecting
+14:20:33.318	 :channel state = 80, error=-1001
+14:20:33.318	 :stream status: connecting
+14:20:34.444	 :NPlayer_DisConnect: pPlayerCtx = 000001B6A7A760C0, status = 0
+14:20:34.444	 :NPlayer_DisConnect: StopStreaming
+14:20:34.444	 :m_luminanceView = 0000000000000000
+14:20:34.444	 :m_chrominanceView = 0000000000000000
+14:20:34.444	 :m_Texture = 0000000000000000
+14:20:34.444	 :NPlayer_Uninit: pPlayerCtx = 000001B6A7A760C0, status = 0
+14:20:34.444	 :NPlayer_Uninit: StopStreaming
+14:20:34.444	 :NPlayer_Uninit: ReleaseVplayer
+14:20:35.318	 :channel state = 80, error=-1000
+14:20:35.318	 :stream status: connecting
+14:20:35.318	 :channel state = 80, error=-1001
+14:20:35.318	 :stream status: connecting
+14:20:36.363	 :m_luminanceView = 0000000000000000
+14:20:36.363	 :m_chrominanceView = 0000000000000000
+14:20:36.363	 :m_Texture = 0000000000000000
+14:20:36.363	 :NPlayer_Uninit: Finished
+14:21:42.758	 :NPlayer_Init
+14:21:42.759	 :CreateVplayerAPI, m_pPlayer = 000001B6ABC763E0
+14:21:42.759	 :live url = rtsp://192.168.0.37:8554/unicast
+14:21:42.759	 :StartStreamingURL: pPlayerCtx = 000001B6ABC763E0
+14:21:42.759	 :channel state = 80, error=0
+14:21:42.759	 :stream status: connecting
+14:21:42.965	 :channel state = 1, error=0
+14:21:42.965	 :stream status: live connected
+14:21:43.062	 :channel state = 103, error=0
+14:21:44.150	 :CreateResources mDevice = 000001B85E511130
+14:21:44.151	 :GetShaderResourceViewFromPlugin: TexY_SRV = 0000000000000000
+14:21:44.151	 :GetShaderResourceViewFromPlugin: TexUV_SRV = 0000000000000000
+14:21:44.151	 :CreateTexture2D m_Texture = 000001B6A7406638
+14:21:44.151	 :CreateResources: GetSharedHandle 0000000080000A42
+14:21:44.151	 :m_luminanceView = 000001B6A739E980
+14:21:44.151	 :m_chrominanceView = 000001B6A739DF40
+14:21:44.159	 :GetShaderResourceViewFromPlugin: TexY_SRV = 000001B6A739E980
+14:21:44.159	 :GetShaderResourceViewFromPlugin: TexUV_SRV = 000001B6A739DF40
+14:22:02.523	 :NPlayer_DisConnect: pPlayerCtx = 000001B6ABC763E0, status = 1
+14:22:02.523	 :NPlayer_DisConnect: StopStreaming
+14:22:02.523	 :m_luminanceView = 0000000000000000
+14:22:02.523	 :m_chrominanceView = 0000000000000000
+14:22:02.523	 :m_Texture = 0000000000000000
+14:22:02.523	 :NPlayer_Uninit: pPlayerCtx = 000001B6ABC763E0, status = 1
+14:22:02.523	 :NPlayer_Uninit: StopStreaming
+14:22:02.523	 :NPlayer_Uninit: ReleaseVplayer
+14:22:02.621	 :channel state = 0, error=0
+14:22:02.621	 :stream status: live stopped
+14:22:03.326	 :m_luminanceView = 0000000000000000
+14:22:03.326	 :m_chrominanceView = 0000000000000000
+14:22:03.326	 :m_Texture = 0000000000000000
+14:22:03.326	 :NPlayer_Uninit: Finished
+14:25:01.378	 :NPlayer_Init
+14:25:01.379	 :CreateVplayerAPI, m_pPlayer = 000001B985EB4B70
+14:25:01.379	 :live url = rtsp://192.168.0.37:8554/unicast
+14:25:01.379	 :StartStreamingURL: pPlayerCtx = 000001B985EB4B70
+14:25:01.379	 :channel state = 80, error=0
+14:25:01.379	 :stream status: connecting
+14:25:01.626	 :channel state = 1, error=0
+14:25:01.626	 :stream status: live connected
+14:25:01.682	 :channel state = 103, error=0
+14:25:02.107	 :CreateResources mDevice = 000001B85E511130
+14:25:02.108	 :CreateTexture2D m_Texture = 000001B6AC159438
+14:25:02.108	 :CreateResources: GetSharedHandle 0000000080000242
+14:25:02.108	 :m_luminanceView = 000001B6AA79A640
+14:25:02.108	 :m_chrominanceView = 000001B6AA79A480
+14:25:02.110	 :GetShaderResourceViewFromPlugin: TexY_SRV = 000001B6AA79A640
+14:25:02.110	 :GetShaderResourceViewFromPlugin: TexUV_SRV = 000001B6AA79A480
+14:25:46.945	 :NPlayer_DisConnect: pPlayerCtx = 000001B985EB4B70, status = 1
+14:25:46.945	 :NPlayer_DisConnect: StopStreaming
+14:25:46.945	 :m_luminanceView = 0000000000000000
+14:25:46.945	 :m_chrominanceView = 0000000000000000
+14:25:46.945	 :m_Texture = 0000000000000000
+14:25:46.945	 :NPlayer_Uninit: pPlayerCtx = 000001B985EB4B70, status = 1
+14:25:46.945	 :NPlayer_Uninit: StopStreaming
+14:25:46.945	 :NPlayer_Uninit: ReleaseVplayer
+14:25:46.948	 :channel state = 0, error=0
+14:25:46.948	 :stream status: live stopped
+14:25:47.552	 :m_luminanceView = 0000000000000000
+14:25:47.552	 :m_chrominanceView = 0000000000000000
+14:25:47.552	 :m_Texture = 0000000000000000
+14:25:47.552	 :NPlayer_Uninit: Finished

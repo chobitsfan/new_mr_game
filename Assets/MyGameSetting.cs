@@ -9,10 +9,8 @@
     public static float FenceZMin = -2f;
     public static string MocapIp = "127.0.0.1";
     public static int PlayerDroneId = 1;
-    public static int EmeryDroneId = 2;
     public static string FpvUrl = "";
     public static UnityEngine.Color PlayerBeamColor;
-    public static UnityEngine.Color EmeryBeamColor;
     public static bool UseMocap = true;
     public static int WinScore = 10;
     public static float LostTrackTime = 0.03f;
@@ -70,9 +68,6 @@
                     case "PlayerDroneId":
                         PlayerDroneId = int.Parse(data[1]);
                         break;
-                    case "EmeryDroneId":
-                        EmeryDroneId = int.Parse(data[1]);
-                        break;
                     case "FpvUrl":
                         FpvUrl = data[1];
                         break;
@@ -83,15 +78,6 @@
                             int g = int.Parse(color_txt[1]);
                             int b = int.Parse(color_txt[2]);
                             PlayerBeamColor = new UnityEngine.Color(r / 255.0f, g / 255.0f, b / 255.0f);
-                        }
-                        break;
-                    case "EmeryBeamColor":
-                        {
-                            string[] color_txt = data[1].Split('.');
-                            int r = int.Parse(color_txt[0]);
-                            int g = int.Parse(color_txt[1]);
-                            int b = int.Parse(color_txt[2]);
-                            EmeryBeamColor = new UnityEngine.Color(r / 255.0f, g / 255.0f, b / 255.0f);
                         }
                         break;
                     case "UseMocap":

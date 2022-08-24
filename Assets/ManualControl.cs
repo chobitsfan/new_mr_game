@@ -74,8 +74,9 @@ public class ManualControl : MonoBehaviour
     {
         if (beamShotCd <= 0)
         {
-            droneAction.FireLaser();
-            virtualAction.Shot();
+            gameWorld.PlayerOpenFire();
+            //droneAction.FireLaser();
+            //virtualAction.Shot();
             beamShotCd = 0.5f;
         }
     }

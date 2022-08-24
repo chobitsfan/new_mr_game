@@ -7,7 +7,7 @@ FenceZMin,-1.8
 PlayerDroneId,2
 EmeryDroneId,3
 MocapIp,127.0.0.1
-FpvUrl,rtsp://192.168.0.10/TOM3
+FpvUrl,rtsp://192.168.0.37:8554/unicast
 PlayerBeamColor,10.200.10
 EmeryBeamColo,200.10.10
 UseMocap,Yes
