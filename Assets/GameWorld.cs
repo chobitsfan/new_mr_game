@@ -14,18 +14,11 @@ public class GameWorld : MonoBehaviour
     public UnityEngine.UI.Text HpText;
     public UnityEngine.UI.Text BatText;
     public UnityEngine.UI.Text StatusText;
-    public GameObject Player;
-    public GameObject Emery;
     public Animator UnityChanAnimator;
 
-    VirtualAction playerVirtualAction;
-    VirtualAction emeryVirtualAction;
-    DroneAction playerDroneAction;
-    DroneAction emeryDroneAction;
-
     public bool IsGameOver => _gameOver;
-    public bool Avoid => _avoid;
-    public Vector3 ImpactDirection => _impact_direction;
+    //public bool Avoid => _avoid;
+    //public Vector3 ImpactDirection => _impact_direction;
 
     float hudTextCd = 0;
     bool _gameOver = false;
@@ -34,13 +27,14 @@ public class GameWorld : MonoBehaviour
     float delayedSync = 5f;
     AnimatorStateInfo previousState;
     AnimatorStateInfo currentState;
-    bool _avoid = false;
+    //bool _avoid = false;
     byte[] buf = new byte[128];
     Socket sock;
-    Vector3 _impact_direction = Vector3.zero;
+    //Vector3 _impact_direction = Vector3.zero;
 
     float[] gameMsg = new float[32];
     IPEndPoint gameProxy;
+    GameObject[] drones;
 
     private void Start()
     {
@@ -49,10 +43,7 @@ public class GameWorld : MonoBehaviour
         {
             Display.displays[i].Activate();
         }
-        playerVirtualAction = Player.GetComponent<VirtualAction>();
-        playerDroneAction = Player.GetComponent<DroneAction>();
-        emeryVirtualAction = Emery.GetComponent<VirtualAction>();
-        emeryDroneAction = Emery.GetComponent<DroneAction>();
+
         currentState = UnityChanAnimator.GetCurrentAnimatorStateInfo(0);
         previousState = currentState;
 
@@ -61,6 +52,9 @@ public class GameWorld : MonoBehaviour
             Blocking = false
         };
         sock.Bind(new IPEndPoint(IPAddress.Any, 18500));
+
+        drones = GameObject.FindGameObjectsWithTag("Drone");
+        System.Array.Sort(drones, delegate (GameObject g1, GameObject g2) { return g1.GetComponent<DroneAction>().MavId.CompareTo(g2.GetComponent<DroneAction>().MavId); });
     }
 
     public void ShowStatus(string text)
@@ -78,8 +72,8 @@ public class GameWorld : MonoBehaviour
     void ResetGame()
     {
         _gameOver = false;
-        playerVirtualAction.ResetHP();
-        emeryVirtualAction.ResetHP();
+        //playerVirtualAction.ResetHP();
+        //emeryVirtualAction.ResetHP();
         remainTime = MyGameSetting.GameDurationSec;
         _gameStarted = false;
     }
@@ -88,7 +82,7 @@ public class GameWorld : MonoBehaviour
     {
         ResetGame();
         _gameStarted = true;
-        UpdateHpDisplay(playerVirtualAction.HP);
+        //UpdateHpDisplay(playerVirtualAction.HP);
     }
 
     public void UpdateHpDisplay(int hp)
@@ -105,7 +99,7 @@ public class GameWorld : MonoBehaviour
     {
         _gameOver = true;
         _gameStarted = false;
-        playerDroneAction.Land();
+        //playerDroneAction.Land();
     }
 
     public void GirlSync()
@@ -149,18 +143,11 @@ public class GameWorld : MonoBehaviour
                 }
                 else if (gameMsg[0] == 3)
                 {
-                    if (gameMsg[1] == MyGameSetting.PlayerDroneId)
-                    {
-                        playerVirtualAction.Shot();
-                    }
-                    else
-                    {
-                        emeryVirtualAction.Shot();
-                    }
+                    drones[(int)gameMsg[1]].GetComponent<VirtualAction>().Shot();
                 }
             }
         }
-        if (playerDroneAction.Tracked && emeryDroneAction.Tracked && (playerDroneAction.CurPos - emeryDroneAction.CurPos).sqrMagnitude < (MyGameSetting.AvoidDist * MyGameSetting.AvoidDist))
+        /*if (playerDroneAction.Tracked && emeryDroneAction.Tracked && (playerDroneAction.CurPos - emeryDroneAction.CurPos).sqrMagnitude < (MyGameSetting.AvoidDist * MyGameSetting.AvoidDist))
         {
             _avoid = true;
             _impact_direction = emeryDroneAction.CurPos - playerDroneAction.CurPos;
@@ -168,7 +155,7 @@ public class GameWorld : MonoBehaviour
         else
         {
             _avoid = false;
-        }
+        }*/
         if (delayedSync > 0)
         {
             delayedSync -= Time.deltaTime;
@@ -235,7 +222,7 @@ public class GameWorld : MonoBehaviour
             UnityChanAnimator.SetBool("Next", true);
         }
 
-        if (_gameStarted)
+        /*if (_gameStarted)
         {
             if (_gameOver)
             {
@@ -271,7 +258,7 @@ public class GameWorld : MonoBehaviour
                     ShowHudInfo("WIN", true);
                 }
             }
-        }
+        }*/
     }
 
     public void QuitGame()

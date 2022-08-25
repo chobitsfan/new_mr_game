@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FocusObj
   - Beam
+  - Drone
   layers:
   - Default
   - TransparentFX

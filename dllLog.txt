@@ -1,116 +1,32 @@
-14:20:18.299	 :UnityPluginLoad
-14:20:18.299	 :OnGraphicsDeviceEvent (kUnityGfxDeviceEventInitialize)
-14:20:18.299	 :NPlayer_Init
-14:20:18.310	 :CreateVplayerAPI, m_pPlayer = 000001B6A7A760C0
-14:20:18.310	 :live url = rtsp://192.168.0.10/TOM3
-14:20:18.310	 :StartStreamingURL: pPlayerCtx = 000001B6A7A760C0
-14:20:18.311	 :channel state = 80, error=0
-14:20:18.311	 :stream status: connecting
-14:20:20.311	 :channel state = 80, error=-1000
-14:20:20.311	 :stream status: connecting
-14:20:20.311	 :channel state = 80, error=-1001
-14:20:20.311	 :stream status: connecting
-14:20:21.312	 :channel state = 80, error=-1001
-14:20:21.312	 :stream status: connecting
-14:20:23.312	 :channel state = 80, error=-1000
-14:20:23.312	 :stream status: connecting
-14:20:23.312	 :channel state = 80, error=-1001
-14:20:23.312	 :stream status: connecting
-14:20:24.313	 :channel state = 80, error=-1001
-14:20:24.313	 :stream status: connecting
-14:20:26.314	 :channel state = 80, error=-1000
-14:20:26.314	 :stream status: connecting
-14:20:26.314	 :channel state = 80, error=-1001
-14:20:26.314	 :stream status: connecting
-14:20:27.314	 :channel state = 80, error=-1001
-14:20:27.314	 :stream status: connecting
-14:20:29.315	 :channel state = 80, error=-1000
-14:20:29.315	 :stream status: connecting
-14:20:29.315	 :channel state = 80, error=-1001
-14:20:29.315	 :stream status: connecting
-14:20:30.316	 :channel state = 80, error=-1001
-14:20:30.316	 :stream status: connecting
-14:20:32.317	 :channel state = 80, error=-1000
-14:20:32.317	 :stream status: connecting
-14:20:32.317	 :channel state = 80, error=-1001
-14:20:32.317	 :stream status: connecting
-14:20:33.318	 :channel state = 80, error=-1001
-14:20:33.318	 :stream status: connecting
-14:20:34.444	 :NPlayer_DisConnect: pPlayerCtx = 000001B6A7A760C0, status = 0
-14:20:34.444	 :NPlayer_DisConnect: StopStreaming
-14:20:34.444	 :m_luminanceView = 0000000000000000
-14:20:34.444	 :m_chrominanceView = 0000000000000000
-14:20:34.444	 :m_Texture = 0000000000000000
-14:20:34.444	 :NPlayer_Uninit: pPlayerCtx = 000001B6A7A760C0, status = 0
-14:20:34.444	 :NPlayer_Uninit: StopStreaming
-14:20:34.444	 :NPlayer_Uninit: ReleaseVplayer
-14:20:35.318	 :channel state = 80, error=-1000
-14:20:35.318	 :stream status: connecting
-14:20:35.318	 :channel state = 80, error=-1001
-14:20:35.318	 :stream status: connecting
-14:20:36.363	 :m_luminanceView = 0000000000000000
-14:20:36.363	 :m_chrominanceView = 0000000000000000
-14:20:36.363	 :m_Texture = 0000000000000000
-14:20:36.363	 :NPlayer_Uninit: Finished
-14:21:42.758	 :NPlayer_Init
-14:21:42.759	 :CreateVplayerAPI, m_pPlayer = 000001B6ABC763E0
-14:21:42.759	 :live url = rtsp://192.168.0.37:8554/unicast
-14:21:42.759	 :StartStreamingURL: pPlayerCtx = 000001B6ABC763E0
-14:21:42.759	 :channel state = 80, error=0
-14:21:42.759	 :stream status: connecting
-14:21:42.965	 :channel state = 1, error=0
-14:21:42.965	 :stream status: live connected
-14:21:43.062	 :channel state = 103, error=0
-14:21:44.150	 :CreateResources mDevice = 000001B85E511130
-14:21:44.151	 :GetShaderResourceViewFromPlugin: TexY_SRV = 0000000000000000
-14:21:44.151	 :GetShaderResourceViewFromPlugin: TexUV_SRV = 0000000000000000
-14:21:44.151	 :CreateTexture2D m_Texture = 000001B6A7406638
-14:21:44.151	 :CreateResources: GetSharedHandle 0000000080000A42
-14:21:44.151	 :m_luminanceView = 000001B6A739E980
-14:21:44.151	 :m_chrominanceView = 000001B6A739DF40
-14:21:44.159	 :GetShaderResourceViewFromPlugin: TexY_SRV = 000001B6A739E980
-14:21:44.159	 :GetShaderResourceViewFromPlugin: TexUV_SRV = 000001B6A739DF40
-14:22:02.523	 :NPlayer_DisConnect: pPlayerCtx = 000001B6ABC763E0, status = 1
-14:22:02.523	 :NPlayer_DisConnect: StopStreaming
-14:22:02.523	 :m_luminanceView = 0000000000000000
-14:22:02.523	 :m_chrominanceView = 0000000000000000
-14:22:02.523	 :m_Texture = 0000000000000000
-14:22:02.523	 :NPlayer_Uninit: pPlayerCtx = 000001B6ABC763E0, status = 1
-14:22:02.523	 :NPlayer_Uninit: StopStreaming
-14:22:02.523	 :NPlayer_Uninit: ReleaseVplayer
-14:22:02.621	 :channel state = 0, error=0
-14:22:02.621	 :stream status: live stopped
-14:22:03.326	 :m_luminanceView = 0000000000000000
-14:22:03.326	 :m_chrominanceView = 0000000000000000
-14:22:03.326	 :m_Texture = 0000000000000000
-14:22:03.326	 :NPlayer_Uninit: Finished
-14:25:01.378	 :NPlayer_Init
-14:25:01.379	 :CreateVplayerAPI, m_pPlayer = 000001B985EB4B70
-14:25:01.379	 :live url = rtsp://192.168.0.37:8554/unicast
-14:25:01.379	 :StartStreamingURL: pPlayerCtx = 000001B985EB4B70
-14:25:01.379	 :channel state = 80, error=0
-14:25:01.379	 :stream status: connecting
-14:25:01.626	 :channel state = 1, error=0
-14:25:01.626	 :stream status: live connected
-14:25:01.682	 :channel state = 103, error=0
-14:25:02.107	 :CreateResources mDevice = 000001B85E511130
-14:25:02.108	 :CreateTexture2D m_Texture = 000001B6AC159438
-14:25:02.108	 :CreateResources: GetSharedHandle 0000000080000242
-14:25:02.108	 :m_luminanceView = 000001B6AA79A640
-14:25:02.108	 :m_chrominanceView = 000001B6AA79A480
-14:25:02.110	 :GetShaderResourceViewFromPlugin: TexY_SRV = 000001B6AA79A640
-14:25:02.110	 :GetShaderResourceViewFromPlugin: TexUV_SRV = 000001B6AA79A480
-14:25:46.945	 :NPlayer_DisConnect: pPlayerCtx = 000001B985EB4B70, status = 1
-14:25:46.945	 :NPlayer_DisConnect: StopStreaming
-14:25:46.945	 :m_luminanceView = 0000000000000000
-14:25:46.945	 :m_chrominanceView = 0000000000000000
-14:25:46.945	 :m_Texture = 0000000000000000
-14:25:46.945	 :NPlayer_Uninit: pPlayerCtx = 000001B985EB4B70, status = 1
-14:25:46.945	 :NPlayer_Uninit: StopStreaming
-14:25:46.945	 :NPlayer_Uninit: ReleaseVplayer
-14:25:46.948	 :channel state = 0, error=0
-14:25:46.948	 :stream status: live stopped
-14:25:47.552	 :m_luminanceView = 0000000000000000
-14:25:47.552	 :m_chrominanceView = 0000000000000000
-14:25:47.552	 :m_Texture = 0000000000000000
-14:25:47.552	 :NPlayer_Uninit: Finished
+14:34:19.989	 :UnityPluginLoad
+14:34:19.989	 :OnGraphicsDeviceEvent (kUnityGfxDeviceEventInitialize)
+14:34:19.990	 :NPlayer_Init
+14:34:19.996	 :CreateVplayerAPI, m_pPlayer = 000001C513183170
+14:34:19.996	 :live url = rtsp://192.168.0.37:8554/unicast
+14:34:19.996	 :StartStreamingURL: pPlayerCtx = 000001C513183170
+14:34:19.996	 :channel state = 80, error=0
+14:34:19.996	 :stream status: connecting
+14:34:20.153	 :channel state = 1, error=0
+14:34:20.153	 :stream status: live connected
+14:34:20.194	 :channel state = 103, error=0
+14:34:21.172	 :CreateResources mDevice = 000001C4C9236790
+14:34:21.181	 :CreateTexture2D m_Texture = 000001C5EE0B78F8
+14:34:21.181	 :CreateResources: GetSharedHandle 0000000080001E42
+14:34:21.181	 :m_luminanceView = 000001C5C1A40040
+14:34:21.181	 :m_chrominanceView = 000001C5C1A42040
+14:34:21.187	 :GetShaderResourceViewFromPlugin: TexY_SRV = 000001C5C1A40040
+14:34:21.187	 :GetShaderResourceViewFromPlugin: TexUV_SRV = 000001C5C1A42040
+14:34:29.045	 :NPlayer_DisConnect: pPlayerCtx = 000001C513183170, status = 1
+14:34:29.045	 :NPlayer_DisConnect: StopStreaming
+14:34:29.045	 :m_luminanceView = 0000000000000000
+14:34:29.045	 :m_chrominanceView = 0000000000000000
+14:34:29.045	 :m_Texture = 0000000000000000
+14:34:29.045	 :NPlayer_Uninit: pPlayerCtx = 000001C513183170, status = 1
+14:34:29.045	 :NPlayer_Uninit: StopStreaming
+14:34:29.045	 :NPlayer_Uninit: ReleaseVplayer
+14:34:29.126	 :channel state = 0, error=0
+14:34:29.126	 :stream status: live stopped
+14:34:30.034	 :m_luminanceView = 0000000000000000
+14:34:30.034	 :m_chrominanceView = 0000000000000000
+14:34:30.034	 :m_Texture = 0000000000000000
+14:34:30.034	 :NPlayer_Uninit: Finished

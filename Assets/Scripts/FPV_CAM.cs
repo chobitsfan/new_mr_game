@@ -41,6 +41,7 @@ public class FPV_CAM : MonoBehaviour
     static Material lineMaterial;
     Camera mainCamera;
     GUIStyle textStyle;
+    List<BoxCollider> droneColliders = new List<BoxCollider>();
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +55,15 @@ public class FPV_CAM : MonoBehaviour
         mainCamera = GetComponent<Camera>();
         textStyle = new GUIStyle();
         textStyle.normal.textColor = Color.red;
+
+        GameObject[] drones = GameObject.FindGameObjectsWithTag("Drone");
+        foreach (GameObject drone in drones)
+        {
+            if (drone != gameObject)
+            {
+                droneColliders.Add(drone.GetComponent<BoxCollider>());
+            }
+        }
     }
 
     void OnPreRender()
@@ -105,6 +115,30 @@ public class FPV_CAM : MonoBehaviour
 
     private void OnPostRender()
     {
+        foreach (BoxCollider collider in droneColliders)
+        {
+            Rect rect = GetScreenRectFromBounds(collider);
+
+            CreateLineMaterial();
+            // Apply the line material
+            lineMaterial.SetPass(0);
+
+            GL.PushMatrix();
+            // Set transformation matrix for drawing to
+            // match our transform
+            GL.LoadPixelMatrix();
+
+            GL.Begin(GL.LINE_STRIP);
+            GL.Color(Color.red);
+            GL.Vertex3(rect.xMin, rect.yMin, 0);
+            GL.Vertex3(rect.xMax, rect.yMin, 0);
+            GL.Vertex3(rect.xMax, rect.yMax, 0);
+            GL.Vertex3(rect.xMin, rect.yMax, 0);
+            GL.Vertex3(rect.xMin, rect.yMin, 0);
+            GL.End();
+
+            GL.PopMatrix();
+        }
         /*if (emeryDrone.Tracked)
         {
             emeryRect = GetScreenRectFromBounds(emeryCollider);
