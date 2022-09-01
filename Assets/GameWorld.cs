@@ -143,7 +143,8 @@ public class GameWorld : MonoBehaviour
                 }
                 else if (gameMsg[0] == 3)
                 {
-                    drones[(int)gameMsg[1]].GetComponent<VirtualAction>().Shot();
+                    int mavid = (int)gameMsg[1];
+                    drones[mavid - 1].GetComponent<VirtualAction>().Shot();
                 }
             }
         }
