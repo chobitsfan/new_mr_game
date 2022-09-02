@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 978779864146115310}
   - component: {fileID: 619072700449865768}
   - component: {fileID: 793359027308180011}
+  - component: {fileID: 3897325300708555133}
   m_Layer: 0
   m_Name: gstreamer_camera
   m_TagString: MainCamera
@@ -26,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2913221457049424382}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalRotation: {x: -0.030843573, y: 0.7064338, z: -0.030843573, w: -0.7064338}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+  m_LocalEulerAnglesHint: {x: 5, y: 270, z: 0}
 --- !u!20 &978779864146115310
 Camera:
   m_ObjectHideFlags: 0
@@ -58,7 +59,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 50
-  field of view: 37.5
+  field of view: 45.24
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -107,3 +108,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PostProcessors: []
   ConvertToRGB: 1
+--- !u!114 &3897325300708555133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2913221457049424382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6c979929d97264595e33af9216a813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
