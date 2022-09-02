@@ -35,7 +35,7 @@ public class DroneAction : MonoBehaviour
     IPEndPoint game_proxy;
     VirtualAction virtualAction;
     Queue<MoCapData> moCapDataQueue = new Queue<MoCapData>();
-    const ulong RTSP_BUF_DELAY_US = 100000;
+    const ulong RTSP_BUF_DELAY_US = 160000;
     float lastMocapDataTs = 0;
     private bool _tracked = false;
     ulong mocapTimeOffsetUs = 0;
@@ -74,25 +74,6 @@ public class DroneAction : MonoBehaviour
         if (MyGameSetting.UseMocap)
         {
             lastMocapDataTs += Time.deltaTime;
-        }
-        MoCapData delayedMoCapData = null;
-        ulong now_ts = (ulong)(Time.time * 1000000);
-        //Debug.LogError("moCapDataQueue count " + moCapDataQueue.Count);
-        while (moCapDataQueue.Count > 0)
-        {
-            MoCapData moCapData = moCapDataQueue.Peek();
-            if ((now_ts + mocapTimeOffsetUs - moCapData.ts) >= RTSP_BUF_DELAY_US)
-            {
-                delayedMoCapData = moCapDataQueue.Dequeue();
-            }
-            else
-            {
-                break;
-            }
-        }
-        if (delayedMoCapData != null)
-        {
-            transform.SetPositionAndRotation(delayedMoCapData.pos, Quaternion.Lerp(transform.rotation, delayedMoCapData.rot, 0.5f));
         }
 
         hb_cd -= Time.deltaTime;
@@ -218,6 +199,31 @@ public class DroneAction : MonoBehaviour
                 gameWorld.ShowHudInfo("lost track");
                 Land();
             }
+        }
+
+        MoCapData delayedMoCapData = null;
+        ulong now_ts = (ulong)(Time.time * 1000000);
+        //Debug.LogError("moCapDataQueue count " + moCapDataQueue.Count);
+        while (moCapDataQueue.Count > 0)
+        {
+#if false
+            delayedMoCapData = moCapDataQueue.Dequeue();
+#else
+            MoCapData moCapData = moCapDataQueue.Peek();
+            if ((now_ts + mocapTimeOffsetUs - moCapData.ts) >= RTSP_BUF_DELAY_US)
+            {
+                delayedMoCapData = moCapDataQueue.Dequeue();
+            }
+            else
+            {
+                break;
+            }
+#endif
+        }
+        if (delayedMoCapData != null)
+        {
+            //transform.SetPositionAndRotation(delayedMoCapData.pos, Quaternion.Lerp(transform.rotation, delayedMoCapData.rot, 0.5f));
+            transform.SetPositionAndRotation(delayedMoCapData.pos, delayedMoCapData.rot);
         }
     }
 
