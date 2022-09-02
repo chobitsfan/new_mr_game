@@ -91,7 +91,7 @@ MonoBehaviour:
   m_FlipX: 0
   m_FlipY: 1
   m_Texture: []
-  m_InitializeOnStart: 0
+  m_InitializeOnStart: 1
   Pipeline: 
 --- !u!114 &793359027308180011
 MonoBehaviour:
@@ -106,5 +106,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PostProcessors: []
-  VideoTexture: {fileID: 0}
   ConvertToRGB: 1

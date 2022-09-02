@@ -12,7 +12,8 @@ public abstract class BaseVideoPlayer : DependencyRoot {
 
 	OffscreenProcessor[] _postProcessors;
 
-	public Texture VideoTexture;
+	[System.NonSerialized]
+	public Texture VideoTexture = null;
 
 	public bool ConvertToRGB=true;
 
@@ -119,7 +120,6 @@ public abstract class BaseVideoPlayer : DependencyRoot {
 			}
 		}
 		//material.mainTexture = VideoTexture;
-		Graphics.Blit(VideoTexture, null as RenderTexture);
 
 		if (OnFrameAvailable != null)
 			OnFrameAvailable (this, VideoTexture);
@@ -140,7 +140,7 @@ public abstract class BaseVideoPlayer : DependencyRoot {
 		{
 			_processNewFrame();
 		}
-		else
+		if (VideoTexture != null)
 		{
 			Graphics.Blit(VideoTexture, null as RenderTexture);
 		}

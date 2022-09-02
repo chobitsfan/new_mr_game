@@ -25,8 +25,8 @@ public class DroneAction : MonoBehaviour
     public bool Tracked => _tracked;
 
     bool IsPlayer = false;
-    byte[] buf;
-    MAVLink.MavlinkParse mavlinkParse;
+    byte[] buf = new byte[512];
+    MAVLink.MavlinkParse mavlinkParse = new MAVLink.MavlinkParse();
     Socket sock;
     IPEndPoint myproxy;
     uint apm_mode = 0;
@@ -42,19 +42,21 @@ public class DroneAction : MonoBehaviour
     bool skipNxtHb = false;
     bool sys_status_rcved = false;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        buf = new byte[512];
-        mavlinkParse = new MAVLink.MavlinkParse();
         sock = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp)
         {
             Blocking = false
         };
+        sock.Bind(new IPEndPoint(IPAddress.Any, 17800 + MavId));
         myproxy = new IPEndPoint(IPAddress.Parse(MyGameSetting.MocapIp), 17500);
         game_proxy = new IPEndPoint(IPAddress.Parse(MyGameSetting.MocapIp), 27500);
-        virtualAction = gameObject.GetComponent<VirtualAction>();
+    }
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        virtualAction = gameObject.GetComponent<VirtualAction>();
         if (MavId == MyGameSetting.PlayerDroneId)
         {
             IsPlayer = true;
@@ -64,7 +66,6 @@ public class DroneAction : MonoBehaviour
         {
             Instantiate(DroneModelPrefab, gameObject.transform);
         }
-        sock.Bind(new IPEndPoint(IPAddress.Any, 17800 + MavId));
     }
 
     // Update is called once per frame

@@ -12,7 +12,6 @@ public class ManualControl : MonoBehaviour
         WaitingForArmed,
         WaitingForTakeoff,
     }*/
-    public GameObject drone;
     public GameWorld gameWorld;
     short pitch, roll, throttle, yaw;
     float controlCd = 0;
@@ -27,8 +26,13 @@ public class ManualControl : MonoBehaviour
 
     private void Start()
     {
-        droneAction = drone.GetComponent<DroneAction>();
-        virtualAction = drone.GetComponent<VirtualAction>();
+        GameObject[] drones =  GameObject.FindGameObjectsWithTag("Drone");
+        foreach (GameObject drone in drones)
+        {
+            droneAction = drone.GetComponent<DroneAction>();
+            virtualAction = drone.GetComponent<VirtualAction>();
+            if (droneAction.MavId == MyGameSetting.PlayerDroneId) break;
+        }
     }
     public void OnArm()
     {       
@@ -43,7 +47,7 @@ public class ManualControl : MonoBehaviour
     public void OnThrottleYaw(InputValue value)
     {
         Vector2 v = value.Get<Vector2>();
-        //Debug.Log("OnThrottleYaw"+ v);
+        Debug.Log("OnThrottleYaw"+ v);
 
         throttle = (short)((v.y + 1f) * 500f);
         yaw = (short)(v.x * 1000f);
@@ -52,7 +56,7 @@ public class ManualControl : MonoBehaviour
     public void OnPitchRoll(InputValue value)
     {
         Vector2 v = value.Get<Vector2>();
-        //Debug.Log("OnPitchRoll"+v);
+        Debug.Log("OnPitchRoll"+v);
 
         pitch = (short)(v.y * MyGameSetting.InputRatio);
         roll = (short)(v.x * MyGameSetting.InputRatio);
