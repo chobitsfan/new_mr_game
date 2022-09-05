@@ -6,7 +6,7 @@ public class CameraCapture : DependencyRoot
 	[SerializeField] bool _setResolution = true;
 	[SerializeField] int _width = 1280;
 	[SerializeField] int _height = 720;
-	[SerializeField] bool _allowSlowDown = true;
+	//[SerializeField] bool _allowSlowDown = true;
 
 	public GstUnityImageGrabber _grabber;
 

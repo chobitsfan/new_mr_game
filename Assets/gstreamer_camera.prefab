@@ -92,7 +92,7 @@ MonoBehaviour:
   m_FlipX: 0
   m_FlipY: 1
   m_Texture: []
-  m_InitializeOnStart: 1
+  m_InitializeOnStart: 0
   Pipeline: 
 --- !u!114 &793359027308180011
 MonoBehaviour:

@@ -71,8 +71,6 @@ public abstract class BaseVideoPlayer : DependencyRoot {
 		//		pipeline = "filesrc location=~/Documents/Projects/BeyondAR/Equirectangular_projection_SW.jpg ! jpegdec ! videoconvert ! imagefreeze ! videoconvert ! imagefreeze ! videoconvert ! video/x-raw,format=I420 ! appsink name=videoSink sync=true";
 		//		pipeline = "videotestsrc ! videoconvert ! video/x-raw,width=3280,height=2048,format=I420 ! appsink name=videoSink sync=true";
 		m_Texture.SetPipeline (_GetPipeline());
-		m_Texture.Play ();
-
 
 		m_Texture.OnFrameGrabbed += OnFrameGrabbed;
 
@@ -85,6 +83,8 @@ public abstract class BaseVideoPlayer : DependencyRoot {
 				_postProcessors [i].ProcessingShader = PostProcessors [i];
 			}
 		}
+
+		m_Texture.Play();
 
 		Debug.Log ("Starting Base");
 		base.Start ();

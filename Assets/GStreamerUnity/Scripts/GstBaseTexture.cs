@@ -15,7 +15,7 @@ public abstract class GstBaseTexture : MonoBehaviour {
 	
 	
 	[SerializeField]
-	protected bool m_InitializeOnStart = true;
+	protected bool m_InitializeOnStart = false;
 	protected bool m_HasBeenInitialized = false;
 
 	public abstract int GetTextureCount ();
