@@ -12,3 +12,4 @@ EmeryBeamColo,200.10.10
 UseMocap,Yes
 GameDurationSec,60
 WinScore,5
+InputRatio,500

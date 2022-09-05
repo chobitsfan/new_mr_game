@@ -35,7 +35,7 @@ public class DroneAction : MonoBehaviour
     IPEndPoint game_proxy;
     VirtualAction virtualAction;
     Queue<MoCapData> moCapDataQueue = new Queue<MoCapData>();
-    const ulong RTSP_BUF_DELAY_US = 130000;
+    const ulong RTSP_BUF_DELAY_US = 50000;
     float lastMocapDataTs = 0;
     private bool _tracked = false;
     ulong mocapTimeOffsetUs = 0;
@@ -201,35 +201,25 @@ public class DroneAction : MonoBehaviour
             }
         }
 
-        Vector3 delayedPos = Vector3.zero;
-        Quaternion smoothedRot = Quaternion.identity;
+        MoCapData delayedMoCapData = null;
         ulong now_ts = (ulong)(Time.time * 1000000);
-        //Debug.LogError("moCapDataQueue count " + moCapDataQueue.Count);
+        //Debug.Log("moCapDataQueue count " + moCapDataQueue.Count);
         while (moCapDataQueue.Count > 0)
         {
             MoCapData moCapData = moCapDataQueue.Peek();
             if ((now_ts + mocapTimeOffsetUs - moCapData.ts) >= RTSP_BUF_DELAY_US)
             {
-                moCapData = moCapDataQueue.Dequeue();
-                delayedPos = moCapData.pos;
-                if (smoothedRot == Quaternion.identity)
-                {
-                    smoothedRot = moCapData.rot;
-                }
-                else
-                {
-                    smoothedRot = Quaternion.Lerp(smoothedRot, moCapData.rot, 0.5f);
-                }
+                delayedMoCapData = moCapDataQueue.Dequeue();
             }
             else
             {
                 break;
             }
         }
-        if (delayedPos != Vector3.zero)
+        //Debug.Log("after moCapDataQueue count " + moCapDataQueue.Count);
+        if (delayedMoCapData != null)
         {
-            //transform.SetPositionAndRotation(delayedMoCapData.pos, Quaternion.Lerp(transform.rotation, delayedMoCapData.rot, 0.5f));
-            transform.SetPositionAndRotation(delayedPos, smoothedRot);
+            transform.SetPositionAndRotation(delayedMoCapData.pos, delayedMoCapData.rot);
         }
     }
 

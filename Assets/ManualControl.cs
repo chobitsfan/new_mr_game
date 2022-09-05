@@ -47,16 +47,16 @@ public class ManualControl : MonoBehaviour
     public void OnThrottleYaw(InputValue value)
     {
         Vector2 v = value.Get<Vector2>();
-        Debug.Log("OnThrottleYaw"+ v);
+        //Debug.Log("OnThrottleYaw"+ v);
 
-        throttle = (short)((v.y + 1f) * 500f);
-        yaw = (short)(v.x * 1000f);
+        throttle = (short)((v.y + 1f) * MyGameSetting.InputRatio);
+        yaw = (short)(v.x * MyGameSetting.InputRatio);
     }
 
     public void OnPitchRoll(InputValue value)
     {
         Vector2 v = value.Get<Vector2>();
-        Debug.Log("OnPitchRoll"+v);
+        //Debug.Log("OnPitchRoll"+v);
 
         pitch = (short)(v.y * MyGameSetting.InputRatio);
         roll = (short)(v.x * MyGameSetting.InputRatio);
@@ -190,6 +190,7 @@ public class ManualControl : MonoBehaviour
 
             if (droneAction.Tracked)
             {
+#if false
                 Vector3 cur_hor_pos = new Vector3(droneAction.CurPos.x, 0, droneAction.CurPos.z);
                 bool fence_avoid = false;
                 Vector3 fence_avoid_dir = Vector3.zero;
@@ -232,7 +233,7 @@ public class ManualControl : MonoBehaviour
                     //Debug.LogError("fence " + cur_hor_pos + "," + pitchOut + "," + rollOut);
                     gameWorld.ShowHudInfo("Fence");
                 }
-
+#endif
                 float cur_alt = droneAction.CurPos.y;
                 if (cur_alt > MyGameSetting.FenceAltHigh)
                 {

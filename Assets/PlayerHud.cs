@@ -10,7 +10,6 @@ public class PlayerHud : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = 30;
         GameObject[] drones = GameObject.FindGameObjectsWithTag("Drone");
         foreach (GameObject drone in drones)
         {

@@ -14,7 +14,7 @@
     public static bool UseMocap = true;
     public static int WinScore = 10;
     public static float LostTrackTime = 0.03f;
-    public static float InputRatio = 700f;
+    public static int InputRatio = 700;
     public static float AvoidDist = 2f;
     static MyGameSetting()
     {
@@ -39,7 +39,7 @@
                         AvoidDist = float.Parse(data[1]);
                         break;
                     case "InputRatio":
-                        InputRatio = float.Parse(data[1]);
+                        InputRatio = int.Parse(data[1]);
                         break;
                     case "LostTrackTime":
                         LostTrackTime = float.Parse(data[1]);
