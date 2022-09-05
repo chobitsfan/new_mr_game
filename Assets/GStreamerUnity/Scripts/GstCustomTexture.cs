@@ -111,6 +111,5 @@ public class GstCustomTexture : GstBaseTexture {
 
 	// Use this for initialization
 	void Start () {
-		//Application.targetFrameRate = 25;
 	}
 }

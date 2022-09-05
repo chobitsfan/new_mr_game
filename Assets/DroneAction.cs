@@ -35,7 +35,7 @@ public class DroneAction : MonoBehaviour
     IPEndPoint game_proxy;
     VirtualAction virtualAction;
     Queue<MoCapData> moCapDataQueue = new Queue<MoCapData>();
-    const ulong RTSP_BUF_DELAY_US = 160000;
+    const ulong RTSP_BUF_DELAY_US = 130000;
     float lastMocapDataTs = 0;
     private bool _tracked = false;
     ulong mocapTimeOffsetUs = 0;
@@ -201,29 +201,35 @@ public class DroneAction : MonoBehaviour
             }
         }
 
-        MoCapData delayedMoCapData = null;
+        Vector3 delayedPos = Vector3.zero;
+        Quaternion smoothedRot = Quaternion.identity;
         ulong now_ts = (ulong)(Time.time * 1000000);
         //Debug.LogError("moCapDataQueue count " + moCapDataQueue.Count);
         while (moCapDataQueue.Count > 0)
         {
-#if false
-            delayedMoCapData = moCapDataQueue.Dequeue();
-#else
             MoCapData moCapData = moCapDataQueue.Peek();
             if ((now_ts + mocapTimeOffsetUs - moCapData.ts) >= RTSP_BUF_DELAY_US)
             {
-                delayedMoCapData = moCapDataQueue.Dequeue();
+                moCapData = moCapDataQueue.Dequeue();
+                delayedPos = moCapData.pos;
+                if (smoothedRot == Quaternion.identity)
+                {
+                    smoothedRot = moCapData.rot;
+                }
+                else
+                {
+                    smoothedRot = Quaternion.Lerp(smoothedRot, moCapData.rot, 0.5f);
+                }
             }
             else
             {
                 break;
             }
-#endif
         }
-        if (delayedMoCapData != null)
+        if (delayedPos != Vector3.zero)
         {
             //transform.SetPositionAndRotation(delayedMoCapData.pos, Quaternion.Lerp(transform.rotation, delayedMoCapData.rot, 0.5f));
-            transform.SetPositionAndRotation(delayedMoCapData.pos, delayedMoCapData.rot);
+            transform.SetPositionAndRotation(delayedPos, smoothedRot);
         }
     }
 

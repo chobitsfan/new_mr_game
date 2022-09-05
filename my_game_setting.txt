@@ -6,7 +6,7 @@ FenceZMax,0.8
 FenceZMin,-1.8
 PlayerDroneId,2
 MocapIp,127.0.0.1
-FpvUrl,rtsp://192.168.0.35/media/stream2
+FpvUrl,rtsp://192.168.0.14/media/stream2
 PlayerBeamColor,10.200.10
 EmeryBeamColo,200.10.10
 UseMocap,Yes
