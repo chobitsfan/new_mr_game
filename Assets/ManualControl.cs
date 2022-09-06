@@ -12,7 +12,7 @@ public class ManualControl : MonoBehaviour
         WaitingForArmed,
         WaitingForTakeoff,
     }*/
-    //public GameWorld gameWorld;
+    GameWorld gameWorld;
     short pitch, roll, throttle, yaw;
     float controlCd = 0;
     //float checkCd = 1f;
@@ -26,6 +26,7 @@ public class ManualControl : MonoBehaviour
 
     private void Start()
     {
+        gameWorld = GameObject.Find("/GameWorld").GetComponent<GameWorld>();
         //int playerIndex = gameObject.GetComponent<PlayerInput>().playerIndex;
         droneAction = transform.parent.GetComponent<DroneAction>();
         virtualAction = transform.parent.GetComponent<VirtualAction>();
@@ -89,7 +90,7 @@ public class ManualControl : MonoBehaviour
         Debug.Log("shot "+droneAction.MavId);
         if (beamShotCd <= 0)
         {
-            //gameWorld.PlayerOpenFire(playerMavId);
+            gameWorld.PlayerOpenFire(droneAction.MavId);
             //droneAction.FireLaser();
             //virtualAction.Shot();
             beamShotCd = 0.5f;

@@ -7,15 +7,15 @@ public class VirtualAction : MonoBehaviour
 {
     public GameObject beamShot;
     public GameObject smoke;
-    public GameWorld gameWorld;
+    //public GameWorld gameWorld;
 
     public int HP => _hp;
 
     private int _hp = 10;
-    float hitVibCd = 0f;
+    //float hitVibCd = 0f;
     Color beamColor = Color.green;
     AudioSource beamShotSound;
-    bool isPlayer = false;
+    //bool isPlayer = false;
 
     private void Start()
     {
@@ -40,7 +40,7 @@ public class VirtualAction : MonoBehaviour
     {
         _hp = 10;
     }
-
+#if false
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Beam")
@@ -78,4 +78,5 @@ public class VirtualAction : MonoBehaviour
             }
         }
     }
+#endif
 }
