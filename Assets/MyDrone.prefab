@@ -80,6 +80,7 @@ MonoBehaviour:
   gameWorld: {fileID: 0}
   FpvCameraPrefab: {fileID: 2913221457049424382, guid: 1ead093adaa82094cb765d5516fa7375, type: 3}
   DroneModelPrefab: {fileID: 6515693754307235951, guid: c535c575855c338449f88308daa9a411, type: 3}
+  MyInputPrefab: {fileID: 955085530777511992, guid: b6e1103f0c69c244698008296529aef7, type: 3}
 --- !u!114 &7232212965866314304
 MonoBehaviour:
   m_ObjectHideFlags: 0

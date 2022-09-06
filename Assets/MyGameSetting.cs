@@ -9,7 +9,9 @@
     public static float FenceZMin = -2f;
     public static string MocapIp = "127.0.0.1";
     public static int PlayerDroneId = 1;
+    public static int PlayerDroneId2 = 0;
     public static string FpvUrl = "";
+    public static string FpvUrl2 = "";
     public static UnityEngine.Color PlayerBeamColor;
     public static bool UseMocap = true;
     public static int WinScore = 10;
@@ -68,8 +70,14 @@
                     case "PlayerDroneId":
                         PlayerDroneId = int.Parse(data[1]);
                         break;
+                    case "PlayerDroneId2":
+                        PlayerDroneId2 = int.Parse(data[1]);
+                        break;
                     case "FpvUrl":
                         FpvUrl = data[1];
+                        break;
+                    case "FpvUrl2":
+                        FpvUrl2 = data[1];
                         break;
                     case "PlayerBeamColor":
                         {

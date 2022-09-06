@@ -21,6 +21,7 @@ public class DroneAction : MonoBehaviour
     public Quaternion CurRot;
     public GameObject FpvCameraPrefab;
     public GameObject DroneModelPrefab;
+    public GameObject MyInputPrefab;
 
     public bool Tracked => _tracked;
 
@@ -42,6 +43,9 @@ public class DroneAction : MonoBehaviour
     bool skipNxtHb = false;
     bool sys_status_rcved = false;
 
+    [System.NonSerialized]
+    public string fpvUrl = "";
+
     private void Awake()
     {
         sock = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp)
@@ -60,11 +64,20 @@ public class DroneAction : MonoBehaviour
         if (MavId == MyGameSetting.PlayerDroneId)
         {
             IsPlayer = true;
+            fpvUrl = MyGameSetting.FpvUrl;
             Instantiate(FpvCameraPrefab, gameObject.transform);
+            Instantiate(MyInputPrefab, gameObject.transform);
+        }
+        else if (MavId == MyGameSetting.PlayerDroneId2)
+        {
+            //IsPlayer = true;
+            fpvUrl = MyGameSetting.FpvUrl2;
+            Instantiate(FpvCameraPrefab, gameObject.transform);
+            Instantiate(MyInputPrefab, gameObject.transform);
         }
         else
         {
-            Instantiate(DroneModelPrefab, gameObject.transform);
+            //Instantiate(DroneModelPrefab, gameObject.transform);
         }
     }
 

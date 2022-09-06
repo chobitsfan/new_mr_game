@@ -6,9 +6,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(GstCustomTexture))]
 public class CustomPipelinePlayer : BaseVideoPlayer {
 
-	// Use this for initialization
 	protected override string _GetPipeline()
 	{
-		return "rtspsrc location=" + MyGameSetting.FpvUrl + " latency=0 ! queue ! rtph264depay ! avdec_h264 ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink";
+		return "rtspsrc location=" + transform.parent.GetComponent<DroneAction>().fpvUrl + " latency=0 ! queue ! rtph264depay ! avdec_h264 ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink";
 	}
 }

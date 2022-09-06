@@ -19,6 +19,14 @@ public class PlayerHud : MonoBehaviour
             }
         }
         mainCamera = GetComponent<Camera>();
+        if (transform.parent.GetComponent<DroneAction>().MavId == MyGameSetting.PlayerDroneId2)
+        {
+            if (Display.displays.Length>1)
+            {
+                Display.displays[1].Activate();
+                mainCamera.targetDisplay = 1;
+            }
+        }
 
         // Unity has a built-in shader that is useful for drawing
         // simple colored things.

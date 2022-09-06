@@ -108,10 +108,10 @@ public class GameWorld : MonoBehaviour
         UnityChanAnimator.Play("HandExpression.HandExpression", -1, 0);
     }
 
-    public void PlayerOpenFire()
+    public void PlayerOpenFire(int playerMavId)
     {
         byte[] buf = new byte[8];
-        float[] msg = { 3.0f, MyGameSetting.PlayerDroneId };
+        float[] msg = { 3.0f, playerMavId };
         System.Buffer.BlockCopy(msg, 0, buf, 0, 8);
         sock.SendTo(buf, gameProxy);
     }
