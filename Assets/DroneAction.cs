@@ -63,7 +63,7 @@ public class DroneAction : MonoBehaviour
         virtualAction = gameObject.GetComponent<VirtualAction>();
         if (MavId == MyGameSetting.PlayerDroneId)
         {
-            IsPlayer = true;
+            //IsPlayer = true;
             fpvUrl = MyGameSetting.FpvUrl;
             Instantiate(FpvCameraPrefab, gameObject.transform);
             Instantiate(MyInputPrefab, gameObject.transform);
@@ -254,15 +254,15 @@ public class DroneAction : MonoBehaviour
         return apm_mode == (uint)MAVLink.COPTER_MODE.GUIDED;
     }*/
 
-    public bool IsAltHold()
+    /*public bool IsAltHold()
     {
         return apm_mode == (uint)MAVLink.COPTER_MODE.ALT_HOLD;
-    }
+    }*/
 
-    /*public bool IsPosHold()
+    public bool IsPosHold()
     {
         return apm_mode == (uint)MAVLink.COPTER_MODE.POSHOLD;
-    }*/
+    }
 
     public bool IsArmed()
     {

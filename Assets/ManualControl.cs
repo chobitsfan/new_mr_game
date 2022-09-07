@@ -23,6 +23,7 @@ public class ManualControl : MonoBehaviour
     bool armed = false;
     float armVibCd = 0f;
     float beamShotCd = 0f;
+    bool waitPhld = false;
 
     private void Start()
     {
@@ -80,7 +81,8 @@ public class ManualControl : MonoBehaviour
 
     public void OnTakeoff()
     {
-        //droneAction.AltHold();
+        droneAction.Poshold();
+        waitPhld = true;
         //droneAction.Arm();
         //stage = Stage.WaitingForAltHold;
     }
@@ -108,13 +110,20 @@ public class ManualControl : MonoBehaviour
         {
             droneAction.Disarm(true);
         }
+        if (Keyboard.current.lKey.wasPressedThisFrame)
+        {
+            droneAction.Land();
+        }
+
         if (beamShotCd > 0)
         {
             beamShotCd -= Time.deltaTime;
         }
-        if (Keyboard.current.lKey.wasPressedThisFrame)
+
+        if (waitPhld && droneAction.IsPosHold())
         {
-            droneAction.Land();
+            waitPhld = false;
+            droneAction.Arm();
         }
 
         if (Gamepad.current != null)
