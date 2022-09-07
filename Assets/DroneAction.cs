@@ -37,7 +37,7 @@ public class DroneAction : MonoBehaviour
     VirtualAction virtualAction;
     Queue<MoCapData> moCapDataQueue = new Queue<MoCapData>();
     const ulong RTSP_BUF_DELAY_US = 50000;
-    float lastMocapDataTs = 0;
+    float lastMocapDataTs = 100f;
     private bool _tracked = false;
     ulong mocapTimeOffsetUs = 0;
     bool skipNxtHb = false;
@@ -174,7 +174,6 @@ public class DroneAction : MonoBehaviour
                                 CurPos = moCapData.pos;
                                 CurRot = moCapData.rot;
                                 lastMocapDataTs = 0;
-                                _tracked = true;
                                 if (mocapTimeOffsetUs == 0)
                                 {
                                     mocapTimeOffsetUs = att_pos.time_usec - (ulong)(Time.time * 1000000);
@@ -203,15 +202,29 @@ public class DroneAction : MonoBehaviour
                 }
             }
         }
+
         if (lastMocapDataTs > MyGameSetting.LostTrackTime)
         {
-            _tracked = false;
-            if (IsPlayer)
+            if (_tracked)
             {
-                //Debug.LogError("lost track, force landing");
+                //Debug.Log("disable" + MavId);
+                gameObject.GetComponent<BoxCollider>().enabled = false;
+            }
+            _tracked = false;
+            /*if (IsPlayer)
+            {
                 gameWorld.ShowHudInfo("lost track");
                 Land();
+            }*/
+        }
+        else
+        {
+            if (!_tracked)
+            {
+                //Debug.Log("enable" + MavId);
+                gameObject.GetComponent<BoxCollider>().enabled = true;
             }
+            _tracked = true;
         }
 
         MoCapData delayedMoCapData = null;

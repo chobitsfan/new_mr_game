@@ -150,26 +150,29 @@ public class PlayerHud : MonoBehaviour
     {
         foreach (BoxCollider collider in droneColliders)
         {
-            Rect rect = GetScreenRectFromBounds(collider);
+            if (collider.enabled)
+            {
+                Rect rect = GetScreenRectFromBounds(collider);
 
-            // Apply the line material
-            lineMaterial.SetPass(0);
+                // Apply the line material
+                lineMaterial.SetPass(0);
 
-            GL.PushMatrix();
-            // Set transformation matrix for drawing to
-            // match our transform
-            GL.LoadPixelMatrix();
+                GL.PushMatrix();
+                // Set transformation matrix for drawing to
+                // match our transform
+                GL.LoadPixelMatrix();
 
-            GL.Begin(GL.LINE_STRIP);
-            GL.Color(Color.red);
-            GL.Vertex3(rect.xMin, rect.yMin, 0);
-            GL.Vertex3(rect.xMax, rect.yMin, 0);
-            GL.Vertex3(rect.xMax, rect.yMax, 0);
-            GL.Vertex3(rect.xMin, rect.yMax, 0);
-            GL.Vertex3(rect.xMin, rect.yMin, 0);
-            GL.End();
+                GL.Begin(GL.LINE_STRIP);
+                GL.Color(Color.red);
+                GL.Vertex3(rect.xMin, rect.yMin, 0);
+                GL.Vertex3(rect.xMax, rect.yMin, 0);
+                GL.Vertex3(rect.xMax, rect.yMax, 0);
+                GL.Vertex3(rect.xMin, rect.yMax, 0);
+                GL.Vertex3(rect.xMin, rect.yMin, 0);
+                GL.End();
 
-            GL.PopMatrix();
+                GL.PopMatrix();
+            }
         }
     }
 

@@ -18,6 +18,7 @@ public abstract class BaseVideoPlayer : DependencyRoot {
 	public bool ConvertToRGB=true;
 
 	bool _disabledPause;
+	float ts = 0;
 
 	public GstCustomTexture InternalTexture
 	{
@@ -84,7 +85,7 @@ public abstract class BaseVideoPlayer : DependencyRoot {
 			}
 		}
 
-		m_Texture.Play();
+		//m_Texture.Play();
 
 		Debug.Log ("Starting Base");
 		base.Start ();
@@ -132,6 +133,15 @@ public abstract class BaseVideoPlayer : DependencyRoot {
 		{
 			_processNewFrame();
 		}*/
+		if (ts >= 0)
+		{
+			ts += Time.deltaTime;
+			if (ts > 5f)
+			{
+				m_Texture.Play();
+				ts = -1f;
+			}
+		}
 	}
 
     private void OnPreRender()
