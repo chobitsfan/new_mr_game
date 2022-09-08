@@ -4,8 +4,8 @@ FenceXMax,1.8
 FenceXMin,-1.8
 FenceZMax,0.8
 FenceZMin,-1.8
-PlayerDroneId,2
-PlayerDroneId2,3
+PlayerDroneId,1
+PlayerDroneId2,0
 MocapIp,127.0.0.1
 FpvUrl,rtsp://192.168.0.36/media/stream2
 FpvUrl2,rtsp://192.168.0.37/media/stream2

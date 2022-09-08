@@ -36,12 +36,13 @@ public class DroneAction : MonoBehaviour
     IPEndPoint game_proxy;
     VirtualAction virtualAction;
     Queue<MoCapData> moCapDataQueue = new Queue<MoCapData>();
-    const ulong RTSP_BUF_DELAY_US = 50000;
+    const ulong RTSP_BUF_DELAY_US = 45000;
     float lastMocapDataTs = 100f;
     private bool _tracked = false;
     ulong mocapTimeOffsetUs = 0;
     bool skipNxtHb = false;
     bool sys_status_rcved = false;
+    ulong okMocapTs = 0;
 
     [System.NonSerialized]
     public string fpvUrl = "";
@@ -235,7 +236,25 @@ public class DroneAction : MonoBehaviour
             MoCapData moCapData = moCapDataQueue.Peek();
             if ((now_ts + mocapTimeOffsetUs - moCapData.ts) >= RTSP_BUF_DELAY_US)
             {
-                delayedMoCapData = moCapDataQueue.Dequeue();
+                moCapData = moCapDataQueue.Dequeue();
+                if (moCapData.ts - okMocapTs > 9000)
+                {
+                    okMocapTs = moCapData.ts;
+                    delayedMoCapData = moCapData;
+                }
+                else
+                {
+                    Quaternion prv_rot;
+                    if (delayedMoCapData == null) prv_rot = transform.rotation; else prv_rot = delayedMoCapData.rot;
+                    if (Quaternion.Angle(prv_rot, moCapData.rot) > 5)
+                    {
+                    }
+                    else
+                    {
+                        okMocapTs = moCapData.ts;
+                        delayedMoCapData = moCapData;
+                    }
+                }
             }
             else
             {
