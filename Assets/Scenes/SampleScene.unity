@@ -1071,6 +1071,18 @@ PrefabInstance:
       propertyPath: gameWorld
       value: 
       objectReference: {fileID: 1886247611}
+    - target: {fileID: 7232212965866314304, guid: e400a9975bc30ea44a9e63c20d5a88da, type: 3}
+      propertyPath: beamColor.b
+      value: 0.14017442
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232212965866314304, guid: e400a9975bc30ea44a9e63c20d5a88da, type: 3}
+      propertyPath: beamColor.g
+      value: 0.18264818
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232212965866314304, guid: e400a9975bc30ea44a9e63c20d5a88da, type: 3}
+      propertyPath: beamColor.r
+      value: 0.8490566
+      objectReference: {fileID: 0}
     - target: {fileID: 7232212965866314305, guid: e400a9975bc30ea44a9e63c20d5a88da, type: 3}
       propertyPath: MavId
       value: 3
@@ -1140,6 +1152,18 @@ PrefabInstance:
       propertyPath: gameWorld
       value: 
       objectReference: {fileID: 1886247611}
+    - target: {fileID: 7232212965866314304, guid: e400a9975bc30ea44a9e63c20d5a88da, type: 3}
+      propertyPath: beamColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232212965866314304, guid: e400a9975bc30ea44a9e63c20d5a88da, type: 3}
+      propertyPath: beamColor.g
+      value: 0.27943802
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232212965866314304, guid: e400a9975bc30ea44a9e63c20d5a88da, type: 3}
+      propertyPath: beamColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7232212965866314305, guid: e400a9975bc30ea44a9e63c20d5a88da, type: 3}
       propertyPath: MavId
       value: 2
@@ -1598,6 +1622,18 @@ PrefabInstance:
       propertyPath: gameWorld
       value: 
       objectReference: {fileID: 1886247611}
+    - target: {fileID: 7232212965866314304, guid: e400a9975bc30ea44a9e63c20d5a88da, type: 3}
+      propertyPath: beamColor.b
+      value: 0.09789959
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232212965866314304, guid: e400a9975bc30ea44a9e63c20d5a88da, type: 3}
+      propertyPath: beamColor.g
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232212965866314304, guid: e400a9975bc30ea44a9e63c20d5a88da, type: 3}
+      propertyPath: beamColor.r
+      value: 0.13395864
+      objectReference: {fileID: 0}
     - target: {fileID: 7232212965866314305, guid: e400a9975bc30ea44a9e63c20d5a88da, type: 3}
       propertyPath: gameWorld
       value: 

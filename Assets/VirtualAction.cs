@@ -8,12 +8,12 @@ public class VirtualAction : MonoBehaviour
     public GameObject beamShot;
     public GameObject smoke;
     //public GameWorld gameWorld;
+    public Color beamColor = Color.green;
 
     public int HP => _hp;
 
     private int _hp = 10;
     //float hitVibCd = 0f;
-    Color beamColor = Color.green;
     AudioSource beamShotSound;
     //bool isPlayer = false;
 
