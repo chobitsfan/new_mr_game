@@ -12,7 +12,6 @@
     public static int PlayerDroneId2 = 0;
     public static string FpvUrl = "";
     public static string FpvUrl2 = "";
-    public static UnityEngine.Color PlayerBeamColor;
     public static bool UseMocap = true;
     public static int WinScore = 10;
     public static float LostTrackTime = 0.03f;
@@ -78,15 +77,6 @@
                         break;
                     case "FpvUrl2":
                         FpvUrl2 = data[1];
-                        break;
-                    case "PlayerBeamColor":
-                        {
-                            string[] color_txt = data[1].Split('.');
-                            int r = int.Parse(color_txt[0]);
-                            int g = int.Parse(color_txt[1]);
-                            int b = int.Parse(color_txt[2]);
-                            PlayerBeamColor = new UnityEngine.Color(r / 255.0f, g / 255.0f, b / 255.0f);
-                        }
                         break;
                     case "UseMocap":
                         if (data[1] == "No")
