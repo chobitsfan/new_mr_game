@@ -17,20 +17,21 @@ public class ManualControl : MonoBehaviour
     float controlCd = 0;
     //float checkCd = 1f;
     DroneAction droneAction;
-    VirtualAction virtualAction;
+    //VirtualAction virtualAction;
     //Stage stage = Stage.None;
     short pitchSend, rollSend;
     bool armed = false;
     float armVibCd = 0f;
     float beamShotCd = 0f;
     bool waitPhld = false;
+    bool autoShot = false;
 
     private void Start()
     {
         gameWorld = GameObject.Find("/GameWorld").GetComponent<GameWorld>();
         //int playerIndex = gameObject.GetComponent<PlayerInput>().playerIndex;
         droneAction = transform.parent.GetComponent<DroneAction>();
-        virtualAction = transform.parent.GetComponent<VirtualAction>();
+        //virtualAction = transform.parent.GetComponent<VirtualAction>();
         /*GameObject[] drones =  GameObject.FindGameObjectsWithTag("Drone");
         foreach (GameObject drone in drones)
         {
@@ -89,7 +90,7 @@ public class ManualControl : MonoBehaviour
 
     public void OnShot()
     {
-        Debug.Log("shot "+droneAction.MavId);
+        //Debug.Log("shot "+droneAction.MavId);
         if (beamShotCd <= 0)
         {
             gameWorld.PlayerOpenFire(droneAction.MavId);
@@ -97,6 +98,11 @@ public class ManualControl : MonoBehaviour
             //virtualAction.Shot();
             beamShotCd = 0.5f;
         }
+    }
+
+    public void OnAutoShot()
+    {
+        autoShot = true;
     }
 
     public void OnLand()
@@ -118,6 +124,14 @@ public class ManualControl : MonoBehaviour
         if (beamShotCd > 0)
         {
             beamShotCd -= Time.deltaTime;
+        }
+
+        if (autoShot)
+        {
+            if (Random.Range(0, 20) == 1)
+            {
+                OnShot();
+            }
         }
 
         if (waitPhld && droneAction.IsPosHold())

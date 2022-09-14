@@ -57,6 +57,14 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""AutoShot"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b7f98a7-a945-4a8d-aca2-0872911502b5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -257,6 +265,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""action"": ""Land"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ee38cb15-2664-48b2-a84c-450ef803a351"",
+                    ""path"": ""<XInputController>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox"",
+                    ""action"": ""AutoShot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -282,6 +301,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         m_player_Takeoff = m_player.FindAction("Takeoff", throwIfNotFound: true);
         m_player_Shot = m_player.FindAction("Shot", throwIfNotFound: true);
         m_player_Land = m_player.FindAction("Land", throwIfNotFound: true);
+        m_player_AutoShot = m_player.FindAction("AutoShot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -336,6 +356,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private readonly InputAction m_player_Takeoff;
     private readonly InputAction m_player_Shot;
     private readonly InputAction m_player_Land;
+    private readonly InputAction m_player_AutoShot;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -345,6 +366,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         public InputAction @Takeoff => m_Wrapper.m_player_Takeoff;
         public InputAction @Shot => m_Wrapper.m_player_Shot;
         public InputAction @Land => m_Wrapper.m_player_Land;
+        public InputAction @AutoShot => m_Wrapper.m_player_AutoShot;
         public InputActionMap Get() { return m_Wrapper.m_player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -369,6 +391,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Land.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLand;
                 @Land.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLand;
                 @Land.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLand;
+                @AutoShot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAutoShot;
+                @AutoShot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAutoShot;
+                @AutoShot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAutoShot;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -388,6 +413,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Land.started += instance.OnLand;
                 @Land.performed += instance.OnLand;
                 @Land.canceled += instance.OnLand;
+                @AutoShot.started += instance.OnAutoShot;
+                @AutoShot.performed += instance.OnAutoShot;
+                @AutoShot.canceled += instance.OnAutoShot;
             }
         }
     }
@@ -408,5 +436,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
         void OnTakeoff(InputAction.CallbackContext context);
         void OnShot(InputAction.CallbackContext context);
         void OnLand(InputAction.CallbackContext context);
+        void OnAutoShot(InputAction.CallbackContext context);
     }
 }
