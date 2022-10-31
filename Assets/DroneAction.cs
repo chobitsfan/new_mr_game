@@ -195,7 +195,7 @@ public class DroneAction : MonoBehaviour
                             {
                                 sys_status_rcved = true;
                                 var sys_status = (MAVLink.mavlink_sys_status_t)msg.data;
-                                gameWorld.UpdateBatDisplay(sys_status.voltage_battery);
+                                gameWorld.UpdateBatDisplay(sys_status.voltage_battery, msg.sysid);
                                 break;
                             }
 

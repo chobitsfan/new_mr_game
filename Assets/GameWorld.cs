@@ -14,6 +14,7 @@ public class GameWorld : MonoBehaviour
     public UnityEngine.UI.Text HpText;
     public UnityEngine.UI.Text BatText;
     public UnityEngine.UI.Text StatusText;
+    public UnityEngine.UI.Text BatText2;
     public Animator UnityChanAnimator;
 
     public bool IsGameOver => _gameOver;
@@ -90,9 +91,16 @@ public class GameWorld : MonoBehaviour
         HpText.text = "HP:" + hp;
     }
 
-    public void UpdateBatDisplay(ushort voltage_mv)
+    public void UpdateBatDisplay(ushort voltage_mv, int mavId)
     {
-        BatText.text = (voltage_mv * 0.001f).ToString("n2") + "V";
+        if (mavId == MyGameSetting.PlayerDroneId2)
+        {
+            BatText2.text = (voltage_mv * 0.001f).ToString("n2") + "V";
+        }
+        else
+        {
+            BatText.text = (voltage_mv * 0.001f).ToString("n2") + "V";
+        }
     }
 
     void GameOver()

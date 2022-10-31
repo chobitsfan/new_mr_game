@@ -80,3 +80,4 @@ crashlytics-build.properties
 /Assets/Scenes/SampleScene/ReflectionProbe-0.exr
 VplayeDllLog.txt
 /dllLog.txt
+/GStreamerLog.txt
