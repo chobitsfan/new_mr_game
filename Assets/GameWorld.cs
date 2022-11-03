@@ -15,6 +15,8 @@ public class GameWorld : MonoBehaviour
     public UnityEngine.UI.Text BatText;
     public UnityEngine.UI.Text StatusText;
     public UnityEngine.UI.Text BatText2;
+    public GameObject[] Display1DroneBadges = new GameObject[6];
+    public GameObject[] Display2DroneBadges = new GameObject[6];
     public Animator UnityChanAnimator;
 
     public bool IsGameOver => _gameOver;

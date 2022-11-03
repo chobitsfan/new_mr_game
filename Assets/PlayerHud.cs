@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class PlayerHud : MonoBehaviour
 {
-    List<BoxCollider> droneColliders = new List<BoxCollider>();
+    BoxCollider[] droneColliders;
     Material lineMaterial;
     Camera mainCamera;
+    GameWorld gameWorld;
+    //GameObject[] otherDrones;
     // Start is called before the first frame update
     void Start()
     {
         GameObject[] drones = GameObject.FindGameObjectsWithTag("Drone");
+        droneColliders = new BoxCollider[drones.Length];
+        //otherDrones = new GameObject[drones.Length - 1];
+        //int i = 0;
         foreach (GameObject drone in drones)
         {
-            if (drone != gameObject)
+            if (drone != transform.parent.gameObject)
             {
-                droneColliders.Add(drone.GetComponent<BoxCollider>());
+                droneColliders[drone.GetComponent<DroneAction>().MavId - 1] = drone.GetComponent<BoxCollider>();
+                //otherDrones[i] = drone;
+                //i++;
             }
         }
         mainCamera = GetComponent<Camera>();
@@ -27,6 +34,7 @@ public class PlayerHud : MonoBehaviour
                 mainCamera.targetDisplay = 1;
             }
         }
+        gameWorld = GameObject.Find("GameWorld").GetComponent<GameWorld>();
 
         // Unity has a built-in shader that is useful for drawing
         // simple colored things.
@@ -148,11 +156,13 @@ public class PlayerHud : MonoBehaviour
 
     private void OnPostRender()
     {
-        foreach (BoxCollider collider in droneColliders)
+        //foreach (BoxCollider collider in droneColliders)
+        for (int i = 0; i < droneColliders.Length; i++)
         {
-            if (collider.enabled)
+            //if (droneColliders[i].enabled)
+            if (droneColliders[i]!=null)
             {
-                Rect rect = GetScreenRectFromBounds(collider);
+                Rect rect = GetScreenRectFromBounds(droneColliders[i]);
 
                 // Apply the line material
                 lineMaterial.SetPass(0);
@@ -172,13 +182,29 @@ public class PlayerHud : MonoBehaviour
                 GL.End();
 
                 GL.PopMatrix();
+
+                if (mainCamera.targetDisplay == 0)
+                {
+                    gameWorld.Display1DroneBadges[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(rect.xMin, rect.yMax);
+                }
+                else
+                {
+                    gameWorld.Display2DroneBadges[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(rect.xMin, rect.yMax);
+                }
             }
         }
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
-        
-    }
+        foreach (GameObject drone in otherDrones)
+        {
+            if (drone.GetComponent<DroneAction>().MavId == 1)
+            {
+                Vector3 screenPos = mainCamera.WorldToScreenPoint(drone.transform.position);
+                gameWorld.Player1Badge.GetComponent<RectTransform>().anchoredPosition = new Vector2(screenPos.x, screenPos.y);
+            }
+        }
+    }*/
 }
