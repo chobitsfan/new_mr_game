@@ -15,7 +15,9 @@
     public static bool UseMocap = true;
     public static int WinScore = 10;
     public static float LostTrackTime = 0.03f;
-    public static int InputRatio = 700;
+    public static int ThrMax = 700;
+    public static int YawMax = 700;
+    public static int PitchRollMax = 700;
     public static float AvoidDist = 2f;
     static MyGameSetting()
     {
@@ -39,8 +41,14 @@
                     case "AvoidDist":
                         AvoidDist = float.Parse(data[1]);
                         break;
-                    case "InputRatio":
-                        InputRatio = int.Parse(data[1]);
+                    case "ThrMax":
+                        ThrMax = int.Parse(data[1]);
+                        break;
+                    case "YawMax":
+                        YawMax = int.Parse(data[1]);
+                        break;
+                    case "PitchRollMax":
+                        PitchRollMax = int.Parse(data[1]);
                         break;
                     case "LostTrackTime":
                         LostTrackTime = float.Parse(data[1]);

@@ -62,8 +62,8 @@ public class ManualControl : MonoBehaviour
         Vector2 v = value.Get<Vector2>();
         //Debug.Log("OnThrottleYaw"+ v);
 
-        throttle = (short)((v.y + 1f) * MyGameSetting.InputRatio);
-        yaw = (short)(v.x * MyGameSetting.InputRatio);
+        throttle = (short)((v.y + 1f) * MyGameSetting.ThrMax);
+        yaw = (short)(v.x * MyGameSetting.YawMax);
     }
 
     public void OnPitchRoll(InputValue value)
@@ -71,8 +71,8 @@ public class ManualControl : MonoBehaviour
         Vector2 v = value.Get<Vector2>();
         //Debug.Log("OnPitchRoll"+v);
 
-        pitch = (short)(v.y * MyGameSetting.InputRatio);
-        roll = (short)(v.x * MyGameSetting.InputRatio);
+        pitch = (short)(v.y * MyGameSetting.PitchRollMax);
+        roll = (short)(v.x * MyGameSetting.PitchRollMax);
     }
 
     public void OnStabilize()
@@ -284,7 +284,7 @@ public class ManualControl : MonoBehaviour
             
             if (controlCd <= 0 || System.Math.Abs(pitchOut - pitchSend) >= 100 || System.Math.Abs(rollOut - rollSend) >= 100 || emerg)
             {
-                controlCd = 0.05f;
+                controlCd = 0.2f;
                 droneAction.ManualControl(pitchOut, rollOut, throttleOut, yaw);
                 pitchSend = pitchOut;
                 rollSend = rollOut;
