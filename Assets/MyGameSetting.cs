@@ -19,6 +19,7 @@
     public static int YawMax = 700;
     public static int PitchRollMax = 700;
     public static float AvoidDist = 2f;
+    public static int CamPitchAngle = 0;
     static MyGameSetting()
     {
         string[] lines;
@@ -38,6 +39,9 @@
             {
                 switch (data[0])
                 {
+                    case "CamPitchAngle":
+                        CamPitchAngle = int.Parse(data[1]);
+                        break;
                     case "AvoidDist":
                         AvoidDist = float.Parse(data[1]);
                         break;

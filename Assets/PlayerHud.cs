@@ -34,6 +34,7 @@ public class PlayerHud : MonoBehaviour
                 mainCamera.targetDisplay = 1;
             }
         }
+        mainCamera.transform.Rotate(MyGameSetting.CamPitchAngle, 0, 0, Space.Self);
         gameWorld = GameObject.Find("GameWorld").GetComponent<GameWorld>();
 
         // Unity has a built-in shader that is useful for drawing
