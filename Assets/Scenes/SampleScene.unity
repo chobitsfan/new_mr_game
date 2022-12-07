@@ -132,19 +132,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6538988981905717484, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6538988981905717484, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6538988981905717484, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6538988981905717484, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 6538988981905717487, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_Text
@@ -153,6 +153,10 @@ PrefabInstance:
     - target: {fileID: 6538988982381355928, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_Name
       value: Drone 5 Badge
+      objectReference: {fileID: 0}
+    - target: {fileID: 6538988982381355928, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6538988982381355931, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_Pivot.x
@@ -240,19 +244,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345478, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345478, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345478, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345478, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345497, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_Texture
@@ -426,19 +430,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6538988981905717484, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6538988981905717484, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6538988981905717484, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6538988981905717484, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 6538988981905717487, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_Text
@@ -447,6 +451,10 @@ PrefabInstance:
     - target: {fileID: 6538988982381355928, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_Name
       value: Drone 6 Badge
+      objectReference: {fileID: 0}
+    - target: {fileID: 6538988982381355928, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6538988982381355931, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_Pivot.x
@@ -534,19 +542,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345478, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345478, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345478, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345478, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345497, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_Texture
@@ -808,6 +816,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drone6
       objectReference: {fileID: 0}
+    - target: {fileID: 7232212965866314308, guid: e400a9975bc30ea44a9e63c20d5a88da, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7232212965866314311, guid: e400a9975bc30ea44a9e63c20d5a88da, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -863,19 +875,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6538988981905717484, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6538988981905717484, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6538988981905717484, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6538988981905717484, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 6538988981905717487, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_Text
@@ -884,6 +896,10 @@ PrefabInstance:
     - target: {fileID: 6538988982381355928, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_Name
       value: Drone 6 Badge
+      objectReference: {fileID: 0}
+    - target: {fileID: 6538988982381355928, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6538988982381355931, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_Pivot.x
@@ -971,19 +987,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345478, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345478, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345478, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345478, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345497, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_Texture
@@ -1686,19 +1702,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6538988981905717484, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6538988981905717484, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6538988981905717484, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6538988981905717484, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 6538988981905717487, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_Text
@@ -1707,6 +1723,10 @@ PrefabInstance:
     - target: {fileID: 6538988982381355928, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_Name
       value: Drone 5 Badge
+      objectReference: {fileID: 0}
+    - target: {fileID: 6538988982381355928, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6538988982381355931, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_Pivot.x
@@ -1794,19 +1814,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345478, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345478, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345478, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345478, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 6538988983788345497, guid: f97bea3a647a1704aa5dd044bb665495, type: 3}
       propertyPath: m_Texture
@@ -3109,6 +3129,10 @@ PrefabInstance:
     - target: {fileID: 7232212965866314308, guid: e400a9975bc30ea44a9e63c20d5a88da, type: 3}
       propertyPath: m_Name
       value: Drone5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232212965866314308, guid: e400a9975bc30ea44a9e63c20d5a88da, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7232212965866314311, guid: e400a9975bc30ea44a9e63c20d5a88da, type: 3}
       propertyPath: m_RootOrder

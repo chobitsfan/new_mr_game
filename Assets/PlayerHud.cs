@@ -28,7 +28,7 @@ public class PlayerHud : MonoBehaviour
         mainCamera = GetComponent<Camera>();
         if (transform.parent.GetComponent<DroneAction>().MavId == MyGameSetting.PlayerDroneId2)
         {
-            if (Display.displays.Length>1)
+            if (Display.displays.Length > 1)
             {
                 Display.displays[1].Activate();
                 mainCamera.targetDisplay = 1;
@@ -161,10 +161,10 @@ public class PlayerHud : MonoBehaviour
         for (int i = 0; i < droneColliders.Length; i++)
         {
             //if (droneColliders[i].enabled)
-            if (droneColliders[i]!=null)
+            if (droneColliders[i] != null && droneColliders[i].enabled)
             {
                 Rect rect = GetScreenRectFromBounds(droneColliders[i]);
-
+                /*
                 // Apply the line material
                 lineMaterial.SetPass(0);
 
@@ -183,7 +183,7 @@ public class PlayerHud : MonoBehaviour
                 GL.End();
 
                 GL.PopMatrix();
-
+                */
                 if (mainCamera.targetDisplay == 0)
                 {
                     gameWorld.Display1DroneBadges[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(rect.xMin, rect.yMax);

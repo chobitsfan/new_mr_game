@@ -58,6 +58,8 @@ public class GameWorld : MonoBehaviour
 
         drones = GameObject.FindGameObjectsWithTag("Drone");
         System.Array.Sort(drones, delegate (GameObject g1, GameObject g2) { return g1.GetComponent<DroneAction>().MavId.CompareTo(g2.GetComponent<DroneAction>().MavId); });
+        Display1DroneBadges[MyGameSetting.PlayerDroneId - 1].SetActive(false);
+        Display2DroneBadges[MyGameSetting.PlayerDroneId2 - 1].SetActive(false);
     }
 
     public void ShowStatus(string text)
