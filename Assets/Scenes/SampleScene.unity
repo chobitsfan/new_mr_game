@@ -3911,6 +3911,8 @@ MonoBehaviour:
   BatText: {fileID: 1567345319}
   StatusText: {fileID: 1114716354}
   BatText2: {fileID: 985194410}
+  StatusText2: {fileID: 492652543}
+  HudText2: {fileID: 168227037}
   Display1DroneBadges:
   - {fileID: 2053934673}
   - {fileID: 1291897037}

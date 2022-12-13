@@ -15,6 +15,8 @@ public class GameWorld : MonoBehaviour
     public UnityEngine.UI.Text BatText;
     public UnityEngine.UI.Text StatusText;
     public UnityEngine.UI.Text BatText2;
+    public UnityEngine.UI.Text StatusText2;
+    public UnityEngine.UI.Text HudText2;
     public GameObject[] Display1DroneBadges = new GameObject[6];
     public GameObject[] Display2DroneBadges = new GameObject[6];
     public Animator UnityChanAnimator;
@@ -24,6 +26,7 @@ public class GameWorld : MonoBehaviour
     //public Vector3 ImpactDirection => _impact_direction;
 
     float hudTextCd = 0;
+    float hudTextCd2 = 0;
     bool _gameOver = false;
     float remainTime = MyGameSetting.GameDurationSec;
     bool _gameStarted = false;
@@ -62,16 +65,32 @@ public class GameWorld : MonoBehaviour
         Display2DroneBadges[MyGameSetting.PlayerDroneId2 - 1].SetActive(false);
     }
 
-    public void ShowStatus(string text)
+    public void ShowStatus(string text, int mavId)
     {
-        StatusText.text = text;
+        if (mavId == MyGameSetting.PlayerDroneId)
+        {
+            StatusText.text = text;
+        }
+        else if (mavId == MyGameSetting.PlayerDroneId2)
+        {
+            StatusText2.text = text;
+        }
     }
 
-    public void ShowHudInfo(string text, bool stayLonger = false)
+    public void ShowHudInfo(string text, int mavId, bool stayLonger = false)
     {
-        HudText.text = text;
-        HudText.enabled = true;
-        if (stayLonger) hudTextCd = 10f; else hudTextCd = 1.5f;
+        if (mavId == MyGameSetting.PlayerDroneId)
+        {
+            HudText.text = text;
+            HudText.enabled = true;
+            if (stayLonger) hudTextCd = 10f; else hudTextCd = 1.5f;
+        }
+        else if (mavId == MyGameSetting.PlayerDroneId2)
+        {
+            HudText2.text = text;
+            HudText2.enabled = true;
+            if (stayLonger) hudTextCd2 = 10f; else hudTextCd2 = 1.5f;
+        }
     }
 
     void ResetGame()
@@ -97,13 +116,13 @@ public class GameWorld : MonoBehaviour
 
     public void UpdateBatDisplay(ushort voltage_mv, int mavId)
     {
-        if (mavId == MyGameSetting.PlayerDroneId2)
-        {
-            BatText2.text = (voltage_mv * 0.001f).ToString("n2") + "V";
-        }
-        else
+        if (mavId == MyGameSetting.PlayerDroneId)
         {
             BatText.text = (voltage_mv * 0.001f).ToString("n2") + "V";
+        }
+        else if(mavId == MyGameSetting.PlayerDroneId2)
+        {
+            BatText2.text = (voltage_mv * 0.001f).ToString("n2") + "V";
         }
     }
 
@@ -202,7 +221,15 @@ public class GameWorld : MonoBehaviour
                 HudText.enabled = false;
             }
         }
-        
+        if (hudTextCd2 > 0)
+        {
+            hudTextCd2 -= Time.deltaTime;
+            if (hudTextCd2 <= 0)
+            {
+                HudText2.enabled = false;
+            }
+        }
+
         if (Keyboard.current.qKey.wasPressedThisFrame)
         {
             Application.Quit();

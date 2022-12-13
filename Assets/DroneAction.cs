@@ -130,7 +130,7 @@ public class DroneAction : MonoBehaviour
                             {
                                 var status_txt = (MAVLink.mavlink_statustext_t)msg.data;
                                 //Debug.Log(System.Text.Encoding.ASCII.GetString(status_txt.text));
-                                if (IsPlayer) gameWorld.ShowStatus(System.Text.Encoding.ASCII.GetString(status_txt.text));
+                                gameWorld.ShowStatus(System.Text.Encoding.ASCII.GetString(status_txt.text), msg.sysid);
                                 break;
                             }
                         case (uint)MAVLink.MAVLINK_MSG_ID.HEARTBEAT:
@@ -147,7 +147,7 @@ public class DroneAction : MonoBehaviour
                                         apm_mode = heartbeat.custom_mode;
                                         armed = (heartbeat.base_mode & (byte)MAVLink.MAV_MODE_FLAG.SAFETY_ARMED) != 0;
                                     }
-                                    if (IsPlayer && !sys_status_rcved)
+                                    if (!sys_status_rcved)
                                     {
                                         MAVLink.mavlink_command_long_t cmd = new MAVLink.mavlink_command_long_t
                                         {
@@ -198,7 +198,11 @@ public class DroneAction : MonoBehaviour
                                 gameWorld.UpdateBatDisplay(sys_status.voltage_battery, msg.sysid);
                                 break;
                             }
-
+                        case (uint)MAVLink.MAVLINK_MSG_ID.COLLISION:
+                            {
+                                gameWorld.ShowHudInfo("Collision", msg.sysid);
+                                break;
+                            }
                     }
                 }
             }
