@@ -25,7 +25,7 @@ public class DroneAction : MonoBehaviour
 
     public bool Tracked => _tracked;
 
-    bool IsPlayer = false;
+    //bool IsPlayer = false;
     byte[] buf = new byte[512];
     MAVLink.MavlinkParse mavlinkParse = new MAVLink.MavlinkParse();
     Socket sock;
@@ -200,7 +200,8 @@ public class DroneAction : MonoBehaviour
                             }
                         case (uint)MAVLink.MAVLINK_MSG_ID.COLLISION:
                             {
-                                gameWorld.ShowHudInfo("Collision", msg.sysid);
+                                var collision_msg = (MAVLink.mavlink_collision_t)msg.data;
+                                if (collision_msg.threat_level > 1) gameWorld.ShowHudInfo("Collision", msg.sysid);
                                 break;
                             }
                     }
