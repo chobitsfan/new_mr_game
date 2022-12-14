@@ -236,7 +236,7 @@ public class DroneAction : MonoBehaviour
         MoCapData delayedMoCapData = null;
         ulong now_ts = (ulong)(Time.time * 1000000);
         //Debug.Log("moCapDataQueue count " + moCapDataQueue.Count);
-        while (moCapDataQueue.Count > 0)
+        /*while (moCapDataQueue.Count > 0)
         {
             MoCapData moCapData = moCapDataQueue.Peek();
             if ((now_ts + mocapTimeOffsetUs - moCapData.ts) >= RTSP_BUF_DELAY_US)
@@ -265,6 +265,10 @@ public class DroneAction : MonoBehaviour
             {
                 break;
             }
+        }*/
+        while (moCapDataQueue.Count > 7)
+        {
+            delayedMoCapData = moCapDataQueue.Dequeue();
         }
         //Debug.Log("after moCapDataQueue count " + moCapDataQueue.Count);
         if (delayedMoCapData != null)
