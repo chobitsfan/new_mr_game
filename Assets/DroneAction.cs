@@ -36,13 +36,11 @@ public class DroneAction : MonoBehaviour
     IPEndPoint game_proxy;
     VirtualAction virtualAction;
     Queue<MoCapData> moCapDataQueue = new Queue<MoCapData>();
-    const ulong RTSP_BUF_DELAY_US = 45000;
     float lastMocapDataTs = 100f;
     private bool _tracked = false;
     ulong mocapTimeOffsetUs = 0;
     bool skipNxtHb = false;
     bool sys_status_rcved = false;
-    ulong okMocapTs = 0;
 
     [System.NonSerialized]
     public string fpvUrl = "";
@@ -266,7 +264,7 @@ public class DroneAction : MonoBehaviour
                 break;
             }
         }*/
-        while (moCapDataQueue.Count > 7)
+        while (moCapDataQueue.Count > 6)
         {
             delayedMoCapData = moCapDataQueue.Dequeue();
         }

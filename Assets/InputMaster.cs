@@ -71,7 +71,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6a4b39f7-2190-4be8-9d9d-723ce850c604"",
-                    ""path"": ""<XInputController>/rightStick"",
+                    ""path"": ""<XInputController>/leftStick"",
                     ""interactions"": """",
                     ""processors"": ""StickDeadzone"",
                     ""groups"": ""Xbox"",
@@ -137,7 +137,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ae50e64f-6ebf-40a5-b817-9e211dc4dade"",
-                    ""path"": ""<XInputController>/leftStick"",
+                    ""path"": ""<XInputController>/rightStick"",
                     ""interactions"": """",
                     ""processors"": ""StickDeadzone"",
                     ""groups"": ""Xbox"",
